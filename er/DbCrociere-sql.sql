@@ -244,7 +244,7 @@ CREATE FUNCTION getBadgeFromPasseggeri(@badge numeric(10))
 RETURNS numeric(10)
 AS
 BEGIN
-RETURN (select * from PASSEGGERI where PASSEGGERI.CodBadge = @badge)
+RETURN (select CodBadge from PASSEGGERI where PASSEGGERI.CodBadge = @badge)
 END;
 GO
 
@@ -260,16 +260,15 @@ alter table ANNULLAMENTI add constraint FK_Rimborsi
      references RIMBORSI;
 
 alter table BADGE add constraint ID_Badge_CHK
-     check(exists(select * from PASSEGGERI
-                  where PASSEGGERI.CodBadge = CodBadge)); 
+	 check(getBadgeFromPasseggeri(CodBadge) > 0);
 
 alter table BADGE add constraint FK_Cabine
      foreign key (NomeNave, NumeroPonte, CodCabina)
      references CABINE;
 
-alter table CABINE add constraint ID_Cabine_CHK
-     check(exists(select * from BADGE
-                  where BADGE.NomeNave = NomeNave and BADGE.NumeroPonte = NumeroPonte and BADGE.CodCabina = CodCabina)); 
+--alter table CABINE add constraint ID_Cabine_CHK
+--     check(exists(select * from BADGE
+--                  where BADGE.NomeNave = NomeNave and BADGE.NumeroPonte = NumeroPonte and BADGE.CodCabina = CodCabina)); 
 
 alter table CABINE add constraint FK_Tipologie
      foreign key (Tipologia)
@@ -291,25 +290,25 @@ alter table INTRATTENIMENTI add constraint FK_Navigazioni
      foreign key (CodNavigazione)
      references NAVIGAZIONI;
 
-alter table NAVI add constraint ID_Navi_CHK
-     check(exists(select * from PONTI
-                  where PONTI.NomeNave = Nome)); 
+--alter table NAVI add constraint ID_Navi_CHK
+--     check(exists(select * from PONTI
+--                  where PONTI.NomeNave = Nome)); 
 
-alter table NAVI add constraint ID_Navi_CHK
-     check(exists(select * from SCIALUPPE
-                  where SCIALUPPE.NomeNave = Nome)); 
+--alter table NAVI add constraint ID_Navi_CHK
+--     check(exists(select * from SCIALUPPE
+--                  where SCIALUPPE.NomeNave = Nome)); 
 
 alter table NAVI add constraint FK_Percorsi
      foreign key (CodicePercorso)
      references PERCORSI;
 
-alter table NAVIGAZIONI add constraint ID_Navigazioni_CHK
-     check(exists(select * from TRATTE_IN_NAVIGAZIONI
-                  where TRATTE_IN_NAVIGAZIONI.CodNavigazione = CodNavigazione)); 
+--alter table NAVIGAZIONI add constraint ID_Navigazioni_CHK
+--     check(exists(select * from TRATTE_IN_NAVIGAZIONI
+--                  where TRATTE_IN_NAVIGAZIONI.CodNavigazione = CodNavigazione)); 
 
-alter table NAVIGAZIONI add constraint ID_Navigazioni_CHK
-     check(exists(select * from SERVIZI_PERSONALE
-                  where SERVIZI_PERSONALE.CodNavigazione = CodNavigazione)); 
+--alter table NAVIGAZIONI add constraint ID_Navigazioni_CHK
+--     check(exists(select * from SERVIZI_PERSONALE
+--                  where SERVIZI_PERSONALE.CodNavigazione = CodNavigazione)); 
 
 alter table NAVIGAZIONI add constraint FK_Percorsi
      foreign key (CodicePercorso)
@@ -319,37 +318,37 @@ alter table NAVIGAZIONI add constraint FK_Navi
      foreign key (NomeNave)
      references NAVI;
 
-alter table PAGAMENTI add constraint ID_Pagamenti_CHK
-     check(exists(select * from PRENOTAZIONI
-                  where PRENOTAZIONI.CodTransazione = CodTransazione)); 
+--alter table PAGAMENTI add constraint ID_Pagamenti_CHK
+--     check(exists(select * from PRENOTAZIONI
+--                  where PRENOTAZIONI.CodTransazione = CodTransazione)); 
 
-alter table PAGAMENTI add constraint GR_Pagamenti
-     check((NumeroRate is not null and Anticipo is not null)
-           or (NumeroRate is null and Anticipo is null)); 
+--alter table PAGAMENTI add constraint GR_Pagamenti
+--     check((NumeroRate is not null and Anticipo is not null)
+--           or (NumeroRate is null and Anticipo is null)); 
 
 alter table PASSEGGERI add constraint FK_Badge
      foreign key (CodBadge)
      references BADGE;
 
-alter table PERCORSI add constraint ID_Percorsi_CHK
-     check(exists(select * from NAVI
-                  where NAVI.CodicePercorso = CodicePercorso)); 
+--alter table PERCORSI add constraint ID_Percorsi_CHK
+--     check(exists(select * from NAVI
+--                  where NAVI.CodicePercorso = CodicePercorso)); 
 
-alter table PERCORSI add constraint ID_Percorsi_CHK
-     check(exists(select * from SEQUENZE
-                  where SEQUENZE.CodicePercorso = CodicePercorso)); 
+--alter table PERCORSI add constraint ID_Percorsi_CHK
+--     check(exists(select * from SEQUENZE
+--                  where SEQUENZE.CodicePercorso = CodicePercorso)); 
 
-alter table PERSONALE add constraint GR_Personale
-     check((Anzianit‡Servizio is not null and Grado is not null)
-           or (Anzianit‡Servizio is null and Grado is null)); 
+--alter table PERSONALE add constraint GR_Personale
+--     check((Anzianit‡Servizio is not null and Grado is not null)
+--           or (Anzianit‡Servizio is null and Grado is null)); 
 
-alter table PERSONALE add constraint ID_Personale_CHK
-     check(exists(select * from SERVIZI_PERSONALE
-                  where SERVIZI_PERSONALE.CodiceFiscale = CodiceFiscale)); 
+--alter table PERSONALE add constraint ID_Personale_CHK
+--     check(exists(select * from SERVIZI_PERSONALE
+--                  where SERVIZI_PERSONALE.CodiceFiscale = CodiceFiscale)); 
 
-alter table PERSONALE add constraint ID_Personale_CHK
-     check(exists(select * from TURNI_LAVORATIVI
-                  where TURNI_LAVORATIVI.CodiceFiscale = CodiceFiscale)); 
+--alter table PERSONALE add constraint ID_Personale_CHK
+--     check(exists(select * from TURNI_LAVORATIVI
+--                  where TURNI_LAVORATIVI.CodiceFiscale = CodiceFiscale)); 
 
 alter table PERSONALE add constraint FK_Ruoli
      foreign key (CodRuolo)
@@ -359,9 +358,9 @@ alter table PONTI add constraint FK_Navi
      foreign key (NomeNave)
      references NAVI;
 
-alter table PRENOTAZIONI add constraint ID_Prenotazioni_CHK
-     check(exists(select * from PRENOTAZIONI_PASSEGGERI
-                  where PRENOTAZIONI_PASSEGGERI.CodicePrenotazione = CodicePrenotazione)); 
+--alter table PRENOTAZIONI add constraint ID_Prenotazioni_CHK
+--     check(exists(select * from PRENOTAZIONI_PASSEGGERI
+--                  where PRENOTAZIONI_PASSEGGERI.CodicePrenotazione = CodicePrenotazione)); 
 
 alter table PRENOTAZIONI add constraint FK_Pagamenti
      foreign key (CodTransazione)
@@ -407,13 +406,13 @@ alter table RESPONSABILIT¿ add constraint FK_Responsabilit‡
      foreign key (CodRuolo)
      references RUOLI;
 
-alter table RUOLI add constraint ID_Ruoli_CHK
-     check(exists(select * from PERSONALE
-                  where PERSONALE.CodRuolo = CodRuolo)); 
+--alter table RUOLI add constraint ID_Ruoli_CHK
+--     check(exists(select * from PERSONALE
+--                  where PERSONALE.CodRuolo = CodRuolo)); 
 
-alter table RUOLI add constraint ID_Ruoli_CHK
-     check(exists(select * from RESPONSABILIT¿
-                  where RESPONSABILIT¿.CodRuolo = CodRuolo)); 
+--alter table RUOLI add constraint ID_Ruoli_CHK
+--     check(exists(select * from RESPONSABILIT¿
+--                  where RESPONSABILIT¿.CodRuolo = CodRuolo)); 
 
 alter table SALE add constraint FK_Ponti
      foreign key (NomeNave, NumeroPonte)
@@ -455,9 +454,9 @@ alter table TARIFFARI add constraint FK_Tipologie
      foreign key (TipologiaCabina)
      references TIPOLOGIE;
 
-alter table TRATTE add constraint ID_Tratte_CHK
-     check(exists(select * from SEQUENZE
-                  where SEQUENZE.CodTratta = CodTratta)); 
+--alter table TRATTE add constraint ID_Tratte_CHK
+--     check(exists(select * from SEQUENZE
+--                  where SEQUENZE.CodTratta = CodTratta)); 
 
 alter table TRATTE add constraint FK_Porti
      foreign key (CodPortoArrivo)
