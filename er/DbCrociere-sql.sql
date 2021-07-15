@@ -12,7 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database dbo;
+create database dbotest;
+use dbotest;
 
 -- DBSpace Section
 -- _______________
