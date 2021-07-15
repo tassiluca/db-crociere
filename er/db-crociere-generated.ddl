@@ -3,16 +3,16 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.1              
 -- * Generator date: Dec  4 2018              
--- * Generation date: Thu Jul 15 02:04:09 2021 
--- * LUN file: C:\Users\lucat\OneDrive - Alma Mater Studiorum Università di Bologna\Uni\basi-di-dati\db-crociere\er\DB-CROCIERE.lun 
--- * Schema: completo-ristrutturato-manina/1 
+-- * Generation date: Thu Jul 15 22:59:28 2021 
+-- * LUN file: C:\Users\lucat\Desktop\db-crociere\er\DB-CROCIERE.lun 
+-- * Schema: completo-ristrutturato/1 
 -- ********************************************* 
 
 
 -- Database Section
 -- ________________ 
 
-create database completo-ristrutturato-manina;
+create database completo-ristrutturato;
 
 
 -- DBSpace Section
@@ -42,7 +42,7 @@ create table BADGE (
      CodCabina numeric(4) not null,
      constraint IDBADGE_ID primary key (CodBadge));
 
-create table CABINA (
+create table CABINE (
      NomeNave varchar(30) not null,
      NumeroPonte numeric(2) not null,
      CodCabina numeric(4) not null,
@@ -51,17 +51,16 @@ create table CABINA (
      Tipologia varchar(7) not null,
      constraint IDCABINA_ID primary key (NomeNave, NumeroPonte, CodCabina));
 
-create table INTRATTENIMENTO (
-     Data date not null,
-     OrarioInizio date not null,
+create table INTRATTENIMENTI (
      CodAttività numeric(5) not null,
+     DataInizio date not null,
+     OrarioInizio date not null,
      CodSala char(3) not null,
      CodNavigazione numeric(3) not null,
-     constraint IDESIBIZIONE primary key (CodNavigazione, CodAttività, Data, OrarioInizio),
-     constraint IDESIBIZIONE_2 unique (CodNavigazione, CodAttività, CodSala, Data),
-     constraint IDINTRATTENIMENTO unique (CodNavigazione, CodSala, Data, OrarioInizio));
+     constraint IDINTRATTENIMENTO primary key (CodAttività, CodNavigazione, DataInizio, OrarioInizio),
+     constraint IDINTRATTENIMENTO_1 unique (CodNavigazione, CodSala, DataInizio, OrarioInizio));
 
-create table NAVE (
+create table NAVI (
      Nome varchar(30) not null,
      CodNave char(5) not null,
      CodicePercorso char(5) not null,
@@ -74,7 +73,7 @@ create table NAVE (
      constraint IDNAVE_1 unique (CodNave),
      constraint FKAssociata_ID unique (CodicePercorso));
 
-create table NAVIGAZIONE (
+create table NAVIGAZIONI (
      CodNavigazione -- Sequence attribute not implemented -- not null,
      DataInizio date not null,
      NomeNave varchar(30) not null,
@@ -84,7 +83,7 @@ create table NAVIGAZIONE (
      constraint IDNAVIGAZIONE_1 unique (NomeNave, DataInizio),
      constraint IDNAVIGAZIONE_ID primary key (CodNavigazione));
 
-create table PAGAMENTO (
+create table PAGAMENTI (
      CodTransazione -- Sequence attribute not implemented -- not null,
      Data date not null,
      Importo numeric(4) not null,
@@ -92,7 +91,7 @@ create table PAGAMENTO (
      Anticipo numeric(4),
      constraint IDPAGAMENTO_ID primary key (CodTransazione));
 
-create table PASSEGGERO (
+create table PASSEGGERI (
      CodiceFiscale char(16) not null,
      CodBadge numeric(10) not null,
      Nome varchar(30) not null,
@@ -102,7 +101,7 @@ create table PASSEGGERO (
      constraint IDPASSEGGERO primary key (CodiceFiscale),
      constraint FKPossiede_ID unique (CodBadge));
 
-create table PERCORSO (
+create table PERCORSI (
      CodicePercorso char(5) not null,
      GiorniDurata numeric(2) not null,
      constraint IDPERCORSO_ID primary key (CodicePercorso));
@@ -119,19 +118,19 @@ create table PERSONALE (
      CodRuolo char(5) not null,
      constraint IDPERSONALE_ID primary key (CodiceFiscale));
 
-create table PONTE (
+create table PONTI (
      NomeNave varchar(30) not null,
      Numero numeric(2) not null,
      constraint IDPIANO primary key (NomeNave, Numero));
 
-create table PORTO (
+create table PORTI (
      CodPorto char(4) not null,
      Nazionalità char(3) not null,
      Città varchar(30) not null,
      Prezzo Attracco numeric(4) not null,
      constraint IDPORTO primary key (CodPorto));
 
-create table PRENOTAZIONE (
+create table PRENOTAZIONI (
      CodicePrenotazione -- Sequence attribute not implemented -- not null,
      DataImbarco date not null,
      DataSbarco date not null,
@@ -154,7 +153,7 @@ create table PRENOTAZIONI_PASSEGGERI (
      CodicePrenotazione numeric(5) not null,
      constraint IDPRENOTAZIONI_PASSEGGERI primary key (CodiceFiscale, CodicePrenotazione));
 
-create table RATA (
+create table RATE (
      DataPagamento date not null,
      Importo numeric(4) not null,
      CodTransazione numeric(5) not null,
@@ -167,7 +166,7 @@ create table RESPONSABILITÀ (
      InizioOra date not null,
      constraint IDRESPONSABILITÀ primary key (CodRuolo, CodiceFiscale, InizioData, InizioOra));
 
-create table RIMBORSO (
+create table RIMBORSI (
      CodRimborso -- Sequence attribute not implemented -- not null,
      PreavvisoDal char(1) not null,
      PreavvisoAl char(1) not null,
@@ -175,21 +174,21 @@ create table RIMBORSO (
      constraint IDRIMBORSO unique (PreavvisoDal, PreavvisoAl),
      constraint IDRIMBORSO_1 primary key (CodRimborso));
 
-create table RUOLO (
+create table RUOLI (
      CodRuolo char(5) not null,
      Descrizione varchar(200) not null,
      Nome varchar(30) not null,
      StipendioAnnuo numeric(6) not null,
      constraint IDRUOLO_ID primary key (CodRuolo));
 
-create table SALA (
+create table SALE (
      CodSala char(3) not null,
      Capienza numeric(4) not null,
      NomeNave varchar(30) not null,
      NumeroPonte numeric(2) not null,
      constraint IDSALA primary key (CodSala));
 
-create table SCIALUPPA (
+create table SCIALUPPE (
      CodScialuppa -- Sequence attribute not implemented -- not null,
      DataRevisione date not null,
      Capienza numeric(3) not null,
@@ -202,12 +201,12 @@ create table SEQUENZE (
      Ordine numeric(2) not null,
      constraint IDSEQUENZE primary key (CodTratta, CodicePercorso));
 
-create table Servizi (
+create table SERVIZI (
      CodNavigazione numeric(3) not null,
      CodiceFiscale char(16) not null,
      constraint IDServizi primary key (CodNavigazione, CodiceFiscale));
 
-create table SPESA_EXTRA (
+create table SPESE_EXTRA (
      CodiceSpesa -- Sequence attribute not implemented -- not null,
      Data date not null,
      Importo numeric(3) not null,
@@ -216,7 +215,7 @@ create table SPESA_EXTRA (
      CodicePrenotazione numeric(5) not null,
      constraint IDSPESE_EXTRA primary key (CodiceSpesa));
 
-create table TARIFFARIO (
+create table TARIFFARI (
      CodTariffario -- Sequence attribute not implemented -- not null,
      TipologiaCabina varchar(7) not null,
      NomeNave varchar(30) not null,
@@ -226,20 +225,20 @@ create table TARIFFARIO (
      constraint IDTARIFFARIO unique (TipologiaCabina, NomeNave, DataInizio, DataFine),
      constraint IDTARIFFARIO_1 primary key (CodTariffario));
 
-create table TIPOLOGIA (
+create table TIPOLOGIE (
      Nome varchar(7) not null,
      Prezzo numeric(4) not null,
      Descrizione varchar(100) not null,
      constraint IDTIPOLOGIA primary key (Nome));
 
-create table TRATTA (
+create table TRATTE (
      CodTratta -- Sequence attribute not implemented -- not null,
      CodPortoArrivo char(4) not null,
      CodPortoPartenza char(4) not null,
      constraint IDTRATTA_1_ID primary key (CodTratta),
      constraint IDTRATTA unique (CodPortoArrivo, CodPortoPartenza));
 
-create table TRATTA_IN_NAVIGAZIONE (
+create table TRATTE_IN_NAVIGAZIONE (
      CodTrattaNavigazione -- Sequence attribute not implemented -- not null,
      PartenzaData date not null,
      PartenzaOra date not null,
@@ -251,7 +250,7 @@ create table TRATTA_IN_NAVIGAZIONE (
      constraint IDTRATTA_IN_NAVIGAZIONE_1 unique (CodNavigazione, PartenzaData, PartenzaOra),
      constraint IDTRATTA_IN_NAVIGAZIONE_2 primary key (CodTrattaNavigazione));
 
-create table TURNO_LAVORATIVO (
+create table TURNI_LAVORATIVI (
      CodiceFiscale char(16) not null,
      InizioData date not null,
      InizioOra date not null,
@@ -265,89 +264,89 @@ create table TURNO_LAVORATIVO (
 
 alter table ANNULLAMENTI add constraint FKAnn_PRE_FK
      foreign key (CodicePrenotazione)
-     references PRENOTAZIONE;
+     references PRENOTAZIONI;
 
 alter table ANNULLAMENTI add constraint FKAnn_RIM
      foreign key (CodRimborso)
-     references RIMBORSO;
+     references RIMBORSI;
 
 alter table BADGE add constraint IDBADGE_CHK
-     check(exists(select * from PASSEGGERO
-                  where PASSEGGERO.CodBadge = CodBadge)); 
+     check(exists(select * from PASSEGGERI
+                  where PASSEGGERI.CodBadge = CodBadge)); 
 
 alter table BADGE add constraint FKRiferimento
      foreign key (NomeNave, NumeroPonte, CodCabina)
-     references CABINA;
+     references CABINE;
 
-alter table CABINA add constraint IDCABINA_CHK
+alter table CABINE add constraint IDCABINA_CHK
      check(exists(select * from BADGE
                   where BADGE.NomeNave = NomeNave and BADGE.NumeroPonte = NumeroPonte and BADGE.CodCabina = CodCabina)); 
 
-alter table CABINA add constraint FKR
+alter table CABINE add constraint FKR
      foreign key (Tipologia)
-     references TIPOLOGIA;
+     references TIPOLOGIE;
 
-alter table CABINA add constraint FKOrganizzazione
+alter table CABINE add constraint FKOrganizzazione
      foreign key (NomeNave, NumeroPonte)
-     references PONTE;
+     references PONTI;
 
-alter table INTRATTENIMENTO add constraint FKAttuazione
+alter table INTRATTENIMENTI add constraint FKSvolgimento
+     foreign key (CodSala)
+     references SALE;
+
+alter table INTRATTENIMENTI add constraint FKAttuazione
      foreign key (CodAttività)
      references ATTIVITÀ;
 
-alter table INTRATTENIMENTO add constraint FKSvolgimento
-     foreign key (CodSala)
-     references SALA;
-
-alter table INTRATTENIMENTO add constraint FKOfferta
+alter table INTRATTENIMENTI add constraint FKOfferta
      foreign key (CodNavigazione)
-     references NAVIGAZIONE;
+     references NAVIGAZIONI;
 
-alter table NAVE add constraint IDNAVE_CHK
-     check(exists(select * from PONTE
-                  where PONTE.NomeNave = Nome)); 
+alter table NAVI add constraint IDNAVE_CHK
+     check(exists(select * from PONTI
+                  where PONTI.NomeNave = Nome)); 
 
-alter table NAVE add constraint IDNAVE_CHK
-     check(exists(select * from SCIALUPPA
-                  where SCIALUPPA.NomeNave = Nome)); 
+alter table NAVI add constraint IDNAVE_CHK
+     check(exists(select * from SCIALUPPE
+                  where SCIALUPPE.NomeNave = Nome)); 
 
-alter table NAVE add constraint FKAssociata_FK
+alter table NAVI add constraint FKAssociata_FK
      foreign key (CodicePercorso)
-     references PERCORSO;
+     references PERCORSI;
 
-alter table NAVIGAZIONE add constraint IDNAVIGAZIONE_CHK
-     check(exists(select * from TRATTA_IN_NAVIGAZIONE
-                  where TRATTA_IN_NAVIGAZIONE.CodNavigazione = CodNavigazione)); 
+alter table NAVIGAZIONI add constraint IDNAVIGAZIONE_CHK
+     check(exists(select * from TRATTE_IN_NAVIGAZIONE
+                  where TRATTE_IN_NAVIGAZIONE.CodNavigazione = CodNavigazione)); 
 
-alter table NAVIGAZIONE add constraint IDNAVIGAZIONE_CHK
-     check(exists(select * from Servizi
-                  where Servizi.CodNavigazione = CodNavigazione)); 
+alter table NAVIGAZIONI add constraint IDNAVIGAZIONE_CHK
+     check(exists(select * from SERVIZI
+                  where SERVIZI.CodNavigazione = CodNavigazione)); 
 
-alter table NAVIGAZIONE add constraint FKEsecuzione
+alter table NAVIGAZIONI add constraint FKEsecuzione
      foreign key (CodicePercorso)
-     references PERCORSO;
+     references PERCORSI;
 
-alter table NAVIGAZIONE add constraint FKEffettua
+alter table NAVIGAZIONI add constraint FKEffettua
      foreign key (NomeNave)
-     references NAVE;
+     references NAVI;
 
-alter table PAGAMENTO add constraint IDPAGAMENTO_CHK
-     check(exists(select * from PRENOTAZIONE
-                  where PRENOTAZIONE.CodTransazione = CodTransazione)); 
+alter table PAGAMENTI add constraint IDPAGAMENTO_CHK
+     check(exists(select * from PRENOTAZIONI
+                  where PRENOTAZIONI.CodTransazione = CodTransazione)); 
 
-alter table PAGAMENTO add constraint GRPAGAMENTO
+alter table PAGAMENTI add constraint GRPAGAMENTO
      check((NumeroRate is not null and Anticipo is not null)
            or (NumeroRate is null and Anticipo is null)); 
 
-alter table PASSEGGERO add constraint FKPossiede_FK
+alter table PASSEGGERI add constraint FKPossiede_FK
      foreign key (CodBadge)
      references BADGE;
 
-alter table PERCORSO add constraint IDPERCORSO_CHK
-     check(exists(select * from NAVE
-                  where NAVE.CodicePercorso = CodicePercorso)); 
+alter table PERCORSI add constraint IDPERCORSO_CHK
+     check(exists(select * from NAVI
+                  where NAVI.CodicePercorso = CodicePercorso)); 
 
-alter table PERCORSO add constraint IDPERCORSO_CHK
+alter table PERCORSI add constraint IDPERCORSO_CHK
      check(exists(select * from SEQUENZE
                   where SEQUENZE.CodicePercorso = CodicePercorso)); 
 
@@ -356,138 +355,138 @@ alter table PERSONALE add constraint GRPERSONALE
            or (AnzianitàServizio is null and Grado is null)); 
 
 alter table PERSONALE add constraint IDPERSONALE_CHK
-     check(exists(select * from Servizi
-                  where Servizi.CodiceFiscale = CodiceFiscale)); 
+     check(exists(select * from SERVIZI
+                  where SERVIZI.CodiceFiscale = CodiceFiscale)); 
 
 alter table PERSONALE add constraint IDPERSONALE_CHK
-     check(exists(select * from TURNO_LAVORATIVO
-                  where TURNO_LAVORATIVO.CodiceFiscale = CodiceFiscale)); 
+     check(exists(select * from TURNI_LAVORATIVI
+                  where TURNI_LAVORATIVI.CodiceFiscale = CodiceFiscale)); 
 
 alter table PERSONALE add constraint FKSpecializzazione
      foreign key (CodRuolo)
-     references RUOLO;
+     references RUOLI;
 
-alter table PONTE add constraint FKCostituita
+alter table PONTI add constraint FKCostituita
      foreign key (NomeNave)
-     references NAVE;
+     references NAVI;
 
-alter table PRENOTAZIONE add constraint IDPRENOTAZIONE_CHK
+alter table PRENOTAZIONI add constraint IDPRENOTAZIONE_CHK
      check(exists(select * from PRENOTAZIONI_PASSEGGERI
                   where PRENOTAZIONI_PASSEGGERI.CodicePrenotazione = CodicePrenotazione)); 
 
-alter table PRENOTAZIONE add constraint FKPrevede_FK
+alter table PRENOTAZIONI add constraint FKPrevede_FK
      foreign key (CodTransazione)
-     references PAGAMENTO;
+     references PAGAMENTI;
 
-alter table PRENOTAZIONE add constraint FKAlloggio
+alter table PRENOTAZIONI add constraint FKAlloggio
      foreign key (NomeNave, NumeroPonte, CodCabina)
-     references CABINA;
+     references CABINE;
 
-alter table PRENOTAZIONE add constraint FKNominativo
+alter table PRENOTAZIONI add constraint FKNominativo
      foreign key (CodiceFiscale)
-     references PASSEGGERO;
+     references PASSEGGERI;
 
-alter table PRENOTAZIONE add constraint FKApplicato
+alter table PRENOTAZIONI add constraint FKApplicato
      foreign key (CodTariffario)
-     references TARIFFARIO;
+     references TARIFFARI;
 
-alter table PRENOTAZIONE add constraint FKRelativa
+alter table PRENOTAZIONI add constraint FKRelativa
      foreign key (CodNavigazione)
-     references NAVIGAZIONE;
+     references NAVIGAZIONI;
 
-alter table PRENOTAZIONE add constraint FKImbarco
+alter table PRENOTAZIONI add constraint FKImbarco
      foreign key (CodPortoPartenza)
-     references PORTO;
+     references PORTI;
 
 alter table PRENOTAZIONI_PASSEGGERI add constraint FKCom_PRE
      foreign key (CodicePrenotazione)
-     references PRENOTAZIONE;
+     references PRENOTAZIONI;
 
 alter table PRENOTAZIONI_PASSEGGERI add constraint FKCom_PAS
      foreign key (CodiceFiscale)
-     references PASSEGGERO;
+     references PASSEGGERI;
 
-alter table RATA add constraint FKComposto
+alter table RATE add constraint FKComposto
      foreign key (CodTransazione)
-     references PAGAMENTO;
+     references PAGAMENTI;
 
 alter table RESPONSABILITÀ add constraint FKResponsabilitàTurno
      foreign key (CodiceFiscale, InizioData, InizioOra)
-     references TURNO_LAVORATIVO;
+     references TURNI_LAVORATIVI;
 
 alter table RESPONSABILITÀ add constraint FKResponsabilitàRuolo
      foreign key (CodRuolo)
-     references RUOLO;
+     references RUOLI;
 
-alter table RUOLO add constraint IDRUOLO_CHK
+alter table RUOLI add constraint IDRUOLO_CHK
      check(exists(select * from PERSONALE
                   where PERSONALE.CodRuolo = CodRuolo)); 
 
-alter table RUOLO add constraint IDRUOLO_CHK
+alter table RUOLI add constraint IDRUOLO_CHK
      check(exists(select * from RESPONSABILITÀ
                   where RESPONSABILITÀ.CodRuolo = CodRuolo)); 
 
-alter table SALA add constraint FKDisposizione
+alter table SALE add constraint FKDisposizione
      foreign key (NomeNave, NumeroPonte)
-     references PONTE;
+     references PONTI;
 
-alter table SCIALUPPA add constraint FKPredisposizione
+alter table SCIALUPPE add constraint FKPredisposizione
      foreign key (NomeNave)
-     references NAVE;
+     references NAVI;
 
 alter table SEQUENZE add constraint FKSeq_PER
      foreign key (CodicePercorso)
-     references PERCORSO;
+     references PERCORSI;
 
 alter table SEQUENZE add constraint FKSeq_TRA
      foreign key (CodTratta)
-     references TRATTA;
+     references TRATTE;
 
-alter table Servizi add constraint FKSer_PER
+alter table SERVIZI add constraint FKSer_PER
      foreign key (CodiceFiscale)
      references PERSONALE;
 
-alter table Servizi add constraint FKSer_NAV
+alter table SERVIZI add constraint FKSer_NAV
      foreign key (CodNavigazione)
-     references NAVIGAZIONE;
+     references NAVIGAZIONI;
 
-alter table SPESA_EXTRA add constraint FKFattura
+alter table SPESE_EXTRA add constraint FKFattura
      foreign key (CodBadge)
      references BADGE;
 
-alter table SPESA_EXTRA add constraint FKInclusa
+alter table SPESE_EXTRA add constraint FKInclusa
      foreign key (CodicePrenotazione)
-     references PRENOTAZIONE;
+     references PRENOTAZIONI;
 
-alter table TARIFFARIO add constraint FKCostoNave
+alter table TARIFFARI add constraint FKCostoNave
      foreign key (NomeNave)
-     references NAVE;
+     references NAVI;
 
-alter table TARIFFARIO add constraint FKCostoTipologia
+alter table TARIFFARI add constraint FKCostoTipologia
      foreign key (TipologiaCabina)
-     references TIPOLOGIA;
+     references TIPOLOGIE;
 
-alter table TRATTA add constraint IDTRATTA_1_CHK
+alter table TRATTE add constraint IDTRATTA_1_CHK
      check(exists(select * from SEQUENZE
                   where SEQUENZE.CodTratta = CodTratta)); 
 
-alter table TRATTA add constraint FKArrivo
+alter table TRATTE add constraint FKArrivo
      foreign key (CodPortoArrivo)
-     references PORTO;
+     references PORTI;
 
-alter table TRATTA add constraint FKPartenza
+alter table TRATTE add constraint FKPartenza
      foreign key (CodPortoPartenza)
-     references PORTO;
+     references PORTI;
 
-alter table TRATTA_IN_NAVIGAZIONE add constraint FKAttivazione
+alter table TRATTE_IN_NAVIGAZIONE add constraint FKAttivazione
      foreign key (CodTratta)
-     references TRATTA;
+     references TRATTE;
 
-alter table TRATTA_IN_NAVIGAZIONE add constraint FKComprende
+alter table TRATTE_IN_NAVIGAZIONE add constraint FKComprende
      foreign key (CodNavigazione)
-     references NAVIGAZIONE;
+     references NAVIGAZIONI;
 
-alter table TURNO_LAVORATIVO add constraint FKLavora
+alter table TURNI_LAVORATIVI add constraint FKLavora
      foreign key (CodiceFiscale)
      references PERSONALE;
 
