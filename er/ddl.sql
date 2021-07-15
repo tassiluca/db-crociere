@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.1              
 -- * Generator date: Dec  4 2018              
--- * Generation date: Fri Jul 16 00:15:28 2021 
+-- * Generation date: Fri Jul 16 00:26:28 2021 FINAL VERSION
 -- * LUN file: C:\Users\lucat\Desktop\db-crociere\er\DB-CROCIERE.lun 
 -- * Schema: completo-ristrutturato/1 
 -- ********************************************* 
@@ -13,7 +13,7 @@
 -- ________________ 
 
 -- create database DbCrociere;
-use test
+use DbCrociere;
 
 -- DBSpace Section
 -- _______________
