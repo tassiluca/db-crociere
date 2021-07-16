@@ -39,16 +39,28 @@ namespace db_crociere
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.AddShipBtn = new System.Windows.Forms.Button();
             this.DeleteShipBtn = new System.Windows.Forms.Button();
+            this.InfoShipBox = new System.Windows.Forms.GroupBox();
+            this.RouteShipBox = new System.Windows.Forms.GroupBox();
+            this.NavigationBox = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.NavigationListBox = new System.Windows.Forms.ListBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddNavigationBtn = new System.Windows.Forms.Button();
+            this.RemoveNavigationBtn = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipListContainer)).BeginInit();
             this.shipListContainer.Panel1.SuspendLayout();
             this.shipListContainer.Panel2.SuspendLayout();
             this.shipListContainer.SuspendLayout();
             this.shipListBoxContainer.SuspendLayout();
+            this.NavigationBox.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -93,6 +105,12 @@ namespace db_crociere
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.shipListContainer);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.NavigationBox);
+            this.splitContainer1.Panel2.Controls.Add(this.RouteShipBox);
+            this.splitContainer1.Panel2.Controls.Add(this.InfoShipBox);
             this.splitContainer1.Size = new System.Drawing.Size(982, 576);
             this.splitContainer1.SplitterDistance = 225;
             this.splitContainer1.TabIndex = 0;
@@ -172,6 +190,78 @@ namespace db_crociere
             this.DeleteShipBtn.Text = "Rimuovi";
             this.DeleteShipBtn.UseVisualStyleBackColor = true;
             // 
+            // InfoShipBox
+            // 
+            this.InfoShipBox.Location = new System.Drawing.Point(3, 3);
+            this.InfoShipBox.Name = "InfoShipBox";
+            this.InfoShipBox.Size = new System.Drawing.Size(413, 245);
+            this.InfoShipBox.TabIndex = 0;
+            this.InfoShipBox.TabStop = false;
+            this.InfoShipBox.Text = "Info Nave";
+            // 
+            // RouteShipBox
+            // 
+            this.RouteShipBox.Location = new System.Drawing.Point(423, 3);
+            this.RouteShipBox.Name = "RouteShipBox";
+            this.RouteShipBox.Size = new System.Drawing.Size(327, 245);
+            this.RouteShipBox.TabIndex = 1;
+            this.RouteShipBox.TabStop = false;
+            this.RouteShipBox.Text = "Percorso";
+            // 
+            // NavigationBox
+            // 
+            this.NavigationBox.Controls.Add(this.flowLayoutPanel1);
+            this.NavigationBox.Location = new System.Drawing.Point(3, 254);
+            this.NavigationBox.Name = "NavigationBox";
+            this.NavigationBox.Size = new System.Drawing.Size(747, 319);
+            this.NavigationBox.TabIndex = 3;
+            this.NavigationBox.TabStop = false;
+            this.NavigationBox.Text = "Navigazioni";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.NavigationListBox);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(547, 13);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 300);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // NavigationListBox
+            // 
+            this.NavigationListBox.FormattingEnabled = true;
+            this.NavigationListBox.Location = new System.Drawing.Point(3, 3);
+            this.NavigationListBox.Name = "NavigationListBox";
+            this.NavigationListBox.Size = new System.Drawing.Size(197, 251);
+            this.NavigationListBox.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.AddNavigationBtn);
+            this.flowLayoutPanel2.Controls.Add(this.RemoveNavigationBtn);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 270);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(191, 30);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // AddNavigationBtn
+            // 
+            this.AddNavigationBtn.Location = new System.Drawing.Point(3, 3);
+            this.AddNavigationBtn.Name = "AddNavigationBtn";
+            this.AddNavigationBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddNavigationBtn.TabIndex = 0;
+            this.AddNavigationBtn.Text = "Aggiungi";
+            this.AddNavigationBtn.UseVisualStyleBackColor = true;
+            // 
+            // RemoveNavigationBtn
+            // 
+            this.RemoveNavigationBtn.Location = new System.Drawing.Point(84, 3);
+            this.RemoveNavigationBtn.Name = "RemoveNavigationBtn";
+            this.RemoveNavigationBtn.Size = new System.Drawing.Size(75, 23);
+            this.RemoveNavigationBtn.TabIndex = 1;
+            this.RemoveNavigationBtn.Text = "Cancella";
+            this.RemoveNavigationBtn.UseVisualStyleBackColor = true;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +273,7 @@ namespace db_crociere
             this.menuContainer.ResumeLayout(false);
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.shipListContainer.Panel1.ResumeLayout(false);
@@ -190,6 +281,9 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.shipListContainer)).EndInit();
             this.shipListContainer.ResumeLayout(false);
             this.shipListBoxContainer.ResumeLayout(false);
+            this.NavigationBox.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,5 +300,13 @@ namespace db_crociere
         private System.Windows.Forms.ListBox shipListBox;
         private System.Windows.Forms.Button DeleteShipBtn;
         private System.Windows.Forms.Button AddShipBtn;
+        private System.Windows.Forms.GroupBox NavigationBox;
+        private System.Windows.Forms.GroupBox RouteShipBox;
+        private System.Windows.Forms.GroupBox InfoShipBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.ListBox NavigationListBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button AddNavigationBtn;
+        private System.Windows.Forms.Button RemoveNavigationBtn;
     }
 }
