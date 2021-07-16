@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.1              
 -- * Generator date: Dec  4 2018              
--- * Generation date: Fri Jul 16 00:26:28 2021 FINAL VERSION
+-- * Generation date: Fri Jul 16 20:40:28 2021 FINAL VERSION
 -- * LUN file: C:\Users\lucat\Desktop\db-crociere\er\DB-CROCIERE.lun 
 -- * Schema: completo-ristrutturato/1 
 -- ********************************************* 
@@ -13,7 +13,7 @@
 -- ________________ 
 
 -- create database DbCrociere;
-use DbCrociere;
+use newtest;
 
 -- DBSpace Section
 -- _______________
@@ -262,136 +262,136 @@ create table TURNI_LAVORATIVI (
 -- ___________________
 GO
 CREATE FUNCTION idBadgeChk(@badge numeric(10))
-RETURNS numeric(10)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodBadge from PASSEGGERI where PASSEGGERI.CodBadge = @badge)
+RETURN (select count(distinct CodBadge) from PASSEGGERI where PASSEGGERI.CodBadge = @badge)
 END;
 GO
 
 GO
 CREATE FUNCTION idCabinaChk(@NomeNave varchar(30), @NumeroPonte numeric(2), @CodCabina numeric(4))
-RETURNS numeric(10)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodBadge from BADGE where BADGE.NomeNave = @NomeNave and BADGE.NumeroPonte = @NumeroPonte and BADGE.CodCabina = @CodCabina)
+RETURN (select count(distinct CodBadge) from BADGE where BADGE.NomeNave = @NomeNave and BADGE.NumeroPonte = @NumeroPonte and BADGE.CodCabina = @CodCabina)
 END;
 GO
 
 GO
 CREATE FUNCTION idNavePontiChk(@NomeNave varchar(30))
-RETURNS varchar(30)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select NomeNave from PONTI where PONTI.NomeNave = @NomeNave)
+RETURN (select count(distinct NomeNave) from PONTI where PONTI.NomeNave = @NomeNave)
 END;
 GO
 
 GO
 CREATE FUNCTION idNaveScialuppeChk(@NomeNave varchar(30))
-RETURNS varchar(30)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select NomeNave from SCIALUPPE where SCIALUPPE.NomeNave = @NomeNave)
+RETURN (select count(distinct NomeNave) from SCIALUPPE where SCIALUPPE.NomeNave = @NomeNave)
 END;
 GO
 
 GO
 CREATE FUNCTION idNavigazioneTratteChk(@CodNavigazione numeric(3))
-RETURNS numeric(3)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodNavigazione from TRATTE_IN_NAVIGAZIONE where TRATTE_IN_NAVIGAZIONE.CodNavigazione = @CodNavigazione)
+RETURN (select count(distinct CodNavigazione) from TRATTE_IN_NAVIGAZIONE where TRATTE_IN_NAVIGAZIONE.CodNavigazione = @CodNavigazione)
 END;
 GO
 
 GO
 CREATE FUNCTION idNavigazioneServiziChk(@CodNavigazione numeric(3))
-RETURNS numeric(3)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodNavigazione from SERVIZI where SERVIZI.CodNavigazione = @CodNavigazione)
+RETURN (select count(distinct CodNavigazione) from SERVIZI where SERVIZI.CodNavigazione = @CodNavigazione)
 END;
 GO
 
 GO
 CREATE FUNCTION idPagamentiPrenotazioniChk(@CodTransazione numeric(5))
-RETURNS numeric(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodTransazione from PRENOTAZIONI where PRENOTAZIONI.CodTransazione = @CodTransazione)
+RETURN (select count(distinct CodTransazione) from PRENOTAZIONI where PRENOTAZIONI.CodTransazione = @CodTransazione)
 END;
 GO
 
 GO
 CREATE FUNCTION idPercorsiNaviChk(@CodicePercorso char(5))
-RETURNS char(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodicePercorso from NAVI where NAVI.CodicePercorso = @CodicePercorso)
+RETURN (select count(distinct CodicePercorso) from NAVI where NAVI.CodicePercorso = @CodicePercorso)
 END;
 GO
 
 GO
 CREATE FUNCTION idPercorsiSequenzeChk(@CodicePercorso char(5))
-RETURNS char(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodicePercorso from SEQUENZE where SEQUENZE.CodicePercorso = @CodicePercorso)
+RETURN (select count(distinct CodicePercorso) from SEQUENZE where SEQUENZE.CodicePercorso = @CodicePercorso)
 END;
 GO
 
 GO
 CREATE FUNCTION idPersonaleServiziChk(@CodiceFiscale char(16))
-RETURNS char(16)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodiceFiscale from SERVIZI where SERVIZI.CodiceFiscale = @CodiceFiscale)
+RETURN (select count(distinct CodiceFiscale) from SERVIZI where SERVIZI.CodiceFiscale = @CodiceFiscale)
 END;
 GO
 
 GO
 CREATE FUNCTION idPersonaleTurniChk(@CodiceFiscale char(16))
-RETURNS char(16)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodiceFiscale from TURNI_LAVORATIVI where TURNI_LAVORATIVI.CodiceFiscale = @CodiceFiscale)
+RETURN (select count(distinct CodiceFiscale) from TURNI_LAVORATIVI where TURNI_LAVORATIVI.CodiceFiscale = @CodiceFiscale)
 END;
 GO
 
 GO
 CREATE FUNCTION idPrenotazioniPasseggeriChk(@CodicePrenotazione numeric(5))
-RETURNS numeric(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodicePrenotazione from PRENOTAZIONI_PASSEGGERI where PRENOTAZIONI_PASSEGGERI.CodicePrenotazione = @CodicePrenotazione)
+RETURN (select count(distinct CodicePrenotazione) from PRENOTAZIONI_PASSEGGERI where PRENOTAZIONI_PASSEGGERI.CodicePrenotazione = @CodicePrenotazione)
 END;
 GO
 
 GO
 CREATE FUNCTION idRuoliPersonaleChk(@CodRuolo char(5))
-RETURNS char(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodRuolo from PERSONALE where PERSONALE.CodRuolo = @CodRuolo)
+RETURN (select count(distinct CodRuolo) from PERSONALE where PERSONALE.CodRuolo = @CodRuolo)
 END;
 GO
 
 GO
 CREATE FUNCTION idRuoliResponsabilit‡Chk(@CodRuolo char(5))
-RETURNS char(5)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodRuolo from RESPONSABILIT¿ where RESPONSABILIT¿.CodRuolo = @CodRuolo)
+RETURN (select count(distinct CodRuolo) from RESPONSABILIT¿ where RESPONSABILIT¿.CodRuolo = @CodRuolo)
 END;
 GO
 
 GO
 CREATE FUNCTION idTratteSequenzeChk(@CodTratta numeric(3))
-RETURNS numeric(3)
+RETURNS numeric(1)
 AS
 BEGIN
-RETURN (select CodTratta from SEQUENZE where SEQUENZE.CodTratta = @CodTratta)
+RETURN (select count(distinct CodTratta) from SEQUENZE where SEQUENZE.CodTratta = @CodTratta)
 END;
 GO
 
