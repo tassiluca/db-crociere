@@ -27,5 +27,10 @@ namespace db_crociere
                       select new { porti.Città };
             shipListBox.DataSource = res;
         }
+
+        private void test(object sender, EventArgs e)
+        {
+            Console.WriteLine("Hello validate: ", sender);
+        }
     }
 }

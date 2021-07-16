@@ -32,11 +32,11 @@ namespace db_crociere
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.shipPage = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.shipListContainer = new System.Windows.Forms.SplitContainer();
             this.shipListBoxContainer = new System.Windows.Forms.GroupBox();
             this.shipListBox = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuContainer.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -81,16 +81,6 @@ namespace db_crociere
             this.shipPage.Text = "Navi";
             this.shipPage.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(988, 582);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -133,11 +123,25 @@ namespace db_crociere
             // 
             // shipListBox
             // 
+            this.shipListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.shipListBox.FormattingEnabled = true;
             this.shipListBox.Location = new System.Drawing.Point(6, 19);
             this.shipListBox.Name = "shipListBox";
             this.shipListBox.Size = new System.Drawing.Size(207, 433);
             this.shipListBox.TabIndex = 0;
+            this.shipListBox.Click += new System.EventHandler(this.test);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(988, 582);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // App
             // 
