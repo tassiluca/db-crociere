@@ -37,6 +37,8 @@ namespace db_crociere
             this.shipListBoxContainer = new System.Windows.Forms.GroupBox();
             this.shipListBox = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.AddShipBtn = new System.Windows.Forms.Button();
+            this.DeleteShipBtn = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -44,6 +46,7 @@ namespace db_crociere
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shipListContainer)).BeginInit();
             this.shipListContainer.Panel1.SuspendLayout();
+            this.shipListContainer.Panel2.SuspendLayout();
             this.shipListContainer.SuspendLayout();
             this.shipListBoxContainer.SuspendLayout();
             this.SuspendLayout();
@@ -104,6 +107,11 @@ namespace db_crociere
             // shipListContainer.Panel1
             // 
             this.shipListContainer.Panel1.Controls.Add(this.shipListBoxContainer);
+            // 
+            // shipListContainer.Panel2
+            // 
+            this.shipListContainer.Panel2.Controls.Add(this.DeleteShipBtn);
+            this.shipListContainer.Panel2.Controls.Add(this.AddShipBtn);
             this.shipListContainer.Size = new System.Drawing.Size(225, 576);
             this.shipListContainer.SplitterDistance = 465;
             this.shipListContainer.TabIndex = 0;
@@ -132,6 +140,7 @@ namespace db_crociere
             this.shipListBox.Size = new System.Drawing.Size(207, 433);
             this.shipListBox.TabIndex = 0;
             this.shipListBox.Click += new System.EventHandler(this.test);
+            this.shipListBox.SelectedIndexChanged += new System.EventHandler(this.shipListBox_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -142,6 +151,26 @@ namespace db_crociere
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // AddShipBtn
+            // 
+            this.AddShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddShipBtn.Location = new System.Drawing.Point(9, 12);
+            this.AddShipBtn.Name = "AddShipBtn";
+            this.AddShipBtn.Size = new System.Drawing.Size(94, 79);
+            this.AddShipBtn.TabIndex = 0;
+            this.AddShipBtn.Text = "Aggiungi";
+            this.AddShipBtn.UseVisualStyleBackColor = true;
+            // 
+            // DeleteShipBtn
+            // 
+            this.DeleteShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteShipBtn.Location = new System.Drawing.Point(124, 12);
+            this.DeleteShipBtn.Name = "DeleteShipBtn";
+            this.DeleteShipBtn.Size = new System.Drawing.Size(92, 79);
+            this.DeleteShipBtn.TabIndex = 1;
+            this.DeleteShipBtn.Text = "Rimuovi";
+            this.DeleteShipBtn.UseVisualStyleBackColor = true;
             // 
             // App
             // 
@@ -157,6 +186,7 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.shipListContainer.Panel1.ResumeLayout(false);
+            this.shipListContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.shipListContainer)).EndInit();
             this.shipListContainer.ResumeLayout(false);
             this.shipListBoxContainer.ResumeLayout(false);
@@ -174,5 +204,7 @@ namespace db_crociere
         private System.Windows.Forms.SplitContainer shipListContainer;
         private System.Windows.Forms.GroupBox shipListBoxContainer;
         private System.Windows.Forms.ListBox shipListBox;
+        private System.Windows.Forms.Button DeleteShipBtn;
+        private System.Windows.Forms.Button AddShipBtn;
     }
 }

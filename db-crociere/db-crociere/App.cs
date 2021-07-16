@@ -32,5 +32,10 @@ namespace db_crociere
         {
             Console.WriteLine("Hello validate: ", sender);
         }
+
+        private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
