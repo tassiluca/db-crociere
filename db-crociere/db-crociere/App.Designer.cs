@@ -36,17 +36,17 @@ namespace db_crociere
             this.shipListContainer = new System.Windows.Forms.SplitContainer();
             this.shipListBoxContainer = new System.Windows.Forms.GroupBox();
             this.shipListBox = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.AddShipBtn = new System.Windows.Forms.Button();
             this.DeleteShipBtn = new System.Windows.Forms.Button();
-            this.InfoShipBox = new System.Windows.Forms.GroupBox();
-            this.RouteShipBox = new System.Windows.Forms.GroupBox();
+            this.AddShipBtn = new System.Windows.Forms.Button();
             this.NavigationBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.NavigationListBox = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddNavigationBtn = new System.Windows.Forms.Button();
             this.RemoveNavigationBtn = new System.Windows.Forms.Button();
+            this.RouteShipBox = new System.Windows.Forms.GroupBox();
+            this.InfoShipBox = new System.Windows.Forms.GroupBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuContainer.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -65,13 +65,16 @@ namespace db_crociere
             // 
             // menuContainer
             // 
+            this.menuContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.menuContainer.Controls.Add(this.tabPage1);
             this.menuContainer.Controls.Add(this.shipPage);
             this.menuContainer.Controls.Add(this.tabPage3);
             this.menuContainer.Location = new System.Drawing.Point(12, 12);
             this.menuContainer.Name = "menuContainer";
             this.menuContainer.SelectedIndex = 0;
-            this.menuContainer.Size = new System.Drawing.Size(996, 608);
+            this.menuContainer.Size = new System.Drawing.Size(1003, 622);
             this.menuContainer.TabIndex = 0;
             this.menuContainer.Click += new System.EventHandler(this.onShipTabClick);
             // 
@@ -87,18 +90,21 @@ namespace db_crociere
             // 
             // shipPage
             // 
+            this.shipPage.AutoScroll = true;
             this.shipPage.Controls.Add(this.splitContainer1);
             this.shipPage.Location = new System.Drawing.Point(4, 22);
             this.shipPage.Name = "shipPage";
             this.shipPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shipPage.Size = new System.Drawing.Size(988, 582);
+            this.shipPage.Size = new System.Drawing.Size(995, 596);
             this.shipPage.TabIndex = 1;
             this.shipPage.Text = "Navi";
             this.shipPage.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -108,11 +114,12 @@ namespace db_crociere
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.NavigationBox);
             this.splitContainer1.Panel2.Controls.Add(this.RouteShipBox);
             this.splitContainer1.Panel2.Controls.Add(this.InfoShipBox);
-            this.splitContainer1.Size = new System.Drawing.Size(982, 576);
-            this.splitContainer1.SplitterDistance = 225;
+            this.splitContainer1.Size = new System.Drawing.Size(989, 590);
+            this.splitContainer1.SplitterDistance = 226;
             this.splitContainer1.TabIndex = 0;
             // 
             // shipListContainer
@@ -128,10 +135,11 @@ namespace db_crociere
             // 
             // shipListContainer.Panel2
             // 
+            this.shipListContainer.Panel2.AutoScroll = true;
             this.shipListContainer.Panel2.Controls.Add(this.DeleteShipBtn);
             this.shipListContainer.Panel2.Controls.Add(this.AddShipBtn);
-            this.shipListContainer.Size = new System.Drawing.Size(225, 576);
-            this.shipListContainer.SplitterDistance = 465;
+            this.shipListContainer.Size = new System.Drawing.Size(226, 590);
+            this.shipListContainer.SplitterDistance = 535;
             this.shipListContainer.TabIndex = 0;
             // 
             // shipListBoxContainer
@@ -140,9 +148,10 @@ namespace db_crociere
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.shipListBoxContainer.Controls.Add(this.shipListBox);
+            this.shipListBoxContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shipListBoxContainer.Location = new System.Drawing.Point(3, 3);
             this.shipListBoxContainer.Name = "shipListBoxContainer";
-            this.shipListBoxContainer.Size = new System.Drawing.Size(219, 459);
+            this.shipListBoxContainer.Size = new System.Drawing.Size(220, 529);
             this.shipListBoxContainer.TabIndex = 0;
             this.shipListBoxContainer.TabStop = false;
             this.shipListBoxContainer.Text = "Navi";
@@ -152,96 +161,87 @@ namespace db_crociere
             this.shipListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.shipListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shipListBox.FormattingEnabled = true;
+            this.shipListBox.ItemHeight = 18;
             this.shipListBox.Location = new System.Drawing.Point(6, 19);
             this.shipListBox.Name = "shipListBox";
-            this.shipListBox.Size = new System.Drawing.Size(207, 433);
+            this.shipListBox.Size = new System.Drawing.Size(208, 490);
             this.shipListBox.TabIndex = 0;
             this.shipListBox.Click += new System.EventHandler(this.test);
             this.shipListBox.SelectedIndexChanged += new System.EventHandler(this.shipListBox_SelectedIndexChanged);
             // 
-            // tabPage3
+            // DeleteShipBtn
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(988, 582);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.DeleteShipBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteShipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.DeleteShipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteShipBtn.Location = new System.Drawing.Point(129, 4);
+            this.DeleteShipBtn.MinimumSize = new System.Drawing.Size(35, 28);
+            this.DeleteShipBtn.Name = "DeleteShipBtn";
+            this.DeleteShipBtn.Size = new System.Drawing.Size(94, 44);
+            this.DeleteShipBtn.TabIndex = 1;
+            this.DeleteShipBtn.Text = "RIMUOVI";
+            this.DeleteShipBtn.UseVisualStyleBackColor = false;
             // 
             // AddShipBtn
             // 
-            this.AddShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddShipBtn.Location = new System.Drawing.Point(9, 12);
+            this.AddShipBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddShipBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddShipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddShipBtn.Location = new System.Drawing.Point(3, 4);
+            this.AddShipBtn.MinimumSize = new System.Drawing.Size(35, 28);
             this.AddShipBtn.Name = "AddShipBtn";
-            this.AddShipBtn.Size = new System.Drawing.Size(94, 79);
+            this.AddShipBtn.Size = new System.Drawing.Size(103, 44);
             this.AddShipBtn.TabIndex = 0;
-            this.AddShipBtn.Text = "Aggiungi";
-            this.AddShipBtn.UseVisualStyleBackColor = true;
-            // 
-            // DeleteShipBtn
-            // 
-            this.DeleteShipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteShipBtn.Location = new System.Drawing.Point(124, 12);
-            this.DeleteShipBtn.Name = "DeleteShipBtn";
-            this.DeleteShipBtn.Size = new System.Drawing.Size(92, 79);
-            this.DeleteShipBtn.TabIndex = 1;
-            this.DeleteShipBtn.Text = "Rimuovi";
-            this.DeleteShipBtn.UseVisualStyleBackColor = true;
-            // 
-            // InfoShipBox
-            // 
-            this.InfoShipBox.Location = new System.Drawing.Point(3, 3);
-            this.InfoShipBox.Name = "InfoShipBox";
-            this.InfoShipBox.Size = new System.Drawing.Size(413, 245);
-            this.InfoShipBox.TabIndex = 0;
-            this.InfoShipBox.TabStop = false;
-            this.InfoShipBox.Text = "Info Nave";
-            // 
-            // RouteShipBox
-            // 
-            this.RouteShipBox.Location = new System.Drawing.Point(423, 3);
-            this.RouteShipBox.Name = "RouteShipBox";
-            this.RouteShipBox.Size = new System.Drawing.Size(327, 245);
-            this.RouteShipBox.TabIndex = 1;
-            this.RouteShipBox.TabStop = false;
-            this.RouteShipBox.Text = "Percorso";
+            this.AddShipBtn.Text = "AGGIUNGI";
+            this.AddShipBtn.UseVisualStyleBackColor = false;
             // 
             // NavigationBox
             // 
+            this.NavigationBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NavigationBox.Controls.Add(this.flowLayoutPanel1);
+            this.NavigationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NavigationBox.Location = new System.Drawing.Point(3, 254);
             this.NavigationBox.Name = "NavigationBox";
-            this.NavigationBox.Size = new System.Drawing.Size(747, 319);
+            this.NavigationBox.Size = new System.Drawing.Size(747, 333);
             this.NavigationBox.TabIndex = 3;
             this.NavigationBox.TabStop = false;
             this.NavigationBox.Text = "Navigazioni";
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.NavigationListBox);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(547, 13);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(527, 13);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 300);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(214, 314);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // NavigationListBox
             // 
             this.NavigationListBox.FormattingEnabled = true;
+            this.NavigationListBox.ItemHeight = 16;
             this.NavigationListBox.Location = new System.Drawing.Point(3, 3);
             this.NavigationListBox.Name = "NavigationListBox";
-            this.NavigationListBox.Size = new System.Drawing.Size(197, 251);
+            this.NavigationListBox.Size = new System.Drawing.Size(197, 244);
             this.NavigationListBox.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.AddNavigationBtn);
             this.flowLayoutPanel2.Controls.Add(this.RemoveNavigationBtn);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 270);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 253);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(191, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(197, 30);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // AddNavigationBtn
@@ -262,14 +262,52 @@ namespace db_crociere
             this.RemoveNavigationBtn.Text = "Cancella";
             this.RemoveNavigationBtn.UseVisualStyleBackColor = true;
             // 
+            // RouteShipBox
+            // 
+            this.RouteShipBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RouteShipBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RouteShipBox.Location = new System.Drawing.Point(423, 3);
+            this.RouteShipBox.Name = "RouteShipBox";
+            this.RouteShipBox.Size = new System.Drawing.Size(327, 245);
+            this.RouteShipBox.TabIndex = 1;
+            this.RouteShipBox.TabStop = false;
+            this.RouteShipBox.Text = "Percorso";
+            // 
+            // InfoShipBox
+            // 
+            this.InfoShipBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoShipBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoShipBox.Location = new System.Drawing.Point(3, 3);
+            this.InfoShipBox.Name = "InfoShipBox";
+            this.InfoShipBox.Size = new System.Drawing.Size(413, 245);
+            this.InfoShipBox.TabIndex = 0;
+            this.InfoShipBox.TabStop = false;
+            this.InfoShipBox.Text = "Info Nave";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(995, 596);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 632);
+            this.ClientSize = new System.Drawing.Size(1027, 646);
             this.Controls.Add(this.menuContainer);
             this.Name = "App";
             this.Text = "App";
+            this.TopMost = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuContainer.ResumeLayout(false);
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
