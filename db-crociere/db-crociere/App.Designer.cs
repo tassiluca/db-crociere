@@ -30,7 +30,8 @@ namespace db_crociere
         private void InitializeComponent()
         {
             this.menuContainer = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bookingTab = new System.Windows.Forms.TabPage();
+            this.prenotBox = new System.Windows.Forms.GroupBox();
             this.shipPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.shipListContainer = new System.Windows.Forms.SplitContainer();
@@ -47,7 +48,16 @@ namespace db_crociere
             this.RouteShipBox = new System.Windows.Forms.GroupBox();
             this.InfoShipBox = new System.Windows.Forms.GroupBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.shipSelectorPrenot = new System.Windows.Forms.ComboBox();
+            this.navSelectorPren = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.paymentSelectPren = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuContainer.SuspendLayout();
+            this.bookingTab.SuspendLayout();
+            this.prenotBox.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -61,6 +71,8 @@ namespace db_crociere
             this.NavigationBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -68,7 +80,7 @@ namespace db_crociere
             this.menuContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuContainer.Controls.Add(this.tabPage1);
+            this.menuContainer.Controls.Add(this.bookingTab);
             this.menuContainer.Controls.Add(this.shipPage);
             this.menuContainer.Controls.Add(this.tabPage3);
             this.menuContainer.Location = new System.Drawing.Point(12, 12);
@@ -78,15 +90,29 @@ namespace db_crociere
             this.menuContainer.TabIndex = 0;
             this.menuContainer.Click += new System.EventHandler(this.onShipTabClick);
             // 
-            // tabPage1
+            // bookingTab
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(988, 582);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.bookingTab.Controls.Add(this.groupBox1);
+            this.bookingTab.Controls.Add(this.prenotBox);
+            this.bookingTab.Location = new System.Drawing.Point(4, 22);
+            this.bookingTab.Name = "bookingTab";
+            this.bookingTab.Padding = new System.Windows.Forms.Padding(3);
+            this.bookingTab.Size = new System.Drawing.Size(995, 596);
+            this.bookingTab.TabIndex = 0;
+            this.bookingTab.Text = "Prenotazioni";
+            this.bookingTab.UseVisualStyleBackColor = true;
+            this.bookingTab.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // prenotBox
+            // 
+            this.prenotBox.Controls.Add(this.flowLayoutPanel4);
+            this.prenotBox.Location = new System.Drawing.Point(7, 7);
+            this.prenotBox.Name = "prenotBox";
+            this.prenotBox.Size = new System.Drawing.Size(607, 583);
+            this.prenotBox.TabIndex = 0;
+            this.prenotBox.TabStop = false;
+            this.prenotBox.Text = "Prenotazini Effettuate";
+            this.prenotBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // shipPage
             // 
@@ -200,6 +226,7 @@ namespace db_crociere
             this.AddShipBtn.TabIndex = 0;
             this.AddShipBtn.Text = "AGGIUNGI";
             this.AddShipBtn.UseVisualStyleBackColor = false;
+            this.AddShipBtn.Click += new System.EventHandler(this.AddShipBtn_Click);
             // 
             // NavigationBox
             // 
@@ -298,6 +325,69 @@ namespace db_crociere
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // shipSelectorPrenot
+            // 
+            this.shipSelectorPrenot.FormattingEnabled = true;
+            this.shipSelectorPrenot.Location = new System.Drawing.Point(3, 3);
+            this.shipSelectorPrenot.Name = "shipSelectorPrenot";
+            this.shipSelectorPrenot.Size = new System.Drawing.Size(153, 21);
+            this.shipSelectorPrenot.TabIndex = 0;
+            this.shipSelectorPrenot.Text = "Nave";
+            // 
+            // navSelectorPren
+            // 
+            this.navSelectorPren.FormattingEnabled = true;
+            this.navSelectorPren.Location = new System.Drawing.Point(162, 3);
+            this.navSelectorPren.Name = "navSelectorPren";
+            this.navSelectorPren.Size = new System.Drawing.Size(121, 21);
+            this.navSelectorPren.TabIndex = 1;
+            this.navSelectorPren.Text = "Navigazione";
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.shipSelectorPrenot);
+            this.flowLayoutPanel3.Controls.Add(this.navSelectorPren);
+            this.flowLayoutPanel3.Controls.Add(this.paymentSelectPren);
+            this.flowLayoutPanel3.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(591, 33);
+            this.flowLayoutPanel3.TabIndex = 1;
+            // 
+            // paymentSelectPren
+            // 
+            this.paymentSelectPren.FormattingEnabled = true;
+            this.paymentSelectPren.Location = new System.Drawing.Point(289, 3);
+            this.paymentSelectPren.Name = "paymentSelectPren";
+            this.paymentSelectPren.Size = new System.Drawing.Size(121, 21);
+            this.paymentSelectPren.TabIndex = 2;
+            this.paymentSelectPren.Text = "Pagamento";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(416, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 3;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(595, 217);
+            this.flowLayoutPanel4.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(621, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(368, 488);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +399,8 @@ namespace db_crociere
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuContainer.ResumeLayout(false);
+            this.bookingTab.ResumeLayout(false);
+            this.prenotBox.ResumeLayout(false);
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -322,6 +414,8 @@ namespace db_crociere
             this.NavigationBox.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -329,7 +423,7 @@ namespace db_crociere
         #endregion
 
         private System.Windows.Forms.TabControl menuContainer;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage bookingTab;
         private System.Windows.Forms.TabPage shipPage;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -346,5 +440,13 @@ namespace db_crociere
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button AddNavigationBtn;
         private System.Windows.Forms.Button RemoveNavigationBtn;
+        private System.Windows.Forms.GroupBox prenotBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.ComboBox shipSelectorPrenot;
+        private System.Windows.Forms.ComboBox navSelectorPren;
+        private System.Windows.Forms.ComboBox paymentSelectPren;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
     }
 }

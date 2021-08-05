@@ -37,5 +37,20 @@ namespace db_crociere
         {
 
         }
+
+        private void AddShipBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
