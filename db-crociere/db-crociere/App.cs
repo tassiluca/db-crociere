@@ -17,6 +17,33 @@ namespace db_crociere
             InitializeComponent();
         }
 
+        private void initNavigation()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var res = from porti in db.PORTIs
+                      select new { porti.CodPorto };
+            NavigationDropDownMenu.DataSource = res;
+        }
+
+        private void initShipInfo()
+        {
+            NameShipLabel.Text = "NAME_TEST";
+            ShipCodeLabel.Text = "CODE_TEST";
+            HeightLabel.Text = "HEIGHT_TEST";
+            WeightLabel.Text = "WEIGHT_TEST";
+            WidthLabel.Text = "WIDTH_TEST";
+            LengthLabel.Text = "LENGTH_TEST";
+            CabinsNumberLabel.Text = "NUM_CABINS_TEST";
+        }
+
+        private void initPathInfo()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            var res = from porti in db.PORTIs
+                      select porti;
+            LegGridView.DataSource = res;
+        }
+
         private void onShipTabClick(object sender, EventArgs e)
         {
             /**
@@ -26,6 +53,9 @@ namespace db_crociere
             var res = from porti in db.PORTIs
                       select new { porti.Città };
             shipListBox.DataSource = res;
+            initShipInfo();
+            initPathInfo();
+            initNavigation();
         }
 
         private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
