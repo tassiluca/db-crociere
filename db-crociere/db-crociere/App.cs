@@ -28,14 +28,10 @@ namespace db_crociere
             shipListBox.DataSource = res;
         }
 
-        private void test(object sender, EventArgs e)
-        {
-            Console.WriteLine("Hello validate: ", sender);
-        }
-
         private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ListBox lb = (ListBox)sender;
+            Console.WriteLine("" + lb.SelectedIndex);
         }
 
         private void AddShipBtn_Click(object sender, EventArgs e)
