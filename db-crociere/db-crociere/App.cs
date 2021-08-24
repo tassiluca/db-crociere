@@ -64,11 +64,6 @@ namespace db_crociere
             Console.WriteLine("" + lb.SelectedIndex);
         }
 
-        private void AddShipBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
@@ -77,6 +72,12 @@ namespace db_crociere
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddShipBtnClick(object sender, EventArgs e)
+        {
+            var addShipPopup = new AddShipPopup();
+            addShipPopup.ShowDialog(this);
         }
     }
 }

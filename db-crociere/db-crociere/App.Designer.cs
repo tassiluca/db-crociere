@@ -46,7 +46,11 @@ namespace db_crociere
             this.shipListBox = new System.Windows.Forms.ListBox();
             this.DeleteShipBtn = new System.Windows.Forms.Button();
             this.AddShipBtn = new System.Windows.Forms.Button();
+            this.NavigationBox = new System.Windows.Forms.GroupBox();
+            this.NavigationExecutionGridView = new System.Windows.Forms.DataGridView();
+            this.NavigationDropDownMenu = new System.Windows.Forms.ComboBox();
             this.InfoPathBox = new System.Windows.Forms.GroupBox();
+            this.LegGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DurationLabel = new System.Windows.Forms.Label();
             this.PathCodeLabel = new System.Windows.Forms.Label();
@@ -69,10 +73,6 @@ namespace db_crociere
             this.InfoCabins = new System.Windows.Forms.Label();
             this.CabinsNumberLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.LegGridView = new System.Windows.Forms.DataGridView();
-            this.NavigationBox = new System.Windows.Forms.GroupBox();
-            this.NavigationDropDownMenu = new System.Windows.Forms.ComboBox();
-            this.NavigationExecutionGridView = new System.Windows.Forms.DataGridView();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.prenotBox.SuspendLayout();
@@ -88,13 +88,13 @@ namespace db_crociere
             this.shipListContainer.Panel2.SuspendLayout();
             this.shipListContainer.SuspendLayout();
             this.shipListBoxContainer.SuspendLayout();
+            this.NavigationBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NavigationExecutionGridView)).BeginInit();
             this.InfoPathBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LegGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LegGridView)).BeginInit();
-            this.NavigationBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NavigationExecutionGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -310,7 +310,42 @@ namespace db_crociere
             this.AddShipBtn.TabIndex = 0;
             this.AddShipBtn.Text = "AGGIUNGI";
             this.AddShipBtn.UseVisualStyleBackColor = false;
-            this.AddShipBtn.Click += new System.EventHandler(this.AddShipBtn_Click);
+            this.AddShipBtn.Click += new System.EventHandler(this.AddShipBtnClick);
+            // 
+            // NavigationBox
+            // 
+            this.NavigationBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NavigationBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NavigationBox.Controls.Add(this.NavigationExecutionGridView);
+            this.NavigationBox.Controls.Add(this.NavigationDropDownMenu);
+            this.NavigationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NavigationBox.Location = new System.Drawing.Point(3, 259);
+            this.NavigationBox.MinimumSize = new System.Drawing.Size(300, 200);
+            this.NavigationBox.Name = "NavigationBox";
+            this.NavigationBox.Size = new System.Drawing.Size(787, 353);
+            this.NavigationBox.TabIndex = 1;
+            this.NavigationBox.TabStop = false;
+            this.NavigationBox.Text = "Navigazioni";
+            // 
+            // NavigationExecutionGridView
+            // 
+            this.NavigationExecutionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NavigationExecutionGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NavigationExecutionGridView.Location = new System.Drawing.Point(3, 42);
+            this.NavigationExecutionGridView.Name = "NavigationExecutionGridView";
+            this.NavigationExecutionGridView.Size = new System.Drawing.Size(781, 308);
+            this.NavigationExecutionGridView.TabIndex = 3;
+            // 
+            // NavigationDropDownMenu
+            // 
+            this.NavigationDropDownMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NavigationDropDownMenu.FormattingEnabled = true;
+            this.NavigationDropDownMenu.Location = new System.Drawing.Point(3, 18);
+            this.NavigationDropDownMenu.Name = "NavigationDropDownMenu";
+            this.NavigationDropDownMenu.Size = new System.Drawing.Size(781, 24);
+            this.NavigationDropDownMenu.TabIndex = 2;
+            this.NavigationDropDownMenu.Text = "Scegli Navigazione";
             // 
             // InfoPathBox
             // 
@@ -326,6 +361,15 @@ namespace db_crociere
             this.InfoPathBox.TabIndex = 1;
             this.InfoPathBox.TabStop = false;
             this.InfoPathBox.Text = "Percorso";
+            // 
+            // LegGridView
+            // 
+            this.LegGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.LegGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LegGridView.Location = new System.Drawing.Point(6, 85);
+            this.LegGridView.Name = "LegGridView";
+            this.LegGridView.Size = new System.Drawing.Size(469, 165);
+            this.LegGridView.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 
@@ -405,7 +449,6 @@ namespace db_crociere
             // 
             // InfoShipBox
             // 
-            this.InfoShipBox.AutoSize = true;
             this.InfoShipBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.InfoShipBox.Controls.Add(this.tableLayoutPanel1);
             this.InfoShipBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,7 +492,7 @@ namespace db_crociere
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 216);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 231);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // HeightLabel
@@ -459,9 +502,9 @@ namespace db_crociere
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeightLabel.ForeColor = System.Drawing.Color.Black;
-            this.HeightLabel.Location = new System.Drawing.Point(139, 150);
+            this.HeightLabel.Location = new System.Drawing.Point(139, 160);
             this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(87, 30);
+            this.HeightLabel.Size = new System.Drawing.Size(87, 32);
             this.HeightLabel.TabIndex = 13;
             this.HeightLabel.Text = "UNDEFINED";
             this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -473,9 +516,9 @@ namespace db_crociere
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeightLabel.ForeColor = System.Drawing.Color.Black;
-            this.WeightLabel.Location = new System.Drawing.Point(139, 120);
+            this.WeightLabel.Location = new System.Drawing.Point(139, 128);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(87, 30);
+            this.WeightLabel.Size = new System.Drawing.Size(87, 32);
             this.WeightLabel.TabIndex = 12;
             this.WeightLabel.Text = "UNDEFINED";
             this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -487,9 +530,9 @@ namespace db_crociere
             this.LengthLabel.AutoSize = true;
             this.LengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LengthLabel.ForeColor = System.Drawing.Color.Black;
-            this.LengthLabel.Location = new System.Drawing.Point(139, 90);
+            this.LengthLabel.Location = new System.Drawing.Point(139, 96);
             this.LengthLabel.Name = "LengthLabel";
-            this.LengthLabel.Size = new System.Drawing.Size(87, 30);
+            this.LengthLabel.Size = new System.Drawing.Size(87, 32);
             this.LengthLabel.TabIndex = 11;
             this.LengthLabel.Text = "UNDEFINED";
             this.LengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -501,9 +544,9 @@ namespace db_crociere
             this.WidthLabel.AutoSize = true;
             this.WidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WidthLabel.ForeColor = System.Drawing.Color.Black;
-            this.WidthLabel.Location = new System.Drawing.Point(139, 60);
+            this.WidthLabel.Location = new System.Drawing.Point(139, 64);
             this.WidthLabel.Name = "WidthLabel";
-            this.WidthLabel.Size = new System.Drawing.Size(87, 30);
+            this.WidthLabel.Size = new System.Drawing.Size(87, 32);
             this.WidthLabel.TabIndex = 10;
             this.WidthLabel.Text = "UNDEFINED";
             this.WidthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -515,9 +558,9 @@ namespace db_crociere
             this.ShipCodeLabel.AutoSize = true;
             this.ShipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShipCodeLabel.ForeColor = System.Drawing.Color.Black;
-            this.ShipCodeLabel.Location = new System.Drawing.Point(139, 30);
+            this.ShipCodeLabel.Location = new System.Drawing.Point(139, 32);
             this.ShipCodeLabel.Name = "ShipCodeLabel";
-            this.ShipCodeLabel.Size = new System.Drawing.Size(87, 30);
+            this.ShipCodeLabel.Size = new System.Drawing.Size(87, 32);
             this.ShipCodeLabel.TabIndex = 9;
             this.ShipCodeLabel.Text = "UNDEFINED";
             this.ShipCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -531,7 +574,7 @@ namespace db_crociere
             this.NameShipLabel.ForeColor = System.Drawing.Color.Black;
             this.NameShipLabel.Location = new System.Drawing.Point(139, 0);
             this.NameShipLabel.Name = "NameShipLabel";
-            this.NameShipLabel.Size = new System.Drawing.Size(87, 30);
+            this.NameShipLabel.Size = new System.Drawing.Size(87, 32);
             this.NameShipLabel.TabIndex = 8;
             this.NameShipLabel.Text = "UNDEFINED";
             this.NameShipLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -545,7 +588,7 @@ namespace db_crociere
             this.InfoNameLabel.ForeColor = System.Drawing.Color.Black;
             this.InfoNameLabel.Location = new System.Drawing.Point(3, 0);
             this.InfoNameLabel.Name = "InfoNameLabel";
-            this.InfoNameLabel.Size = new System.Drawing.Size(49, 30);
+            this.InfoNameLabel.Size = new System.Drawing.Size(49, 32);
             this.InfoNameLabel.TabIndex = 0;
             this.InfoNameLabel.Text = "Nome";
             this.InfoNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -557,9 +600,9 @@ namespace db_crociere
             this.InfoCode.AutoSize = true;
             this.InfoCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCode.ForeColor = System.Drawing.Color.Black;
-            this.InfoCode.Location = new System.Drawing.Point(3, 30);
+            this.InfoCode.Location = new System.Drawing.Point(3, 32);
             this.InfoCode.Name = "InfoCode";
-            this.InfoCode.Size = new System.Drawing.Size(98, 30);
+            this.InfoCode.Size = new System.Drawing.Size(98, 32);
             this.InfoCode.TabIndex = 1;
             this.InfoCode.Text = "Codice Nave";
             this.InfoCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -571,9 +614,9 @@ namespace db_crociere
             this.InfoWidth.AutoSize = true;
             this.InfoWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoWidth.ForeColor = System.Drawing.Color.Black;
-            this.InfoWidth.Location = new System.Drawing.Point(3, 60);
+            this.InfoWidth.Location = new System.Drawing.Point(3, 64);
             this.InfoWidth.Name = "InfoWidth";
-            this.InfoWidth.Size = new System.Drawing.Size(79, 30);
+            this.InfoWidth.Size = new System.Drawing.Size(79, 32);
             this.InfoWidth.TabIndex = 2;
             this.InfoWidth.Text = "Larghezza";
             this.InfoWidth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -585,9 +628,9 @@ namespace db_crociere
             this.InfoLength.AutoSize = true;
             this.InfoLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoLength.ForeColor = System.Drawing.Color.Black;
-            this.InfoLength.Location = new System.Drawing.Point(3, 90);
+            this.InfoLength.Location = new System.Drawing.Point(3, 96);
             this.InfoLength.Name = "InfoLength";
-            this.InfoLength.Size = new System.Drawing.Size(81, 30);
+            this.InfoLength.Size = new System.Drawing.Size(81, 32);
             this.InfoLength.TabIndex = 3;
             this.InfoLength.Text = "Lunghezza";
             this.InfoLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -599,9 +642,9 @@ namespace db_crociere
             this.InfoWeight.AutoSize = true;
             this.InfoWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoWeight.ForeColor = System.Drawing.Color.Black;
-            this.InfoWeight.Location = new System.Drawing.Point(3, 120);
+            this.InfoWeight.Location = new System.Drawing.Point(3, 128);
             this.InfoWeight.Name = "InfoWeight";
-            this.InfoWeight.Size = new System.Drawing.Size(44, 30);
+            this.InfoWeight.Size = new System.Drawing.Size(44, 32);
             this.InfoWeight.TabIndex = 4;
             this.InfoWeight.Text = "Peso";
             this.InfoWeight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -613,9 +656,9 @@ namespace db_crociere
             this.InfoHeight.AutoSize = true;
             this.InfoHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoHeight.ForeColor = System.Drawing.Color.Black;
-            this.InfoHeight.Location = new System.Drawing.Point(3, 150);
+            this.InfoHeight.Location = new System.Drawing.Point(3, 160);
             this.InfoHeight.Name = "InfoHeight";
-            this.InfoHeight.Size = new System.Drawing.Size(58, 30);
+            this.InfoHeight.Size = new System.Drawing.Size(58, 32);
             this.InfoHeight.TabIndex = 5;
             this.InfoHeight.Text = "Altezza";
             this.InfoHeight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -627,9 +670,9 @@ namespace db_crociere
             this.InfoCabins.AutoSize = true;
             this.InfoCabins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCabins.ForeColor = System.Drawing.Color.Black;
-            this.InfoCabins.Location = new System.Drawing.Point(3, 180);
+            this.InfoCabins.Location = new System.Drawing.Point(3, 192);
             this.InfoCabins.Name = "InfoCabins";
-            this.InfoCabins.Size = new System.Drawing.Size(115, 36);
+            this.InfoCabins.Size = new System.Drawing.Size(115, 39);
             this.InfoCabins.TabIndex = 6;
             this.InfoCabins.Text = "Numero Cabine";
             this.InfoCabins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -641,9 +684,9 @@ namespace db_crociere
             this.CabinsNumberLabel.AutoSize = true;
             this.CabinsNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CabinsNumberLabel.ForeColor = System.Drawing.Color.Black;
-            this.CabinsNumberLabel.Location = new System.Drawing.Point(139, 180);
+            this.CabinsNumberLabel.Location = new System.Drawing.Point(139, 192);
             this.CabinsNumberLabel.Name = "CabinsNumberLabel";
-            this.CabinsNumberLabel.Size = new System.Drawing.Size(87, 36);
+            this.CabinsNumberLabel.Size = new System.Drawing.Size(87, 39);
             this.CabinsNumberLabel.TabIndex = 7;
             this.CabinsNumberLabel.Text = "UNDEFINED";
             this.CabinsNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -657,50 +700,6 @@ namespace db_crociere
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // LegGridView
-            // 
-            this.LegGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.LegGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.LegGridView.Location = new System.Drawing.Point(6, 85);
-            this.LegGridView.Name = "LegGridView";
-            this.LegGridView.Size = new System.Drawing.Size(469, 165);
-            this.LegGridView.TabIndex = 1;
-            // 
-            // NavigationBox
-            // 
-            this.NavigationBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NavigationBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.NavigationBox.Controls.Add(this.NavigationExecutionGridView);
-            this.NavigationBox.Controls.Add(this.NavigationDropDownMenu);
-            this.NavigationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NavigationBox.Location = new System.Drawing.Point(3, 265);
-            this.NavigationBox.MinimumSize = new System.Drawing.Size(300, 200);
-            this.NavigationBox.Name = "NavigationBox";
-            this.NavigationBox.Size = new System.Drawing.Size(787, 347);
-            this.NavigationBox.TabIndex = 1;
-            this.NavigationBox.TabStop = false;
-            this.NavigationBox.Text = "Navigazioni";
-            // 
-            // NavigationDropDownMenu
-            // 
-            this.NavigationDropDownMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.NavigationDropDownMenu.FormattingEnabled = true;
-            this.NavigationDropDownMenu.Location = new System.Drawing.Point(3, 18);
-            this.NavigationDropDownMenu.Name = "NavigationDropDownMenu";
-            this.NavigationDropDownMenu.Size = new System.Drawing.Size(781, 24);
-            this.NavigationDropDownMenu.TabIndex = 2;
-            this.NavigationDropDownMenu.Text = "Scegli Navigazione";
-            // 
-            // NavigationExecutionGridView
-            // 
-            this.NavigationExecutionGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NavigationExecutionGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NavigationExecutionGridView.Location = new System.Drawing.Point(3, 42);
-            this.NavigationExecutionGridView.Name = "NavigationExecutionGridView";
-            this.NavigationExecutionGridView.Size = new System.Drawing.Size(781, 302);
-            this.NavigationExecutionGridView.TabIndex = 3;
             // 
             // App
             // 
@@ -719,7 +718,6 @@ namespace db_crociere
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.shipListContainer.Panel1.ResumeLayout(false);
@@ -727,17 +725,17 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.shipListContainer)).EndInit();
             this.shipListContainer.ResumeLayout(false);
             this.shipListBoxContainer.ResumeLayout(false);
+            this.NavigationBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NavigationExecutionGridView)).EndInit();
             this.InfoPathBox.ResumeLayout(false);
             this.InfoPathBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LegGridView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.InfoShipBox.ResumeLayout(false);
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LegGridView)).EndInit();
-            this.NavigationBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NavigationExecutionGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

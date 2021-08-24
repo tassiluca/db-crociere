@@ -58,6 +58,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClassesCrociere.dbml</DependentUpon>
     </Compile>
+    <Compile Include="AddShipPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddShipPopup.Designer.cs">
+      <DependentUpon>AddShipPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddShipPopup.resx">
+      <DependentUpon>AddShipPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
