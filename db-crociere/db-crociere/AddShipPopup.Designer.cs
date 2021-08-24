@@ -31,27 +31,27 @@ namespace db_crociere
         {
             this.components = new System.ComponentModel.Container();
             this.InsertShipInfoBox = new System.Windows.Forms.GroupBox();
+            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
+            this.AddShipInfoBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.NameInfo = new System.Windows.Forms.Label();
             this.ShipNameTextBox = new System.Windows.Forms.TextBox();
             this.ShipCodeInfo = new System.Windows.Forms.Label();
             this.ShipCodeTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.AddShipInfoBtn = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
+            this.WidthInfo = new System.Windows.Forms.Label();
+            this.WidthTextBox = new System.Windows.Forms.TextBox();
+            this.LengthInfo = new System.Windows.Forms.Label();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
+            this.WeightInfo = new System.Windows.Forms.Label();
+            this.WeightTextBox = new System.Windows.Forms.TextBox();
+            this.HeightInfo = new System.Windows.Forms.Label();
+            this.HeightInfoTextBox = new System.Windows.Forms.TextBox();
+            this.CabinsNumInfo = new System.Windows.Forms.Label();
+            this.CabinsNumTextBox = new System.Windows.Forms.TextBox();
+            this.errorProviderInfo = new System.Windows.Forms.ErrorProvider(this.components);
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // InsertShipInfoBox
@@ -67,25 +67,44 @@ namespace db_crociere
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "InformazioniNave";
             // 
+            // ClearShipInfoBtn
+            // 
+            this.ClearShipInfoBtn.Location = new System.Drawing.Point(525, 74);
+            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
+            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClearShipInfoBtn.TabIndex = 2;
+            this.ClearShipInfoBtn.Text = "Pulisci";
+            this.ClearShipInfoBtn.UseVisualStyleBackColor = true;
+            // 
+            // AddShipInfoBtn
+            // 
+            this.AddShipInfoBtn.Location = new System.Drawing.Point(525, 16);
+            this.AddShipInfoBtn.Name = "AddShipInfoBtn";
+            this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddShipInfoBtn.TabIndex = 1;
+            this.AddShipInfoBtn.Text = "Aggiungi";
+            this.AddShipInfoBtn.UseVisualStyleBackColor = true;
+            this.AddShipInfoBtn.Click += new System.EventHandler(this.AddShipInfoBtn_Click);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.NameInfo);
             this.flowLayoutPanel1.Controls.Add(this.ShipNameTextBox);
             this.flowLayoutPanel1.Controls.Add(this.ShipCodeInfo);
             this.flowLayoutPanel1.Controls.Add(this.ShipCodeTextBox);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.textBox2);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.textBox3);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.textBox4);
-            this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.textBox5);
-            this.flowLayoutPanel1.Controls.Add(this.label6);
-            this.flowLayoutPanel1.Controls.Add(this.textBox6);
+            this.flowLayoutPanel1.Controls.Add(this.WidthInfo);
+            this.flowLayoutPanel1.Controls.Add(this.WidthTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.LengthInfo);
+            this.flowLayoutPanel1.Controls.Add(this.LengthTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.WeightInfo);
+            this.flowLayoutPanel1.Controls.Add(this.WeightTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.HeightInfo);
+            this.flowLayoutPanel1.Controls.Add(this.HeightInfoTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.CabinsNumInfo);
+            this.flowLayoutPanel1.Controls.Add(this.CabinsNumTextBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(453, 81);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(516, 81);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // NameInfo
@@ -105,13 +124,14 @@ namespace db_crociere
             this.ShipNameTextBox.Name = "ShipNameTextBox";
             this.ShipNameTextBox.Size = new System.Drawing.Size(164, 20);
             this.ShipNameTextBox.TabIndex = 1;
+            this.ShipNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ShipNameTextBox_Validating);
             // 
             // ShipCodeInfo
             // 
             this.ShipCodeInfo.AutoSize = true;
             this.ShipCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShipCodeInfo.Location = new System.Drawing.Point(224, 3);
-            this.ShipCodeInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.ShipCodeInfo.Location = new System.Drawing.Point(246, 3);
+            this.ShipCodeInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.ShipCodeInfo.Name = "ShipCodeInfo";
             this.ShipCodeInfo.Size = new System.Drawing.Size(87, 16);
             this.ShipCodeInfo.TabIndex = 2;
@@ -119,122 +139,110 @@ namespace db_crociere
             // 
             // ShipCodeTextBox
             // 
-            this.ShipCodeTextBox.Location = new System.Drawing.Point(317, 3);
+            this.ShipCodeTextBox.Location = new System.Drawing.Point(339, 3);
             this.ShipCodeTextBox.Name = "ShipCodeTextBox";
             this.ShipCodeTextBox.Size = new System.Drawing.Size(122, 20);
             this.ShipCodeTextBox.TabIndex = 3;
+            this.ShipCodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ShipCodeTextBox_Validating);
             // 
-            // label2
+            // WidthInfo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 29);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Larghezza";
+            this.WidthInfo.AutoSize = true;
+            this.WidthInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WidthInfo.Location = new System.Drawing.Point(3, 29);
+            this.WidthInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.WidthInfo.Name = "WidthInfo";
+            this.WidthInfo.Size = new System.Drawing.Size(70, 16);
+            this.WidthInfo.TabIndex = 4;
+            this.WidthInfo.Text = "Larghezza";
             // 
-            // textBox2
+            // WidthTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(79, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(75, 20);
-            this.textBox2.TabIndex = 5;
+            this.WidthTextBox.Location = new System.Drawing.Point(79, 29);
+            this.WidthTextBox.Name = "WidthTextBox";
+            this.WidthTextBox.Size = new System.Drawing.Size(75, 20);
+            this.WidthTextBox.TabIndex = 5;
+            this.WidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WidthTextBox_Validating);
             // 
-            // label3
+            // LengthInfo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(160, 29);
-            this.label3.Margin = new System.Windows.Forms.Padding(3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Lunghezza";
+            this.LengthInfo.AutoSize = true;
+            this.LengthInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LengthInfo.Location = new System.Drawing.Point(182, 29);
+            this.LengthInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.LengthInfo.Name = "LengthInfo";
+            this.LengthInfo.Size = new System.Drawing.Size(72, 16);
+            this.LengthInfo.TabIndex = 6;
+            this.LengthInfo.Text = "Lunghezza";
             // 
-            // textBox3
+            // LengthTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(238, 29);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(73, 20);
-            this.textBox3.TabIndex = 7;
+            this.LengthTextBox.Location = new System.Drawing.Point(260, 29);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(73, 20);
+            this.LengthTextBox.TabIndex = 7;
+            this.LengthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.LengthTextBox_Validating);
             // 
-            // label4
+            // WeightInfo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(317, 29);
-            this.label4.Margin = new System.Windows.Forms.Padding(3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Peso";
+            this.WeightInfo.AutoSize = true;
+            this.WeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightInfo.Location = new System.Drawing.Point(361, 29);
+            this.WeightInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.WeightInfo.Name = "WeightInfo";
+            this.WeightInfo.Size = new System.Drawing.Size(40, 16);
+            this.WeightInfo.TabIndex = 8;
+            this.WeightInfo.Text = "Peso";
             // 
-            // textBox4
+            // WeightTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(363, 29);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(76, 20);
-            this.textBox4.TabIndex = 9;
+            this.WeightTextBox.Location = new System.Drawing.Point(407, 29);
+            this.WeightTextBox.Name = "WeightTextBox";
+            this.WeightTextBox.Size = new System.Drawing.Size(76, 20);
+            this.WeightTextBox.TabIndex = 9;
+            this.WeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WeightTextBox_Validating);
             // 
-            // label5
+            // HeightInfo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 55);
-            this.label5.Margin = new System.Windows.Forms.Padding(3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Altezza";
+            this.HeightInfo.AutoSize = true;
+            this.HeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightInfo.Location = new System.Drawing.Point(3, 55);
+            this.HeightInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.HeightInfo.Name = "HeightInfo";
+            this.HeightInfo.Size = new System.Drawing.Size(51, 16);
+            this.HeightInfo.TabIndex = 10;
+            this.HeightInfo.Text = "Altezza";
             // 
-            // textBox5
+            // HeightInfoTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(60, 55);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(94, 20);
-            this.textBox5.TabIndex = 11;
+            this.HeightInfoTextBox.Location = new System.Drawing.Point(60, 55);
+            this.HeightInfoTextBox.Name = "HeightInfoTextBox";
+            this.HeightInfoTextBox.Size = new System.Drawing.Size(94, 20);
+            this.HeightInfoTextBox.TabIndex = 11;
+            this.HeightInfoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInfoTextBox_Validating);
             // 
-            // label6
+            // CabinsNumInfo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(160, 55);
-            this.label6.Margin = new System.Windows.Forms.Padding(3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Numero Cabine";
+            this.CabinsNumInfo.AutoSize = true;
+            this.CabinsNumInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CabinsNumInfo.Location = new System.Drawing.Point(182, 55);
+            this.CabinsNumInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.CabinsNumInfo.Name = "CabinsNumInfo";
+            this.CabinsNumInfo.Size = new System.Drawing.Size(102, 16);
+            this.CabinsNumInfo.TabIndex = 12;
+            this.CabinsNumInfo.Text = "Numero Cabine";
             // 
-            // textBox6
+            // CabinsNumTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(268, 55);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(62, 20);
-            this.textBox6.TabIndex = 13;
+            this.CabinsNumTextBox.Location = new System.Drawing.Point(290, 55);
+            this.CabinsNumTextBox.Name = "CabinsNumTextBox";
+            this.CabinsNumTextBox.Size = new System.Drawing.Size(62, 20);
+            this.CabinsNumTextBox.TabIndex = 13;
+            this.CabinsNumTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CabinsNumTextBox_Validating);
             // 
-            // AddShipInfoBtn
+            // errorProviderInfo
             // 
-            this.AddShipInfoBtn.Location = new System.Drawing.Point(462, 16);
-            this.AddShipInfoBtn.Name = "AddShipInfoBtn";
-            this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddShipInfoBtn.TabIndex = 1;
-            this.AddShipInfoBtn.Text = "Aggiungi";
-            this.AddShipInfoBtn.UseVisualStyleBackColor = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // ClearShipInfoBtn
-            // 
-            this.ClearShipInfoBtn.Location = new System.Drawing.Point(462, 74);
-            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
-            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 23);
-            this.ClearShipInfoBtn.TabIndex = 2;
-            this.ClearShipInfoBtn.Text = "Pulisci";
-            this.ClearShipInfoBtn.UseVisualStyleBackColor = true;
+            this.errorProviderInfo.ContainerControl = this;
             // 
             // AddShipPopup
             // 
@@ -247,7 +255,7 @@ namespace db_crociere
             this.InsertShipInfoBox.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,18 +268,18 @@ namespace db_crociere
         private System.Windows.Forms.TextBox ShipNameTextBox;
         private System.Windows.Forms.Label ShipCodeInfo;
         private System.Windows.Forms.TextBox ShipCodeTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label WidthInfo;
+        private System.Windows.Forms.TextBox WidthTextBox;
+        private System.Windows.Forms.Label LengthInfo;
+        private System.Windows.Forms.TextBox LengthTextBox;
+        private System.Windows.Forms.Label WeightInfo;
+        private System.Windows.Forms.TextBox WeightTextBox;
+        private System.Windows.Forms.Label HeightInfo;
+        private System.Windows.Forms.TextBox HeightInfoTextBox;
+        private System.Windows.Forms.Label CabinsNumInfo;
+        private System.Windows.Forms.TextBox CabinsNumTextBox;
         private System.Windows.Forms.Button AddShipInfoBtn;
         private System.Windows.Forms.Button ClearShipInfoBtn;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProviderInfo;
     }
 }
