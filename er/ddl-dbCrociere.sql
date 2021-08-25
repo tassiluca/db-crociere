@@ -1,11 +1,7 @@
 -- *********************************************
--- * Standard SQL generation                   
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.1              
--- * Generator date: Dec  4 2018              
--- * Generation date: Wed Aug 25 19:01:30 2021 
--- * LUN file: C:\Users\lucat\Desktop\db-crociere\er\DB-CROCIERE.lun 
--- * Schema: completo-logico/1 
+-- * SQL SERVER DDL              
+-- *--------------------------------------------           
+-- * Generation date: Wed Aug 25 20:00 2021 
 -- ********************************************* 
 
 
@@ -24,7 +20,7 @@ use dbCrociere;
 
 create table ALLOGGI (
      CodPrenotazione numeric(5) not null,
-     CodCabina char(1) not null,
+     CodCabina numeric(5) not null,
      constraint IDALLOGGI primary key (CodCabina, CodPrenotazione));
 
 create table ANNULLAMENTI (
@@ -34,13 +30,13 @@ create table ANNULLAMENTI (
      constraint FKAnn_PRE_ID primary key (CodPrenotazione));
 
 create table ATTIVITÀ (
-     CodAttività int identity(1,1) not null,
+     CodAttività numeric(5) identity(1,1) not null,
      Nome varchar(20) not null,
      Descrizione varchar(150),
      constraint IDATTIVITÀ primary key (CodAttività));
 
 create table BADGE (
-     CodBadge int identity(1,1) not null,
+     CodBadge numeric(10) identity(1,1) not null,
      CodPrenotazione numeric(5) not null,
      CodiceFiscale char(16) not null,
      CartaCredito char(16) not null,
@@ -48,7 +44,7 @@ create table BADGE (
      constraint IDBADGE_1 unique (CodiceFiscale, CodPrenotazione));
 
 create table CABINE (
-     CodCabina char(1) not null,
+     CodCabina numeric(5) identity(1,1) not null,
      NomeNave varchar(30) not null,
      NumeroPonte numeric(2) not null,
      NumeroLocale numeric(3) not null,
@@ -71,7 +67,7 @@ create table ESECUZIONI_TRATTA (
 
 create table NAVI (
      Nome varchar(30) not null,
-     CodNave int identity(1,1) not null,
+     CodNave numeric(2) identity(1,1) not null,
      Larghezza numeric(3) not null,
      Lunghezza numeric(3) not null,
      Peso numeric(6) not null,
@@ -81,7 +77,7 @@ create table NAVI (
      constraint IDNAVE_1 unique (CodNave));
 
 create table NAVIGAZIONI (
-     CodNavigazione int identity(1,1) not null,
+     CodNavigazione numeric(3) identity(1,1) not null,
      NomeNave varchar(30) not null,
      DataInizio date not null,
      DataFine date not null,
@@ -91,7 +87,7 @@ create table NAVIGAZIONI (
      constraint IDNAVIGAZIONI primary key (CodNavigazione));
 
 create table PAGAMENTI (
-     CodTransazione int identity(1,1) not null,
+     CodTransazione numeric(5) identity(1,1) not null,
      DataPagamento date not null,
      Importo numeric(4) not null,
      NumeroRate numeric(2),
@@ -139,7 +135,7 @@ create table PORTI (
      constraint IDPORTO primary key (CodPorto));
 
 create table PRENOTAZIONI (
-     CodPrenotazione int identity(1,1) not null,
+     CodPrenotazione numeric(5) identity(1,1) not null,
      CodTransazione numeric(5) not null,
      DataEffettuazione date not null,
      DataOraImbarco datetime not null,
@@ -179,7 +175,7 @@ create table RESPONSABILITÀ (
      constraint IDRESPONSABILITÀ primary key (CodNavigazione, CodRuolo));
 
 create table RIMBORSI (
-     CodRimborso int identity(1,1) not null,
+     CodRimborso numeric(2) identity(1,1) not null,
      Preavviso_Dal numeric(3) not null,
      Preavviso_Al numeric(3) not null,
      PercentualeRimborso numeric(3) not null,
@@ -193,7 +189,7 @@ create table RUOLI (
      constraint IDRUOLO primary key (CodRuolo));
 
 create table SALE (
-     CodSala int identity(1,1) not null,
+     CodSala numeric(3) identity(1,1) not null,
      NomeNave varchar(30) not null,
      NumeroPonte numeric(2) not null,
      NumeroLocale numeric(3) not null,
@@ -202,7 +198,7 @@ create table SALE (
      constraint IDSALA_1 primary key (CodSala));
 
 create table SCIALUPPE (
-     CodScialuppa int identity(1,1) not null,
+     CodScialuppa numeric(3) identity(1,1) not null,
      DataRevisione date not null,
      Capienza numeric(3) not null,
      NomeNave varchar(30) not null,
@@ -220,7 +216,7 @@ create table SERVIZI (
      constraint IDSERVIZI primary key (CodNavigazione, CodiceFiscale));
 
 create table SPESE_EXTRA (
-     CodiceSpesa int identity(1,1) not null,
+     CodiceSpesa numeric(5) identity(1,1) not null,
      DataSpesa date not null,
      Importo numeric(3) not null,
      Descrizione varchar(100) not null,
@@ -228,13 +224,8 @@ create table SPESE_EXTRA (
      CodBadge numeric(10) not null,
      constraint IDSPESE_EXTRA primary key (CodiceSpesa));
 
-create table TARIFFARI_PRENOTAZIONI (
-     CodTariffario numeric(3) not null,
-     CodPrenotazione numeric(5) not null,
-     constraint IDTARIFFARI_PRENOTAZIONI primary key (CodTariffario, CodPrenotazione));
-
 create table TARIFFARI (
-     CodTariffario int identity(1,1) not null,
+     CodTariffario numeric(3) identity(1,1) not null,
      NomeNave varchar(30) not null,
      NomeTipologia varchar(7) not null,
      DataInizio date not null,
@@ -243,6 +234,11 @@ create table TARIFFARI (
      constraint IDTARIFFARIO unique (NomeTipologia, NomeNave, DataInizio, DataFine),
      constraint IDTARIFFARIO_1 primary key (CodTariffario));
 
+create table TARIFFARI_PRENOTAZIONI (
+     CodTariffario numeric(3) not null,
+     CodPrenotazione numeric(5) not null,
+     constraint IDTARIFFARI_PRENOTAZIONI primary key (CodTariffario, CodPrenotazione));
+
 create table TIPOLOGIE (
      Nome varchar(7) not null,
      Prezzo numeric(4) not null,
@@ -250,7 +246,7 @@ create table TIPOLOGIE (
      constraint IDTIPOLOGIA primary key (Nome));
 
 create table TRATTE (
-     CodTratta int identity(1,1) not null,
+     CodTratta numeric(3) identity(1,1) not null,
      CodPortoArrivo char(4) not null,
      CodPortoPartenza char(4) not null,
      constraint IDTRATTA_1 primary key (CodTratta),
@@ -430,14 +426,6 @@ alter table SPESE_EXTRA add constraint FKFattura
      foreign key (CodBadge)
      references BADGE;
 
-alter table TARIFFARI_PRENOTAZIONI add constraint FKApp_PRE
-     foreign key (CodPrenotazione)
-     references PRENOTAZIONI;
-
-alter table TARIFFARI_PRENOTAZIONI add constraint FKApp_TAR
-     foreign key (CodTariffario)
-     references TARIFFARI;
-
 alter table TARIFFARI add constraint FKCostoTipologia
      foreign key (NomeTipologia)
      references TIPOLOGIE;
@@ -445,6 +433,14 @@ alter table TARIFFARI add constraint FKCostoTipologia
 alter table TARIFFARI add constraint FKCostoNave
      foreign key (NomeNave)
      references NAVI;
+
+alter table TARIFFARI_PRENOTAZIONI add constraint FKApp_PRE
+     foreign key (CodPrenotazione)
+     references PRENOTAZIONI;
+
+alter table TARIFFARI_PRENOTAZIONI add constraint FKApp_TAR
+     foreign key (CodTariffario)
+     references TARIFFARI;
 
 alter table TRATTE add constraint FKArrivo
      foreign key (CodPortoArrivo)
