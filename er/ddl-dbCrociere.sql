@@ -1,7 +1,11 @@
 -- *********************************************
--- * SQL SERVER - RISTRUTTURATO     
--- *--------------------------------------------            
+-- * Standard SQL generation                   
+-- *--------------------------------------------
+-- * DB-MAIN version: 11.0.1              
+-- * Generator date: Dec  4 2018              
 -- * Generation date: Wed Aug 25 19:01:30 2021 
+-- * LUN file: C:\Users\lucat\Desktop\db-crociere\er\DB-CROCIERE.lun 
+-- * Schema: completo-logico/1 
 -- ********************************************* 
 
 
@@ -19,12 +23,12 @@ use dbCrociere;
 -- _____________ 
 
 create table ALLOGGI (
-     CodPrenotazione int identity(1,1) not null,
+     CodPrenotazione numeric(5) not null,
      CodCabina char(1) not null,
      constraint IDALLOGGI primary key (CodCabina, CodPrenotazione));
 
 create table ANNULLAMENTI (
-     CodPrenotazione int identity(1,1) not null,
+     CodPrenotazione numeric(5) not null,
      DataRichiesta date not null,
      CodRimborso numeric(2) not null,
      constraint FKAnn_PRE_ID primary key (CodPrenotazione));
@@ -37,7 +41,7 @@ create table ATTIVITÀ (
 
 create table BADGE (
      CodBadge int identity(1,1) not null,
-     CodPrenotazione int identity(1,1) not null,
+     CodPrenotazione numeric(5) not null,
      CodiceFiscale char(16) not null,
      CartaCredito char(16) not null,
      constraint IDBADGE primary key (CodBadge),
