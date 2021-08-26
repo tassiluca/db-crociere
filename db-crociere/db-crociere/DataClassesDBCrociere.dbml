@@ -1,108 +1,112 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Dbcrociere" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8FAP7QK;Initial Catalog=Dbcrociere;Integrated Security=True" SettingsObjectName="db_crociere.Properties.Settings" SettingsPropertyName="DbcrociereConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.ANNULLAMENTI" Member="ANNULLAMENTIs">
-    <Type Name="ANNULLAMENTI">
-      <Column Name="CodicePrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DataRichiesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="CodRimborso" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Association Name="PRENOTAZIONI_ANNULLAMENTI" Member="PRENOTAZIONI" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
-      <Association Name="RIMBORSI_ANNULLAMENTI" Member="RIMBORSI" ThisKey="CodRimborso" OtherKey="CodRimborso" Type="RIMBORSI" IsForeignKey="true" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbCrociere" Class="DataClassesDBCrociereDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8FAP7QK;Initial Catalog=dbCrociere;Integrated Security=True" SettingsObjectName="db_crociere.Properties.Settings" SettingsPropertyName="dbCrociereConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ALLOGGI" Member="ALLOGGIs">
+    <Type Name="ALLOGGI">
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodCabina" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CABINE_ALLOGGI" Member="CABINE" ThisKey="CodCabina" OtherKey="CodCabina" Type="CABINE" IsForeignKey="true" />
+      <Association Name="PRENOTAZIONI_ALLOGGI" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TURNI_LAVORATIVI" Member="TURNI_LAVORATIVIs">
     <Type Name="TURNI_LAVORATIVI">
       <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="InizioData" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="InizioOra" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FineData" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="FineOra" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Association Name="TURNI_LAVORATIVI_RESPONSABILITÀ" Member="RESPONSABILITÀs" ThisKey="CodiceFiscale,InizioData,InizioOra" OtherKey="CodiceFiscale,InizioData,InizioOra" Type="RESPONSABILITÀ" />
+      <Column Name="DataOraInizio" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataOraFine" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="PERSONALE_TURNI_LAVORATIVI" Member="PERSONALE" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PERSONALE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ANNULLAMENTI" Member="ANNULLAMENTIs">
+    <Type Name="ANNULLAMENTI">
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataRichiesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CodRimborso" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Association Name="PRENOTAZIONI_ANNULLAMENTI" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
+      <Association Name="RIMBORSI_ANNULLAMENTI" Member="RIMBORSI" ThisKey="CodRimborso" OtherKey="CodRimborso" Type="RIMBORSI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ATTIVITÀ" Member="ATTIVITÀs">
     <Type Name="ATTIVITÀ">
       <Column Name="CodAttività" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Descrizione" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Association Name="ATTIVITÀ_INTRATTENIMENTI" Member="INTRATTENIMENTIs" ThisKey="CodAttività" OtherKey="CodAttività" Type="INTRATTENIMENTI" />
+      <Column Name="Descrizione" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="ATTIVITÀ_PROGRAMMAZIONI" Member="PROGRAMMAZIONIs" ThisKey="CodAttività" OtherKey="CodAttività" Type="PROGRAMMAZIONI" />
     </Type>
   </Table>
   <Table Name="dbo.BADGE" Member="BADGEs">
     <Type Name="BADGE">
       <Column Name="CodBadge" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
       <Column Name="CartaCredito" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
-      <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroPonte" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodCabina" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
-      <Association Name="BADGE_PASSEGGERI" Member="PASSEGGERIs" ThisKey="CodBadge" OtherKey="CodBadge" Type="PASSEGGERI" />
       <Association Name="BADGE_SPESE_EXTRA" Member="SPESE_EXTRAs" ThisKey="CodBadge" OtherKey="CodBadge" Type="SPESE_EXTRA" />
-      <Association Name="CABINE_BADGE" Member="CABINE" ThisKey="NomeNave,NumeroPonte,CodCabina" OtherKey="NomeNave,NumeroPonte,CodCabina" Type="CABINE" IsForeignKey="true" />
+      <Association Name="PASSEGGERI_BADGE" Member="PASSEGGERI" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PASSEGGERI" IsForeignKey="true" />
+      <Association Name="PRENOTAZIONI_BADGE" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CABINE" Member="CABINEs">
     <Type Name="CABINE">
-      <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NumeroPonte" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodCabina" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Capienza" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodCabina" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroPonte" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroLocale" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PostiLetto" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
       <Column Name="Posizione" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Tipologia" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
-      <Association Name="CABINE_BADGE" Member="BADGEs" ThisKey="NomeNave,NumeroPonte,CodCabina" OtherKey="NomeNave,NumeroPonte,CodCabina" Type="BADGE" />
-      <Association Name="CABINE_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="NomeNave,NumeroPonte,CodCabina" OtherKey="NomeNave,NumeroPonte,CodCabina" Type="PRENOTAZIONI" />
+      <Column Name="NomeTipologia" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Association Name="CABINE_ALLOGGI" Member="ALLOGGIs" ThisKey="CodCabina" OtherKey="CodCabina" Type="ALLOGGI" />
       <Association Name="PONTI_CABINE" Member="PONTI" ThisKey="NomeNave,NumeroPonte" OtherKey="NomeNave,Numero" Type="PONTI" IsForeignKey="true" />
-      <Association Name="TIPOLOGIE_CABINE" Member="TIPOLOGIE" ThisKey="Tipologia" OtherKey="Nome" Type="TIPOLOGIE" IsForeignKey="true" />
+      <Association Name="TIPOLOGIE_CABINE" Member="TIPOLOGIE" ThisKey="NomeTipologia" OtherKey="Nome" Type="TIPOLOGIE" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.INTRATTENIMENTI" Member="INTRATTENIMENTIs">
-    <Type Name="INTRATTENIMENTI">
-      <Column Name="CodAttività" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="OrarioInizio" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodSala" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.ESECUZIONI_TRATTA" Member="ESECUZIONI_TRATTAs">
+    <Type Name="ESECUZIONI_TRATTA">
+      <Column Name="CodTratta" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Partenza_Data" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Partenza_Ora" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="Arrivo_Data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Arrivo_Ora" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
       <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="ATTIVITÀ_INTRATTENIMENTI" Member="ATTIVITÀ" ThisKey="CodAttività" OtherKey="CodAttività" Type="ATTIVITÀ" IsForeignKey="true" />
-      <Association Name="NAVIGAZIONI_INTRATTENIMENTI" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
-      <Association Name="SALE_INTRATTENIMENTI" Member="SALE" ThisKey="CodSala" OtherKey="CodSala" Type="SALE" IsForeignKey="true" />
+      <Association Name="NAVIGAZIONI_ESECUZIONI_TRATTA" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
+      <Association Name="TRATTE_ESECUZIONI_TRATTA" Member="TRATTE" ThisKey="CodTratta" OtherKey="CodTratta" Type="TRATTE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NAVI" Member="NAVIs">
     <Type Name="NAVI">
       <Column Name="Nome" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodNave" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
-      <Column Name="CodicePercorso" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CodNave" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Larghezza" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="Lunghezza" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="Peso" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" />
       <Column Name="Altezza" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="NumeroCabine" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
       <Association Name="NAVI_NAVIGAZIONI" Member="NAVIGAZIONIs" ThisKey="Nome" OtherKey="NomeNave" Type="NAVIGAZIONI" />
+      <Association Name="NAVI_PERCORSI" Member="PERCORSIs" ThisKey="Nome" OtherKey="NomeNave" Type="PERCORSI" />
       <Association Name="NAVI_PONTI" Member="PONTIs" ThisKey="Nome" OtherKey="NomeNave" Type="PONTI" />
       <Association Name="NAVI_SCIALUPPE" Member="SCIALUPPEs" ThisKey="Nome" OtherKey="NomeNave" Type="SCIALUPPE" />
       <Association Name="NAVI_TARIFFARI" Member="TARIFFARIs" ThisKey="Nome" OtherKey="NomeNave" Type="TARIFFARI" />
-      <Association Name="PERCORSI_NAVI" Member="PERCORSI" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="PERCORSI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.NAVIGAZIONI" Member="NAVIGAZIONIs">
     <Type Name="NAVIGAZIONI">
       <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DataFine" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="NumeroEsecuzioni" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodicePercorso" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
-      <Association Name="NAVIGAZIONI_INTRATTENIMENTI" Member="INTRATTENIMENTIs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="INTRATTENIMENTI" />
+      <Column Name="CodPercorso" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Association Name="NAVIGAZIONI_ESECUZIONI_TRATTA" Member="ESECUZIONI_TRATTAs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="ESECUZIONI_TRATTA" />
       <Association Name="NAVIGAZIONI_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="PRENOTAZIONI" />
+      <Association Name="NAVIGAZIONI_PROGRAMMAZIONI" Member="PROGRAMMAZIONIs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="PROGRAMMAZIONI" />
+      <Association Name="NAVIGAZIONI_RESPONSABILITÀ" Member="RESPONSABILITÀs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="RESPONSABILITÀ" />
       <Association Name="NAVIGAZIONI_SERVIZI" Member="SERVIZIs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="SERVIZI" />
-      <Association Name="NAVIGAZIONI_TRATTE_IN_NAVIGAZIONE" Member="TRATTE_IN_NAVIGAZIONEs" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="TRATTE_IN_NAVIGAZIONE" />
       <Association Name="NAVI_NAVIGAZIONI" Member="NAVI" ThisKey="NomeNave" OtherKey="Nome" Type="NAVI" IsForeignKey="true" />
-      <Association Name="PERCORSI_NAVIGAZIONI" Member="PERCORSI" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="PERCORSI" IsForeignKey="true" />
+      <Association Name="PERCORSI_NAVIGAZIONI" Member="PERCORSI" ThisKey="CodPercorso" OtherKey="CodPercorso" Type="PERCORSI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PAGAMENTI" Member="PAGAMENTIs">
     <Type Name="PAGAMENTI">
       <Column Name="CodTransazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DataTransazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DataPagamento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Importo" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
       <Column Name="NumeroRate" Type="System.Decimal" DbType="Decimal(2,0)" CanBeNull="true" />
       <Column Name="Anticipo" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
@@ -113,23 +117,22 @@
   <Table Name="dbo.PASSEGGERI" Member="PASSEGGERIs">
     <Type Name="PASSEGGERI">
       <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodBadge" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
       <Column Name="Nome" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Cognome" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="Nazionalità" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
       <Column Name="Passaporto" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
-      <Association Name="PASSEGGERI_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PRENOTAZIONI" />
+      <Association Name="PASSEGGERI_BADGE" Member="BADGEs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="BADGE" />
       <Association Name="PASSEGGERI_PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI_PASSEGGERIs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PRENOTAZIONI_PASSEGGERI" />
-      <Association Name="BADGE_PASSEGGERI" Member="BADGE" ThisKey="CodBadge" OtherKey="CodBadge" Type="BADGE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PERCORSI" Member="PERCORSIs">
     <Type Name="PERCORSI">
-      <Column Name="CodicePercorso" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodPercorso" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="GiorniDurata" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Association Name="PERCORSI_NAVI" Member="NAVIs" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="NAVI" />
-      <Association Name="PERCORSI_NAVIGAZIONI" Member="NAVIGAZIONIs" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="NAVIGAZIONI" />
-      <Association Name="PERCORSI_SEQUENZE" Member="SEQUENZEs" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="SEQUENZE" />
+      <Association Name="PERCORSI_NAVIGAZIONI" Member="NAVIGAZIONIs" ThisKey="CodPercorso" OtherKey="CodPercorso" Type="NAVIGAZIONI" />
+      <Association Name="PERCORSI_SEQUENZE_TRATTE" Member="SEQUENZE_TRATTEs" ThisKey="CodPercorso" OtherKey="CodPercorso" Type="SEQUENZE_TRATTE" />
+      <Association Name="NAVI_PERCORSI" Member="NAVI" ThisKey="NomeNave" OtherKey="Nome" Type="NAVI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PERSONALE" Member="PERSONALEs">
@@ -140,10 +143,12 @@
       <Column Name="Nazionalità" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
       <Column Name="Passaporto" Type="System.String" DbType="Char(9) NOT NULL" CanBeNull="false" />
       <Column Name="Recapito" Type="System.Decimal" DbType="Decimal(14,0) NOT NULL" CanBeNull="false" />
+      <Column Name="StipendioAnnuo" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" />
       <Column Name="AnzianitàServizio" Type="System.Decimal" DbType="Decimal(2,0)" CanBeNull="true" />
       <Column Name="Grado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="CodRuolo" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
       <Association Name="PERSONALE_TURNI_LAVORATIVI" Member="TURNI_LAVORATIVIs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="TURNI_LAVORATIVI" />
+      <Association Name="PERSONALE_RESPONSABILITÀ" Member="RESPONSABILITÀs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="RESPONSABILITÀ" />
       <Association Name="PERSONALE_SERVIZI" Member="SERVIZIs" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="SERVIZI" />
       <Association Name="RUOLI_PERSONALE" Member="RUOLI" ThisKey="CodRuolo" OtherKey="CodRuolo" Type="RUOLI" IsForeignKey="true" />
     </Type>
@@ -163,47 +168,57 @@
       <Column Name="Nazionalità" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
       <Column Name="Città" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="PrezzoAttracco" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
-      <Association Name="PORTI_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="CodPorto" OtherKey="CodPortoPartenza" Type="PRENOTAZIONI" />
+      <Association Name="PORTI_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="CodPorto" OtherKey="CodPorto" Type="PRENOTAZIONI" />
       <Association Name="PORTI_TRATTE" Member="TRATTEs" ThisKey="CodPorto" OtherKey="CodPortoArrivo" Type="TRATTE" />
       <Association Name="PORTI_TRATTE1" Member="TRATTEs1" ThisKey="CodPorto" OtherKey="CodPortoPartenza" Type="TRATTE" />
     </Type>
   </Table>
   <Table Name="dbo.PRENOTAZIONI" Member="PRENOTAZIONIs">
     <Type Name="PRENOTAZIONI">
-      <Column Name="CodicePrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DataImbarco" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DataSbarco" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CodTransazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
-      <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="NumeroPonte" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodCabina" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Column Name="DataEffettuazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DataOraImbarco" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DataOraSbarco" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Trattamento" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
-      <Column Name="CodTariffario" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroPasseggeri" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
       <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodPortoPartenza" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
-      <Association Name="PRENOTAZIONI_ANNULLAMENTI" Member="ANNULLAMENTI" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="ANNULLAMENTI" Cardinality="One" />
-      <Association Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI_PASSEGGERIs" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="PRENOTAZIONI_PASSEGGERI" />
-      <Association Name="PRENOTAZIONI_SPESE_EXTRA" Member="SPESE_EXTRAs" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="SPESE_EXTRA" />
-      <Association Name="CABINE_PRENOTAZIONI" Member="CABINE" ThisKey="NomeNave,NumeroPonte,CodCabina" OtherKey="NomeNave,NumeroPonte,CodCabina" Type="CABINE" IsForeignKey="true" />
-      <Association Name="PORTI_PRENOTAZIONI" Member="PORTI" ThisKey="CodPortoPartenza" OtherKey="CodPorto" Type="PORTI" IsForeignKey="true" />
-      <Association Name="PASSEGGERI_PRENOTAZIONI" Member="PASSEGGERI" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PASSEGGERI" IsForeignKey="true" />
+      <Column Name="CodPorto" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Association Name="PRENOTAZIONI_ALLOGGI" Member="ALLOGGIs" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="ALLOGGI" />
+      <Association Name="PRENOTAZIONI_ANNULLAMENTI" Member="ANNULLAMENTI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="ANNULLAMENTI" Cardinality="One" />
+      <Association Name="PRENOTAZIONI_BADGE" Member="BADGEs" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="BADGE" />
+      <Association Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI_PASSEGGERIs" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI_PASSEGGERI" />
+      <Association Name="PRENOTAZIONI_SPESE_EXTRA" Member="SPESE_EXTRAs" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="SPESE_EXTRA" />
+      <Association Name="PRENOTAZIONI_TARIFFARI_PRENOTAZIONI" Member="TARIFFARI_PRENOTAZIONIs" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="TARIFFARI_PRENOTAZIONI" />
+      <Association Name="PORTI_PRENOTAZIONI" Member="PORTI" ThisKey="CodPorto" OtherKey="CodPorto" Type="PORTI" IsForeignKey="true" />
       <Association Name="PAGAMENTI_PRENOTAZIONI" Member="PAGAMENTI" ThisKey="CodTransazione" OtherKey="CodTransazione" Type="PAGAMENTI" IsForeignKey="true" />
       <Association Name="NAVIGAZIONI_PRENOTAZIONI" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
-      <Association Name="TARIFFARI_PRENOTAZIONI" Member="TARIFFARI" ThisKey="CodTariffario" OtherKey="CodTariffario" Type="TARIFFARI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI_PASSEGGERIs">
     <Type Name="PRENOTAZIONI_PASSEGGERI">
       <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodicePrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="PASSEGGERI_PRENOTAZIONI_PASSEGGERI" Member="PASSEGGERI" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PASSEGGERI" IsForeignKey="true" />
-      <Association Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
+      <Association Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PROGRAMMAZIONI" Member="PROGRAMMAZIONIs">
+    <Type Name="PROGRAMMAZIONI">
+      <Column Name="InizioData" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InizioOra" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodSala" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodAttività" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Durata" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Association Name="ATTIVITÀ_PROGRAMMAZIONI" Member="ATTIVITÀ" ThisKey="CodAttività" OtherKey="CodAttività" Type="ATTIVITÀ" IsForeignKey="true" />
+      <Association Name="NAVIGAZIONI_PROGRAMMAZIONI" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
+      <Association Name="SALE_PROGRAMMAZIONI" Member="SALE" ThisKey="CodSala" OtherKey="CodSala" Type="SALE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.RATE" Member="RATEs">
     <Type Name="RATE">
-      <Column Name="DataPagamento" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataPagamento" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Importo" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
       <Column Name="CodTransazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
       <Association Name="PAGAMENTI_RATE" Member="PAGAMENTI" ThisKey="CodTransazione" OtherKey="CodTransazione" Type="PAGAMENTI" IsForeignKey="true" />
@@ -211,19 +226,19 @@
   </Table>
   <Table Name="dbo.RESPONSABILITÀ" Member="RESPONSABILITÀs">
     <Type Name="RESPONSABILITÀ">
+      <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CodRuolo" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="InizioData" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="InizioOra" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="TURNI_LAVORATIVI_RESPONSABILITÀ" Member="TURNI_LAVORATIVI" ThisKey="CodiceFiscale,InizioData,InizioOra" OtherKey="CodiceFiscale,InizioData,InizioOra" Type="TURNI_LAVORATIVI" IsForeignKey="true" />
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Association Name="NAVIGAZIONI_RESPONSABILITÀ" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
+      <Association Name="PERSONALE_RESPONSABILITÀ" Member="PERSONALE" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale" Type="PERSONALE" IsForeignKey="true" />
       <Association Name="RUOLI_RESPONSABILITÀ" Member="RUOLI" ThisKey="CodRuolo" OtherKey="CodRuolo" Type="RUOLI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.RIMBORSI" Member="RIMBORSIs">
     <Type Name="RIMBORSI">
       <Column Name="CodRimborso" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PreavvisoDal" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Column Name="PreavvisoAl" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Preavviso_Dal" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Preavviso_Al" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="PercentualeRimborso" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Association Name="RIMBORSI_ANNULLAMENTI" Member="ANNULLAMENTIs" ThisKey="CodRimborso" OtherKey="CodRimborso" Type="ANNULLAMENTI" />
     </Type>
@@ -231,39 +246,39 @@
   <Table Name="dbo.RUOLI" Member="RUOLIs">
     <Type Name="RUOLI">
       <Column Name="CodRuolo" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Descrizione" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Descrizione" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="Nome" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="StipendioAnnuo" Type="System.Decimal" DbType="Decimal(6,0) NOT NULL" CanBeNull="false" />
       <Association Name="RUOLI_PERSONALE" Member="PERSONALEs" ThisKey="CodRuolo" OtherKey="CodRuolo" Type="PERSONALE" />
       <Association Name="RUOLI_RESPONSABILITÀ" Member="RESPONSABILITÀs" ThisKey="CodRuolo" OtherKey="CodRuolo" Type="RESPONSABILITÀ" />
     </Type>
   </Table>
   <Table Name="dbo.SALE" Member="SALEs">
     <Type Name="SALE">
-      <Column Name="CodSala" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Capienza" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodSala" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="NumeroPonte" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Association Name="SALE_INTRATTENIMENTI" Member="INTRATTENIMENTIs" ThisKey="CodSala" OtherKey="CodSala" Type="INTRATTENIMENTI" />
+      <Column Name="NumeroLocale" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Capienza" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+      <Association Name="SALE_PROGRAMMAZIONI" Member="PROGRAMMAZIONIs" ThisKey="CodSala" OtherKey="CodSala" Type="PROGRAMMAZIONI" />
       <Association Name="PONTI_SALE" Member="PONTI" ThisKey="NomeNave,NumeroPonte" OtherKey="NomeNave,Numero" Type="PONTI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SCIALUPPE" Member="SCIALUPPEs">
     <Type Name="SCIALUPPE">
-      <Column Name="CodScialuppa" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CodScialuppa" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="DataRevisione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Capienza" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Association Name="NAVI_SCIALUPPE" Member="NAVI" ThisKey="NomeNave" OtherKey="Nome" Type="NAVI" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SEQUENZE" Member="SEQUENZEs">
-    <Type Name="SEQUENZE">
+  <Table Name="dbo.SEQUENZE_TRATTE" Member="SEQUENZE_TRATTEs">
+    <Type Name="SEQUENZE_TRATTE">
+      <Column Name="CodPercorso" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CodTratta" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CodicePercorso" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ordine" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
-      <Association Name="PERCORSI_SEQUENZE" Member="PERCORSI" ThisKey="CodicePercorso" OtherKey="CodicePercorso" Type="PERCORSI" IsForeignKey="true" />
-      <Association Name="TRATTE_SEQUENZE" Member="TRATTE" ThisKey="CodTratta" OtherKey="CodTratta" Type="TRATTE" IsForeignKey="true" />
+      <Association Name="PERCORSI_SEQUENZE_TRATTE" Member="PERCORSI" ThisKey="CodPercorso" OtherKey="CodPercorso" Type="PERCORSI" IsForeignKey="true" />
+      <Association Name="TRATTE_SEQUENZE_TRATTE" Member="TRATTE" ThisKey="CodTratta" OtherKey="CodTratta" Type="TRATTE" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SERVIZI" Member="SERVIZIs">
@@ -277,35 +292,43 @@
   <Table Name="dbo.SPESE_EXTRA" Member="SPESE_EXTRAs">
     <Type Name="SPESE_EXTRA">
       <Column Name="CodiceSpesa" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="DataSpesa" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DataSpesa" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Importo" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
       <Column Name="Descrizione" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
       <Column Name="CodBadge" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodicePrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
       <Association Name="BADGE_SPESE_EXTRA" Member="BADGE" ThisKey="CodBadge" OtherKey="CodBadge" Type="BADGE" IsForeignKey="true" />
-      <Association Name="PRENOTAZIONI_SPESE_EXTRA" Member="PRENOTAZIONI" ThisKey="CodicePrenotazione" OtherKey="CodicePrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
+      <Association Name="PRENOTAZIONI_SPESE_EXTRA" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TARIFFARI" Member="TARIFFARIs">
     <Type Name="TARIFFARI">
       <Column Name="CodTariffario" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TipologiaCabina" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
       <Column Name="NomeNave" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NomeTipologia" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
       <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DataFine" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Prezzo" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
-      <Association Name="TARIFFARI_PRENOTAZIONI" Member="PRENOTAZIONIs" ThisKey="CodTariffario" OtherKey="CodTariffario" Type="PRENOTAZIONI" />
+      <Association Name="TARIFFARI_TARIFFARI_PRENOTAZIONI" Member="TARIFFARI_PRENOTAZIONIs" ThisKey="CodTariffario" OtherKey="CodTariffario" Type="TARIFFARI_PRENOTAZIONI" />
       <Association Name="NAVI_TARIFFARI" Member="NAVI" ThisKey="NomeNave" OtherKey="Nome" Type="NAVI" IsForeignKey="true" />
-      <Association Name="TIPOLOGIE_TARIFFARI" Member="TIPOLOGIE" ThisKey="TipologiaCabina" OtherKey="Nome" Type="TIPOLOGIE" IsForeignKey="true" />
+      <Association Name="TIPOLOGIE_TARIFFARI" Member="TIPOLOGIE" ThisKey="NomeTipologia" OtherKey="Nome" Type="TIPOLOGIE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TARIFFARI_PRENOTAZIONI" Member="TARIFFARI_PRENOTAZIONIs">
+    <Type Name="TARIFFARI_PRENOTAZIONI">
+      <Column Name="CodTariffario" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodPrenotazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="PRENOTAZIONI_TARIFFARI_PRENOTAZIONI" Member="PRENOTAZIONI" ThisKey="CodPrenotazione" OtherKey="CodPrenotazione" Type="PRENOTAZIONI" IsForeignKey="true" />
+      <Association Name="TARIFFARI_TARIFFARI_PRENOTAZIONI" Member="TARIFFARI" ThisKey="CodTariffario" OtherKey="CodTariffario" Type="TARIFFARI" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TIPOLOGIE" Member="TIPOLOGIEs">
     <Type Name="TIPOLOGIE">
       <Column Name="Nome" Type="System.String" DbType="VarChar(7) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Prezzo" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
-      <Column Name="Descrizione" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Association Name="TIPOLOGIE_CABINE" Member="CABINEs" ThisKey="Nome" OtherKey="Tipologia" Type="CABINE" />
-      <Association Name="TIPOLOGIE_TARIFFARI" Member="TARIFFARIs" ThisKey="Nome" OtherKey="TipologiaCabina" Type="TARIFFARI" />
+      <Column Name="Descrizione" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="TIPOLOGIE_CABINE" Member="CABINEs" ThisKey="Nome" OtherKey="NomeTipologia" Type="CABINE" />
+      <Association Name="TIPOLOGIE_TARIFFARI" Member="TARIFFARIs" ThisKey="Nome" OtherKey="NomeTipologia" Type="TARIFFARI" />
     </Type>
   </Table>
   <Table Name="dbo.TRATTE" Member="TRATTEs">
@@ -313,23 +336,10 @@
       <Column Name="CodTratta" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="CodPortoArrivo" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
       <Column Name="CodPortoPartenza" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
-      <Association Name="TRATTE_SEQUENZE" Member="SEQUENZEs" ThisKey="CodTratta" OtherKey="CodTratta" Type="SEQUENZE" />
-      <Association Name="TRATTE_TRATTE_IN_NAVIGAZIONE" Member="TRATTE_IN_NAVIGAZIONEs" ThisKey="CodTratta" OtherKey="CodTratta" Type="TRATTE_IN_NAVIGAZIONE" />
+      <Association Name="TRATTE_ESECUZIONI_TRATTA" Member="ESECUZIONI_TRATTAs" ThisKey="CodTratta" OtherKey="CodTratta" Type="ESECUZIONI_TRATTA" />
+      <Association Name="TRATTE_SEQUENZE_TRATTE" Member="SEQUENZE_TRATTEs" ThisKey="CodTratta" OtherKey="CodTratta" Type="SEQUENZE_TRATTE" />
       <Association Name="PORTI_TRATTE" Member="PORTI" ThisKey="CodPortoArrivo" OtherKey="CodPorto" Type="PORTI" IsForeignKey="true" />
       <Association Name="PORTI_TRATTE1" Member="PORTI1" ThisKey="CodPortoPartenza" OtherKey="CodPorto" Type="PORTI" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TRATTE_IN_NAVIGAZIONE" Member="TRATTE_IN_NAVIGAZIONEs">
-    <Type Name="TRATTE_IN_NAVIGAZIONE">
-      <Column Name="CodTrattaNavigazione" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PartenzaData" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="PartenzaOra" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="CodTratta" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Column Name="CodNavigazione" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
-      <Column Name="ArrivoData" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ArrivoOra" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="TRATTE_TRATTE_IN_NAVIGAZIONE" Member="TRATTE" ThisKey="CodTratta" OtherKey="CodTratta" Type="TRATTE" IsForeignKey="true" />
-      <Association Name="NAVIGAZIONI_TRATTE_IN_NAVIGAZIONE" Member="NAVIGAZIONI" ThisKey="CodNavigazione" OtherKey="CodNavigazione" Type="NAVIGAZIONI" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

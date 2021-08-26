@@ -22,20 +22,23 @@ namespace db_crociere
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Dbcrociere")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbCrociere")]
+	public partial class DataClassesDBCrociereDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertANNULLAMENTI(ANNULLAMENTI instance);
-    partial void UpdateANNULLAMENTI(ANNULLAMENTI instance);
-    partial void DeleteANNULLAMENTI(ANNULLAMENTI instance);
+    partial void InsertALLOGGI(ALLOGGI instance);
+    partial void UpdateALLOGGI(ALLOGGI instance);
+    partial void DeleteALLOGGI(ALLOGGI instance);
     partial void InsertTURNI_LAVORATIVI(TURNI_LAVORATIVI instance);
     partial void UpdateTURNI_LAVORATIVI(TURNI_LAVORATIVI instance);
     partial void DeleteTURNI_LAVORATIVI(TURNI_LAVORATIVI instance);
+    partial void InsertANNULLAMENTI(ANNULLAMENTI instance);
+    partial void UpdateANNULLAMENTI(ANNULLAMENTI instance);
+    partial void DeleteANNULLAMENTI(ANNULLAMENTI instance);
     partial void InsertATTIVITÀ(ATTIVITÀ instance);
     partial void UpdateATTIVITÀ(ATTIVITÀ instance);
     partial void DeleteATTIVITÀ(ATTIVITÀ instance);
@@ -45,9 +48,9 @@ namespace db_crociere
     partial void InsertCABINE(CABINE instance);
     partial void UpdateCABINE(CABINE instance);
     partial void DeleteCABINE(CABINE instance);
-    partial void InsertINTRATTENIMENTI(INTRATTENIMENTI instance);
-    partial void UpdateINTRATTENIMENTI(INTRATTENIMENTI instance);
-    partial void DeleteINTRATTENIMENTI(INTRATTENIMENTI instance);
+    partial void InsertESECUZIONI_TRATTA(ESECUZIONI_TRATTA instance);
+    partial void UpdateESECUZIONI_TRATTA(ESECUZIONI_TRATTA instance);
+    partial void DeleteESECUZIONI_TRATTA(ESECUZIONI_TRATTA instance);
     partial void InsertNAVI(NAVI instance);
     partial void UpdateNAVI(NAVI instance);
     partial void DeleteNAVI(NAVI instance);
@@ -78,6 +81,9 @@ namespace db_crociere
     partial void InsertPRENOTAZIONI_PASSEGGERI(PRENOTAZIONI_PASSEGGERI instance);
     partial void UpdatePRENOTAZIONI_PASSEGGERI(PRENOTAZIONI_PASSEGGERI instance);
     partial void DeletePRENOTAZIONI_PASSEGGERI(PRENOTAZIONI_PASSEGGERI instance);
+    partial void InsertPROGRAMMAZIONI(PROGRAMMAZIONI instance);
+    partial void UpdatePROGRAMMAZIONI(PROGRAMMAZIONI instance);
+    partial void DeletePROGRAMMAZIONI(PROGRAMMAZIONI instance);
     partial void InsertRATE(RATE instance);
     partial void UpdateRATE(RATE instance);
     partial void DeleteRATE(RATE instance);
@@ -96,9 +102,9 @@ namespace db_crociere
     partial void InsertSCIALUPPE(SCIALUPPE instance);
     partial void UpdateSCIALUPPE(SCIALUPPE instance);
     partial void DeleteSCIALUPPE(SCIALUPPE instance);
-    partial void InsertSEQUENZE(SEQUENZE instance);
-    partial void UpdateSEQUENZE(SEQUENZE instance);
-    partial void DeleteSEQUENZE(SEQUENZE instance);
+    partial void InsertSEQUENZE_TRATTE(SEQUENZE_TRATTE instance);
+    partial void UpdateSEQUENZE_TRATTE(SEQUENZE_TRATTE instance);
+    partial void DeleteSEQUENZE_TRATTE(SEQUENZE_TRATTE instance);
     partial void InsertSERVIZI(SERVIZI instance);
     partial void UpdateSERVIZI(SERVIZI instance);
     partial void DeleteSERVIZI(SERVIZI instance);
@@ -108,52 +114,52 @@ namespace db_crociere
     partial void InsertTARIFFARI(TARIFFARI instance);
     partial void UpdateTARIFFARI(TARIFFARI instance);
     partial void DeleteTARIFFARI(TARIFFARI instance);
+    partial void InsertTARIFFARI_PRENOTAZIONI(TARIFFARI_PRENOTAZIONI instance);
+    partial void UpdateTARIFFARI_PRENOTAZIONI(TARIFFARI_PRENOTAZIONI instance);
+    partial void DeleteTARIFFARI_PRENOTAZIONI(TARIFFARI_PRENOTAZIONI instance);
     partial void InsertTIPOLOGIE(TIPOLOGIE instance);
     partial void UpdateTIPOLOGIE(TIPOLOGIE instance);
     partial void DeleteTIPOLOGIE(TIPOLOGIE instance);
     partial void InsertTRATTE(TRATTE instance);
     partial void UpdateTRATTE(TRATTE instance);
     partial void DeleteTRATTE(TRATTE instance);
-    partial void InsertTRATTE_IN_NAVIGAZIONE(TRATTE_IN_NAVIGAZIONE instance);
-    partial void UpdateTRATTE_IN_NAVIGAZIONE(TRATTE_IN_NAVIGAZIONE instance);
-    partial void DeleteTRATTE_IN_NAVIGAZIONE(TRATTE_IN_NAVIGAZIONE instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
-				base(global::db_crociere.Properties.Settings.Default.DbcrociereConnectionString, mappingSource)
+		public DataClassesDBCrociereDataContext() : 
+				base(global::db_crociere.Properties.Settings.Default.dbCrociereConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public DataClassesDBCrociereDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public DataClassesDBCrociereDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DataClassesDBCrociereDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DataClassesDBCrociereDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ANNULLAMENTI> ANNULLAMENTIs
+		public System.Data.Linq.Table<ALLOGGI> ALLOGGIs
 		{
 			get
 			{
-				return this.GetTable<ANNULLAMENTI>();
+				return this.GetTable<ALLOGGI>();
 			}
 		}
 		
@@ -162,6 +168,14 @@ namespace db_crociere
 			get
 			{
 				return this.GetTable<TURNI_LAVORATIVI>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ANNULLAMENTI> ANNULLAMENTIs
+		{
+			get
+			{
+				return this.GetTable<ANNULLAMENTI>();
 			}
 		}
 		
@@ -189,11 +203,11 @@ namespace db_crociere
 			}
 		}
 		
-		public System.Data.Linq.Table<INTRATTENIMENTI> INTRATTENIMENTIs
+		public System.Data.Linq.Table<ESECUZIONI_TRATTA> ESECUZIONI_TRATTAs
 		{
 			get
 			{
-				return this.GetTable<INTRATTENIMENTI>();
+				return this.GetTable<ESECUZIONI_TRATTA>();
 			}
 		}
 		
@@ -277,6 +291,14 @@ namespace db_crociere
 			}
 		}
 		
+		public System.Data.Linq.Table<PROGRAMMAZIONI> PROGRAMMAZIONIs
+		{
+			get
+			{
+				return this.GetTable<PROGRAMMAZIONI>();
+			}
+		}
+		
 		public System.Data.Linq.Table<RATE> RATEs
 		{
 			get
@@ -325,11 +347,11 @@ namespace db_crociere
 			}
 		}
 		
-		public System.Data.Linq.Table<SEQUENZE> SEQUENZEs
+		public System.Data.Linq.Table<SEQUENZE_TRATTE> SEQUENZE_TRATTEs
 		{
 			get
 			{
-				return this.GetTable<SEQUENZE>();
+				return this.GetTable<SEQUENZE_TRATTE>();
 			}
 		}
 		
@@ -357,6 +379,14 @@ namespace db_crociere
 			}
 		}
 		
+		public System.Data.Linq.Table<TARIFFARI_PRENOTAZIONI> TARIFFARI_PRENOTAZIONIs
+		{
+			get
+			{
+				return this.GetTable<TARIFFARI_PRENOTAZIONI>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TIPOLOGIE> TIPOLOGIEs
 		{
 			get
@@ -372,12 +402,323 @@ namespace db_crociere
 				return this.GetTable<TRATTE>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ALLOGGI")]
+	public partial class ALLOGGI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<TRATTE_IN_NAVIGAZIONE> TRATTE_IN_NAVIGAZIONEs
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _CodPrenotazione;
+		
+		private decimal _CodCabina;
+		
+		private EntityRef<CABINE> _CABINE;
+		
+		private EntityRef<PRENOTAZIONI> _PRENOTAZIONI;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
+    partial void OnCodCabinaChanging(decimal value);
+    partial void OnCodCabinaChanged();
+    #endregion
+		
+		public ALLOGGI()
+		{
+			this._CABINE = default(EntityRef<CABINE>);
+			this._PRENOTAZIONI = default(EntityRef<PRENOTAZIONI>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodPrenotazione
 		{
 			get
 			{
-				return this.GetTable<TRATTE_IN_NAVIGAZIONE>();
+				return this._CodPrenotazione;
+			}
+			set
+			{
+				if ((this._CodPrenotazione != value))
+				{
+					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodPrenotazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodCabina", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodCabina
+		{
+			get
+			{
+				return this._CodCabina;
+			}
+			set
+			{
+				if ((this._CodCabina != value))
+				{
+					if (this._CABINE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodCabinaChanging(value);
+					this.SendPropertyChanging();
+					this._CodCabina = value;
+					this.SendPropertyChanged("CodCabina");
+					this.OnCodCabinaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_ALLOGGI", Storage="_CABINE", ThisKey="CodCabina", OtherKey="CodCabina", IsForeignKey=true)]
+		public CABINE CABINE
+		{
+			get
+			{
+				return this._CABINE.Entity;
+			}
+			set
+			{
+				CABINE previousValue = this._CABINE.Entity;
+				if (((previousValue != value) 
+							|| (this._CABINE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CABINE.Entity = null;
+						previousValue.ALLOGGIs.Remove(this);
+					}
+					this._CABINE.Entity = value;
+					if ((value != null))
+					{
+						value.ALLOGGIs.Add(this);
+						this._CodCabina = value.CodCabina;
+					}
+					else
+					{
+						this._CodCabina = default(decimal);
+					}
+					this.SendPropertyChanged("CABINE");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ALLOGGI", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
+		public PRENOTAZIONI PRENOTAZIONI
+		{
+			get
+			{
+				return this._PRENOTAZIONI.Entity;
+			}
+			set
+			{
+				PRENOTAZIONI previousValue = this._PRENOTAZIONI.Entity;
+				if (((previousValue != value) 
+							|| (this._PRENOTAZIONI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PRENOTAZIONI.Entity = null;
+						previousValue.ALLOGGIs.Remove(this);
+					}
+					this._PRENOTAZIONI.Entity = value;
+					if ((value != null))
+					{
+						value.ALLOGGIs.Add(this);
+						this._CodPrenotazione = value.CodPrenotazione;
+					}
+					else
+					{
+						this._CodPrenotazione = default(decimal);
+					}
+					this.SendPropertyChanged("PRENOTAZIONI");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TURNI_LAVORATIVI")]
+	public partial class TURNI_LAVORATIVI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private System.DateTime _DataOraInizio;
+		
+		private System.DateTime _DataOraFine;
+		
+		private EntityRef<PERSONALE> _PERSONALE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnDataOraInizioChanging(System.DateTime value);
+    partial void OnDataOraInizioChanged();
+    partial void OnDataOraFineChanging(System.DateTime value);
+    partial void OnDataOraFineChanged();
+    #endregion
+		
+		public TURNI_LAVORATIVI()
+		{
+			this._PERSONALE = default(EntityRef<PERSONALE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					if (this._PERSONALE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataOraInizio", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime DataOraInizio
+		{
+			get
+			{
+				return this._DataOraInizio;
+			}
+			set
+			{
+				if ((this._DataOraInizio != value))
+				{
+					this.OnDataOraInizioChanging(value);
+					this.SendPropertyChanging();
+					this._DataOraInizio = value;
+					this.SendPropertyChanged("DataOraInizio");
+					this.OnDataOraInizioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataOraFine", DbType="DateTime NOT NULL")]
+		public System.DateTime DataOraFine
+		{
+			get
+			{
+				return this._DataOraFine;
+			}
+			set
+			{
+				if ((this._DataOraFine != value))
+				{
+					this.OnDataOraFineChanging(value);
+					this.SendPropertyChanging();
+					this._DataOraFine = value;
+					this.SendPropertyChanged("DataOraFine");
+					this.OnDataOraFineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONALE_TURNI_LAVORATIVI", Storage="_PERSONALE", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public PERSONALE PERSONALE
+		{
+			get
+			{
+				return this._PERSONALE.Entity;
+			}
+			set
+			{
+				PERSONALE previousValue = this._PERSONALE.Entity;
+				if (((previousValue != value) 
+							|| (this._PERSONALE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PERSONALE.Entity = null;
+						previousValue.TURNI_LAVORATIVIs.Remove(this);
+					}
+					this._PERSONALE.Entity = value;
+					if ((value != null))
+					{
+						value.TURNI_LAVORATIVIs.Add(this);
+						this._CodiceFiscale = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale = default(string);
+					}
+					this.SendPropertyChanged("PERSONALE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -388,7 +729,7 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _CodicePrenotazione;
+		private decimal _CodPrenotazione;
 		
 		private System.DateTime _DataRichiesta;
 		
@@ -402,8 +743,8 @@ namespace db_crociere
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodicePrenotazioneChanging(decimal value);
-    partial void OnCodicePrenotazioneChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
     partial void OnDataRichiestaChanging(System.DateTime value);
     partial void OnDataRichiestaChanged();
     partial void OnCodRimborsoChanging(decimal value);
@@ -417,26 +758,26 @@ namespace db_crociere
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal CodicePrenotazione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodPrenotazione
 		{
 			get
 			{
-				return this._CodicePrenotazione;
+				return this._CodPrenotazione;
 			}
 			set
 			{
-				if ((this._CodicePrenotazione != value))
+				if ((this._CodPrenotazione != value))
 				{
 					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnCodicePrenotazioneChanging(value);
+					this.OnCodPrenotazioneChanging(value);
 					this.SendPropertyChanging();
-					this._CodicePrenotazione = value;
-					this.SendPropertyChanged("CodicePrenotazione");
-					this.OnCodicePrenotazioneChanged();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
 				}
 			}
 		}
@@ -485,7 +826,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ANNULLAMENTI", Storage="_PRENOTAZIONI", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ANNULLAMENTI", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
 		public PRENOTAZIONI PRENOTAZIONI
 		{
 			get
@@ -508,11 +849,11 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.ANNULLAMENTI = this;
-						this._CodicePrenotazione = value.CodicePrenotazione;
+						this._CodPrenotazione = value.CodPrenotazione;
 					}
 					else
 					{
-						this._CodicePrenotazione = default(decimal);
+						this._CodPrenotazione = default(decimal);
 					}
 					this.SendPropertyChanged("PRENOTAZIONI");
 				}
@@ -574,233 +915,6 @@ namespace db_crociere
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TURNI_LAVORATIVI")]
-	public partial class TURNI_LAVORATIVI : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CodiceFiscale;
-		
-		private System.DateTime _InizioData;
-		
-		private System.TimeSpan _InizioOra;
-		
-		private System.DateTime _FineData;
-		
-		private System.TimeSpan _FineOra;
-		
-		private EntitySet<RESPONSABILITÀ> _RESPONSABILITÀs;
-		
-		private EntityRef<PERSONALE> _PERSONALE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodiceFiscaleChanging(string value);
-    partial void OnCodiceFiscaleChanged();
-    partial void OnInizioDataChanging(System.DateTime value);
-    partial void OnInizioDataChanged();
-    partial void OnInizioOraChanging(System.TimeSpan value);
-    partial void OnInizioOraChanged();
-    partial void OnFineDataChanging(System.DateTime value);
-    partial void OnFineDataChanged();
-    partial void OnFineOraChanging(System.TimeSpan value);
-    partial void OnFineOraChanged();
-    #endregion
-		
-		public TURNI_LAVORATIVI()
-		{
-			this._RESPONSABILITÀs = new EntitySet<RESPONSABILITÀ>(new Action<RESPONSABILITÀ>(this.attach_RESPONSABILITÀs), new Action<RESPONSABILITÀ>(this.detach_RESPONSABILITÀs));
-			this._PERSONALE = default(EntityRef<PERSONALE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodiceFiscale
-		{
-			get
-			{
-				return this._CodiceFiscale;
-			}
-			set
-			{
-				if ((this._CodiceFiscale != value))
-				{
-					if (this._PERSONALE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodiceFiscaleChanging(value);
-					this.SendPropertyChanging();
-					this._CodiceFiscale = value;
-					this.SendPropertyChanged("CodiceFiscale");
-					this.OnCodiceFiscaleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioData", DbType="Date NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime InizioData
-		{
-			get
-			{
-				return this._InizioData;
-			}
-			set
-			{
-				if ((this._InizioData != value))
-				{
-					this.OnInizioDataChanging(value);
-					this.SendPropertyChanging();
-					this._InizioData = value;
-					this.SendPropertyChanged("InizioData");
-					this.OnInizioDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioOra", DbType="Time NOT NULL", IsPrimaryKey=true)]
-		public System.TimeSpan InizioOra
-		{
-			get
-			{
-				return this._InizioOra;
-			}
-			set
-			{
-				if ((this._InizioOra != value))
-				{
-					this.OnInizioOraChanging(value);
-					this.SendPropertyChanging();
-					this._InizioOra = value;
-					this.SendPropertyChanged("InizioOra");
-					this.OnInizioOraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FineData", DbType="Date NOT NULL")]
-		public System.DateTime FineData
-		{
-			get
-			{
-				return this._FineData;
-			}
-			set
-			{
-				if ((this._FineData != value))
-				{
-					this.OnFineDataChanging(value);
-					this.SendPropertyChanging();
-					this._FineData = value;
-					this.SendPropertyChanged("FineData");
-					this.OnFineDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FineOra", DbType="Time NOT NULL")]
-		public System.TimeSpan FineOra
-		{
-			get
-			{
-				return this._FineOra;
-			}
-			set
-			{
-				if ((this._FineOra != value))
-				{
-					this.OnFineOraChanging(value);
-					this.SendPropertyChanging();
-					this._FineOra = value;
-					this.SendPropertyChanged("FineOra");
-					this.OnFineOraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TURNI_LAVORATIVI_RESPONSABILITÀ", Storage="_RESPONSABILITÀs", ThisKey="CodiceFiscale,InizioData,InizioOra", OtherKey="CodiceFiscale,InizioData,InizioOra")]
-		public EntitySet<RESPONSABILITÀ> RESPONSABILITÀs
-		{
-			get
-			{
-				return this._RESPONSABILITÀs;
-			}
-			set
-			{
-				this._RESPONSABILITÀs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONALE_TURNI_LAVORATIVI", Storage="_PERSONALE", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale", IsForeignKey=true)]
-		public PERSONALE PERSONALE
-		{
-			get
-			{
-				return this._PERSONALE.Entity;
-			}
-			set
-			{
-				PERSONALE previousValue = this._PERSONALE.Entity;
-				if (((previousValue != value) 
-							|| (this._PERSONALE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PERSONALE.Entity = null;
-						previousValue.TURNI_LAVORATIVIs.Remove(this);
-					}
-					this._PERSONALE.Entity = value;
-					if ((value != null))
-					{
-						value.TURNI_LAVORATIVIs.Add(this);
-						this._CodiceFiscale = value.CodiceFiscale;
-					}
-					else
-					{
-						this._CodiceFiscale = default(string);
-					}
-					this.SendPropertyChanged("PERSONALE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_RESPONSABILITÀs(RESPONSABILITÀ entity)
-		{
-			this.SendPropertyChanging();
-			entity.TURNI_LAVORATIVI = this;
-		}
-		
-		private void detach_RESPONSABILITÀs(RESPONSABILITÀ entity)
-		{
-			this.SendPropertyChanging();
-			entity.TURNI_LAVORATIVI = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ATTIVITÀ")]
 	public partial class ATTIVITÀ : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -813,7 +927,7 @@ namespace db_crociere
 		
 		private string _Descrizione;
 		
-		private EntitySet<INTRATTENIMENTI> _INTRATTENIMENTIs;
+		private EntitySet<PROGRAMMAZIONI> _PROGRAMMAZIONIs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -829,7 +943,7 @@ namespace db_crociere
 		
 		public ATTIVITÀ()
 		{
-			this._INTRATTENIMENTIs = new EntitySet<INTRATTENIMENTI>(new Action<INTRATTENIMENTI>(this.attach_INTRATTENIMENTIs), new Action<INTRATTENIMENTI>(this.detach_INTRATTENIMENTIs));
+			this._PROGRAMMAZIONIs = new EntitySet<PROGRAMMAZIONI>(new Action<PROGRAMMAZIONI>(this.attach_PROGRAMMAZIONIs), new Action<PROGRAMMAZIONI>(this.detach_PROGRAMMAZIONIs));
 			OnCreated();
 		}
 		
@@ -873,7 +987,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(150)")]
 		public string Descrizione
 		{
 			get
@@ -893,16 +1007,16 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ATTIVITÀ_INTRATTENIMENTI", Storage="_INTRATTENIMENTIs", ThisKey="CodAttività", OtherKey="CodAttività")]
-		public EntitySet<INTRATTENIMENTI> INTRATTENIMENTIs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ATTIVITÀ_PROGRAMMAZIONI", Storage="_PROGRAMMAZIONIs", ThisKey="CodAttività", OtherKey="CodAttività")]
+		public EntitySet<PROGRAMMAZIONI> PROGRAMMAZIONIs
 		{
 			get
 			{
-				return this._INTRATTENIMENTIs;
+				return this._PROGRAMMAZIONIs;
 			}
 			set
 			{
-				this._INTRATTENIMENTIs.Assign(value);
+				this._PROGRAMMAZIONIs.Assign(value);
 			}
 		}
 		
@@ -926,13 +1040,13 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void attach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.ATTIVITÀ = this;
 		}
 		
-		private void detach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void detach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.ATTIVITÀ = null;
@@ -947,19 +1061,17 @@ namespace db_crociere
 		
 		private decimal _CodBadge;
 		
+		private decimal _CodPrenotazione;
+		
+		private string _CodiceFiscale;
+		
 		private string _CartaCredito;
-		
-		private string _NomeNave;
-		
-		private decimal _NumeroPonte;
-		
-		private decimal _CodCabina;
-		
-		private EntitySet<PASSEGGERI> _PASSEGGERIs;
 		
 		private EntitySet<SPESE_EXTRA> _SPESE_EXTRAs;
 		
-		private EntityRef<CABINE> _CABINE;
+		private EntityRef<PASSEGGERI> _PASSEGGERI;
+		
+		private EntityRef<PRENOTAZIONI> _PRENOTAZIONI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -967,21 +1079,19 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodBadgeChanging(decimal value);
     partial void OnCodBadgeChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
     partial void OnCartaCreditoChanging(string value);
     partial void OnCartaCreditoChanged();
-    partial void OnNomeNaveChanging(string value);
-    partial void OnNomeNaveChanged();
-    partial void OnNumeroPonteChanging(decimal value);
-    partial void OnNumeroPonteChanged();
-    partial void OnCodCabinaChanging(decimal value);
-    partial void OnCodCabinaChanged();
     #endregion
 		
 		public BADGE()
 		{
-			this._PASSEGGERIs = new EntitySet<PASSEGGERI>(new Action<PASSEGGERI>(this.attach_PASSEGGERIs), new Action<PASSEGGERI>(this.detach_PASSEGGERIs));
 			this._SPESE_EXTRAs = new EntitySet<SPESE_EXTRA>(new Action<SPESE_EXTRA>(this.attach_SPESE_EXTRAs), new Action<SPESE_EXTRA>(this.detach_SPESE_EXTRAs));
-			this._CABINE = default(EntityRef<CABINE>);
+			this._PASSEGGERI = default(EntityRef<PASSEGGERI>);
+			this._PRENOTAZIONI = default(EntityRef<PRENOTAZIONI>);
 			OnCreated();
 		}
 		
@@ -1001,6 +1111,54 @@ namespace db_crociere
 					this._CodBadge = value;
 					this.SendPropertyChanged("CodBadge");
 					this.OnCodBadgeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL")]
+		public decimal CodPrenotazione
+		{
+			get
+			{
+				return this._CodPrenotazione;
+			}
+			set
+			{
+				if ((this._CodPrenotazione != value))
+				{
+					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodPrenotazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					if (this._PASSEGGERI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
 				}
 			}
 		}
@@ -1025,91 +1183,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string NomeNave
-		{
-			get
-			{
-				return this._NomeNave;
-			}
-			set
-			{
-				if ((this._NomeNave != value))
-				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNomeNaveChanging(value);
-					this.SendPropertyChanging();
-					this._NomeNave = value;
-					this.SendPropertyChanged("NomeNave");
-					this.OnNomeNaveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroPonte", DbType="Decimal(2,0) NOT NULL")]
-		public decimal NumeroPonte
-		{
-			get
-			{
-				return this._NumeroPonte;
-			}
-			set
-			{
-				if ((this._NumeroPonte != value))
-				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNumeroPonteChanging(value);
-					this.SendPropertyChanging();
-					this._NumeroPonte = value;
-					this.SendPropertyChanged("NumeroPonte");
-					this.OnNumeroPonteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodCabina", DbType="Decimal(4,0) NOT NULL")]
-		public decimal CodCabina
-		{
-			get
-			{
-				return this._CodCabina;
-			}
-			set
-			{
-				if ((this._CodCabina != value))
-				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodCabinaChanging(value);
-					this.SendPropertyChanging();
-					this._CodCabina = value;
-					this.SendPropertyChanged("CodCabina");
-					this.OnCodCabinaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BADGE_PASSEGGERI", Storage="_PASSEGGERIs", ThisKey="CodBadge", OtherKey="CodBadge")]
-		public EntitySet<PASSEGGERI> PASSEGGERIs
-		{
-			get
-			{
-				return this._PASSEGGERIs;
-			}
-			set
-			{
-				this._PASSEGGERIs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BADGE_SPESE_EXTRA", Storage="_SPESE_EXTRAs", ThisKey="CodBadge", OtherKey="CodBadge")]
 		public EntitySet<SPESE_EXTRA> SPESE_EXTRAs
 		{
@@ -1123,40 +1196,70 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_BADGE", Storage="_CABINE", ThisKey="NomeNave,NumeroPonte,CodCabina", OtherKey="NomeNave,NumeroPonte,CodCabina", IsForeignKey=true)]
-		public CABINE CABINE
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSEGGERI_BADGE", Storage="_PASSEGGERI", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public PASSEGGERI PASSEGGERI
 		{
 			get
 			{
-				return this._CABINE.Entity;
+				return this._PASSEGGERI.Entity;
 			}
 			set
 			{
-				CABINE previousValue = this._CABINE.Entity;
+				PASSEGGERI previousValue = this._PASSEGGERI.Entity;
 				if (((previousValue != value) 
-							|| (this._CABINE.HasLoadedOrAssignedValue == false)))
+							|| (this._PASSEGGERI.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._CABINE.Entity = null;
+						this._PASSEGGERI.Entity = null;
 						previousValue.BADGEs.Remove(this);
 					}
-					this._CABINE.Entity = value;
+					this._PASSEGGERI.Entity = value;
 					if ((value != null))
 					{
 						value.BADGEs.Add(this);
-						this._NomeNave = value.NomeNave;
-						this._NumeroPonte = value.NumeroPonte;
-						this._CodCabina = value.CodCabina;
+						this._CodiceFiscale = value.CodiceFiscale;
 					}
 					else
 					{
-						this._NomeNave = default(string);
-						this._NumeroPonte = default(decimal);
-						this._CodCabina = default(decimal);
+						this._CodiceFiscale = default(string);
 					}
-					this.SendPropertyChanged("CABINE");
+					this.SendPropertyChanged("PASSEGGERI");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_BADGE", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
+		public PRENOTAZIONI PRENOTAZIONI
+		{
+			get
+			{
+				return this._PRENOTAZIONI.Entity;
+			}
+			set
+			{
+				PRENOTAZIONI previousValue = this._PRENOTAZIONI.Entity;
+				if (((previousValue != value) 
+							|| (this._PRENOTAZIONI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PRENOTAZIONI.Entity = null;
+						previousValue.BADGEs.Remove(this);
+					}
+					this._PRENOTAZIONI.Entity = value;
+					if ((value != null))
+					{
+						value.BADGEs.Add(this);
+						this._CodPrenotazione = value.CodPrenotazione;
+					}
+					else
+					{
+						this._CodPrenotazione = default(decimal);
+					}
+					this.SendPropertyChanged("PRENOTAZIONI");
 				}
 			}
 		}
@@ -1181,18 +1284,6 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_PASSEGGERIs(PASSEGGERI entity)
-		{
-			this.SendPropertyChanging();
-			entity.BADGE = this;
-		}
-		
-		private void detach_PASSEGGERIs(PASSEGGERI entity)
-		{
-			this.SendPropertyChanging();
-			entity.BADGE = null;
-		}
-		
 		private void attach_SPESE_EXTRAs(SPESE_EXTRA entity)
 		{
 			this.SendPropertyChanging();
@@ -1212,21 +1303,21 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private decimal _CodCabina;
+		
 		private string _NomeNave;
 		
 		private decimal _NumeroPonte;
 		
-		private decimal _CodCabina;
+		private decimal _NumeroLocale;
 		
-		private decimal _Capienza;
+		private decimal _PostiLetto;
 		
 		private string _Posizione;
 		
-		private string _Tipologia;
+		private string _NomeTipologia;
 		
-		private EntitySet<BADGE> _BADGEs;
-		
-		private EntitySet<PRENOTAZIONI> _PRENOTAZIONIs;
+		private EntitySet<ALLOGGI> _ALLOGGIs;
 		
 		private EntityRef<PONTI> _PONTI;
 		
@@ -1236,30 +1327,51 @@ namespace db_crociere
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnCodCabinaChanging(decimal value);
+    partial void OnCodCabinaChanged();
     partial void OnNomeNaveChanging(string value);
     partial void OnNomeNaveChanged();
     partial void OnNumeroPonteChanging(decimal value);
     partial void OnNumeroPonteChanged();
-    partial void OnCodCabinaChanging(decimal value);
-    partial void OnCodCabinaChanged();
-    partial void OnCapienzaChanging(decimal value);
-    partial void OnCapienzaChanged();
+    partial void OnNumeroLocaleChanging(decimal value);
+    partial void OnNumeroLocaleChanged();
+    partial void OnPostiLettoChanging(decimal value);
+    partial void OnPostiLettoChanged();
     partial void OnPosizioneChanging(string value);
     partial void OnPosizioneChanged();
-    partial void OnTipologiaChanging(string value);
-    partial void OnTipologiaChanged();
+    partial void OnNomeTipologiaChanging(string value);
+    partial void OnNomeTipologiaChanged();
     #endregion
 		
 		public CABINE()
 		{
-			this._BADGEs = new EntitySet<BADGE>(new Action<BADGE>(this.attach_BADGEs), new Action<BADGE>(this.detach_BADGEs));
-			this._PRENOTAZIONIs = new EntitySet<PRENOTAZIONI>(new Action<PRENOTAZIONI>(this.attach_PRENOTAZIONIs), new Action<PRENOTAZIONI>(this.detach_PRENOTAZIONIs));
+			this._ALLOGGIs = new EntitySet<ALLOGGI>(new Action<ALLOGGI>(this.attach_ALLOGGIs), new Action<ALLOGGI>(this.detach_ALLOGGIs));
 			this._PONTI = default(EntityRef<PONTI>);
 			this._TIPOLOGIE = default(EntityRef<TIPOLOGIE>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodCabina", AutoSync=AutoSync.OnInsert, DbType="Decimal(5,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal CodCabina
+		{
+			get
+			{
+				return this._CodCabina;
+			}
+			set
+			{
+				if ((this._CodCabina != value))
+				{
+					this.OnCodCabinaChanging(value);
+					this.SendPropertyChanging();
+					this._CodCabina = value;
+					this.SendPropertyChanged("CodCabina");
+					this.OnCodCabinaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
 		public string NomeNave
 		{
 			get
@@ -1283,7 +1395,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroPonte", DbType="Decimal(2,0) NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroPonte", DbType="Decimal(2,0) NOT NULL")]
 		public decimal NumeroPonte
 		{
 			get
@@ -1307,42 +1419,42 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodCabina", DbType="Decimal(4,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal CodCabina
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroLocale", DbType="Decimal(3,0) NOT NULL")]
+		public decimal NumeroLocale
 		{
 			get
 			{
-				return this._CodCabina;
+				return this._NumeroLocale;
 			}
 			set
 			{
-				if ((this._CodCabina != value))
+				if ((this._NumeroLocale != value))
 				{
-					this.OnCodCabinaChanging(value);
+					this.OnNumeroLocaleChanging(value);
 					this.SendPropertyChanging();
-					this._CodCabina = value;
-					this.SendPropertyChanged("CodCabina");
-					this.OnCodCabinaChanged();
+					this._NumeroLocale = value;
+					this.SendPropertyChanged("NumeroLocale");
+					this.OnNumeroLocaleChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capienza", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Capienza
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostiLetto", DbType="Decimal(1,0) NOT NULL")]
+		public decimal PostiLetto
 		{
 			get
 			{
-				return this._Capienza;
+				return this._PostiLetto;
 			}
 			set
 			{
-				if ((this._Capienza != value))
+				if ((this._PostiLetto != value))
 				{
-					this.OnCapienzaChanging(value);
+					this.OnPostiLettoChanging(value);
 					this.SendPropertyChanging();
-					this._Capienza = value;
-					this.SendPropertyChanged("Capienza");
-					this.OnCapienzaChanged();
+					this._PostiLetto = value;
+					this.SendPropertyChanged("PostiLetto");
+					this.OnPostiLettoChanged();
 				}
 			}
 		}
@@ -1367,53 +1479,40 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipologia", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
-		public string Tipologia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeTipologia", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		public string NomeTipologia
 		{
 			get
 			{
-				return this._Tipologia;
+				return this._NomeTipologia;
 			}
 			set
 			{
-				if ((this._Tipologia != value))
+				if ((this._NomeTipologia != value))
 				{
 					if (this._TIPOLOGIE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnTipologiaChanging(value);
+					this.OnNomeTipologiaChanging(value);
 					this.SendPropertyChanging();
-					this._Tipologia = value;
-					this.SendPropertyChanged("Tipologia");
-					this.OnTipologiaChanged();
+					this._NomeTipologia = value;
+					this.SendPropertyChanged("NomeTipologia");
+					this.OnNomeTipologiaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_BADGE", Storage="_BADGEs", ThisKey="NomeNave,NumeroPonte,CodCabina", OtherKey="NomeNave,NumeroPonte,CodCabina")]
-		public EntitySet<BADGE> BADGEs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_ALLOGGI", Storage="_ALLOGGIs", ThisKey="CodCabina", OtherKey="CodCabina")]
+		public EntitySet<ALLOGGI> ALLOGGIs
 		{
 			get
 			{
-				return this._BADGEs;
+				return this._ALLOGGIs;
 			}
 			set
 			{
-				this._BADGEs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_PRENOTAZIONI", Storage="_PRENOTAZIONIs", ThisKey="NomeNave,NumeroPonte,CodCabina", OtherKey="NomeNave,NumeroPonte,CodCabina")]
-		public EntitySet<PRENOTAZIONI> PRENOTAZIONIs
-		{
-			get
-			{
-				return this._PRENOTAZIONIs;
-			}
-			set
-			{
-				this._PRENOTAZIONIs.Assign(value);
+				this._ALLOGGIs.Assign(value);
 			}
 		}
 		
@@ -1453,7 +1552,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_CABINE", Storage="_TIPOLOGIE", ThisKey="Tipologia", OtherKey="Nome", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_CABINE", Storage="_TIPOLOGIE", ThisKey="NomeTipologia", OtherKey="Nome", IsForeignKey=true)]
 		public TIPOLOGIE TIPOLOGIE
 		{
 			get
@@ -1476,11 +1575,11 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.CABINEs.Add(this);
-						this._Tipologia = value.Nome;
+						this._NomeTipologia = value.Nome;
 					}
 					else
 					{
-						this._Tipologia = default(string);
+						this._NomeTipologia = default(string);
 					}
 					this.SendPropertyChanged("TIPOLOGIE");
 				}
@@ -1507,161 +1606,166 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_BADGEs(BADGE entity)
+		private void attach_ALLOGGIs(ALLOGGI entity)
 		{
 			this.SendPropertyChanging();
 			entity.CABINE = this;
 		}
 		
-		private void detach_BADGEs(BADGE entity)
-		{
-			this.SendPropertyChanging();
-			entity.CABINE = null;
-		}
-		
-		private void attach_PRENOTAZIONIs(PRENOTAZIONI entity)
-		{
-			this.SendPropertyChanging();
-			entity.CABINE = this;
-		}
-		
-		private void detach_PRENOTAZIONIs(PRENOTAZIONI entity)
+		private void detach_ALLOGGIs(ALLOGGI entity)
 		{
 			this.SendPropertyChanging();
 			entity.CABINE = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INTRATTENIMENTI")]
-	public partial class INTRATTENIMENTI : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ESECUZIONI_TRATTA")]
+	public partial class ESECUZIONI_TRATTA : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _CodAttività;
+		private decimal _CodTratta;
 		
-		private System.DateTime _DataInizio;
+		private System.DateTime _Partenza_Data;
 		
-		private System.TimeSpan _OrarioInizio;
+		private System.TimeSpan _Partenza_Ora;
 		
-		private string _CodSala;
+		private System.DateTime _Arrivo_Data;
+		
+		private System.TimeSpan _Arrivo_Ora;
 		
 		private decimal _CodNavigazione;
 		
-		private EntityRef<ATTIVITÀ> _ATTIVITÀ;
-		
 		private EntityRef<NAVIGAZIONI> _NAVIGAZIONI;
 		
-		private EntityRef<SALE> _SALE;
+		private EntityRef<TRATTE> _TRATTE;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodAttivitàChanging(decimal value);
-    partial void OnCodAttivitàChanged();
-    partial void OnDataInizioChanging(System.DateTime value);
-    partial void OnDataInizioChanged();
-    partial void OnOrarioInizioChanging(System.TimeSpan value);
-    partial void OnOrarioInizioChanged();
-    partial void OnCodSalaChanging(string value);
-    partial void OnCodSalaChanged();
+    partial void OnCodTrattaChanging(decimal value);
+    partial void OnCodTrattaChanged();
+    partial void OnPartenza_DataChanging(System.DateTime value);
+    partial void OnPartenza_DataChanged();
+    partial void OnPartenza_OraChanging(System.TimeSpan value);
+    partial void OnPartenza_OraChanged();
+    partial void OnArrivo_DataChanging(System.DateTime value);
+    partial void OnArrivo_DataChanged();
+    partial void OnArrivo_OraChanging(System.TimeSpan value);
+    partial void OnArrivo_OraChanged();
     partial void OnCodNavigazioneChanging(decimal value);
     partial void OnCodNavigazioneChanged();
     #endregion
 		
-		public INTRATTENIMENTI()
+		public ESECUZIONI_TRATTA()
 		{
-			this._ATTIVITÀ = default(EntityRef<ATTIVITÀ>);
 			this._NAVIGAZIONI = default(EntityRef<NAVIGAZIONI>);
-			this._SALE = default(EntityRef<SALE>);
+			this._TRATTE = default(EntityRef<TRATTE>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAttività", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal CodAttività
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTratta", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodTratta
 		{
 			get
 			{
-				return this._CodAttività;
+				return this._CodTratta;
 			}
 			set
 			{
-				if ((this._CodAttività != value))
+				if ((this._CodTratta != value))
 				{
-					if (this._ATTIVITÀ.HasLoadedOrAssignedValue)
+					if (this._TRATTE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnCodAttivitàChanging(value);
+					this.OnCodTrattaChanging(value);
 					this.SendPropertyChanging();
-					this._CodAttività = value;
-					this.SendPropertyChanged("CodAttività");
-					this.OnCodAttivitàChanged();
+					this._CodTratta = value;
+					this.SendPropertyChanged("CodTratta");
+					this.OnCodTrattaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInizio", DbType="Date NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime DataInizio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Partenza_Data", DbType="Date NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime Partenza_Data
 		{
 			get
 			{
-				return this._DataInizio;
+				return this._Partenza_Data;
 			}
 			set
 			{
-				if ((this._DataInizio != value))
+				if ((this._Partenza_Data != value))
 				{
-					this.OnDataInizioChanging(value);
+					this.OnPartenza_DataChanging(value);
 					this.SendPropertyChanging();
-					this._DataInizio = value;
-					this.SendPropertyChanged("DataInizio");
-					this.OnDataInizioChanged();
+					this._Partenza_Data = value;
+					this.SendPropertyChanged("Partenza_Data");
+					this.OnPartenza_DataChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrarioInizio", DbType="Time NOT NULL", IsPrimaryKey=true)]
-		public System.TimeSpan OrarioInizio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Partenza_Ora", DbType="Time NOT NULL")]
+		public System.TimeSpan Partenza_Ora
 		{
 			get
 			{
-				return this._OrarioInizio;
+				return this._Partenza_Ora;
 			}
 			set
 			{
-				if ((this._OrarioInizio != value))
+				if ((this._Partenza_Ora != value))
 				{
-					this.OnOrarioInizioChanging(value);
+					this.OnPartenza_OraChanging(value);
 					this.SendPropertyChanging();
-					this._OrarioInizio = value;
-					this.SendPropertyChanged("OrarioInizio");
-					this.OnOrarioInizioChanged();
+					this._Partenza_Ora = value;
+					this.SendPropertyChanged("Partenza_Ora");
+					this.OnPartenza_OraChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodSala", DbType="Char(3) NOT NULL", CanBeNull=false)]
-		public string CodSala
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Arrivo_Data", DbType="Date NOT NULL")]
+		public System.DateTime Arrivo_Data
 		{
 			get
 			{
-				return this._CodSala;
+				return this._Arrivo_Data;
 			}
 			set
 			{
-				if ((this._CodSala != value))
+				if ((this._Arrivo_Data != value))
 				{
-					if (this._SALE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodSalaChanging(value);
+					this.OnArrivo_DataChanging(value);
 					this.SendPropertyChanging();
-					this._CodSala = value;
-					this.SendPropertyChanged("CodSala");
-					this.OnCodSalaChanged();
+					this._Arrivo_Data = value;
+					this.SendPropertyChanged("Arrivo_Data");
+					this.OnArrivo_DataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Arrivo_Ora", DbType="Time NOT NULL")]
+		public System.TimeSpan Arrivo_Ora
+		{
+			get
+			{
+				return this._Arrivo_Ora;
+			}
+			set
+			{
+				if ((this._Arrivo_Ora != value))
+				{
+					this.OnArrivo_OraChanging(value);
+					this.SendPropertyChanging();
+					this._Arrivo_Ora = value;
+					this.SendPropertyChanged("Arrivo_Ora");
+					this.OnArrivo_OraChanged();
 				}
 			}
 		}
@@ -1690,41 +1794,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ATTIVITÀ_INTRATTENIMENTI", Storage="_ATTIVITÀ", ThisKey="CodAttività", OtherKey="CodAttività", IsForeignKey=true)]
-		public ATTIVITÀ ATTIVITÀ
-		{
-			get
-			{
-				return this._ATTIVITÀ.Entity;
-			}
-			set
-			{
-				ATTIVITÀ previousValue = this._ATTIVITÀ.Entity;
-				if (((previousValue != value) 
-							|| (this._ATTIVITÀ.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ATTIVITÀ.Entity = null;
-						previousValue.INTRATTENIMENTIs.Remove(this);
-					}
-					this._ATTIVITÀ.Entity = value;
-					if ((value != null))
-					{
-						value.INTRATTENIMENTIs.Add(this);
-						this._CodAttività = value.CodAttività;
-					}
-					else
-					{
-						this._CodAttività = default(decimal);
-					}
-					this.SendPropertyChanged("ATTIVITÀ");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_INTRATTENIMENTI", Storage="_NAVIGAZIONI", ThisKey="CodNavigazione", OtherKey="CodNavigazione", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_ESECUZIONI_TRATTA", Storage="_NAVIGAZIONI", ThisKey="CodNavigazione", OtherKey="CodNavigazione", IsForeignKey=true)]
 		public NAVIGAZIONI NAVIGAZIONI
 		{
 			get
@@ -1741,12 +1811,12 @@ namespace db_crociere
 					if ((previousValue != null))
 					{
 						this._NAVIGAZIONI.Entity = null;
-						previousValue.INTRATTENIMENTIs.Remove(this);
+						previousValue.ESECUZIONI_TRATTAs.Remove(this);
 					}
 					this._NAVIGAZIONI.Entity = value;
 					if ((value != null))
 					{
-						value.INTRATTENIMENTIs.Add(this);
+						value.ESECUZIONI_TRATTAs.Add(this);
 						this._CodNavigazione = value.CodNavigazione;
 					}
 					else
@@ -1758,36 +1828,36 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SALE_INTRATTENIMENTI", Storage="_SALE", ThisKey="CodSala", OtherKey="CodSala", IsForeignKey=true)]
-		public SALE SALE
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_ESECUZIONI_TRATTA", Storage="_TRATTE", ThisKey="CodTratta", OtherKey="CodTratta", IsForeignKey=true)]
+		public TRATTE TRATTE
 		{
 			get
 			{
-				return this._SALE.Entity;
+				return this._TRATTE.Entity;
 			}
 			set
 			{
-				SALE previousValue = this._SALE.Entity;
+				TRATTE previousValue = this._TRATTE.Entity;
 				if (((previousValue != value) 
-							|| (this._SALE.HasLoadedOrAssignedValue == false)))
+							|| (this._TRATTE.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._SALE.Entity = null;
-						previousValue.INTRATTENIMENTIs.Remove(this);
+						this._TRATTE.Entity = null;
+						previousValue.ESECUZIONI_TRATTAs.Remove(this);
 					}
-					this._SALE.Entity = value;
+					this._TRATTE.Entity = value;
 					if ((value != null))
 					{
-						value.INTRATTENIMENTIs.Add(this);
-						this._CodSala = value.CodSala;
+						value.ESECUZIONI_TRATTAs.Add(this);
+						this._CodTratta = value.CodTratta;
 					}
 					else
 					{
-						this._CodSala = default(string);
+						this._CodTratta = default(decimal);
 					}
-					this.SendPropertyChanged("SALE");
+					this.SendPropertyChanged("TRATTE");
 				}
 			}
 		}
@@ -1821,9 +1891,7 @@ namespace db_crociere
 		
 		private string _Nome;
 		
-		private string _CodNave;
-		
-		private string _CodicePercorso;
+		private decimal _CodNave;
 		
 		private decimal _Larghezza;
 		
@@ -1837,13 +1905,13 @@ namespace db_crociere
 		
 		private EntitySet<NAVIGAZIONI> _NAVIGAZIONIs;
 		
+		private EntitySet<PERCORSI> _PERCORSIs;
+		
 		private EntitySet<PONTI> _PONTIs;
 		
 		private EntitySet<SCIALUPPE> _SCIALUPPEs;
 		
 		private EntitySet<TARIFFARI> _TARIFFARIs;
-		
-		private EntityRef<PERCORSI> _PERCORSI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1851,10 +1919,8 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
-    partial void OnCodNaveChanging(string value);
+    partial void OnCodNaveChanging(decimal value);
     partial void OnCodNaveChanged();
-    partial void OnCodicePercorsoChanging(string value);
-    partial void OnCodicePercorsoChanged();
     partial void OnLarghezzaChanging(decimal value);
     partial void OnLarghezzaChanged();
     partial void OnLunghezzaChanging(decimal value);
@@ -1870,10 +1936,10 @@ namespace db_crociere
 		public NAVI()
 		{
 			this._NAVIGAZIONIs = new EntitySet<NAVIGAZIONI>(new Action<NAVIGAZIONI>(this.attach_NAVIGAZIONIs), new Action<NAVIGAZIONI>(this.detach_NAVIGAZIONIs));
+			this._PERCORSIs = new EntitySet<PERCORSI>(new Action<PERCORSI>(this.attach_PERCORSIs), new Action<PERCORSI>(this.detach_PERCORSIs));
 			this._PONTIs = new EntitySet<PONTI>(new Action<PONTI>(this.attach_PONTIs), new Action<PONTI>(this.detach_PONTIs));
 			this._SCIALUPPEs = new EntitySet<SCIALUPPE>(new Action<SCIALUPPE>(this.attach_SCIALUPPEs), new Action<SCIALUPPE>(this.detach_SCIALUPPEs));
 			this._TARIFFARIs = new EntitySet<TARIFFARI>(new Action<TARIFFARI>(this.attach_TARIFFARIs), new Action<TARIFFARI>(this.detach_TARIFFARIs));
-			this._PERCORSI = default(EntityRef<PERCORSI>);
 			OnCreated();
 		}
 		
@@ -1897,8 +1963,8 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodNave", DbType="Char(5) NOT NULL", CanBeNull=false)]
-		public string CodNave
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodNave", AutoSync=AutoSync.Always, DbType="Decimal(2,0) NOT NULL IDENTITY", IsDbGenerated=true)]
+		public decimal CodNave
 		{
 			get
 			{
@@ -1913,30 +1979,6 @@ namespace db_crociere
 					this._CodNave = value;
 					this.SendPropertyChanged("CodNave");
 					this.OnCodNaveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePercorso", DbType="Char(5) NOT NULL", CanBeNull=false)]
-		public string CodicePercorso
-		{
-			get
-			{
-				return this._CodicePercorso;
-			}
-			set
-			{
-				if ((this._CodicePercorso != value))
-				{
-					if (this._PERCORSI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodicePercorsoChanging(value);
-					this.SendPropertyChanging();
-					this._CodicePercorso = value;
-					this.SendPropertyChanged("CodicePercorso");
-					this.OnCodicePercorsoChanged();
 				}
 			}
 		}
@@ -2054,6 +2096,19 @@ namespace db_crociere
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVI_PERCORSI", Storage="_PERCORSIs", ThisKey="Nome", OtherKey="NomeNave")]
+		public EntitySet<PERCORSI> PERCORSIs
+		{
+			get
+			{
+				return this._PERCORSIs;
+			}
+			set
+			{
+				this._PERCORSIs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVI_PONTI", Storage="_PONTIs", ThisKey="Nome", OtherKey="NomeNave")]
 		public EntitySet<PONTI> PONTIs
 		{
@@ -2093,40 +2148,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVI", Storage="_PERCORSI", ThisKey="CodicePercorso", OtherKey="CodicePercorso", IsForeignKey=true)]
-		public PERCORSI PERCORSI
-		{
-			get
-			{
-				return this._PERCORSI.Entity;
-			}
-			set
-			{
-				PERCORSI previousValue = this._PERCORSI.Entity;
-				if (((previousValue != value) 
-							|| (this._PERCORSI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PERCORSI.Entity = null;
-						previousValue.NAVIs.Remove(this);
-					}
-					this._PERCORSI.Entity = value;
-					if ((value != null))
-					{
-						value.NAVIs.Add(this);
-						this._CodicePercorso = value.CodicePercorso;
-					}
-					else
-					{
-						this._CodicePercorso = default(string);
-					}
-					this.SendPropertyChanged("PERCORSI");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2154,6 +2175,18 @@ namespace db_crociere
 		}
 		
 		private void detach_NAVIGAZIONIs(NAVIGAZIONI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVI = null;
+		}
+		
+		private void attach_PERCORSIs(PERCORSI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVI = this;
+		}
+		
+		private void detach_PERCORSIs(PERCORSI entity)
 		{
 			this.SendPropertyChanging();
 			entity.NAVI = null;
@@ -2204,23 +2237,25 @@ namespace db_crociere
 		
 		private decimal _CodNavigazione;
 		
-		private System.DateTime _DataInizio;
-		
 		private string _NomeNave;
+		
+		private System.DateTime _DataInizio;
 		
 		private System.DateTime _DataFine;
 		
 		private decimal _NumeroEsecuzioni;
 		
-		private string _CodicePercorso;
+		private string _CodPercorso;
 		
-		private EntitySet<INTRATTENIMENTI> _INTRATTENIMENTIs;
+		private EntitySet<ESECUZIONI_TRATTA> _ESECUZIONI_TRATTAs;
 		
 		private EntitySet<PRENOTAZIONI> _PRENOTAZIONIs;
 		
-		private EntitySet<SERVIZI> _SERVIZIs;
+		private EntitySet<PROGRAMMAZIONI> _PROGRAMMAZIONIs;
 		
-		private EntitySet<TRATTE_IN_NAVIGAZIONE> _TRATTE_IN_NAVIGAZIONEs;
+		private EntitySet<RESPONSABILITÀ> _RESPONSABILITÀs;
+		
+		private EntitySet<SERVIZI> _SERVIZIs;
 		
 		private EntityRef<NAVI> _NAVI;
 		
@@ -2232,24 +2267,25 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodNavigazioneChanging(decimal value);
     partial void OnCodNavigazioneChanged();
-    partial void OnDataInizioChanging(System.DateTime value);
-    partial void OnDataInizioChanged();
     partial void OnNomeNaveChanging(string value);
     partial void OnNomeNaveChanged();
+    partial void OnDataInizioChanging(System.DateTime value);
+    partial void OnDataInizioChanged();
     partial void OnDataFineChanging(System.DateTime value);
     partial void OnDataFineChanged();
     partial void OnNumeroEsecuzioniChanging(decimal value);
     partial void OnNumeroEsecuzioniChanged();
-    partial void OnCodicePercorsoChanging(string value);
-    partial void OnCodicePercorsoChanged();
+    partial void OnCodPercorsoChanging(string value);
+    partial void OnCodPercorsoChanged();
     #endregion
 		
 		public NAVIGAZIONI()
 		{
-			this._INTRATTENIMENTIs = new EntitySet<INTRATTENIMENTI>(new Action<INTRATTENIMENTI>(this.attach_INTRATTENIMENTIs), new Action<INTRATTENIMENTI>(this.detach_INTRATTENIMENTIs));
+			this._ESECUZIONI_TRATTAs = new EntitySet<ESECUZIONI_TRATTA>(new Action<ESECUZIONI_TRATTA>(this.attach_ESECUZIONI_TRATTAs), new Action<ESECUZIONI_TRATTA>(this.detach_ESECUZIONI_TRATTAs));
 			this._PRENOTAZIONIs = new EntitySet<PRENOTAZIONI>(new Action<PRENOTAZIONI>(this.attach_PRENOTAZIONIs), new Action<PRENOTAZIONI>(this.detach_PRENOTAZIONIs));
+			this._PROGRAMMAZIONIs = new EntitySet<PROGRAMMAZIONI>(new Action<PROGRAMMAZIONI>(this.attach_PROGRAMMAZIONIs), new Action<PROGRAMMAZIONI>(this.detach_PROGRAMMAZIONIs));
+			this._RESPONSABILITÀs = new EntitySet<RESPONSABILITÀ>(new Action<RESPONSABILITÀ>(this.attach_RESPONSABILITÀs), new Action<RESPONSABILITÀ>(this.detach_RESPONSABILITÀs));
 			this._SERVIZIs = new EntitySet<SERVIZI>(new Action<SERVIZI>(this.attach_SERVIZIs), new Action<SERVIZI>(this.detach_SERVIZIs));
-			this._TRATTE_IN_NAVIGAZIONEs = new EntitySet<TRATTE_IN_NAVIGAZIONE>(new Action<TRATTE_IN_NAVIGAZIONE>(this.attach_TRATTE_IN_NAVIGAZIONEs), new Action<TRATTE_IN_NAVIGAZIONE>(this.detach_TRATTE_IN_NAVIGAZIONEs));
 			this._NAVI = default(EntityRef<NAVI>);
 			this._PERCORSI = default(EntityRef<PERCORSI>);
 			OnCreated();
@@ -2275,26 +2311,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInizio", DbType="Date NOT NULL")]
-		public System.DateTime DataInizio
-		{
-			get
-			{
-				return this._DataInizio;
-			}
-			set
-			{
-				if ((this._DataInizio != value))
-				{
-					this.OnDataInizioChanging(value);
-					this.SendPropertyChanging();
-					this._DataInizio = value;
-					this.SendPropertyChanged("DataInizio");
-					this.OnDataInizioChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
 		public string NomeNave
 		{
@@ -2315,6 +2331,26 @@ namespace db_crociere
 					this._NomeNave = value;
 					this.SendPropertyChanged("NomeNave");
 					this.OnNomeNaveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInizio", DbType="Date NOT NULL")]
+		public System.DateTime DataInizio
+		{
+			get
+			{
+				return this._DataInizio;
+			}
+			set
+			{
+				if ((this._DataInizio != value))
+				{
+					this.OnDataInizioChanging(value);
+					this.SendPropertyChanging();
+					this._DataInizio = value;
+					this.SendPropertyChanged("DataInizio");
+					this.OnDataInizioChanged();
 				}
 			}
 		}
@@ -2359,40 +2395,40 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePercorso", DbType="Char(5) NOT NULL", CanBeNull=false)]
-		public string CodicePercorso
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPercorso", DbType="Char(5) NOT NULL", CanBeNull=false)]
+		public string CodPercorso
 		{
 			get
 			{
-				return this._CodicePercorso;
+				return this._CodPercorso;
 			}
 			set
 			{
-				if ((this._CodicePercorso != value))
+				if ((this._CodPercorso != value))
 				{
 					if (this._PERCORSI.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnCodicePercorsoChanging(value);
+					this.OnCodPercorsoChanging(value);
 					this.SendPropertyChanging();
-					this._CodicePercorso = value;
-					this.SendPropertyChanged("CodicePercorso");
-					this.OnCodicePercorsoChanged();
+					this._CodPercorso = value;
+					this.SendPropertyChanged("CodPercorso");
+					this.OnCodPercorsoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_INTRATTENIMENTI", Storage="_INTRATTENIMENTIs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
-		public EntitySet<INTRATTENIMENTI> INTRATTENIMENTIs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_ESECUZIONI_TRATTA", Storage="_ESECUZIONI_TRATTAs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
+		public EntitySet<ESECUZIONI_TRATTA> ESECUZIONI_TRATTAs
 		{
 			get
 			{
-				return this._INTRATTENIMENTIs;
+				return this._ESECUZIONI_TRATTAs;
 			}
 			set
 			{
-				this._INTRATTENIMENTIs.Assign(value);
+				this._ESECUZIONI_TRATTAs.Assign(value);
 			}
 		}
 		
@@ -2409,6 +2445,32 @@ namespace db_crociere
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_PROGRAMMAZIONI", Storage="_PROGRAMMAZIONIs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
+		public EntitySet<PROGRAMMAZIONI> PROGRAMMAZIONIs
+		{
+			get
+			{
+				return this._PROGRAMMAZIONIs;
+			}
+			set
+			{
+				this._PROGRAMMAZIONIs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_RESPONSABILITÀ", Storage="_RESPONSABILITÀs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
+		public EntitySet<RESPONSABILITÀ> RESPONSABILITÀs
+		{
+			get
+			{
+				return this._RESPONSABILITÀs;
+			}
+			set
+			{
+				this._RESPONSABILITÀs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_SERVIZI", Storage="_SERVIZIs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
 		public EntitySet<SERVIZI> SERVIZIs
 		{
@@ -2419,19 +2481,6 @@ namespace db_crociere
 			set
 			{
 				this._SERVIZIs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_TRATTE_IN_NAVIGAZIONE", Storage="_TRATTE_IN_NAVIGAZIONEs", ThisKey="CodNavigazione", OtherKey="CodNavigazione")]
-		public EntitySet<TRATTE_IN_NAVIGAZIONE> TRATTE_IN_NAVIGAZIONEs
-		{
-			get
-			{
-				return this._TRATTE_IN_NAVIGAZIONEs;
-			}
-			set
-			{
-				this._TRATTE_IN_NAVIGAZIONEs.Assign(value);
 			}
 		}
 		
@@ -2469,7 +2518,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVIGAZIONI", Storage="_PERCORSI", ThisKey="CodicePercorso", OtherKey="CodicePercorso", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVIGAZIONI", Storage="_PERCORSI", ThisKey="CodPercorso", OtherKey="CodPercorso", IsForeignKey=true)]
 		public PERCORSI PERCORSI
 		{
 			get
@@ -2492,11 +2541,11 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.NAVIGAZIONIs.Add(this);
-						this._CodicePercorso = value.CodicePercorso;
+						this._CodPercorso = value.CodPercorso;
 					}
 					else
 					{
-						this._CodicePercorso = default(string);
+						this._CodPercorso = default(string);
 					}
 					this.SendPropertyChanged("PERCORSI");
 				}
@@ -2523,13 +2572,13 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void attach_ESECUZIONI_TRATTAs(ESECUZIONI_TRATTA entity)
 		{
 			this.SendPropertyChanging();
 			entity.NAVIGAZIONI = this;
 		}
 		
-		private void detach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void detach_ESECUZIONI_TRATTAs(ESECUZIONI_TRATTA entity)
 		{
 			this.SendPropertyChanging();
 			entity.NAVIGAZIONI = null;
@@ -2547,6 +2596,30 @@ namespace db_crociere
 			entity.NAVIGAZIONI = null;
 		}
 		
+		private void attach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVIGAZIONI = this;
+		}
+		
+		private void detach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVIGAZIONI = null;
+		}
+		
+		private void attach_RESPONSABILITÀs(RESPONSABILITÀ entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVIGAZIONI = this;
+		}
+		
+		private void detach_RESPONSABILITÀs(RESPONSABILITÀ entity)
+		{
+			this.SendPropertyChanging();
+			entity.NAVIGAZIONI = null;
+		}
+		
 		private void attach_SERVIZIs(SERVIZI entity)
 		{
 			this.SendPropertyChanging();
@@ -2554,18 +2627,6 @@ namespace db_crociere
 		}
 		
 		private void detach_SERVIZIs(SERVIZI entity)
-		{
-			this.SendPropertyChanging();
-			entity.NAVIGAZIONI = null;
-		}
-		
-		private void attach_TRATTE_IN_NAVIGAZIONEs(TRATTE_IN_NAVIGAZIONE entity)
-		{
-			this.SendPropertyChanging();
-			entity.NAVIGAZIONI = this;
-		}
-		
-		private void detach_TRATTE_IN_NAVIGAZIONEs(TRATTE_IN_NAVIGAZIONE entity)
 		{
 			this.SendPropertyChanging();
 			entity.NAVIGAZIONI = null;
@@ -2580,7 +2641,7 @@ namespace db_crociere
 		
 		private decimal _CodTransazione;
 		
-		private System.DateTime _DataTransazione;
+		private System.DateTime _DataPagamento;
 		
 		private decimal _Importo;
 		
@@ -2598,8 +2659,8 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodTransazioneChanging(decimal value);
     partial void OnCodTransazioneChanged();
-    partial void OnDataTransazioneChanging(System.DateTime value);
-    partial void OnDataTransazioneChanged();
+    partial void OnDataPagamentoChanging(System.DateTime value);
+    partial void OnDataPagamentoChanged();
     partial void OnImportoChanging(decimal value);
     partial void OnImportoChanged();
     partial void OnNumeroRateChanging(System.Nullable<decimal> value);
@@ -2635,22 +2696,22 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataTransazione", DbType="Date NOT NULL")]
-		public System.DateTime DataTransazione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPagamento", DbType="Date NOT NULL")]
+		public System.DateTime DataPagamento
 		{
 			get
 			{
-				return this._DataTransazione;
+				return this._DataPagamento;
 			}
 			set
 			{
-				if ((this._DataTransazione != value))
+				if ((this._DataPagamento != value))
 				{
-					this.OnDataTransazioneChanging(value);
+					this.OnDataPagamentoChanging(value);
 					this.SendPropertyChanging();
-					this._DataTransazione = value;
-					this.SendPropertyChanged("DataTransazione");
-					this.OnDataTransazioneChanged();
+					this._DataPagamento = value;
+					this.SendPropertyChanged("DataPagamento");
+					this.OnDataPagamentoChanged();
 				}
 			}
 		}
@@ -2794,8 +2855,6 @@ namespace db_crociere
 		
 		private string _CodiceFiscale;
 		
-		private decimal _CodBadge;
-		
 		private string _Nome;
 		
 		private string _Cognome;
@@ -2804,11 +2863,9 @@ namespace db_crociere
 		
 		private string _Passaporto;
 		
-		private EntitySet<PRENOTAZIONI> _PRENOTAZIONIs;
+		private EntitySet<BADGE> _BADGEs;
 		
 		private EntitySet<PRENOTAZIONI_PASSEGGERI> _PRENOTAZIONI_PASSEGGERIs;
-		
-		private EntityRef<BADGE> _BADGE;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2816,8 +2873,6 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodiceFiscaleChanging(string value);
     partial void OnCodiceFiscaleChanged();
-    partial void OnCodBadgeChanging(decimal value);
-    partial void OnCodBadgeChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
     partial void OnCognomeChanging(string value);
@@ -2830,9 +2885,8 @@ namespace db_crociere
 		
 		public PASSEGGERI()
 		{
-			this._PRENOTAZIONIs = new EntitySet<PRENOTAZIONI>(new Action<PRENOTAZIONI>(this.attach_PRENOTAZIONIs), new Action<PRENOTAZIONI>(this.detach_PRENOTAZIONIs));
+			this._BADGEs = new EntitySet<BADGE>(new Action<BADGE>(this.attach_BADGEs), new Action<BADGE>(this.detach_BADGEs));
 			this._PRENOTAZIONI_PASSEGGERIs = new EntitySet<PRENOTAZIONI_PASSEGGERI>(new Action<PRENOTAZIONI_PASSEGGERI>(this.attach_PRENOTAZIONI_PASSEGGERIs), new Action<PRENOTAZIONI_PASSEGGERI>(this.detach_PRENOTAZIONI_PASSEGGERIs));
-			this._BADGE = default(EntityRef<BADGE>);
 			OnCreated();
 		}
 		
@@ -2852,30 +2906,6 @@ namespace db_crociere
 					this._CodiceFiscale = value;
 					this.SendPropertyChanged("CodiceFiscale");
 					this.OnCodiceFiscaleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodBadge", DbType="Decimal(10,0) NOT NULL")]
-		public decimal CodBadge
-		{
-			get
-			{
-				return this._CodBadge;
-			}
-			set
-			{
-				if ((this._CodBadge != value))
-				{
-					if (this._BADGE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodBadgeChanging(value);
-					this.SendPropertyChanging();
-					this._CodBadge = value;
-					this.SendPropertyChanged("CodBadge");
-					this.OnCodBadgeChanged();
 				}
 			}
 		}
@@ -2960,16 +2990,16 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSEGGERI_PRENOTAZIONI", Storage="_PRENOTAZIONIs", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale")]
-		public EntitySet<PRENOTAZIONI> PRENOTAZIONIs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSEGGERI_BADGE", Storage="_BADGEs", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale")]
+		public EntitySet<BADGE> BADGEs
 		{
 			get
 			{
-				return this._PRENOTAZIONIs;
+				return this._BADGEs;
 			}
 			set
 			{
-				this._PRENOTAZIONIs.Assign(value);
+				this._BADGEs.Assign(value);
 			}
 		}
 		
@@ -2983,40 +3013,6 @@ namespace db_crociere
 			set
 			{
 				this._PRENOTAZIONI_PASSEGGERIs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BADGE_PASSEGGERI", Storage="_BADGE", ThisKey="CodBadge", OtherKey="CodBadge", IsForeignKey=true)]
-		public BADGE BADGE
-		{
-			get
-			{
-				return this._BADGE.Entity;
-			}
-			set
-			{
-				BADGE previousValue = this._BADGE.Entity;
-				if (((previousValue != value) 
-							|| (this._BADGE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BADGE.Entity = null;
-						previousValue.PASSEGGERIs.Remove(this);
-					}
-					this._BADGE.Entity = value;
-					if ((value != null))
-					{
-						value.PASSEGGERIs.Add(this);
-						this._CodBadge = value.CodBadge;
-					}
-					else
-					{
-						this._CodBadge = default(decimal);
-					}
-					this.SendPropertyChanged("BADGE");
-				}
 			}
 		}
 		
@@ -3040,13 +3036,13 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_PRENOTAZIONIs(PRENOTAZIONI entity)
+		private void attach_BADGEs(BADGE entity)
 		{
 			this.SendPropertyChanging();
 			entity.PASSEGGERI = this;
 		}
 		
-		private void detach_PRENOTAZIONIs(PRENOTAZIONI entity)
+		private void detach_BADGEs(BADGE entity)
 		{
 			this.SendPropertyChanging();
 			entity.PASSEGGERI = null;
@@ -3071,50 +3067,78 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _CodicePercorso;
+		private string _CodPercorso;
+		
+		private string _NomeNave;
 		
 		private decimal _GiorniDurata;
 		
-		private EntitySet<NAVI> _NAVIs;
-		
 		private EntitySet<NAVIGAZIONI> _NAVIGAZIONIs;
 		
-		private EntitySet<SEQUENZE> _SEQUENZEs;
+		private EntitySet<SEQUENZE_TRATTE> _SEQUENZE_TRATTEs;
+		
+		private EntityRef<NAVI> _NAVI;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodicePercorsoChanging(string value);
-    partial void OnCodicePercorsoChanged();
+    partial void OnCodPercorsoChanging(string value);
+    partial void OnCodPercorsoChanged();
+    partial void OnNomeNaveChanging(string value);
+    partial void OnNomeNaveChanged();
     partial void OnGiorniDurataChanging(decimal value);
     partial void OnGiorniDurataChanged();
     #endregion
 		
 		public PERCORSI()
 		{
-			this._NAVIs = new EntitySet<NAVI>(new Action<NAVI>(this.attach_NAVIs), new Action<NAVI>(this.detach_NAVIs));
 			this._NAVIGAZIONIs = new EntitySet<NAVIGAZIONI>(new Action<NAVIGAZIONI>(this.attach_NAVIGAZIONIs), new Action<NAVIGAZIONI>(this.detach_NAVIGAZIONIs));
-			this._SEQUENZEs = new EntitySet<SEQUENZE>(new Action<SEQUENZE>(this.attach_SEQUENZEs), new Action<SEQUENZE>(this.detach_SEQUENZEs));
+			this._SEQUENZE_TRATTEs = new EntitySet<SEQUENZE_TRATTE>(new Action<SEQUENZE_TRATTE>(this.attach_SEQUENZE_TRATTEs), new Action<SEQUENZE_TRATTE>(this.detach_SEQUENZE_TRATTEs));
+			this._NAVI = default(EntityRef<NAVI>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePercorso", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodicePercorso
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPercorso", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodPercorso
 		{
 			get
 			{
-				return this._CodicePercorso;
+				return this._CodPercorso;
 			}
 			set
 			{
-				if ((this._CodicePercorso != value))
+				if ((this._CodPercorso != value))
 				{
-					this.OnCodicePercorsoChanging(value);
+					this.OnCodPercorsoChanging(value);
 					this.SendPropertyChanging();
-					this._CodicePercorso = value;
-					this.SendPropertyChanged("CodicePercorso");
-					this.OnCodicePercorsoChanged();
+					this._CodPercorso = value;
+					this.SendPropertyChanged("CodPercorso");
+					this.OnCodPercorsoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string NomeNave
+		{
+			get
+			{
+				return this._NomeNave;
+			}
+			set
+			{
+				if ((this._NomeNave != value))
+				{
+					if (this._NAVI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNomeNaveChanging(value);
+					this.SendPropertyChanging();
+					this._NomeNave = value;
+					this.SendPropertyChanged("NomeNave");
+					this.OnNomeNaveChanged();
 				}
 			}
 		}
@@ -3139,20 +3163,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVI", Storage="_NAVIs", ThisKey="CodicePercorso", OtherKey="CodicePercorso")]
-		public EntitySet<NAVI> NAVIs
-		{
-			get
-			{
-				return this._NAVIs;
-			}
-			set
-			{
-				this._NAVIs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVIGAZIONI", Storage="_NAVIGAZIONIs", ThisKey="CodicePercorso", OtherKey="CodicePercorso")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_NAVIGAZIONI", Storage="_NAVIGAZIONIs", ThisKey="CodPercorso", OtherKey="CodPercorso")]
 		public EntitySet<NAVIGAZIONI> NAVIGAZIONIs
 		{
 			get
@@ -3165,16 +3176,50 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_SEQUENZE", Storage="_SEQUENZEs", ThisKey="CodicePercorso", OtherKey="CodicePercorso")]
-		public EntitySet<SEQUENZE> SEQUENZEs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_SEQUENZE_TRATTE", Storage="_SEQUENZE_TRATTEs", ThisKey="CodPercorso", OtherKey="CodPercorso")]
+		public EntitySet<SEQUENZE_TRATTE> SEQUENZE_TRATTEs
 		{
 			get
 			{
-				return this._SEQUENZEs;
+				return this._SEQUENZE_TRATTEs;
 			}
 			set
 			{
-				this._SEQUENZEs.Assign(value);
+				this._SEQUENZE_TRATTEs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVI_PERCORSI", Storage="_NAVI", ThisKey="NomeNave", OtherKey="Nome", IsForeignKey=true)]
+		public NAVI NAVI
+		{
+			get
+			{
+				return this._NAVI.Entity;
+			}
+			set
+			{
+				NAVI previousValue = this._NAVI.Entity;
+				if (((previousValue != value) 
+							|| (this._NAVI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NAVI.Entity = null;
+						previousValue.PERCORSIs.Remove(this);
+					}
+					this._NAVI.Entity = value;
+					if ((value != null))
+					{
+						value.PERCORSIs.Add(this);
+						this._NomeNave = value.Nome;
+					}
+					else
+					{
+						this._NomeNave = default(string);
+					}
+					this.SendPropertyChanged("NAVI");
+				}
 			}
 		}
 		
@@ -3198,18 +3243,6 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_NAVIs(NAVI entity)
-		{
-			this.SendPropertyChanging();
-			entity.PERCORSI = this;
-		}
-		
-		private void detach_NAVIs(NAVI entity)
-		{
-			this.SendPropertyChanging();
-			entity.PERCORSI = null;
-		}
-		
 		private void attach_NAVIGAZIONIs(NAVIGAZIONI entity)
 		{
 			this.SendPropertyChanging();
@@ -3222,13 +3255,13 @@ namespace db_crociere
 			entity.PERCORSI = null;
 		}
 		
-		private void attach_SEQUENZEs(SEQUENZE entity)
+		private void attach_SEQUENZE_TRATTEs(SEQUENZE_TRATTE entity)
 		{
 			this.SendPropertyChanging();
 			entity.PERCORSI = this;
 		}
 		
-		private void detach_SEQUENZEs(SEQUENZE entity)
+		private void detach_SEQUENZE_TRATTEs(SEQUENZE_TRATTE entity)
 		{
 			this.SendPropertyChanging();
 			entity.PERCORSI = null;
@@ -3253,6 +3286,8 @@ namespace db_crociere
 		
 		private decimal _Recapito;
 		
+		private decimal _StipendioAnnuo;
+		
 		private System.Nullable<decimal> _AnzianitàServizio;
 		
 		private string _Grado;
@@ -3260,6 +3295,8 @@ namespace db_crociere
 		private string _CodRuolo;
 		
 		private EntitySet<TURNI_LAVORATIVI> _TURNI_LAVORATIVIs;
+		
+		private EntitySet<RESPONSABILITÀ> _RESPONSABILITÀs;
 		
 		private EntitySet<SERVIZI> _SERVIZIs;
 		
@@ -3281,6 +3318,8 @@ namespace db_crociere
     partial void OnPassaportoChanged();
     partial void OnRecapitoChanging(decimal value);
     partial void OnRecapitoChanged();
+    partial void OnStipendioAnnuoChanging(decimal value);
+    partial void OnStipendioAnnuoChanged();
     partial void OnAnzianitàServizioChanging(System.Nullable<decimal> value);
     partial void OnAnzianitàServizioChanged();
     partial void OnGradoChanging(string value);
@@ -3292,6 +3331,7 @@ namespace db_crociere
 		public PERSONALE()
 		{
 			this._TURNI_LAVORATIVIs = new EntitySet<TURNI_LAVORATIVI>(new Action<TURNI_LAVORATIVI>(this.attach_TURNI_LAVORATIVIs), new Action<TURNI_LAVORATIVI>(this.detach_TURNI_LAVORATIVIs));
+			this._RESPONSABILITÀs = new EntitySet<RESPONSABILITÀ>(new Action<RESPONSABILITÀ>(this.attach_RESPONSABILITÀs), new Action<RESPONSABILITÀ>(this.detach_RESPONSABILITÀs));
 			this._SERVIZIs = new EntitySet<SERVIZI>(new Action<SERVIZI>(this.attach_SERVIZIs), new Action<SERVIZI>(this.detach_SERVIZIs));
 			this._RUOLI = default(EntityRef<RUOLI>);
 			OnCreated();
@@ -3417,6 +3457,26 @@ namespace db_crociere
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StipendioAnnuo", DbType="Decimal(6,0) NOT NULL")]
+		public decimal StipendioAnnuo
+		{
+			get
+			{
+				return this._StipendioAnnuo;
+			}
+			set
+			{
+				if ((this._StipendioAnnuo != value))
+				{
+					this.OnStipendioAnnuoChanging(value);
+					this.SendPropertyChanging();
+					this._StipendioAnnuo = value;
+					this.SendPropertyChanged("StipendioAnnuo");
+					this.OnStipendioAnnuoChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnzianitàServizio", DbType="Decimal(2,0)")]
 		public System.Nullable<decimal> AnzianitàServizio
 		{
@@ -3494,6 +3554,19 @@ namespace db_crociere
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONALE_RESPONSABILITÀ", Storage="_RESPONSABILITÀs", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale")]
+		public EntitySet<RESPONSABILITÀ> RESPONSABILITÀs
+		{
+			get
+			{
+				return this._RESPONSABILITÀs;
+			}
+			set
+			{
+				this._RESPONSABILITÀs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONALE_SERVIZI", Storage="_SERVIZIs", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale")]
 		public EntitySet<SERVIZI> SERVIZIs
 		{
@@ -3568,6 +3641,18 @@ namespace db_crociere
 		}
 		
 		private void detach_TURNI_LAVORATIVIs(TURNI_LAVORATIVI entity)
+		{
+			this.SendPropertyChanging();
+			entity.PERSONALE = null;
+		}
+		
+		private void attach_RESPONSABILITÀs(RESPONSABILITÀ entity)
+		{
+			this.SendPropertyChanging();
+			entity.PERSONALE = this;
+		}
+		
+		private void detach_RESPONSABILITÀs(RESPONSABILITÀ entity)
 		{
 			this.SendPropertyChanging();
 			entity.PERSONALE = null;
@@ -3891,7 +3976,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PORTI_PRENOTAZIONI", Storage="_PRENOTAZIONIs", ThisKey="CodPorto", OtherKey="CodPortoPartenza")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PORTI_PRENOTAZIONI", Storage="_PRENOTAZIONIs", ThisKey="CodPorto", OtherKey="CodPorto")]
 		public EntitySet<PRENOTAZIONI> PRENOTAZIONIs
 		{
 			get
@@ -3993,148 +4078,96 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _CodicePrenotazione;
-		
-		private System.DateTime _DataImbarco;
-		
-		private System.DateTime _DataSbarco;
+		private decimal _CodPrenotazione;
 		
 		private decimal _CodTransazione;
 		
-		private string _NomeNave;
+		private System.DateTime _DataEffettuazione;
 		
-		private decimal _NumeroPonte;
+		private System.DateTime _DataOraImbarco;
 		
-		private decimal _CodCabina;
-		
-		private string _CodiceFiscale;
+		private System.DateTime _DataOraSbarco;
 		
 		private string _Trattamento;
 		
-		private decimal _CodTariffario;
+		private decimal _NumeroPasseggeri;
 		
 		private decimal _CodNavigazione;
 		
-		private string _CodPortoPartenza;
+		private string _CodPorto;
+		
+		private EntitySet<ALLOGGI> _ALLOGGIs;
 		
 		private EntityRef<ANNULLAMENTI> _ANNULLAMENTI;
+		
+		private EntitySet<BADGE> _BADGEs;
 		
 		private EntitySet<PRENOTAZIONI_PASSEGGERI> _PRENOTAZIONI_PASSEGGERIs;
 		
 		private EntitySet<SPESE_EXTRA> _SPESE_EXTRAs;
 		
-		private EntityRef<CABINE> _CABINE;
+		private EntitySet<TARIFFARI_PRENOTAZIONI> _TARIFFARI_PRENOTAZIONIs;
 		
 		private EntityRef<PORTI> _PORTI;
-		
-		private EntityRef<PASSEGGERI> _PASSEGGERI;
 		
 		private EntityRef<PAGAMENTI> _PAGAMENTI;
 		
 		private EntityRef<NAVIGAZIONI> _NAVIGAZIONI;
 		
-		private EntityRef<TARIFFARI> _TARIFFARI;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodicePrenotazioneChanging(decimal value);
-    partial void OnCodicePrenotazioneChanged();
-    partial void OnDataImbarcoChanging(System.DateTime value);
-    partial void OnDataImbarcoChanged();
-    partial void OnDataSbarcoChanging(System.DateTime value);
-    partial void OnDataSbarcoChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
     partial void OnCodTransazioneChanging(decimal value);
     partial void OnCodTransazioneChanged();
-    partial void OnNomeNaveChanging(string value);
-    partial void OnNomeNaveChanged();
-    partial void OnNumeroPonteChanging(decimal value);
-    partial void OnNumeroPonteChanged();
-    partial void OnCodCabinaChanging(decimal value);
-    partial void OnCodCabinaChanged();
-    partial void OnCodiceFiscaleChanging(string value);
-    partial void OnCodiceFiscaleChanged();
+    partial void OnDataEffettuazioneChanging(System.DateTime value);
+    partial void OnDataEffettuazioneChanged();
+    partial void OnDataOraImbarcoChanging(System.DateTime value);
+    partial void OnDataOraImbarcoChanged();
+    partial void OnDataOraSbarcoChanging(System.DateTime value);
+    partial void OnDataOraSbarcoChanged();
     partial void OnTrattamentoChanging(string value);
     partial void OnTrattamentoChanged();
-    partial void OnCodTariffarioChanging(decimal value);
-    partial void OnCodTariffarioChanged();
+    partial void OnNumeroPasseggeriChanging(decimal value);
+    partial void OnNumeroPasseggeriChanged();
     partial void OnCodNavigazioneChanging(decimal value);
     partial void OnCodNavigazioneChanged();
-    partial void OnCodPortoPartenzaChanging(string value);
-    partial void OnCodPortoPartenzaChanged();
+    partial void OnCodPortoChanging(string value);
+    partial void OnCodPortoChanged();
     #endregion
 		
 		public PRENOTAZIONI()
 		{
+			this._ALLOGGIs = new EntitySet<ALLOGGI>(new Action<ALLOGGI>(this.attach_ALLOGGIs), new Action<ALLOGGI>(this.detach_ALLOGGIs));
 			this._ANNULLAMENTI = default(EntityRef<ANNULLAMENTI>);
+			this._BADGEs = new EntitySet<BADGE>(new Action<BADGE>(this.attach_BADGEs), new Action<BADGE>(this.detach_BADGEs));
 			this._PRENOTAZIONI_PASSEGGERIs = new EntitySet<PRENOTAZIONI_PASSEGGERI>(new Action<PRENOTAZIONI_PASSEGGERI>(this.attach_PRENOTAZIONI_PASSEGGERIs), new Action<PRENOTAZIONI_PASSEGGERI>(this.detach_PRENOTAZIONI_PASSEGGERIs));
 			this._SPESE_EXTRAs = new EntitySet<SPESE_EXTRA>(new Action<SPESE_EXTRA>(this.attach_SPESE_EXTRAs), new Action<SPESE_EXTRA>(this.detach_SPESE_EXTRAs));
-			this._CABINE = default(EntityRef<CABINE>);
+			this._TARIFFARI_PRENOTAZIONIs = new EntitySet<TARIFFARI_PRENOTAZIONI>(new Action<TARIFFARI_PRENOTAZIONI>(this.attach_TARIFFARI_PRENOTAZIONIs), new Action<TARIFFARI_PRENOTAZIONI>(this.detach_TARIFFARI_PRENOTAZIONIs));
 			this._PORTI = default(EntityRef<PORTI>);
-			this._PASSEGGERI = default(EntityRef<PASSEGGERI>);
 			this._PAGAMENTI = default(EntityRef<PAGAMENTI>);
 			this._NAVIGAZIONI = default(EntityRef<NAVIGAZIONI>);
-			this._TARIFFARI = default(EntityRef<TARIFFARI>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePrenotazione", AutoSync=AutoSync.OnInsert, DbType="Decimal(5,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal CodicePrenotazione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", AutoSync=AutoSync.OnInsert, DbType="Decimal(5,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal CodPrenotazione
 		{
 			get
 			{
-				return this._CodicePrenotazione;
+				return this._CodPrenotazione;
 			}
 			set
 			{
-				if ((this._CodicePrenotazione != value))
+				if ((this._CodPrenotazione != value))
 				{
-					this.OnCodicePrenotazioneChanging(value);
+					this.OnCodPrenotazioneChanging(value);
 					this.SendPropertyChanging();
-					this._CodicePrenotazione = value;
-					this.SendPropertyChanged("CodicePrenotazione");
-					this.OnCodicePrenotazioneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataImbarco", DbType="DateTime NOT NULL")]
-		public System.DateTime DataImbarco
-		{
-			get
-			{
-				return this._DataImbarco;
-			}
-			set
-			{
-				if ((this._DataImbarco != value))
-				{
-					this.OnDataImbarcoChanging(value);
-					this.SendPropertyChanging();
-					this._DataImbarco = value;
-					this.SendPropertyChanged("DataImbarco");
-					this.OnDataImbarcoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataSbarco", DbType="DateTime NOT NULL")]
-		public System.DateTime DataSbarco
-		{
-			get
-			{
-				return this._DataSbarco;
-			}
-			set
-			{
-				if ((this._DataSbarco != value))
-				{
-					this.OnDataSbarcoChanging(value);
-					this.SendPropertyChanging();
-					this._DataSbarco = value;
-					this.SendPropertyChanged("DataSbarco");
-					this.OnDataSbarcoChanged();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
 				}
 			}
 		}
@@ -4163,98 +4196,62 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string NomeNave
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataEffettuazione", DbType="Date NOT NULL")]
+		public System.DateTime DataEffettuazione
 		{
 			get
 			{
-				return this._NomeNave;
+				return this._DataEffettuazione;
 			}
 			set
 			{
-				if ((this._NomeNave != value))
+				if ((this._DataEffettuazione != value))
 				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNomeNaveChanging(value);
+					this.OnDataEffettuazioneChanging(value);
 					this.SendPropertyChanging();
-					this._NomeNave = value;
-					this.SendPropertyChanged("NomeNave");
-					this.OnNomeNaveChanged();
+					this._DataEffettuazione = value;
+					this.SendPropertyChanged("DataEffettuazione");
+					this.OnDataEffettuazioneChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroPonte", DbType="Decimal(2,0) NOT NULL")]
-		public decimal NumeroPonte
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataOraImbarco", DbType="DateTime NOT NULL")]
+		public System.DateTime DataOraImbarco
 		{
 			get
 			{
-				return this._NumeroPonte;
+				return this._DataOraImbarco;
 			}
 			set
 			{
-				if ((this._NumeroPonte != value))
+				if ((this._DataOraImbarco != value))
 				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNumeroPonteChanging(value);
+					this.OnDataOraImbarcoChanging(value);
 					this.SendPropertyChanging();
-					this._NumeroPonte = value;
-					this.SendPropertyChanged("NumeroPonte");
-					this.OnNumeroPonteChanged();
+					this._DataOraImbarco = value;
+					this.SendPropertyChanged("DataOraImbarco");
+					this.OnDataOraImbarcoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodCabina", DbType="Decimal(4,0) NOT NULL")]
-		public decimal CodCabina
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataOraSbarco", DbType="DateTime NOT NULL")]
+		public System.DateTime DataOraSbarco
 		{
 			get
 			{
-				return this._CodCabina;
+				return this._DataOraSbarco;
 			}
 			set
 			{
-				if ((this._CodCabina != value))
+				if ((this._DataOraSbarco != value))
 				{
-					if (this._CABINE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodCabinaChanging(value);
+					this.OnDataOraSbarcoChanging(value);
 					this.SendPropertyChanging();
-					this._CodCabina = value;
-					this.SendPropertyChanged("CodCabina");
-					this.OnCodCabinaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false)]
-		public string CodiceFiscale
-		{
-			get
-			{
-				return this._CodiceFiscale;
-			}
-			set
-			{
-				if ((this._CodiceFiscale != value))
-				{
-					if (this._PASSEGGERI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodiceFiscaleChanging(value);
-					this.SendPropertyChanging();
-					this._CodiceFiscale = value;
-					this.SendPropertyChanged("CodiceFiscale");
-					this.OnCodiceFiscaleChanged();
+					this._DataOraSbarco = value;
+					this.SendPropertyChanged("DataOraSbarco");
+					this.OnDataOraSbarcoChanged();
 				}
 			}
 		}
@@ -4279,26 +4276,22 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTariffario", DbType="Decimal(3,0) NOT NULL")]
-		public decimal CodTariffario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroPasseggeri", DbType="Decimal(2,0) NOT NULL")]
+		public decimal NumeroPasseggeri
 		{
 			get
 			{
-				return this._CodTariffario;
+				return this._NumeroPasseggeri;
 			}
 			set
 			{
-				if ((this._CodTariffario != value))
+				if ((this._NumeroPasseggeri != value))
 				{
-					if (this._TARIFFARI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodTariffarioChanging(value);
+					this.OnNumeroPasseggeriChanging(value);
 					this.SendPropertyChanging();
-					this._CodTariffario = value;
-					this.SendPropertyChanged("CodTariffario");
-					this.OnCodTariffarioChanged();
+					this._NumeroPasseggeri = value;
+					this.SendPropertyChanged("NumeroPasseggeri");
+					this.OnNumeroPasseggeriChanged();
 				}
 			}
 		}
@@ -4327,31 +4320,44 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPortoPartenza", DbType="Char(4) NOT NULL", CanBeNull=false)]
-		public string CodPortoPartenza
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPorto", DbType="Char(4) NOT NULL", CanBeNull=false)]
+		public string CodPorto
 		{
 			get
 			{
-				return this._CodPortoPartenza;
+				return this._CodPorto;
 			}
 			set
 			{
-				if ((this._CodPortoPartenza != value))
+				if ((this._CodPorto != value))
 				{
 					if (this._PORTI.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnCodPortoPartenzaChanging(value);
+					this.OnCodPortoChanging(value);
 					this.SendPropertyChanging();
-					this._CodPortoPartenza = value;
-					this.SendPropertyChanged("CodPortoPartenza");
-					this.OnCodPortoPartenzaChanged();
+					this._CodPorto = value;
+					this.SendPropertyChanged("CodPorto");
+					this.OnCodPortoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ANNULLAMENTI", Storage="_ANNULLAMENTI", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione", IsUnique=true, IsForeignKey=false)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ALLOGGI", Storage="_ALLOGGIs", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione")]
+		public EntitySet<ALLOGGI> ALLOGGIs
+		{
+			get
+			{
+				return this._ALLOGGIs;
+			}
+			set
+			{
+				this._ALLOGGIs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_ANNULLAMENTI", Storage="_ANNULLAMENTI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsUnique=true, IsForeignKey=false)]
 		public ANNULLAMENTI ANNULLAMENTI
 		{
 			get
@@ -4380,7 +4386,20 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI", Storage="_PRENOTAZIONI_PASSEGGERIs", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_BADGE", Storage="_BADGEs", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione")]
+		public EntitySet<BADGE> BADGEs
+		{
+			get
+			{
+				return this._BADGEs;
+			}
+			set
+			{
+				this._BADGEs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI", Storage="_PRENOTAZIONI_PASSEGGERIs", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione")]
 		public EntitySet<PRENOTAZIONI_PASSEGGERI> PRENOTAZIONI_PASSEGGERIs
 		{
 			get
@@ -4393,7 +4412,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_SPESE_EXTRA", Storage="_SPESE_EXTRAs", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_SPESE_EXTRA", Storage="_SPESE_EXTRAs", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione")]
 		public EntitySet<SPESE_EXTRA> SPESE_EXTRAs
 		{
 			get
@@ -4406,45 +4425,20 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CABINE_PRENOTAZIONI", Storage="_CABINE", ThisKey="NomeNave,NumeroPonte,CodCabina", OtherKey="NomeNave,NumeroPonte,CodCabina", IsForeignKey=true)]
-		public CABINE CABINE
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_TARIFFARI_PRENOTAZIONI", Storage="_TARIFFARI_PRENOTAZIONIs", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione")]
+		public EntitySet<TARIFFARI_PRENOTAZIONI> TARIFFARI_PRENOTAZIONIs
 		{
 			get
 			{
-				return this._CABINE.Entity;
+				return this._TARIFFARI_PRENOTAZIONIs;
 			}
 			set
 			{
-				CABINE previousValue = this._CABINE.Entity;
-				if (((previousValue != value) 
-							|| (this._CABINE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CABINE.Entity = null;
-						previousValue.PRENOTAZIONIs.Remove(this);
-					}
-					this._CABINE.Entity = value;
-					if ((value != null))
-					{
-						value.PRENOTAZIONIs.Add(this);
-						this._NomeNave = value.NomeNave;
-						this._NumeroPonte = value.NumeroPonte;
-						this._CodCabina = value.CodCabina;
-					}
-					else
-					{
-						this._NomeNave = default(string);
-						this._NumeroPonte = default(decimal);
-						this._CodCabina = default(decimal);
-					}
-					this.SendPropertyChanged("CABINE");
-				}
+				this._TARIFFARI_PRENOTAZIONIs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PORTI_PRENOTAZIONI", Storage="_PORTI", ThisKey="CodPortoPartenza", OtherKey="CodPorto", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PORTI_PRENOTAZIONI", Storage="_PORTI", ThisKey="CodPorto", OtherKey="CodPorto", IsForeignKey=true)]
 		public PORTI PORTI
 		{
 			get
@@ -4467,47 +4461,13 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.PRENOTAZIONIs.Add(this);
-						this._CodPortoPartenza = value.CodPorto;
+						this._CodPorto = value.CodPorto;
 					}
 					else
 					{
-						this._CodPortoPartenza = default(string);
+						this._CodPorto = default(string);
 					}
 					this.SendPropertyChanged("PORTI");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSEGGERI_PRENOTAZIONI", Storage="_PASSEGGERI", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale", IsForeignKey=true)]
-		public PASSEGGERI PASSEGGERI
-		{
-			get
-			{
-				return this._PASSEGGERI.Entity;
-			}
-			set
-			{
-				PASSEGGERI previousValue = this._PASSEGGERI.Entity;
-				if (((previousValue != value) 
-							|| (this._PASSEGGERI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PASSEGGERI.Entity = null;
-						previousValue.PRENOTAZIONIs.Remove(this);
-					}
-					this._PASSEGGERI.Entity = value;
-					if ((value != null))
-					{
-						value.PRENOTAZIONIs.Add(this);
-						this._CodiceFiscale = value.CodiceFiscale;
-					}
-					else
-					{
-						this._CodiceFiscale = default(string);
-					}
-					this.SendPropertyChanged("PASSEGGERI");
 				}
 			}
 		}
@@ -4580,40 +4540,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TARIFFARI_PRENOTAZIONI", Storage="_TARIFFARI", ThisKey="CodTariffario", OtherKey="CodTariffario", IsForeignKey=true)]
-		public TARIFFARI TARIFFARI
-		{
-			get
-			{
-				return this._TARIFFARI.Entity;
-			}
-			set
-			{
-				TARIFFARI previousValue = this._TARIFFARI.Entity;
-				if (((previousValue != value) 
-							|| (this._TARIFFARI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TARIFFARI.Entity = null;
-						previousValue.PRENOTAZIONIs.Remove(this);
-					}
-					this._TARIFFARI.Entity = value;
-					if ((value != null))
-					{
-						value.PRENOTAZIONIs.Add(this);
-						this._CodTariffario = value.CodTariffario;
-					}
-					else
-					{
-						this._CodTariffario = default(decimal);
-					}
-					this.SendPropertyChanged("TARIFFARI");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4632,6 +4558,30 @@ namespace db_crociere
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_ALLOGGIs(ALLOGGI entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = this;
+		}
+		
+		private void detach_ALLOGGIs(ALLOGGI entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = null;
+		}
+		
+		private void attach_BADGEs(BADGE entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = this;
+		}
+		
+		private void detach_BADGEs(BADGE entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = null;
 		}
 		
 		private void attach_PRENOTAZIONI_PASSEGGERIs(PRENOTAZIONI_PASSEGGERI entity)
@@ -4657,6 +4607,18 @@ namespace db_crociere
 			this.SendPropertyChanging();
 			entity.PRENOTAZIONI = null;
 		}
+		
+		private void attach_TARIFFARI_PRENOTAZIONIs(TARIFFARI_PRENOTAZIONI entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = this;
+		}
+		
+		private void detach_TARIFFARI_PRENOTAZIONIs(TARIFFARI_PRENOTAZIONI entity)
+		{
+			this.SendPropertyChanging();
+			entity.PRENOTAZIONI = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PRENOTAZIONI_PASSEGGERI")]
@@ -4667,7 +4629,7 @@ namespace db_crociere
 		
 		private string _CodiceFiscale;
 		
-		private decimal _CodicePrenotazione;
+		private decimal _CodPrenotazione;
 		
 		private EntityRef<PASSEGGERI> _PASSEGGERI;
 		
@@ -4679,8 +4641,8 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodiceFiscaleChanging(string value);
     partial void OnCodiceFiscaleChanged();
-    partial void OnCodicePrenotazioneChanging(decimal value);
-    partial void OnCodicePrenotazioneChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
     #endregion
 		
 		public PRENOTAZIONI_PASSEGGERI()
@@ -4714,26 +4676,26 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal CodicePrenotazione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodPrenotazione
 		{
 			get
 			{
-				return this._CodicePrenotazione;
+				return this._CodPrenotazione;
 			}
 			set
 			{
-				if ((this._CodicePrenotazione != value))
+				if ((this._CodPrenotazione != value))
 				{
 					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnCodicePrenotazioneChanging(value);
+					this.OnCodPrenotazioneChanging(value);
 					this.SendPropertyChanging();
-					this._CodicePrenotazione = value;
-					this.SendPropertyChanged("CodicePrenotazione");
-					this.OnCodicePrenotazioneChanged();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
 				}
 			}
 		}
@@ -4772,7 +4734,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI", Storage="_PRENOTAZIONI", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_PRENOTAZIONI_PASSEGGERI", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
 		public PRENOTAZIONI PRENOTAZIONI
 		{
 			get
@@ -4795,13 +4757,318 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.PRENOTAZIONI_PASSEGGERIs.Add(this);
-						this._CodicePrenotazione = value.CodicePrenotazione;
+						this._CodPrenotazione = value.CodPrenotazione;
 					}
 					else
 					{
-						this._CodicePrenotazione = default(decimal);
+						this._CodPrenotazione = default(decimal);
 					}
 					this.SendPropertyChanged("PRENOTAZIONI");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PROGRAMMAZIONI")]
+	public partial class PROGRAMMAZIONI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.DateTime _InizioData;
+		
+		private System.TimeSpan _InizioOra;
+		
+		private decimal _CodSala;
+		
+		private decimal _CodAttività;
+		
+		private decimal _CodNavigazione;
+		
+		private decimal _Durata;
+		
+		private EntityRef<ATTIVITÀ> _ATTIVITÀ;
+		
+		private EntityRef<NAVIGAZIONI> _NAVIGAZIONI;
+		
+		private EntityRef<SALE> _SALE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInizioDataChanging(System.DateTime value);
+    partial void OnInizioDataChanged();
+    partial void OnInizioOraChanging(System.TimeSpan value);
+    partial void OnInizioOraChanged();
+    partial void OnCodSalaChanging(decimal value);
+    partial void OnCodSalaChanged();
+    partial void OnCodAttivitàChanging(decimal value);
+    partial void OnCodAttivitàChanged();
+    partial void OnCodNavigazioneChanging(decimal value);
+    partial void OnCodNavigazioneChanged();
+    partial void OnDurataChanging(decimal value);
+    partial void OnDurataChanged();
+    #endregion
+		
+		public PROGRAMMAZIONI()
+		{
+			this._ATTIVITÀ = default(EntityRef<ATTIVITÀ>);
+			this._NAVIGAZIONI = default(EntityRef<NAVIGAZIONI>);
+			this._SALE = default(EntityRef<SALE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioData", DbType="Date NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime InizioData
+		{
+			get
+			{
+				return this._InizioData;
+			}
+			set
+			{
+				if ((this._InizioData != value))
+				{
+					this.OnInizioDataChanging(value);
+					this.SendPropertyChanging();
+					this._InizioData = value;
+					this.SendPropertyChanged("InizioData");
+					this.OnInizioDataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioOra", DbType="Time NOT NULL", IsPrimaryKey=true)]
+		public System.TimeSpan InizioOra
+		{
+			get
+			{
+				return this._InizioOra;
+			}
+			set
+			{
+				if ((this._InizioOra != value))
+				{
+					this.OnInizioOraChanging(value);
+					this.SendPropertyChanging();
+					this._InizioOra = value;
+					this.SendPropertyChanged("InizioOra");
+					this.OnInizioOraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodSala", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodSala
+		{
+			get
+			{
+				return this._CodSala;
+			}
+			set
+			{
+				if ((this._CodSala != value))
+				{
+					if (this._SALE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodSalaChanging(value);
+					this.SendPropertyChanging();
+					this._CodSala = value;
+					this.SendPropertyChanged("CodSala");
+					this.OnCodSalaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodAttività", DbType="Decimal(5,0) NOT NULL")]
+		public decimal CodAttività
+		{
+			get
+			{
+				return this._CodAttività;
+			}
+			set
+			{
+				if ((this._CodAttività != value))
+				{
+					if (this._ATTIVITÀ.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodAttivitàChanging(value);
+					this.SendPropertyChanging();
+					this._CodAttività = value;
+					this.SendPropertyChanged("CodAttività");
+					this.OnCodAttivitàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodNavigazione", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodNavigazione
+		{
+			get
+			{
+				return this._CodNavigazione;
+			}
+			set
+			{
+				if ((this._CodNavigazione != value))
+				{
+					if (this._NAVIGAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodNavigazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodNavigazione = value;
+					this.SendPropertyChanged("CodNavigazione");
+					this.OnCodNavigazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Durata", DbType="Decimal(3,0) NOT NULL")]
+		public decimal Durata
+		{
+			get
+			{
+				return this._Durata;
+			}
+			set
+			{
+				if ((this._Durata != value))
+				{
+					this.OnDurataChanging(value);
+					this.SendPropertyChanging();
+					this._Durata = value;
+					this.SendPropertyChanged("Durata");
+					this.OnDurataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ATTIVITÀ_PROGRAMMAZIONI", Storage="_ATTIVITÀ", ThisKey="CodAttività", OtherKey="CodAttività", IsForeignKey=true)]
+		public ATTIVITÀ ATTIVITÀ
+		{
+			get
+			{
+				return this._ATTIVITÀ.Entity;
+			}
+			set
+			{
+				ATTIVITÀ previousValue = this._ATTIVITÀ.Entity;
+				if (((previousValue != value) 
+							|| (this._ATTIVITÀ.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ATTIVITÀ.Entity = null;
+						previousValue.PROGRAMMAZIONIs.Remove(this);
+					}
+					this._ATTIVITÀ.Entity = value;
+					if ((value != null))
+					{
+						value.PROGRAMMAZIONIs.Add(this);
+						this._CodAttività = value.CodAttività;
+					}
+					else
+					{
+						this._CodAttività = default(decimal);
+					}
+					this.SendPropertyChanged("ATTIVITÀ");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_PROGRAMMAZIONI", Storage="_NAVIGAZIONI", ThisKey="CodNavigazione", OtherKey="CodNavigazione", IsForeignKey=true)]
+		public NAVIGAZIONI NAVIGAZIONI
+		{
+			get
+			{
+				return this._NAVIGAZIONI.Entity;
+			}
+			set
+			{
+				NAVIGAZIONI previousValue = this._NAVIGAZIONI.Entity;
+				if (((previousValue != value) 
+							|| (this._NAVIGAZIONI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NAVIGAZIONI.Entity = null;
+						previousValue.PROGRAMMAZIONIs.Remove(this);
+					}
+					this._NAVIGAZIONI.Entity = value;
+					if ((value != null))
+					{
+						value.PROGRAMMAZIONIs.Add(this);
+						this._CodNavigazione = value.CodNavigazione;
+					}
+					else
+					{
+						this._CodNavigazione = default(decimal);
+					}
+					this.SendPropertyChanged("NAVIGAZIONI");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SALE_PROGRAMMAZIONI", Storage="_SALE", ThisKey="CodSala", OtherKey="CodSala", IsForeignKey=true)]
+		public SALE SALE
+		{
+			get
+			{
+				return this._SALE.Entity;
+			}
+			set
+			{
+				SALE previousValue = this._SALE.Entity;
+				if (((previousValue != value) 
+							|| (this._SALE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SALE.Entity = null;
+						previousValue.PROGRAMMAZIONIs.Remove(this);
+					}
+					this._SALE.Entity = value;
+					if ((value != null))
+					{
+						value.PROGRAMMAZIONIs.Add(this);
+						this._CodSala = value.CodSala;
+					}
+					else
+					{
+						this._CodSala = default(decimal);
+					}
+					this.SendPropertyChanged("SALE");
 				}
 			}
 		}
@@ -4859,7 +5126,7 @@ namespace db_crociere
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPagamento", DbType="DateTime NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataPagamento", DbType="Date NOT NULL", IsPrimaryKey=true)]
 		public System.DateTime DataPagamento
 		{
 			get
@@ -4984,15 +5251,15 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private decimal _CodNavigazione;
+		
 		private string _CodRuolo;
 		
 		private string _CodiceFiscale;
 		
-		private System.DateTime _InizioData;
+		private EntityRef<NAVIGAZIONI> _NAVIGAZIONI;
 		
-		private System.TimeSpan _InizioOra;
-		
-		private EntityRef<TURNI_LAVORATIVI> _TURNI_LAVORATIVI;
+		private EntityRef<PERSONALE> _PERSONALE;
 		
 		private EntityRef<RUOLI> _RUOLI;
 		
@@ -5000,21 +5267,44 @@ namespace db_crociere
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnCodNavigazioneChanging(decimal value);
+    partial void OnCodNavigazioneChanged();
     partial void OnCodRuoloChanging(string value);
     partial void OnCodRuoloChanged();
     partial void OnCodiceFiscaleChanging(string value);
     partial void OnCodiceFiscaleChanged();
-    partial void OnInizioDataChanging(System.DateTime value);
-    partial void OnInizioDataChanged();
-    partial void OnInizioOraChanging(System.TimeSpan value);
-    partial void OnInizioOraChanged();
     #endregion
 		
 		public RESPONSABILITÀ()
 		{
-			this._TURNI_LAVORATIVI = default(EntityRef<TURNI_LAVORATIVI>);
+			this._NAVIGAZIONI = default(EntityRef<NAVIGAZIONI>);
+			this._PERSONALE = default(EntityRef<PERSONALE>);
 			this._RUOLI = default(EntityRef<RUOLI>);
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodNavigazione", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodNavigazione
+		{
+			get
+			{
+				return this._CodNavigazione;
+			}
+			set
+			{
+				if ((this._CodNavigazione != value))
+				{
+					if (this._NAVIGAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodNavigazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodNavigazione = value;
+					this.SendPropertyChanged("CodNavigazione");
+					this.OnCodNavigazioneChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodRuolo", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
@@ -5041,7 +5331,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false)]
 		public string CodiceFiscale
 		{
 			get
@@ -5052,7 +5342,7 @@ namespace db_crociere
 			{
 				if ((this._CodiceFiscale != value))
 				{
-					if (this._TURNI_LAVORATIVI.HasLoadedOrAssignedValue)
+					if (this._PERSONALE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -5065,88 +5355,70 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioData", DbType="Date NOT NULL", IsPrimaryKey=true)]
-		public System.DateTime InizioData
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_RESPONSABILITÀ", Storage="_NAVIGAZIONI", ThisKey="CodNavigazione", OtherKey="CodNavigazione", IsForeignKey=true)]
+		public NAVIGAZIONI NAVIGAZIONI
 		{
 			get
 			{
-				return this._InizioData;
+				return this._NAVIGAZIONI.Entity;
 			}
 			set
 			{
-				if ((this._InizioData != value))
-				{
-					if (this._TURNI_LAVORATIVI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnInizioDataChanging(value);
-					this.SendPropertyChanging();
-					this._InizioData = value;
-					this.SendPropertyChanged("InizioData");
-					this.OnInizioDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InizioOra", DbType="Time NOT NULL", IsPrimaryKey=true)]
-		public System.TimeSpan InizioOra
-		{
-			get
-			{
-				return this._InizioOra;
-			}
-			set
-			{
-				if ((this._InizioOra != value))
-				{
-					if (this._TURNI_LAVORATIVI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnInizioOraChanging(value);
-					this.SendPropertyChanging();
-					this._InizioOra = value;
-					this.SendPropertyChanged("InizioOra");
-					this.OnInizioOraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TURNI_LAVORATIVI_RESPONSABILITÀ", Storage="_TURNI_LAVORATIVI", ThisKey="CodiceFiscale,InizioData,InizioOra", OtherKey="CodiceFiscale,InizioData,InizioOra", IsForeignKey=true)]
-		public TURNI_LAVORATIVI TURNI_LAVORATIVI
-		{
-			get
-			{
-				return this._TURNI_LAVORATIVI.Entity;
-			}
-			set
-			{
-				TURNI_LAVORATIVI previousValue = this._TURNI_LAVORATIVI.Entity;
+				NAVIGAZIONI previousValue = this._NAVIGAZIONI.Entity;
 				if (((previousValue != value) 
-							|| (this._TURNI_LAVORATIVI.HasLoadedOrAssignedValue == false)))
+							|| (this._NAVIGAZIONI.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TURNI_LAVORATIVI.Entity = null;
+						this._NAVIGAZIONI.Entity = null;
 						previousValue.RESPONSABILITÀs.Remove(this);
 					}
-					this._TURNI_LAVORATIVI.Entity = value;
+					this._NAVIGAZIONI.Entity = value;
+					if ((value != null))
+					{
+						value.RESPONSABILITÀs.Add(this);
+						this._CodNavigazione = value.CodNavigazione;
+					}
+					else
+					{
+						this._CodNavigazione = default(decimal);
+					}
+					this.SendPropertyChanged("NAVIGAZIONI");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERSONALE_RESPONSABILITÀ", Storage="_PERSONALE", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public PERSONALE PERSONALE
+		{
+			get
+			{
+				return this._PERSONALE.Entity;
+			}
+			set
+			{
+				PERSONALE previousValue = this._PERSONALE.Entity;
+				if (((previousValue != value) 
+							|| (this._PERSONALE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PERSONALE.Entity = null;
+						previousValue.RESPONSABILITÀs.Remove(this);
+					}
+					this._PERSONALE.Entity = value;
 					if ((value != null))
 					{
 						value.RESPONSABILITÀs.Add(this);
 						this._CodiceFiscale = value.CodiceFiscale;
-						this._InizioData = value.InizioData;
-						this._InizioOra = value.InizioOra;
 					}
 					else
 					{
 						this._CodiceFiscale = default(string);
-						this._InizioData = default(System.DateTime);
-						this._InizioOra = default(System.TimeSpan);
 					}
-					this.SendPropertyChanged("TURNI_LAVORATIVI");
+					this.SendPropertyChanged("PERSONALE");
 				}
 			}
 		}
@@ -5214,9 +5486,9 @@ namespace db_crociere
 		
 		private decimal _CodRimborso;
 		
-		private char _PreavvisoDal;
+		private decimal _Preavviso_Dal;
 		
-		private char _PreavvisoAl;
+		private decimal _Preavviso_Al;
 		
 		private decimal _PercentualeRimborso;
 		
@@ -5228,10 +5500,10 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodRimborsoChanging(decimal value);
     partial void OnCodRimborsoChanged();
-    partial void OnPreavvisoDalChanging(char value);
-    partial void OnPreavvisoDalChanged();
-    partial void OnPreavvisoAlChanging(char value);
-    partial void OnPreavvisoAlChanged();
+    partial void OnPreavviso_DalChanging(decimal value);
+    partial void OnPreavviso_DalChanged();
+    partial void OnPreavviso_AlChanging(decimal value);
+    partial void OnPreavviso_AlChanged();
     partial void OnPercentualeRimborsoChanging(decimal value);
     partial void OnPercentualeRimborsoChanged();
     #endregion
@@ -5262,42 +5534,42 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreavvisoDal", DbType="Char(1) NOT NULL")]
-		public char PreavvisoDal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Preavviso_Dal", DbType="Decimal(3,0) NOT NULL")]
+		public decimal Preavviso_Dal
 		{
 			get
 			{
-				return this._PreavvisoDal;
+				return this._Preavviso_Dal;
 			}
 			set
 			{
-				if ((this._PreavvisoDal != value))
+				if ((this._Preavviso_Dal != value))
 				{
-					this.OnPreavvisoDalChanging(value);
+					this.OnPreavviso_DalChanging(value);
 					this.SendPropertyChanging();
-					this._PreavvisoDal = value;
-					this.SendPropertyChanged("PreavvisoDal");
-					this.OnPreavvisoDalChanged();
+					this._Preavviso_Dal = value;
+					this.SendPropertyChanged("Preavviso_Dal");
+					this.OnPreavviso_DalChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PreavvisoAl", DbType="Char(1) NOT NULL")]
-		public char PreavvisoAl
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Preavviso_Al", DbType="Decimal(3,0) NOT NULL")]
+		public decimal Preavviso_Al
 		{
 			get
 			{
-				return this._PreavvisoAl;
+				return this._Preavviso_Al;
 			}
 			set
 			{
-				if ((this._PreavvisoAl != value))
+				if ((this._Preavviso_Al != value))
 				{
-					this.OnPreavvisoAlChanging(value);
+					this.OnPreavviso_AlChanging(value);
 					this.SendPropertyChanging();
-					this._PreavvisoAl = value;
-					this.SendPropertyChanged("PreavvisoAl");
-					this.OnPreavvisoAlChanged();
+					this._Preavviso_Al = value;
+					this.SendPropertyChanged("Preavviso_Al");
+					this.OnPreavviso_AlChanged();
 				}
 			}
 		}
@@ -5380,8 +5652,6 @@ namespace db_crociere
 		
 		private string _Nome;
 		
-		private decimal _StipendioAnnuo;
-		
 		private EntitySet<PERSONALE> _PERSONALEs;
 		
 		private EntitySet<RESPONSABILITÀ> _RESPONSABILITÀs;
@@ -5396,8 +5666,6 @@ namespace db_crociere
     partial void OnDescrizioneChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
-    partial void OnStipendioAnnuoChanging(decimal value);
-    partial void OnStipendioAnnuoChanged();
     #endregion
 		
 		public RUOLI()
@@ -5427,7 +5695,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(200)")]
 		public string Descrizione
 		{
 			get
@@ -5463,26 +5731,6 @@ namespace db_crociere
 					this._Nome = value;
 					this.SendPropertyChanged("Nome");
 					this.OnNomeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StipendioAnnuo", DbType="Decimal(6,0) NOT NULL")]
-		public decimal StipendioAnnuo
-		{
-			get
-			{
-				return this._StipendioAnnuo;
-			}
-			set
-			{
-				if ((this._StipendioAnnuo != value))
-				{
-					this.OnStipendioAnnuoChanging(value);
-					this.SendPropertyChanging();
-					this._StipendioAnnuo = value;
-					this.SendPropertyChanged("StipendioAnnuo");
-					this.OnStipendioAnnuoChanged();
 				}
 			}
 		}
@@ -5564,15 +5812,17 @@ namespace db_crociere
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _CodSala;
-		
-		private decimal _Capienza;
+		private decimal _CodSala;
 		
 		private string _NomeNave;
 		
 		private decimal _NumeroPonte;
 		
-		private EntitySet<INTRATTENIMENTI> _INTRATTENIMENTIs;
+		private decimal _NumeroLocale;
+		
+		private decimal _Capienza;
+		
+		private EntitySet<PROGRAMMAZIONI> _PROGRAMMAZIONIs;
 		
 		private EntityRef<PONTI> _PONTI;
 		
@@ -5580,25 +5830,27 @@ namespace db_crociere
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodSalaChanging(string value);
+    partial void OnCodSalaChanging(decimal value);
     partial void OnCodSalaChanged();
-    partial void OnCapienzaChanging(decimal value);
-    partial void OnCapienzaChanged();
     partial void OnNomeNaveChanging(string value);
     partial void OnNomeNaveChanged();
     partial void OnNumeroPonteChanging(decimal value);
     partial void OnNumeroPonteChanged();
+    partial void OnNumeroLocaleChanging(decimal value);
+    partial void OnNumeroLocaleChanged();
+    partial void OnCapienzaChanging(decimal value);
+    partial void OnCapienzaChanged();
     #endregion
 		
 		public SALE()
 		{
-			this._INTRATTENIMENTIs = new EntitySet<INTRATTENIMENTI>(new Action<INTRATTENIMENTI>(this.attach_INTRATTENIMENTIs), new Action<INTRATTENIMENTI>(this.detach_INTRATTENIMENTIs));
+			this._PROGRAMMAZIONIs = new EntitySet<PROGRAMMAZIONI>(new Action<PROGRAMMAZIONI>(this.attach_PROGRAMMAZIONIs), new Action<PROGRAMMAZIONI>(this.detach_PROGRAMMAZIONIs));
 			this._PONTI = default(EntityRef<PONTI>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodSala", DbType="Char(3) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodSala
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodSala", AutoSync=AutoSync.OnInsert, DbType="Decimal(3,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal CodSala
 		{
 			get
 			{
@@ -5613,26 +5865,6 @@ namespace db_crociere
 					this._CodSala = value;
 					this.SendPropertyChanged("CodSala");
 					this.OnCodSalaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capienza", DbType="Decimal(4,0) NOT NULL")]
-		public decimal Capienza
-		{
-			get
-			{
-				return this._Capienza;
-			}
-			set
-			{
-				if ((this._Capienza != value))
-				{
-					this.OnCapienzaChanging(value);
-					this.SendPropertyChanging();
-					this._Capienza = value;
-					this.SendPropertyChanged("Capienza");
-					this.OnCapienzaChanged();
 				}
 			}
 		}
@@ -5685,16 +5917,56 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SALE_INTRATTENIMENTI", Storage="_INTRATTENIMENTIs", ThisKey="CodSala", OtherKey="CodSala")]
-		public EntitySet<INTRATTENIMENTI> INTRATTENIMENTIs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroLocale", DbType="Decimal(3,0) NOT NULL")]
+		public decimal NumeroLocale
 		{
 			get
 			{
-				return this._INTRATTENIMENTIs;
+				return this._NumeroLocale;
 			}
 			set
 			{
-				this._INTRATTENIMENTIs.Assign(value);
+				if ((this._NumeroLocale != value))
+				{
+					this.OnNumeroLocaleChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroLocale = value;
+					this.SendPropertyChanged("NumeroLocale");
+					this.OnNumeroLocaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capienza", DbType="Decimal(4,0) NOT NULL")]
+		public decimal Capienza
+		{
+			get
+			{
+				return this._Capienza;
+			}
+			set
+			{
+				if ((this._Capienza != value))
+				{
+					this.OnCapienzaChanging(value);
+					this.SendPropertyChanging();
+					this._Capienza = value;
+					this.SendPropertyChanged("Capienza");
+					this.OnCapienzaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SALE_PROGRAMMAZIONI", Storage="_PROGRAMMAZIONIs", ThisKey="CodSala", OtherKey="CodSala")]
+		public EntitySet<PROGRAMMAZIONI> PROGRAMMAZIONIs
+		{
+			get
+			{
+				return this._PROGRAMMAZIONIs;
+			}
+			set
+			{
+				this._PROGRAMMAZIONIs.Assign(value);
 			}
 		}
 		
@@ -5754,13 +6026,13 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void attach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.SALE = this;
 		}
 		
-		private void detach_INTRATTENIMENTIs(INTRATTENIMENTI entity)
+		private void detach_PROGRAMMAZIONIs(PROGRAMMAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.SALE = null;
@@ -5803,7 +6075,7 @@ namespace db_crociere
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodScialuppa", AutoSync=AutoSync.OnInsert, DbType="Decimal(2,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodScialuppa", AutoSync=AutoSync.OnInsert, DbType="Decimal(3,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public decimal CodScialuppa
 		{
 			get
@@ -5942,15 +6214,15 @@ namespace db_crociere
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SEQUENZE")]
-	public partial class SEQUENZE : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SEQUENZE_TRATTE")]
+	public partial class SEQUENZE_TRATTE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _CodTratta;
+		private string _CodPercorso;
 		
-		private string _CodicePercorso;
+		private decimal _CodTratta;
 		
 		private decimal _Ordine;
 		
@@ -5962,19 +6234,43 @@ namespace db_crociere
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnCodPercorsoChanging(string value);
+    partial void OnCodPercorsoChanged();
     partial void OnCodTrattaChanging(decimal value);
     partial void OnCodTrattaChanged();
-    partial void OnCodicePercorsoChanging(string value);
-    partial void OnCodicePercorsoChanged();
     partial void OnOrdineChanging(decimal value);
     partial void OnOrdineChanged();
     #endregion
 		
-		public SEQUENZE()
+		public SEQUENZE_TRATTE()
 		{
 			this._PERCORSI = default(EntityRef<PERCORSI>);
 			this._TRATTE = default(EntityRef<TRATTE>);
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPercorso", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodPercorso
+		{
+			get
+			{
+				return this._CodPercorso;
+			}
+			set
+			{
+				if ((this._CodPercorso != value))
+				{
+					if (this._PERCORSI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodPercorsoChanging(value);
+					this.SendPropertyChanging();
+					this._CodPercorso = value;
+					this.SendPropertyChanged("CodPercorso");
+					this.OnCodPercorsoChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTratta", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
@@ -6001,30 +6297,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePercorso", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CodicePercorso
-		{
-			get
-			{
-				return this._CodicePercorso;
-			}
-			set
-			{
-				if ((this._CodicePercorso != value))
-				{
-					if (this._PERCORSI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodicePercorsoChanging(value);
-					this.SendPropertyChanging();
-					this._CodicePercorso = value;
-					this.SendPropertyChanged("CodicePercorso");
-					this.OnCodicePercorsoChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ordine", DbType="Decimal(2,0) NOT NULL")]
 		public decimal Ordine
 		{
@@ -6045,7 +6317,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_SEQUENZE", Storage="_PERCORSI", ThisKey="CodicePercorso", OtherKey="CodicePercorso", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PERCORSI_SEQUENZE_TRATTE", Storage="_PERCORSI", ThisKey="CodPercorso", OtherKey="CodPercorso", IsForeignKey=true)]
 		public PERCORSI PERCORSI
 		{
 			get
@@ -6062,24 +6334,24 @@ namespace db_crociere
 					if ((previousValue != null))
 					{
 						this._PERCORSI.Entity = null;
-						previousValue.SEQUENZEs.Remove(this);
+						previousValue.SEQUENZE_TRATTEs.Remove(this);
 					}
 					this._PERCORSI.Entity = value;
 					if ((value != null))
 					{
-						value.SEQUENZEs.Add(this);
-						this._CodicePercorso = value.CodicePercorso;
+						value.SEQUENZE_TRATTEs.Add(this);
+						this._CodPercorso = value.CodPercorso;
 					}
 					else
 					{
-						this._CodicePercorso = default(string);
+						this._CodPercorso = default(string);
 					}
 					this.SendPropertyChanged("PERCORSI");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_SEQUENZE", Storage="_TRATTE", ThisKey="CodTratta", OtherKey="CodTratta", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_SEQUENZE_TRATTE", Storage="_TRATTE", ThisKey="CodTratta", OtherKey="CodTratta", IsForeignKey=true)]
 		public TRATTE TRATTE
 		{
 			get
@@ -6096,12 +6368,12 @@ namespace db_crociere
 					if ((previousValue != null))
 					{
 						this._TRATTE.Entity = null;
-						previousValue.SEQUENZEs.Remove(this);
+						previousValue.SEQUENZE_TRATTEs.Remove(this);
 					}
 					this._TRATTE.Entity = value;
 					if ((value != null))
 					{
-						value.SEQUENZEs.Add(this);
+						value.SEQUENZE_TRATTEs.Add(this);
 						this._CodTratta = value.CodTratta;
 					}
 					else
@@ -6316,9 +6588,9 @@ namespace db_crociere
 		
 		private string _Descrizione;
 		
-		private decimal _CodBadge;
+		private decimal _CodPrenotazione;
 		
-		private decimal _CodicePrenotazione;
+		private decimal _CodBadge;
 		
 		private EntityRef<BADGE> _BADGE;
 		
@@ -6336,10 +6608,10 @@ namespace db_crociere
     partial void OnImportoChanged();
     partial void OnDescrizioneChanging(string value);
     partial void OnDescrizioneChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
     partial void OnCodBadgeChanging(decimal value);
     partial void OnCodBadgeChanged();
-    partial void OnCodicePrenotazioneChanging(decimal value);
-    partial void OnCodicePrenotazioneChanged();
     #endregion
 		
 		public SPESE_EXTRA()
@@ -6369,7 +6641,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataSpesa", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataSpesa", DbType="Date NOT NULL")]
 		public System.DateTime DataSpesa
 		{
 			get
@@ -6429,6 +6701,30 @@ namespace db_crociere
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL")]
+		public decimal CodPrenotazione
+		{
+			get
+			{
+				return this._CodPrenotazione;
+			}
+			set
+			{
+				if ((this._CodPrenotazione != value))
+				{
+					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodPrenotazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodBadge", DbType="Decimal(10,0) NOT NULL")]
 		public decimal CodBadge
 		{
@@ -6449,30 +6745,6 @@ namespace db_crociere
 					this._CodBadge = value;
 					this.SendPropertyChanged("CodBadge");
 					this.OnCodBadgeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodicePrenotazione", DbType="Decimal(5,0) NOT NULL")]
-		public decimal CodicePrenotazione
-		{
-			get
-			{
-				return this._CodicePrenotazione;
-			}
-			set
-			{
-				if ((this._CodicePrenotazione != value))
-				{
-					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodicePrenotazioneChanging(value);
-					this.SendPropertyChanging();
-					this._CodicePrenotazione = value;
-					this.SendPropertyChanged("CodicePrenotazione");
-					this.OnCodicePrenotazioneChanged();
 				}
 			}
 		}
@@ -6511,7 +6783,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_SPESE_EXTRA", Storage="_PRENOTAZIONI", ThisKey="CodicePrenotazione", OtherKey="CodicePrenotazione", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_SPESE_EXTRA", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
 		public PRENOTAZIONI PRENOTAZIONI
 		{
 			get
@@ -6534,11 +6806,11 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.SPESE_EXTRAs.Add(this);
-						this._CodicePrenotazione = value.CodicePrenotazione;
+						this._CodPrenotazione = value.CodPrenotazione;
 					}
 					else
 					{
-						this._CodicePrenotazione = default(decimal);
+						this._CodPrenotazione = default(decimal);
 					}
 					this.SendPropertyChanged("PRENOTAZIONI");
 				}
@@ -6574,9 +6846,9 @@ namespace db_crociere
 		
 		private decimal _CodTariffario;
 		
-		private string _TipologiaCabina;
-		
 		private string _NomeNave;
+		
+		private string _NomeTipologia;
 		
 		private System.DateTime _DataInizio;
 		
@@ -6584,7 +6856,7 @@ namespace db_crociere
 		
 		private decimal _Prezzo;
 		
-		private EntitySet<PRENOTAZIONI> _PRENOTAZIONIs;
+		private EntitySet<TARIFFARI_PRENOTAZIONI> _TARIFFARI_PRENOTAZIONIs;
 		
 		private EntityRef<NAVI> _NAVI;
 		
@@ -6596,10 +6868,10 @@ namespace db_crociere
     partial void OnCreated();
     partial void OnCodTariffarioChanging(decimal value);
     partial void OnCodTariffarioChanged();
-    partial void OnTipologiaCabinaChanging(string value);
-    partial void OnTipologiaCabinaChanged();
     partial void OnNomeNaveChanging(string value);
     partial void OnNomeNaveChanged();
+    partial void OnNomeTipologiaChanging(string value);
+    partial void OnNomeTipologiaChanged();
     partial void OnDataInizioChanging(System.DateTime value);
     partial void OnDataInizioChanged();
     partial void OnDataFineChanging(System.DateTime value);
@@ -6610,7 +6882,7 @@ namespace db_crociere
 		
 		public TARIFFARI()
 		{
-			this._PRENOTAZIONIs = new EntitySet<PRENOTAZIONI>(new Action<PRENOTAZIONI>(this.attach_PRENOTAZIONIs), new Action<PRENOTAZIONI>(this.detach_PRENOTAZIONIs));
+			this._TARIFFARI_PRENOTAZIONIs = new EntitySet<TARIFFARI_PRENOTAZIONI>(new Action<TARIFFARI_PRENOTAZIONI>(this.attach_TARIFFARI_PRENOTAZIONIs), new Action<TARIFFARI_PRENOTAZIONI>(this.detach_TARIFFARI_PRENOTAZIONIs));
 			this._NAVI = default(EntityRef<NAVI>);
 			this._TIPOLOGIE = default(EntityRef<TIPOLOGIE>);
 			OnCreated();
@@ -6636,30 +6908,6 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipologiaCabina", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
-		public string TipologiaCabina
-		{
-			get
-			{
-				return this._TipologiaCabina;
-			}
-			set
-			{
-				if ((this._TipologiaCabina != value))
-				{
-					if (this._TIPOLOGIE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTipologiaCabinaChanging(value);
-					this.SendPropertyChanging();
-					this._TipologiaCabina = value;
-					this.SendPropertyChanged("TipologiaCabina");
-					this.OnTipologiaCabinaChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeNave", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
 		public string NomeNave
 		{
@@ -6680,6 +6928,30 @@ namespace db_crociere
 					this._NomeNave = value;
 					this.SendPropertyChanged("NomeNave");
 					this.OnNomeNaveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeTipologia", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		public string NomeTipologia
+		{
+			get
+			{
+				return this._NomeTipologia;
+			}
+			set
+			{
+				if ((this._NomeTipologia != value))
+				{
+					if (this._TIPOLOGIE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNomeTipologiaChanging(value);
+					this.SendPropertyChanging();
+					this._NomeTipologia = value;
+					this.SendPropertyChanged("NomeTipologia");
+					this.OnNomeTipologiaChanged();
 				}
 			}
 		}
@@ -6744,16 +7016,16 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TARIFFARI_PRENOTAZIONI", Storage="_PRENOTAZIONIs", ThisKey="CodTariffario", OtherKey="CodTariffario")]
-		public EntitySet<PRENOTAZIONI> PRENOTAZIONIs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TARIFFARI_TARIFFARI_PRENOTAZIONI", Storage="_TARIFFARI_PRENOTAZIONIs", ThisKey="CodTariffario", OtherKey="CodTariffario")]
+		public EntitySet<TARIFFARI_PRENOTAZIONI> TARIFFARI_PRENOTAZIONIs
 		{
 			get
 			{
-				return this._PRENOTAZIONIs;
+				return this._TARIFFARI_PRENOTAZIONIs;
 			}
 			set
 			{
-				this._PRENOTAZIONIs.Assign(value);
+				this._TARIFFARI_PRENOTAZIONIs.Assign(value);
 			}
 		}
 		
@@ -6791,7 +7063,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_TARIFFARI", Storage="_TIPOLOGIE", ThisKey="TipologiaCabina", OtherKey="Nome", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_TARIFFARI", Storage="_TIPOLOGIE", ThisKey="NomeTipologia", OtherKey="Nome", IsForeignKey=true)]
 		public TIPOLOGIE TIPOLOGIE
 		{
 			get
@@ -6814,11 +7086,11 @@ namespace db_crociere
 					if ((value != null))
 					{
 						value.TARIFFARIs.Add(this);
-						this._TipologiaCabina = value.Nome;
+						this._NomeTipologia = value.Nome;
 					}
 					else
 					{
-						this._TipologiaCabina = default(string);
+						this._NomeTipologia = default(string);
 					}
 					this.SendPropertyChanged("TIPOLOGIE");
 				}
@@ -6845,16 +7117,184 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_PRENOTAZIONIs(PRENOTAZIONI entity)
+		private void attach_TARIFFARI_PRENOTAZIONIs(TARIFFARI_PRENOTAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.TARIFFARI = this;
 		}
 		
-		private void detach_PRENOTAZIONIs(PRENOTAZIONI entity)
+		private void detach_TARIFFARI_PRENOTAZIONIs(TARIFFARI_PRENOTAZIONI entity)
 		{
 			this.SendPropertyChanging();
 			entity.TARIFFARI = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TARIFFARI_PRENOTAZIONI")]
+	public partial class TARIFFARI_PRENOTAZIONI : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _CodTariffario;
+		
+		private decimal _CodPrenotazione;
+		
+		private EntityRef<PRENOTAZIONI> _PRENOTAZIONI;
+		
+		private EntityRef<TARIFFARI> _TARIFFARI;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodTariffarioChanging(decimal value);
+    partial void OnCodTariffarioChanged();
+    partial void OnCodPrenotazioneChanging(decimal value);
+    partial void OnCodPrenotazioneChanged();
+    #endregion
+		
+		public TARIFFARI_PRENOTAZIONI()
+		{
+			this._PRENOTAZIONI = default(EntityRef<PRENOTAZIONI>);
+			this._TARIFFARI = default(EntityRef<TARIFFARI>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTariffario", DbType="Decimal(3,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodTariffario
+		{
+			get
+			{
+				return this._CodTariffario;
+			}
+			set
+			{
+				if ((this._CodTariffario != value))
+				{
+					if (this._TARIFFARI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodTariffarioChanging(value);
+					this.SendPropertyChanging();
+					this._CodTariffario = value;
+					this.SendPropertyChanged("CodTariffario");
+					this.OnCodTariffarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodPrenotazione", DbType="Decimal(5,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal CodPrenotazione
+		{
+			get
+			{
+				return this._CodPrenotazione;
+			}
+			set
+			{
+				if ((this._CodPrenotazione != value))
+				{
+					if (this._PRENOTAZIONI.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodPrenotazioneChanging(value);
+					this.SendPropertyChanging();
+					this._CodPrenotazione = value;
+					this.SendPropertyChanged("CodPrenotazione");
+					this.OnCodPrenotazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PRENOTAZIONI_TARIFFARI_PRENOTAZIONI", Storage="_PRENOTAZIONI", ThisKey="CodPrenotazione", OtherKey="CodPrenotazione", IsForeignKey=true)]
+		public PRENOTAZIONI PRENOTAZIONI
+		{
+			get
+			{
+				return this._PRENOTAZIONI.Entity;
+			}
+			set
+			{
+				PRENOTAZIONI previousValue = this._PRENOTAZIONI.Entity;
+				if (((previousValue != value) 
+							|| (this._PRENOTAZIONI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PRENOTAZIONI.Entity = null;
+						previousValue.TARIFFARI_PRENOTAZIONIs.Remove(this);
+					}
+					this._PRENOTAZIONI.Entity = value;
+					if ((value != null))
+					{
+						value.TARIFFARI_PRENOTAZIONIs.Add(this);
+						this._CodPrenotazione = value.CodPrenotazione;
+					}
+					else
+					{
+						this._CodPrenotazione = default(decimal);
+					}
+					this.SendPropertyChanged("PRENOTAZIONI");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TARIFFARI_TARIFFARI_PRENOTAZIONI", Storage="_TARIFFARI", ThisKey="CodTariffario", OtherKey="CodTariffario", IsForeignKey=true)]
+		public TARIFFARI TARIFFARI
+		{
+			get
+			{
+				return this._TARIFFARI.Entity;
+			}
+			set
+			{
+				TARIFFARI previousValue = this._TARIFFARI.Entity;
+				if (((previousValue != value) 
+							|| (this._TARIFFARI.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TARIFFARI.Entity = null;
+						previousValue.TARIFFARI_PRENOTAZIONIs.Remove(this);
+					}
+					this._TARIFFARI.Entity = value;
+					if ((value != null))
+					{
+						value.TARIFFARI_PRENOTAZIONIs.Add(this);
+						this._CodTariffario = value.CodTariffario;
+					}
+					else
+					{
+						this._CodTariffario = default(decimal);
+					}
+					this.SendPropertyChanged("TARIFFARI");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -6933,7 +7373,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(100)")]
 		public string Descrizione
 		{
 			get
@@ -6953,7 +7393,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_CABINE", Storage="_CABINEs", ThisKey="Nome", OtherKey="Tipologia")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_CABINE", Storage="_CABINEs", ThisKey="Nome", OtherKey="NomeTipologia")]
 		public EntitySet<CABINE> CABINEs
 		{
 			get
@@ -6966,7 +7406,7 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_TARIFFARI", Storage="_TARIFFARIs", ThisKey="Nome", OtherKey="TipologiaCabina")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIPOLOGIE_TARIFFARI", Storage="_TARIFFARIs", ThisKey="Nome", OtherKey="NomeTipologia")]
 		public EntitySet<TARIFFARI> TARIFFARIs
 		{
 			get
@@ -7036,9 +7476,9 @@ namespace db_crociere
 		
 		private string _CodPortoPartenza;
 		
-		private EntitySet<SEQUENZE> _SEQUENZEs;
+		private EntitySet<ESECUZIONI_TRATTA> _ESECUZIONI_TRATTAs;
 		
-		private EntitySet<TRATTE_IN_NAVIGAZIONE> _TRATTE_IN_NAVIGAZIONEs;
+		private EntitySet<SEQUENZE_TRATTE> _SEQUENZE_TRATTEs;
 		
 		private EntityRef<PORTI> _PORTI;
 		
@@ -7058,8 +7498,8 @@ namespace db_crociere
 		
 		public TRATTE()
 		{
-			this._SEQUENZEs = new EntitySet<SEQUENZE>(new Action<SEQUENZE>(this.attach_SEQUENZEs), new Action<SEQUENZE>(this.detach_SEQUENZEs));
-			this._TRATTE_IN_NAVIGAZIONEs = new EntitySet<TRATTE_IN_NAVIGAZIONE>(new Action<TRATTE_IN_NAVIGAZIONE>(this.attach_TRATTE_IN_NAVIGAZIONEs), new Action<TRATTE_IN_NAVIGAZIONE>(this.detach_TRATTE_IN_NAVIGAZIONEs));
+			this._ESECUZIONI_TRATTAs = new EntitySet<ESECUZIONI_TRATTA>(new Action<ESECUZIONI_TRATTA>(this.attach_ESECUZIONI_TRATTAs), new Action<ESECUZIONI_TRATTA>(this.detach_ESECUZIONI_TRATTAs));
+			this._SEQUENZE_TRATTEs = new EntitySet<SEQUENZE_TRATTE>(new Action<SEQUENZE_TRATTE>(this.attach_SEQUENZE_TRATTEs), new Action<SEQUENZE_TRATTE>(this.detach_SEQUENZE_TRATTEs));
 			this._PORTI = default(EntityRef<PORTI>);
 			this._PORTI1 = default(EntityRef<PORTI>);
 			OnCreated();
@@ -7133,29 +7573,29 @@ namespace db_crociere
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_SEQUENZE", Storage="_SEQUENZEs", ThisKey="CodTratta", OtherKey="CodTratta")]
-		public EntitySet<SEQUENZE> SEQUENZEs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_ESECUZIONI_TRATTA", Storage="_ESECUZIONI_TRATTAs", ThisKey="CodTratta", OtherKey="CodTratta")]
+		public EntitySet<ESECUZIONI_TRATTA> ESECUZIONI_TRATTAs
 		{
 			get
 			{
-				return this._SEQUENZEs;
+				return this._ESECUZIONI_TRATTAs;
 			}
 			set
 			{
-				this._SEQUENZEs.Assign(value);
+				this._ESECUZIONI_TRATTAs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_TRATTE_IN_NAVIGAZIONE", Storage="_TRATTE_IN_NAVIGAZIONEs", ThisKey="CodTratta", OtherKey="CodTratta")]
-		public EntitySet<TRATTE_IN_NAVIGAZIONE> TRATTE_IN_NAVIGAZIONEs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_SEQUENZE_TRATTE", Storage="_SEQUENZE_TRATTEs", ThisKey="CodTratta", OtherKey="CodTratta")]
+		public EntitySet<SEQUENZE_TRATTE> SEQUENZE_TRATTEs
 		{
 			get
 			{
-				return this._TRATTE_IN_NAVIGAZIONEs;
+				return this._SEQUENZE_TRATTEs;
 			}
 			set
 			{
-				this._TRATTE_IN_NAVIGAZIONEs.Assign(value);
+				this._SEQUENZE_TRATTEs.Assign(value);
 			}
 		}
 		
@@ -7247,316 +7687,28 @@ namespace db_crociere
 			}
 		}
 		
-		private void attach_SEQUENZEs(SEQUENZE entity)
+		private void attach_ESECUZIONI_TRATTAs(ESECUZIONI_TRATTA entity)
 		{
 			this.SendPropertyChanging();
 			entity.TRATTE = this;
 		}
 		
-		private void detach_SEQUENZEs(SEQUENZE entity)
+		private void detach_ESECUZIONI_TRATTAs(ESECUZIONI_TRATTA entity)
 		{
 			this.SendPropertyChanging();
 			entity.TRATTE = null;
 		}
 		
-		private void attach_TRATTE_IN_NAVIGAZIONEs(TRATTE_IN_NAVIGAZIONE entity)
+		private void attach_SEQUENZE_TRATTEs(SEQUENZE_TRATTE entity)
 		{
 			this.SendPropertyChanging();
 			entity.TRATTE = this;
 		}
 		
-		private void detach_TRATTE_IN_NAVIGAZIONEs(TRATTE_IN_NAVIGAZIONE entity)
+		private void detach_SEQUENZE_TRATTEs(SEQUENZE_TRATTE entity)
 		{
 			this.SendPropertyChanging();
 			entity.TRATTE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRATTE_IN_NAVIGAZIONE")]
-	public partial class TRATTE_IN_NAVIGAZIONE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _CodTrattaNavigazione;
-		
-		private System.DateTime _PartenzaData;
-		
-		private System.DateTime _PartenzaOra;
-		
-		private decimal _CodTratta;
-		
-		private decimal _CodNavigazione;
-		
-		private System.DateTime _ArrivoData;
-		
-		private System.DateTime _ArrivoOra;
-		
-		private EntityRef<TRATTE> _TRATTE;
-		
-		private EntityRef<NAVIGAZIONI> _NAVIGAZIONI;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodTrattaNavigazioneChanging(decimal value);
-    partial void OnCodTrattaNavigazioneChanged();
-    partial void OnPartenzaDataChanging(System.DateTime value);
-    partial void OnPartenzaDataChanged();
-    partial void OnPartenzaOraChanging(System.DateTime value);
-    partial void OnPartenzaOraChanged();
-    partial void OnCodTrattaChanging(decimal value);
-    partial void OnCodTrattaChanged();
-    partial void OnCodNavigazioneChanging(decimal value);
-    partial void OnCodNavigazioneChanged();
-    partial void OnArrivoDataChanging(System.DateTime value);
-    partial void OnArrivoDataChanged();
-    partial void OnArrivoOraChanging(System.DateTime value);
-    partial void OnArrivoOraChanged();
-    #endregion
-		
-		public TRATTE_IN_NAVIGAZIONE()
-		{
-			this._TRATTE = default(EntityRef<TRATTE>);
-			this._NAVIGAZIONI = default(EntityRef<NAVIGAZIONI>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTrattaNavigazione", AutoSync=AutoSync.OnInsert, DbType="Decimal(5,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal CodTrattaNavigazione
-		{
-			get
-			{
-				return this._CodTrattaNavigazione;
-			}
-			set
-			{
-				if ((this._CodTrattaNavigazione != value))
-				{
-					this.OnCodTrattaNavigazioneChanging(value);
-					this.SendPropertyChanging();
-					this._CodTrattaNavigazione = value;
-					this.SendPropertyChanged("CodTrattaNavigazione");
-					this.OnCodTrattaNavigazioneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartenzaData", DbType="DateTime NOT NULL")]
-		public System.DateTime PartenzaData
-		{
-			get
-			{
-				return this._PartenzaData;
-			}
-			set
-			{
-				if ((this._PartenzaData != value))
-				{
-					this.OnPartenzaDataChanging(value);
-					this.SendPropertyChanging();
-					this._PartenzaData = value;
-					this.SendPropertyChanged("PartenzaData");
-					this.OnPartenzaDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartenzaOra", DbType="DateTime NOT NULL")]
-		public System.DateTime PartenzaOra
-		{
-			get
-			{
-				return this._PartenzaOra;
-			}
-			set
-			{
-				if ((this._PartenzaOra != value))
-				{
-					this.OnPartenzaOraChanging(value);
-					this.SendPropertyChanging();
-					this._PartenzaOra = value;
-					this.SendPropertyChanged("PartenzaOra");
-					this.OnPartenzaOraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodTratta", DbType="Decimal(3,0) NOT NULL")]
-		public decimal CodTratta
-		{
-			get
-			{
-				return this._CodTratta;
-			}
-			set
-			{
-				if ((this._CodTratta != value))
-				{
-					if (this._TRATTE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodTrattaChanging(value);
-					this.SendPropertyChanging();
-					this._CodTratta = value;
-					this.SendPropertyChanged("CodTratta");
-					this.OnCodTrattaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodNavigazione", DbType="Decimal(3,0) NOT NULL")]
-		public decimal CodNavigazione
-		{
-			get
-			{
-				return this._CodNavigazione;
-			}
-			set
-			{
-				if ((this._CodNavigazione != value))
-				{
-					if (this._NAVIGAZIONI.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCodNavigazioneChanging(value);
-					this.SendPropertyChanging();
-					this._CodNavigazione = value;
-					this.SendPropertyChanged("CodNavigazione");
-					this.OnCodNavigazioneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrivoData", DbType="DateTime NOT NULL")]
-		public System.DateTime ArrivoData
-		{
-			get
-			{
-				return this._ArrivoData;
-			}
-			set
-			{
-				if ((this._ArrivoData != value))
-				{
-					this.OnArrivoDataChanging(value);
-					this.SendPropertyChanging();
-					this._ArrivoData = value;
-					this.SendPropertyChanged("ArrivoData");
-					this.OnArrivoDataChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrivoOra", DbType="DateTime NOT NULL")]
-		public System.DateTime ArrivoOra
-		{
-			get
-			{
-				return this._ArrivoOra;
-			}
-			set
-			{
-				if ((this._ArrivoOra != value))
-				{
-					this.OnArrivoOraChanging(value);
-					this.SendPropertyChanging();
-					this._ArrivoOra = value;
-					this.SendPropertyChanged("ArrivoOra");
-					this.OnArrivoOraChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRATTE_TRATTE_IN_NAVIGAZIONE", Storage="_TRATTE", ThisKey="CodTratta", OtherKey="CodTratta", IsForeignKey=true)]
-		public TRATTE TRATTE
-		{
-			get
-			{
-				return this._TRATTE.Entity;
-			}
-			set
-			{
-				TRATTE previousValue = this._TRATTE.Entity;
-				if (((previousValue != value) 
-							|| (this._TRATTE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TRATTE.Entity = null;
-						previousValue.TRATTE_IN_NAVIGAZIONEs.Remove(this);
-					}
-					this._TRATTE.Entity = value;
-					if ((value != null))
-					{
-						value.TRATTE_IN_NAVIGAZIONEs.Add(this);
-						this._CodTratta = value.CodTratta;
-					}
-					else
-					{
-						this._CodTratta = default(decimal);
-					}
-					this.SendPropertyChanged("TRATTE");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NAVIGAZIONI_TRATTE_IN_NAVIGAZIONE", Storage="_NAVIGAZIONI", ThisKey="CodNavigazione", OtherKey="CodNavigazione", IsForeignKey=true)]
-		public NAVIGAZIONI NAVIGAZIONI
-		{
-			get
-			{
-				return this._NAVIGAZIONI.Entity;
-			}
-			set
-			{
-				NAVIGAZIONI previousValue = this._NAVIGAZIONI.Entity;
-				if (((previousValue != value) 
-							|| (this._NAVIGAZIONI.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NAVIGAZIONI.Entity = null;
-						previousValue.TRATTE_IN_NAVIGAZIONEs.Remove(this);
-					}
-					this._NAVIGAZIONI.Entity = value;
-					if ((value != null))
-					{
-						value.TRATTE_IN_NAVIGAZIONEs.Add(this);
-						this._CodNavigazione = value.CodNavigazione;
-					}
-					else
-					{
-						this._CodNavigazione = default(decimal);
-					}
-					this.SendPropertyChanged("NAVIGAZIONI");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }

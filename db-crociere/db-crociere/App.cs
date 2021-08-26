@@ -12,6 +12,7 @@ namespace db_crociere
 {
     public partial class App : Form
     {
+        DataClassesDBCrociereDataContext db = new DataClassesDBCrociereDataContext();
         public App()
         {
             InitializeComponent();
@@ -19,7 +20,6 @@ namespace db_crociere
 
         private void initNavigation()
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
             var res = from porti in db.PORTIs
                       select new { porti.CodPorto };
             NavigationDropDownMenu.DataSource = res;
@@ -38,7 +38,6 @@ namespace db_crociere
 
         private void initPathInfo()
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
             var res = from porti in db.PORTIs
                       select porti;
             LegGridView.DataSource = res;
@@ -49,7 +48,6 @@ namespace db_crociere
             /**
              * Un esempio con i porti...
              */
-            DataClasses1DataContext db = new DataClasses1DataContext();
             var res = from porti in db.PORTIs
                       select new { porti.Città };
             shipListBox.DataSource = res;

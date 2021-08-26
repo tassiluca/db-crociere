@@ -32,5 +32,15 @@ namespace db_crociere.Properties {
                 return ((string)(this["DbcrociereConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8FAP7QK;Initial Catalog=dbCrociere;Integrated Security=True")]
+        public string dbCrociereConnectionString1 {
+            get {
+                return ((string)(this["dbCrociereConnectionString1"]));
+            }
+        }
     }
 }
