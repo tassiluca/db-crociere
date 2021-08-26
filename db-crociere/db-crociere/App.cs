@@ -74,7 +74,7 @@ namespace db_crociere
 
         private void AddShipBtnClick(object sender, EventArgs e)
         {
-            var addShipPopup = new AddShipPopup();
+            var addShipPopup = new AddShipPopup(db);
             addShipPopup.ShowDialog(this);
         }
     }

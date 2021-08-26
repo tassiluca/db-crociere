@@ -12,8 +12,11 @@ namespace db_crociere
 {
     public partial class AddShipPopup : Form
     {
-        public AddShipPopup()
+        private DataClassesDBCrociereDataContext db;
+
+        public AddShipPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
+            db = dbDataContext;
             InitializeComponent();
         }
 
@@ -75,7 +78,37 @@ namespace db_crociere
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+                /* check con TryParse */
+                string name = ShipNameTextBox.Text;
+                int length = int.Parse(LengthTextBox.Text);
+                int width = int.Parse(WidthTextBox.Text);
+                int weight = int.Parse(WeightTextBox.Text);
+                int height = int.Parse(HeightInfoTextBox.Text);
+                int cabinsNum = int.Parse(CabinsNumTextBox.Text);
 
+                /*
+                NAVI nave = new NAVI
+                {
+                    Nome = name,
+                    Larghezza = width,
+                    Lunghezza = length,
+                    Peso = weight,
+                    Altezza = height,
+                    NumeroCabine = cabinsNum
+                };
+
+                db.NAVIs.InsertOnSubmit(nave);
+
+                try
+                {
+                    db.SubmitChanges();
+                    Console.WriteLine("Inserita correttamente una nuova nave");
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                }
+                */
             }
         }
     }
