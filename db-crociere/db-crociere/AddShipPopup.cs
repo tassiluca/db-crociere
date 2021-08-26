@@ -66,7 +66,7 @@ namespace db_crociere
 
         private void HeightInfoTextBox_Validating(object sender, CancelEventArgs e)
         {
-            RequiredTextValidation(HeightInfoTextBox, e);
+            RequiredTextValidation(HeightTextBox, e);
         }
 
         private void CabinsNumTextBox_Validating(object sender, CancelEventArgs e)
@@ -83,7 +83,7 @@ namespace db_crociere
                 int length = int.Parse(LengthTextBox.Text);
                 int width = int.Parse(WidthTextBox.Text);
                 int weight = int.Parse(WeightTextBox.Text);
-                int height = int.Parse(HeightInfoTextBox.Text);
+                int height = int.Parse(HeightTextBox.Text);
                 int cabinsNum = int.Parse(CabinsNumTextBox.Text);
 
                 /*

@@ -43,7 +43,7 @@ namespace db_crociere
             this.WeightInfo = new System.Windows.Forms.Label();
             this.WeightTextBox = new System.Windows.Forms.TextBox();
             this.HeightInfo = new System.Windows.Forms.Label();
-            this.HeightInfoTextBox = new System.Windows.Forms.TextBox();
+            this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.CabinsNumInfo = new System.Windows.Forms.Label();
             this.CabinsNumTextBox = new System.Windows.Forms.TextBox();
             this.errorProviderInfo = new System.Windows.Forms.ErrorProvider(this.components);
@@ -95,7 +95,7 @@ namespace db_crociere
             this.flowLayoutPanel1.Controls.Add(this.WeightInfo);
             this.flowLayoutPanel1.Controls.Add(this.WeightTextBox);
             this.flowLayoutPanel1.Controls.Add(this.HeightInfo);
-            this.flowLayoutPanel1.Controls.Add(this.HeightInfoTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.HeightTextBox);
             this.flowLayoutPanel1.Controls.Add(this.CabinsNumInfo);
             this.flowLayoutPanel1.Controls.Add(this.CabinsNumTextBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
@@ -194,14 +194,14 @@ namespace db_crociere
             this.HeightInfo.TabIndex = 10;
             this.HeightInfo.Text = "Altezza";
             // 
-            // HeightInfoTextBox
+            // HeightTextBox
             // 
-            this.HeightInfoTextBox.Location = new System.Drawing.Point(338, 29);
-            this.HeightInfoTextBox.MaxLength = 3;
-            this.HeightInfoTextBox.Name = "HeightInfoTextBox";
-            this.HeightInfoTextBox.Size = new System.Drawing.Size(38, 20);
-            this.HeightInfoTextBox.TabIndex = 11;
-            this.HeightInfoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInfoTextBox_Validating);
+            this.HeightTextBox.Location = new System.Drawing.Point(338, 29);
+            this.HeightTextBox.MaxLength = 3;
+            this.HeightTextBox.Name = "HeightTextBox";
+            this.HeightTextBox.Size = new System.Drawing.Size(38, 20);
+            this.HeightTextBox.TabIndex = 11;
+            this.HeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInfoTextBox_Validating);
             // 
             // CabinsNumInfo
             // 
@@ -256,7 +256,7 @@ namespace db_crociere
         private System.Windows.Forms.Label WeightInfo;
         private System.Windows.Forms.TextBox WeightTextBox;
         private System.Windows.Forms.Label HeightInfo;
-        private System.Windows.Forms.TextBox HeightInfoTextBox;
+        private System.Windows.Forms.TextBox HeightTextBox;
         private System.Windows.Forms.Label CabinsNumInfo;
         private System.Windows.Forms.TextBox CabinsNumTextBox;
         private System.Windows.Forms.Button AddShipInfoBtn;
