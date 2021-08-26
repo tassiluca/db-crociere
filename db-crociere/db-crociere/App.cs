@@ -25,49 +25,49 @@ namespace db_crociere
             NavigationDropDownMenu.DataSource = res;
         }
 
-        private Dictionary<TextBox, string> getShipCode(string shipName)
+        private Dictionary<Label, string> getShipCode(string shipName)
         {
-            var shipInfos = new Dictionary<TextBox, string>();
+            var shipInfos = new Dictionary<Label, string>();
             
-            shipInfos.Add(ShipNameTextBox, shipName);
+            shipInfos.Add(ShipNameLabel, shipName);
 
             var code = from navi in db.NAVIs
                         where String.Equals(navi.Nome, shipName) == true
                         select navi.CodNave;
-            shipInfos.Add(ShipCodeTextBox, code.First().ToString());
+            shipInfos.Add(ShipCodeLabel, code.First().ToString());
 
             var width = from navi in db.NAVIs
                         where navi.Nome == shipName
                         select navi.Larghezza;
-            shipInfos.Add(WidthTextBox, width.First().ToString());
+            shipInfos.Add(WidthLabel, width.First().ToString());
 
             var length = from navi in db.NAVIs
                          where navi.Nome == shipName
                          select navi.Lunghezza;
-            shipInfos.Add(LengthTextBox, length.First().ToString());
+            shipInfos.Add(LengthLabel, length.First().ToString());
 
             var weight = from navi in db.NAVIs
                          where navi.Nome == shipName
                          select navi.Peso;
-            shipInfos.Add(WeightTextBox, weight.First().ToString());
+            shipInfos.Add(WeightLabel, weight.First().ToString());
 
             var height = from navi in db.NAVIs
                          where navi.Nome == shipName
                          select navi.Altezza;
-            shipInfos.Add(HeightTextBox, height.First().ToString());
+            shipInfos.Add(HeightLabel, height.First().ToString());
 
             var cabins = from navi in db.NAVIs
                          where navi.Nome == shipName
                          select navi.NumeroCabine;
-            shipInfos.Add(CabinsNumTextBox, cabins.First().ToString());
+            shipInfos.Add(CabinsNumLabel, cabins.First().ToString());
 
             return shipInfos;
         }
 
-        private void initShipInfo(String shipName)
+        private void fillShipInfo(String shipName)
         {
             var shipInfos = getShipCode(shipName);
-            foreach (KeyValuePair<TextBox, string> elem in shipInfos)
+            foreach (KeyValuePair<Label, string> elem in shipInfos)
             {
                 elem.Key.Text = elem.Value;
             }
@@ -83,7 +83,7 @@ namespace db_crociere
             var ships = from navi in db.NAVIs
                         select navi.Nome;
             shipListBox.DataSource = ships;
-            initShipInfo(ships.ToArray()[0]);
+            fillShipInfo(ships.ToArray()[0]);
             initPathInfo();
             initNavigation();
         }
@@ -92,11 +92,6 @@ namespace db_crociere
         {
             ListBox lb = (ListBox)sender;
             Console.WriteLine("" + lb.SelectedIndex);
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -115,7 +110,7 @@ namespace db_crociere
             Console.WriteLine(sender);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void groupBox1_Enter_1(object sender, EventArgs e)
         {
 
         }

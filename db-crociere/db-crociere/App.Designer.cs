@@ -58,21 +58,21 @@ namespace db_crociere
             this.DurationInfo = new System.Windows.Forms.Label();
             this.InfoShipBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ShipNameTextBox = new System.Windows.Forms.TextBox();
-            this.HeightTextBox = new System.Windows.Forms.TextBox();
-            this.WeightTextBox = new System.Windows.Forms.TextBox();
-            this.LengthTextBox = new System.Windows.Forms.TextBox();
-            this.WidthTextBox = new System.Windows.Forms.TextBox();
-            this.ShipCodeTextBox = new System.Windows.Forms.TextBox();
+            this.InfoNameLabel = new System.Windows.Forms.Label();
             this.InfoCode = new System.Windows.Forms.Label();
             this.InfoWidth = new System.Windows.Forms.Label();
             this.InfoLength = new System.Windows.Forms.Label();
             this.InfoWeight = new System.Windows.Forms.Label();
             this.InfoHeight = new System.Windows.Forms.Label();
             this.InfoCabins = new System.Windows.Forms.Label();
+            this.ShipNameLabel = new System.Windows.Forms.Label();
+            this.ShipCodeLabel = new System.Windows.Forms.Label();
+            this.WidthLabel = new System.Windows.Forms.Label();
+            this.LengthLabel = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.CabinsNumTextBox = new System.Windows.Forms.TextBox();
-            this.InfoNameLabel = new System.Windows.Forms.Label();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.prenotBox.SuspendLayout();
@@ -123,7 +123,6 @@ namespace db_crociere
             this.bookingTab.TabIndex = 0;
             this.bookingTab.Text = "Prenotazioni";
             this.bookingTab.UseVisualStyleBackColor = true;
-            this.bookingTab.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
@@ -469,10 +468,6 @@ namespace db_crociere
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.24138F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.75862F));
-            this.tableLayoutPanel1.Controls.Add(this.HeightTextBox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.WeightTextBox, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.LengthTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.ShipCodeTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.InfoNameLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.InfoCode, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.InfoWidth, 0, 2);
@@ -480,9 +475,13 @@ namespace db_crociere
             this.tableLayoutPanel1.Controls.Add(this.InfoWeight, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.InfoHeight, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.InfoCabins, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.CabinsNumTextBox, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.ShipNameTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.WidthTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.ShipNameLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ShipCodeLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.WidthLabel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.LengthLabel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.WeightLabel, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.HeightLabel, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.CabinsNumLabel, 1, 6);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -493,71 +492,21 @@ namespace db_crociere
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 231);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(290, 273);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // ShipNameTextBox
+            // InfoNameLabel
             // 
-            this.ShipNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ShipNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.ShipNameTextBox.Location = new System.Drawing.Point(139, 3);
-            this.ShipNameTextBox.Name = "ShipNameTextBox";
-            this.ShipNameTextBox.ReadOnly = true;
-            this.ShipNameTextBox.Size = new System.Drawing.Size(148, 15);
-            this.ShipNameTextBox.TabIndex = 20;
-            this.ShipNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // HeightTextBox
-            // 
-            this.HeightTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.HeightTextBox.Location = new System.Drawing.Point(139, 163);
-            this.HeightTextBox.Name = "HeightTextBox";
-            this.HeightTextBox.ReadOnly = true;
-            this.HeightTextBox.Size = new System.Drawing.Size(148, 15);
-            this.HeightTextBox.TabIndex = 19;
-            // 
-            // WeightTextBox
-            // 
-            this.WeightTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WeightTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.WeightTextBox.Location = new System.Drawing.Point(139, 131);
-            this.WeightTextBox.Name = "WeightTextBox";
-            this.WeightTextBox.ReadOnly = true;
-            this.WeightTextBox.Size = new System.Drawing.Size(148, 15);
-            this.WeightTextBox.TabIndex = 18;
-            // 
-            // LengthTextBox
-            // 
-            this.LengthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LengthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.LengthTextBox.Location = new System.Drawing.Point(139, 99);
-            this.LengthTextBox.Name = "LengthTextBox";
-            this.LengthTextBox.ReadOnly = true;
-            this.LengthTextBox.Size = new System.Drawing.Size(148, 15);
-            this.LengthTextBox.TabIndex = 17;
-            // 
-            // WidthTextBox
-            // 
-            this.WidthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.WidthTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.WidthTextBox.Location = new System.Drawing.Point(139, 67);
-            this.WidthTextBox.Name = "WidthTextBox";
-            this.WidthTextBox.ReadOnly = true;
-            this.WidthTextBox.Size = new System.Drawing.Size(148, 15);
-            this.WidthTextBox.TabIndex = 16;
-            // 
-            // ShipCodeTextBox
-            // 
-            this.ShipCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ShipCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.ShipCodeTextBox.Location = new System.Drawing.Point(139, 35);
-            this.ShipCodeTextBox.Name = "ShipCodeTextBox";
-            this.ShipCodeTextBox.ReadOnly = true;
-            this.ShipCodeTextBox.Size = new System.Drawing.Size(148, 15);
-            this.ShipCodeTextBox.TabIndex = 15;
+            this.InfoNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.InfoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.InfoNameLabel.Location = new System.Drawing.Point(3, 0);
+            this.InfoNameLabel.Name = "InfoNameLabel";
+            this.InfoNameLabel.Size = new System.Drawing.Size(49, 38);
+            this.InfoNameLabel.TabIndex = 0;
+            this.InfoNameLabel.Text = "Nome";
+            this.InfoNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InfoCode
             // 
@@ -566,9 +515,9 @@ namespace db_crociere
             this.InfoCode.AutoSize = true;
             this.InfoCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCode.ForeColor = System.Drawing.Color.Black;
-            this.InfoCode.Location = new System.Drawing.Point(3, 32);
+            this.InfoCode.Location = new System.Drawing.Point(3, 38);
             this.InfoCode.Name = "InfoCode";
-            this.InfoCode.Size = new System.Drawing.Size(98, 32);
+            this.InfoCode.Size = new System.Drawing.Size(98, 38);
             this.InfoCode.TabIndex = 1;
             this.InfoCode.Text = "Codice Nave";
             this.InfoCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -580,9 +529,9 @@ namespace db_crociere
             this.InfoWidth.AutoSize = true;
             this.InfoWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoWidth.ForeColor = System.Drawing.Color.Black;
-            this.InfoWidth.Location = new System.Drawing.Point(3, 64);
+            this.InfoWidth.Location = new System.Drawing.Point(3, 76);
             this.InfoWidth.Name = "InfoWidth";
-            this.InfoWidth.Size = new System.Drawing.Size(79, 32);
+            this.InfoWidth.Size = new System.Drawing.Size(79, 38);
             this.InfoWidth.TabIndex = 2;
             this.InfoWidth.Text = "Larghezza";
             this.InfoWidth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -594,9 +543,9 @@ namespace db_crociere
             this.InfoLength.AutoSize = true;
             this.InfoLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoLength.ForeColor = System.Drawing.Color.Black;
-            this.InfoLength.Location = new System.Drawing.Point(3, 96);
+            this.InfoLength.Location = new System.Drawing.Point(3, 114);
             this.InfoLength.Name = "InfoLength";
-            this.InfoLength.Size = new System.Drawing.Size(81, 32);
+            this.InfoLength.Size = new System.Drawing.Size(81, 38);
             this.InfoLength.TabIndex = 3;
             this.InfoLength.Text = "Lunghezza";
             this.InfoLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -608,9 +557,9 @@ namespace db_crociere
             this.InfoWeight.AutoSize = true;
             this.InfoWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoWeight.ForeColor = System.Drawing.Color.Black;
-            this.InfoWeight.Location = new System.Drawing.Point(3, 128);
+            this.InfoWeight.Location = new System.Drawing.Point(3, 152);
             this.InfoWeight.Name = "InfoWeight";
-            this.InfoWeight.Size = new System.Drawing.Size(44, 32);
+            this.InfoWeight.Size = new System.Drawing.Size(44, 38);
             this.InfoWeight.TabIndex = 4;
             this.InfoWeight.Text = "Peso";
             this.InfoWeight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -622,9 +571,9 @@ namespace db_crociere
             this.InfoHeight.AutoSize = true;
             this.InfoHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoHeight.ForeColor = System.Drawing.Color.Black;
-            this.InfoHeight.Location = new System.Drawing.Point(3, 160);
+            this.InfoHeight.Location = new System.Drawing.Point(3, 190);
             this.InfoHeight.Name = "InfoHeight";
-            this.InfoHeight.Size = new System.Drawing.Size(58, 32);
+            this.InfoHeight.Size = new System.Drawing.Size(58, 38);
             this.InfoHeight.TabIndex = 5;
             this.InfoHeight.Text = "Altezza";
             this.InfoHeight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -636,12 +585,96 @@ namespace db_crociere
             this.InfoCabins.AutoSize = true;
             this.InfoCabins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoCabins.ForeColor = System.Drawing.Color.Black;
-            this.InfoCabins.Location = new System.Drawing.Point(3, 192);
+            this.InfoCabins.Location = new System.Drawing.Point(3, 228);
             this.InfoCabins.Name = "InfoCabins";
-            this.InfoCabins.Size = new System.Drawing.Size(115, 39);
+            this.InfoCabins.Size = new System.Drawing.Size(115, 45);
             this.InfoCabins.TabIndex = 6;
             this.InfoCabins.Text = "Numero Cabine";
             this.InfoCabins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ShipNameLabel
+            // 
+            this.ShipNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ShipNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.ShipNameLabel.Location = new System.Drawing.Point(139, 0);
+            this.ShipNameLabel.Name = "ShipNameLabel";
+            this.ShipNameLabel.Size = new System.Drawing.Size(148, 38);
+            this.ShipNameLabel.TabIndex = 7;
+            this.ShipNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ShipCodeLabel
+            // 
+            this.ShipCodeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ShipCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipCodeLabel.ForeColor = System.Drawing.Color.Black;
+            this.ShipCodeLabel.Location = new System.Drawing.Point(139, 38);
+            this.ShipCodeLabel.Name = "ShipCodeLabel";
+            this.ShipCodeLabel.Size = new System.Drawing.Size(148, 38);
+            this.ShipCodeLabel.TabIndex = 8;
+            this.ShipCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WidthLabel
+            // 
+            this.WidthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.WidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WidthLabel.ForeColor = System.Drawing.Color.Black;
+            this.WidthLabel.Location = new System.Drawing.Point(139, 76);
+            this.WidthLabel.Name = "WidthLabel";
+            this.WidthLabel.Size = new System.Drawing.Size(148, 38);
+            this.WidthLabel.TabIndex = 9;
+            this.WidthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LengthLabel
+            // 
+            this.LengthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LengthLabel.ForeColor = System.Drawing.Color.Black;
+            this.LengthLabel.Location = new System.Drawing.Point(139, 114);
+            this.LengthLabel.Name = "LengthLabel";
+            this.LengthLabel.Size = new System.Drawing.Size(148, 38);
+            this.LengthLabel.TabIndex = 10;
+            this.LengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // WeightLabel
+            // 
+            this.WeightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.WeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightLabel.ForeColor = System.Drawing.Color.Black;
+            this.WeightLabel.Location = new System.Drawing.Point(139, 152);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(148, 38);
+            this.WeightLabel.TabIndex = 11;
+            this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeightLabel
+            // 
+            this.HeightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.HeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightLabel.ForeColor = System.Drawing.Color.Black;
+            this.HeightLabel.Location = new System.Drawing.Point(139, 190);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(148, 38);
+            this.HeightLabel.TabIndex = 12;
+            this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CabinsNumLabel
+            // 
+            this.CabinsNumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.CabinsNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CabinsNumLabel.ForeColor = System.Drawing.Color.Black;
+            this.CabinsNumLabel.Location = new System.Drawing.Point(139, 228);
+            this.CabinsNumLabel.Name = "CabinsNumLabel";
+            this.CabinsNumLabel.Size = new System.Drawing.Size(148, 45);
+            this.CabinsNumLabel.TabIndex = 13;
+            this.CabinsNumLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage3
             // 
@@ -652,29 +685,6 @@ namespace db_crociere
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // CabinsNumTextBox
-            // 
-            this.CabinsNumTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CabinsNumTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic);
-            this.CabinsNumTextBox.Location = new System.Drawing.Point(139, 195);
-            this.CabinsNumTextBox.Name = "CabinsNumTextBox";
-            this.CabinsNumTextBox.ReadOnly = true;
-            this.CabinsNumTextBox.Size = new System.Drawing.Size(148, 15);
-            this.CabinsNumTextBox.TabIndex = 21;
-            // 
-            // InfoNameLabel
-            // 
-            this.InfoNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.InfoNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.InfoNameLabel.Location = new System.Drawing.Point(3, 0);
-            this.InfoNameLabel.Name = "InfoNameLabel";
-            this.InfoNameLabel.Size = new System.Drawing.Size(49, 32);
-            this.InfoNameLabel.TabIndex = 0;
-            this.InfoNameLabel.Text = "Nome";
-            this.InfoNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // App
             // 
@@ -753,13 +763,13 @@ namespace db_crociere
         private System.Windows.Forms.GroupBox NavigationBox;
         private System.Windows.Forms.DataGridView NavigationExecutionGridView;
         private System.Windows.Forms.ComboBox NavigationDropDownMenu;
-        private System.Windows.Forms.TextBox ShipNameTextBox;
-        private System.Windows.Forms.TextBox HeightTextBox;
-        private System.Windows.Forms.TextBox WeightTextBox;
-        private System.Windows.Forms.TextBox LengthTextBox;
-        private System.Windows.Forms.TextBox WidthTextBox;
-        private System.Windows.Forms.TextBox ShipCodeTextBox;
-        private System.Windows.Forms.TextBox CabinsNumTextBox;
         private System.Windows.Forms.Label InfoNameLabel;
+        private System.Windows.Forms.Label ShipNameLabel;
+        private System.Windows.Forms.Label ShipCodeLabel;
+        private System.Windows.Forms.Label WidthLabel;
+        private System.Windows.Forms.Label LengthLabel;
+        private System.Windows.Forms.Label WeightLabel;
+        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.Label CabinsNumLabel;
     }
 }
