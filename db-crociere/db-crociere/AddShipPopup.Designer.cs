@@ -47,9 +47,21 @@ namespace db_crociere
             this.CabinsNumInfo = new System.Windows.Forms.Label();
             this.CabinsNumTextBox = new System.Windows.Forms.TextBox();
             this.errorProviderInfo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CodPathInfo = new System.Windows.Forms.Label();
+            this.CodPathTextBox = new System.Windows.Forms.TextBox();
+            this.DurationInfo = new System.Windows.Forms.Label();
+            this.DurationTextBox = new System.Windows.Forms.TextBox();
+            this.ShipNameInfo = new System.Windows.Forms.Label();
+            this.AddPathBtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.ShipNameComboPath = new System.Windows.Forms.ComboBox();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // InsertShipInfoBox
@@ -57,13 +69,12 @@ namespace db_crociere
             this.InsertShipInfoBox.Controls.Add(this.ClearShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.AddShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.flowLayoutPanel1);
-            this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.InsertShipInfoBox.Location = new System.Drawing.Point(0, 0);
+            this.InsertShipInfoBox.Location = new System.Drawing.Point(18, 217);
             this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(800, 100);
+            this.InsertShipInfoBox.Size = new System.Drawing.Size(760, 100);
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
-            this.InsertShipInfoBox.Text = "InformazioniNave";
+            this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
             // 
             // ClearShipInfoBtn
             // 
@@ -147,8 +158,8 @@ namespace db_crociere
             // 
             this.LengthInfo.AutoSize = true;
             this.LengthInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LengthInfo.Location = new System.Drawing.Point(0, 29);
-            this.LengthInfo.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.LengthInfo.Location = new System.Drawing.Point(3, 29);
+            this.LengthInfo.Margin = new System.Windows.Forms.Padding(3);
             this.LengthInfo.Name = "LengthInfo";
             this.LengthInfo.Size = new System.Drawing.Size(72, 16);
             this.LengthInfo.TabIndex = 6;
@@ -156,7 +167,7 @@ namespace db_crociere
             // 
             // LengthTextBox
             // 
-            this.LengthTextBox.Location = new System.Drawing.Point(78, 29);
+            this.LengthTextBox.Location = new System.Drawing.Point(81, 29);
             this.LengthTextBox.MaxLength = 3;
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(38, 20);
@@ -167,7 +178,7 @@ namespace db_crociere
             // 
             this.WeightInfo.AutoSize = true;
             this.WeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightInfo.Location = new System.Drawing.Point(144, 29);
+            this.WeightInfo.Location = new System.Drawing.Point(147, 29);
             this.WeightInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.WeightInfo.Name = "WeightInfo";
             this.WeightInfo.Size = new System.Drawing.Size(40, 16);
@@ -176,7 +187,7 @@ namespace db_crociere
             // 
             // WeightTextBox
             // 
-            this.WeightTextBox.Location = new System.Drawing.Point(190, 29);
+            this.WeightTextBox.Location = new System.Drawing.Point(193, 29);
             this.WeightTextBox.MaxLength = 6;
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(63, 20);
@@ -187,7 +198,7 @@ namespace db_crociere
             // 
             this.HeightInfo.AutoSize = true;
             this.HeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightInfo.Location = new System.Drawing.Point(281, 29);
+            this.HeightInfo.Location = new System.Drawing.Point(284, 29);
             this.HeightInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.HeightInfo.Name = "HeightInfo";
             this.HeightInfo.Size = new System.Drawing.Size(51, 16);
@@ -196,7 +207,7 @@ namespace db_crociere
             // 
             // HeightTextBox
             // 
-            this.HeightTextBox.Location = new System.Drawing.Point(338, 29);
+            this.HeightTextBox.Location = new System.Drawing.Point(341, 29);
             this.HeightTextBox.MaxLength = 3;
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(38, 20);
@@ -207,8 +218,8 @@ namespace db_crociere
             // 
             this.CabinsNumInfo.AutoSize = true;
             this.CabinsNumInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CabinsNumInfo.Location = new System.Drawing.Point(0, 55);
-            this.CabinsNumInfo.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.CabinsNumInfo.Location = new System.Drawing.Point(3, 55);
+            this.CabinsNumInfo.Margin = new System.Windows.Forms.Padding(3);
             this.CabinsNumInfo.Name = "CabinsNumInfo";
             this.CabinsNumInfo.Size = new System.Drawing.Size(102, 16);
             this.CabinsNumInfo.TabIndex = 12;
@@ -216,16 +227,113 @@ namespace db_crociere
             // 
             // CabinsNumTextBox
             // 
-            this.CabinsNumTextBox.Location = new System.Drawing.Point(108, 55);
+            this.CabinsNumTextBox.Location = new System.Drawing.Point(111, 55);
             this.CabinsNumTextBox.MaxLength = 4;
             this.CabinsNumTextBox.Name = "CabinsNumTextBox";
             this.CabinsNumTextBox.Size = new System.Drawing.Size(45, 20);
             this.CabinsNumTextBox.TabIndex = 13;
             this.CabinsNumTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CabinsNumTextBox_Validating);
             // 
-            // errorProviderInfo
+            // groupBox1
             // 
-            this.errorProviderInfo.ContainerControl = this;
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.AddPathBtn);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 346);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(797, 77);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Inserisci Percorso";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.CodPathInfo);
+            this.flowLayoutPanel2.Controls.Add(this.CodPathTextBox);
+            this.flowLayoutPanel2.Controls.Add(this.DurationInfo);
+            this.flowLayoutPanel2.Controls.Add(this.DurationTextBox);
+            this.flowLayoutPanel2.Controls.Add(this.ShipNameInfo);
+            this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 19);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(366, 53);
+            this.flowLayoutPanel2.TabIndex = 14;
+            // 
+            // CodPathInfo
+            // 
+            this.CodPathInfo.AutoSize = true;
+            this.CodPathInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CodPathInfo.Location = new System.Drawing.Point(3, 3);
+            this.CodPathInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.CodPathInfo.Name = "CodPathInfo";
+            this.CodPathInfo.Size = new System.Drawing.Size(109, 16);
+            this.CodPathInfo.TabIndex = 0;
+            this.CodPathInfo.Text = "Codice Percorso";
+            // 
+            // CodPathTextBox
+            // 
+            this.CodPathTextBox.Location = new System.Drawing.Point(118, 3);
+            this.CodPathTextBox.MaxLength = 5;
+            this.CodPathTextBox.Name = "CodPathTextBox";
+            this.CodPathTextBox.Size = new System.Drawing.Size(52, 20);
+            this.CodPathTextBox.TabIndex = 1;
+            // 
+            // DurationInfo
+            // 
+            this.DurationInfo.AutoSize = true;
+            this.DurationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DurationInfo.Location = new System.Drawing.Point(198, 3);
+            this.DurationInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.DurationInfo.Name = "DurationInfo";
+            this.DurationInfo.Size = new System.Drawing.Size(86, 16);
+            this.DurationInfo.TabIndex = 4;
+            this.DurationInfo.Text = "Giorni Durata";
+            // 
+            // DurationTextBox
+            // 
+            this.DurationTextBox.Location = new System.Drawing.Point(290, 3);
+            this.DurationTextBox.MaxLength = 2;
+            this.DurationTextBox.Name = "DurationTextBox";
+            this.DurationTextBox.Size = new System.Drawing.Size(42, 20);
+            this.DurationTextBox.TabIndex = 5;
+            // 
+            // ShipNameInfo
+            // 
+            this.ShipNameInfo.AutoSize = true;
+            this.ShipNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipNameInfo.Location = new System.Drawing.Point(3, 29);
+            this.ShipNameInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.ShipNameInfo.Name = "ShipNameInfo";
+            this.ShipNameInfo.Size = new System.Drawing.Size(45, 16);
+            this.ShipNameInfo.TabIndex = 14;
+            this.ShipNameInfo.Text = "Nome";
+            // 
+            // AddPathBtn
+            // 
+            this.AddPathBtn.Location = new System.Drawing.Point(372, 19);
+            this.AddPathBtn.Name = "AddPathBtn";
+            this.AddPathBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddPathBtn.TabIndex = 3;
+            this.AddPathBtn.Text = "Aggiungi";
+            this.AddPathBtn.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(372, 49);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Pulisci";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // ShipNameComboPath
+            // 
+            this.ShipNameComboPath.FormattingEnabled = true;
+            this.ShipNameComboPath.Location = new System.Drawing.Point(54, 29);
+            this.ShipNameComboPath.Name = "ShipNameComboPath";
+            this.ShipNameComboPath.Size = new System.Drawing.Size(278, 21);
+            this.ShipNameComboPath.TabIndex = 2;
+            this.ShipNameComboPath.Click += new System.EventHandler(this.ShipNameComboPath_Click);
             // 
             // AddShipPopup
             // 
@@ -233,12 +341,16 @@ namespace db_crociere
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.InsertShipInfoBox);
+            this.Controls.Add(this.groupBox1);
             this.Name = "AddShipPopup";
             this.Text = "Form1";
             this.InsertShipInfoBox.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -262,5 +374,15 @@ namespace db_crociere
         private System.Windows.Forms.Button AddShipInfoBtn;
         private System.Windows.Forms.Button ClearShipInfoBtn;
         private System.Windows.Forms.ErrorProvider errorProviderInfo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddPathBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label CodPathInfo;
+        private System.Windows.Forms.TextBox CodPathTextBox;
+        private System.Windows.Forms.Label DurationInfo;
+        private System.Windows.Forms.TextBox DurationTextBox;
+        private System.Windows.Forms.Label ShipNameInfo;
+        private System.Windows.Forms.ComboBox ShipNameComboPath;
     }
 }

@@ -113,5 +113,12 @@ namespace db_crociere
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ShipNameComboPath_Click(object sender, EventArgs e)
+        {
+            var ships = from navi in db.NAVIs
+                        select navi.Nome;
+            ShipNameComboPath.DataSource = ships;
+        }
     }
 }

@@ -73,9 +73,17 @@ namespace db_crociere
             }
         }
 
-        private void initPathInfo()
+        private void fillPathInfo(String shipName)
         {
-
+            var path = from p in db.PERCORSIs
+                       where p.NomeNave == shipName
+                       select new
+                       {
+                           COD_PATH = p.CodPercorso,
+                           DURATION = p.GiorniDurata,
+                       };
+            PathCodeLabel.Text = path.First().COD_PATH;
+            DurationLabel.Text = path.First().DURATION.ToString();
         }
 
         private void updateShipList(object sender, EventArgs e)
@@ -84,7 +92,7 @@ namespace db_crociere
                         select navi.Nome;
             shipListBox.DataSource = ships;
             fillShipInfo(ships.ToArray()[0]);
-            initPathInfo();
+            fillPathInfo(ships.ToArray()[0]);
             initNavigation();
         }
 
