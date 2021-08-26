@@ -82,8 +82,10 @@ namespace db_crociere
                            COD_PATH = p.CodPercorso,
                            DURATION = p.GiorniDurata,
                        };
-            PathCodeLabel.Text = path.First().COD_PATH;
-            DurationLabel.Text = path.First().DURATION.ToString();
+
+            string defaultMsg = "Non ancora inserito";
+            PathCodeLabel.Text = path.Count() == 0 ? defaultMsg : path.FirstOrDefault().COD_PATH;
+            DurationLabel.Text = path.Count() == 0 ? defaultMsg : path.First().DURATION.ToString();
         }
 
         private void updateShipList(object sender, EventArgs e)
@@ -114,13 +116,16 @@ namespace db_crociere
 
         private void App_Activated(object sender, EventArgs e)
         {
+            Console.WriteLine("FOCUS");
             updateShipList(sender, e);
         }
 
         private void shipListBox_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine(shipListBox.SelectedItem.ToString());
-            fillShipInfo(shipListBox.SelectedItem.ToString());
+            Console.WriteLine("CAMBIATA SELEZIONE NAVE");
+            var shipName = shipListBox.SelectedItem.ToString();
+            fillShipInfo(shipName);
+            fillPathInfo(shipName);
         }
     }
 }

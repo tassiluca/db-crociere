@@ -69,9 +69,10 @@ namespace db_crociere
             this.InsertShipInfoBox.Controls.Add(this.ClearShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.AddShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.flowLayoutPanel1);
-            this.InsertShipInfoBox.Location = new System.Drawing.Point(18, 217);
+            this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InsertShipInfoBox.Location = new System.Drawing.Point(0, 0);
             this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(760, 100);
+            this.InsertShipInfoBox.Size = new System.Drawing.Size(800, 100);
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
@@ -132,7 +133,6 @@ namespace db_crociere
             this.ShipNameTextBox.Name = "ShipNameTextBox";
             this.ShipNameTextBox.Size = new System.Drawing.Size(229, 20);
             this.ShipNameTextBox.TabIndex = 1;
-            this.ShipNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ShipNameTextBox_Validating);
             // 
             // WidthInfo
             // 
@@ -152,7 +152,6 @@ namespace db_crociere
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(38, 20);
             this.WidthTextBox.TabIndex = 5;
-            this.WidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WidthTextBox_Validating);
             // 
             // LengthInfo
             // 
@@ -172,7 +171,6 @@ namespace db_crociere
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(38, 20);
             this.LengthTextBox.TabIndex = 7;
-            this.LengthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.LengthTextBox_Validating);
             // 
             // WeightInfo
             // 
@@ -192,7 +190,6 @@ namespace db_crociere
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(63, 20);
             this.WeightTextBox.TabIndex = 9;
-            this.WeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WeightTextBox_Validating);
             // 
             // HeightInfo
             // 
@@ -212,7 +209,6 @@ namespace db_crociere
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(38, 20);
             this.HeightTextBox.TabIndex = 11;
-            this.HeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInfoTextBox_Validating);
             // 
             // CabinsNumInfo
             // 
@@ -232,14 +228,17 @@ namespace db_crociere
             this.CabinsNumTextBox.Name = "CabinsNumTextBox";
             this.CabinsNumTextBox.Size = new System.Drawing.Size(45, 20);
             this.CabinsNumTextBox.TabIndex = 13;
-            this.CabinsNumTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CabinsNumTextBox_Validating);
+            // 
+            // errorProviderInfo
+            // 
+            this.errorProviderInfo.ContainerControl = this;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.AddPathBtn);
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 346);
+            this.groupBox1.Location = new System.Drawing.Point(3, 103);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(797, 77);
             this.groupBox1.TabIndex = 1;
@@ -316,6 +315,7 @@ namespace db_crociere
             this.AddPathBtn.TabIndex = 3;
             this.AddPathBtn.Text = "Aggiungi";
             this.AddPathBtn.UseVisualStyleBackColor = true;
+            this.AddPathBtn.Click += new System.EventHandler(this.AddPathBtn_Click);
             // 
             // button2
             // 
@@ -339,6 +339,7 @@ namespace db_crociere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.InsertShipInfoBox);
             this.Controls.Add(this.groupBox1);
