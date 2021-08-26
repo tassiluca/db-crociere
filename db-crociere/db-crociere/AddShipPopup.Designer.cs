@@ -36,8 +36,6 @@ namespace db_crociere
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.NameInfo = new System.Windows.Forms.Label();
             this.ShipNameTextBox = new System.Windows.Forms.TextBox();
-            this.ShipCodeInfo = new System.Windows.Forms.Label();
-            this.ShipCodeTextBox = new System.Windows.Forms.TextBox();
             this.WidthInfo = new System.Windows.Forms.Label();
             this.WidthTextBox = new System.Windows.Forms.TextBox();
             this.LengthInfo = new System.Windows.Forms.Label();
@@ -69,7 +67,7 @@ namespace db_crociere
             // 
             // ClearShipInfoBtn
             // 
-            this.ClearShipInfoBtn.Location = new System.Drawing.Point(525, 74);
+            this.ClearShipInfoBtn.Location = new System.Drawing.Point(469, 74);
             this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
             this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 23);
             this.ClearShipInfoBtn.TabIndex = 2;
@@ -78,7 +76,7 @@ namespace db_crociere
             // 
             // AddShipInfoBtn
             // 
-            this.AddShipInfoBtn.Location = new System.Drawing.Point(525, 16);
+            this.AddShipInfoBtn.Location = new System.Drawing.Point(469, 16);
             this.AddShipInfoBtn.Name = "AddShipInfoBtn";
             this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 23);
             this.AddShipInfoBtn.TabIndex = 1;
@@ -90,8 +88,6 @@ namespace db_crociere
             // 
             this.flowLayoutPanel1.Controls.Add(this.NameInfo);
             this.flowLayoutPanel1.Controls.Add(this.ShipNameTextBox);
-            this.flowLayoutPanel1.Controls.Add(this.ShipCodeInfo);
-            this.flowLayoutPanel1.Controls.Add(this.ShipCodeTextBox);
             this.flowLayoutPanel1.Controls.Add(this.WidthInfo);
             this.flowLayoutPanel1.Controls.Add(this.WidthTextBox);
             this.flowLayoutPanel1.Controls.Add(this.LengthInfo);
@@ -104,7 +100,7 @@ namespace db_crociere
             this.flowLayoutPanel1.Controls.Add(this.CabinsNumTextBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(516, 81);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(460, 81);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // NameInfo
@@ -121,36 +117,18 @@ namespace db_crociere
             // ShipNameTextBox
             // 
             this.ShipNameTextBox.Location = new System.Drawing.Point(54, 3);
+            this.ShipNameTextBox.MaxLength = 30;
             this.ShipNameTextBox.Name = "ShipNameTextBox";
-            this.ShipNameTextBox.Size = new System.Drawing.Size(164, 20);
+            this.ShipNameTextBox.Size = new System.Drawing.Size(229, 20);
             this.ShipNameTextBox.TabIndex = 1;
             this.ShipNameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ShipNameTextBox_Validating);
-            // 
-            // ShipCodeInfo
-            // 
-            this.ShipCodeInfo.AutoSize = true;
-            this.ShipCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShipCodeInfo.Location = new System.Drawing.Point(246, 3);
-            this.ShipCodeInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
-            this.ShipCodeInfo.Name = "ShipCodeInfo";
-            this.ShipCodeInfo.Size = new System.Drawing.Size(87, 16);
-            this.ShipCodeInfo.TabIndex = 2;
-            this.ShipCodeInfo.Text = "Codice Nave";
-            // 
-            // ShipCodeTextBox
-            // 
-            this.ShipCodeTextBox.Location = new System.Drawing.Point(339, 3);
-            this.ShipCodeTextBox.Name = "ShipCodeTextBox";
-            this.ShipCodeTextBox.Size = new System.Drawing.Size(122, 20);
-            this.ShipCodeTextBox.TabIndex = 3;
-            this.ShipCodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.ShipCodeTextBox_Validating);
             // 
             // WidthInfo
             // 
             this.WidthInfo.AutoSize = true;
             this.WidthInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WidthInfo.Location = new System.Drawing.Point(3, 29);
-            this.WidthInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.WidthInfo.Location = new System.Drawing.Point(311, 3);
+            this.WidthInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.WidthInfo.Name = "WidthInfo";
             this.WidthInfo.Size = new System.Drawing.Size(70, 16);
             this.WidthInfo.TabIndex = 4;
@@ -158,9 +136,10 @@ namespace db_crociere
             // 
             // WidthTextBox
             // 
-            this.WidthTextBox.Location = new System.Drawing.Point(79, 29);
+            this.WidthTextBox.Location = new System.Drawing.Point(387, 3);
+            this.WidthTextBox.MaxLength = 3;
             this.WidthTextBox.Name = "WidthTextBox";
-            this.WidthTextBox.Size = new System.Drawing.Size(75, 20);
+            this.WidthTextBox.Size = new System.Drawing.Size(38, 20);
             this.WidthTextBox.TabIndex = 5;
             this.WidthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WidthTextBox_Validating);
             // 
@@ -168,8 +147,8 @@ namespace db_crociere
             // 
             this.LengthInfo.AutoSize = true;
             this.LengthInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LengthInfo.Location = new System.Drawing.Point(182, 29);
-            this.LengthInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.LengthInfo.Location = new System.Drawing.Point(0, 29);
+            this.LengthInfo.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.LengthInfo.Name = "LengthInfo";
             this.LengthInfo.Size = new System.Drawing.Size(72, 16);
             this.LengthInfo.TabIndex = 6;
@@ -177,9 +156,10 @@ namespace db_crociere
             // 
             // LengthTextBox
             // 
-            this.LengthTextBox.Location = new System.Drawing.Point(260, 29);
+            this.LengthTextBox.Location = new System.Drawing.Point(78, 29);
+            this.LengthTextBox.MaxLength = 3;
             this.LengthTextBox.Name = "LengthTextBox";
-            this.LengthTextBox.Size = new System.Drawing.Size(73, 20);
+            this.LengthTextBox.Size = new System.Drawing.Size(38, 20);
             this.LengthTextBox.TabIndex = 7;
             this.LengthTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.LengthTextBox_Validating);
             // 
@@ -187,7 +167,7 @@ namespace db_crociere
             // 
             this.WeightInfo.AutoSize = true;
             this.WeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightInfo.Location = new System.Drawing.Point(361, 29);
+            this.WeightInfo.Location = new System.Drawing.Point(144, 29);
             this.WeightInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.WeightInfo.Name = "WeightInfo";
             this.WeightInfo.Size = new System.Drawing.Size(40, 16);
@@ -196,9 +176,10 @@ namespace db_crociere
             // 
             // WeightTextBox
             // 
-            this.WeightTextBox.Location = new System.Drawing.Point(407, 29);
+            this.WeightTextBox.Location = new System.Drawing.Point(190, 29);
+            this.WeightTextBox.MaxLength = 6;
             this.WeightTextBox.Name = "WeightTextBox";
-            this.WeightTextBox.Size = new System.Drawing.Size(76, 20);
+            this.WeightTextBox.Size = new System.Drawing.Size(63, 20);
             this.WeightTextBox.TabIndex = 9;
             this.WeightTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.WeightTextBox_Validating);
             // 
@@ -206,8 +187,8 @@ namespace db_crociere
             // 
             this.HeightInfo.AutoSize = true;
             this.HeightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightInfo.Location = new System.Drawing.Point(3, 55);
-            this.HeightInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.HeightInfo.Location = new System.Drawing.Point(281, 29);
+            this.HeightInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.HeightInfo.Name = "HeightInfo";
             this.HeightInfo.Size = new System.Drawing.Size(51, 16);
             this.HeightInfo.TabIndex = 10;
@@ -215,9 +196,10 @@ namespace db_crociere
             // 
             // HeightInfoTextBox
             // 
-            this.HeightInfoTextBox.Location = new System.Drawing.Point(60, 55);
+            this.HeightInfoTextBox.Location = new System.Drawing.Point(338, 29);
+            this.HeightInfoTextBox.MaxLength = 3;
             this.HeightInfoTextBox.Name = "HeightInfoTextBox";
-            this.HeightInfoTextBox.Size = new System.Drawing.Size(94, 20);
+            this.HeightInfoTextBox.Size = new System.Drawing.Size(38, 20);
             this.HeightInfoTextBox.TabIndex = 11;
             this.HeightInfoTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.HeightInfoTextBox_Validating);
             // 
@@ -225,8 +207,8 @@ namespace db_crociere
             // 
             this.CabinsNumInfo.AutoSize = true;
             this.CabinsNumInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CabinsNumInfo.Location = new System.Drawing.Point(182, 55);
-            this.CabinsNumInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.CabinsNumInfo.Location = new System.Drawing.Point(0, 55);
+            this.CabinsNumInfo.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.CabinsNumInfo.Name = "CabinsNumInfo";
             this.CabinsNumInfo.Size = new System.Drawing.Size(102, 16);
             this.CabinsNumInfo.TabIndex = 12;
@@ -234,9 +216,10 @@ namespace db_crociere
             // 
             // CabinsNumTextBox
             // 
-            this.CabinsNumTextBox.Location = new System.Drawing.Point(290, 55);
+            this.CabinsNumTextBox.Location = new System.Drawing.Point(108, 55);
+            this.CabinsNumTextBox.MaxLength = 4;
             this.CabinsNumTextBox.Name = "CabinsNumTextBox";
-            this.CabinsNumTextBox.Size = new System.Drawing.Size(62, 20);
+            this.CabinsNumTextBox.Size = new System.Drawing.Size(45, 20);
             this.CabinsNumTextBox.TabIndex = 13;
             this.CabinsNumTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CabinsNumTextBox_Validating);
             // 
@@ -266,8 +249,6 @@ namespace db_crociere
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label NameInfo;
         private System.Windows.Forms.TextBox ShipNameTextBox;
-        private System.Windows.Forms.Label ShipCodeInfo;
-        private System.Windows.Forms.TextBox ShipCodeTextBox;
         private System.Windows.Forms.Label WidthInfo;
         private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.Label LengthInfo;

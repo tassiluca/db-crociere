@@ -41,11 +41,6 @@ namespace db_crociere
             }
         }
 
-        private void ShipCodeTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            RequiredTextValidation(ShipCodeTextBox, e);
-        }
-
         private void ShipNameTextBox_Validating(object sender, CancelEventArgs e)
         {
             RequiredTextValidation(ShipNameTextBox, e);
@@ -78,8 +73,10 @@ namespace db_crociere
 
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(ValidateChildren(ValidationConstraints.Enabled));
-        }
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
 
+            }
+        }
     }
 }
