@@ -97,5 +97,25 @@ namespace db_crociere
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void AddShipPopup_Load(object sender, EventArgs e)
+        {
+            var sections = from t in db.TRATTEs
+                           from p1 in db.PORTIs
+                           from p2 in db.PORTIs
+                           where p1.CodPorto == t.CodPortoPartenza && p2.CodPorto == t.CodPortoArrivo
+                           select new
+                           {
+                               SEC_CODE = t.CodTratta,
+                               ARR_PORT = p2.Città,
+                               DEP_PORT = p1.Città                               
+                           };
+            SectionsListBox.DataSource = sections;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+         }
     }
 }

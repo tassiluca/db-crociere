@@ -57,18 +57,14 @@ namespace db_crociere
             this.DurationTextBox = new System.Windows.Forms.TextBox();
             this.ShipNameInfo = new System.Windows.Forms.Label();
             this.ShipNameComboPath = new System.Windows.Forms.ComboBox();
-            this.SectionInfo = new System.Windows.Forms.Label();
-            this.SectionComboPath = new System.Windows.Forms.ComboBox();
+            this.SectionsListBox = new System.Windows.Forms.ListBox();
+            this.InsertedSections = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // InsertShipInfoBox
@@ -79,7 +75,7 @@ namespace db_crociere
             this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.InsertShipInfoBox.Location = new System.Drawing.Point(0, 0);
             this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(800, 81);
+            this.InsertShipInfoBox.Size = new System.Drawing.Size(953, 81);
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
@@ -242,20 +238,21 @@ namespace db_crociere
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.InsertedSections);
+            this.groupBox1.Controls.Add(this.SectionsListBox);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.AddPathBtn);
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox1.Location = new System.Drawing.Point(3, 216);
+            this.groupBox1.Location = new System.Drawing.Point(3, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(797, 140);
+            this.groupBox1.Size = new System.Drawing.Size(950, 276);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserisci Percorso";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(716, 50);
+            this.button2.Location = new System.Drawing.Point(869, 46);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -264,7 +261,7 @@ namespace db_crociere
             // 
             // AddPathBtn
             // 
-            this.AddPathBtn.Location = new System.Drawing.Point(716, 20);
+            this.AddPathBtn.Location = new System.Drawing.Point(869, 20);
             this.AddPathBtn.Name = "AddPathBtn";
             this.AddPathBtn.Size = new System.Drawing.Size(75, 23);
             this.AddPathBtn.TabIndex = 3;
@@ -280,14 +277,10 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.DurationTextBox);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameInfo);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
-            this.flowLayoutPanel2.Controls.Add(this.SectionInfo);
-            this.flowLayoutPanel2.Controls.Add(this.SectionComboPath);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
-            this.flowLayoutPanel2.Controls.Add(this.textBox1);
             this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(321, 19);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(474, 20);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(389, 115);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(389, 122);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // CodPathInfo
@@ -348,71 +341,43 @@ namespace db_crociere
             this.ShipNameComboPath.TabIndex = 2;
             this.ShipNameComboPath.Click += new System.EventHandler(this.ShipNameComboPath_Click);
             // 
-            // SectionInfo
+            // SectionsListBox
             // 
-            this.SectionInfo.AutoSize = true;
-            this.SectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionInfo.Location = new System.Drawing.Point(3, 56);
-            this.SectionInfo.Margin = new System.Windows.Forms.Padding(3);
-            this.SectionInfo.Name = "SectionInfo";
-            this.SectionInfo.Size = new System.Drawing.Size(43, 16);
-            this.SectionInfo.TabIndex = 16;
-            this.SectionInfo.Text = "Tratta";
+            this.SectionsListBox.FormattingEnabled = true;
+            this.SectionsListBox.Location = new System.Drawing.Point(6, 19);
+            this.SectionsListBox.Name = "SectionsListBox";
+            this.SectionsListBox.Size = new System.Drawing.Size(462, 121);
+            this.SectionsListBox.TabIndex = 15;
             // 
-            // SectionComboPath
+            // InsertedSections
             // 
-            this.SectionComboPath.FormattingEnabled = true;
-            this.SectionComboPath.Location = new System.Drawing.Point(52, 56);
-            this.SectionComboPath.Name = "SectionComboPath";
-            this.SectionComboPath.Size = new System.Drawing.Size(200, 21);
-            this.SectionComboPath.TabIndex = 15;
+            this.InsertedSections.FormattingEnabled = true;
+            this.InsertedSections.Location = new System.Drawing.Point(6, 146);
+            this.InsertedSections.Name = "InsertedSections";
+            this.InsertedSections.Size = new System.Drawing.Size(462, 121);
+            this.InsertedSections.TabIndex = 16;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(340, 56);
+            this.button1.Location = new System.Drawing.Point(3, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 18;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(277, 115);
-            this.dataGridView1.TabIndex = 15;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(282, 56);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 18;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(258, 56);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 16);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "N";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(953, 450);
             this.Controls.Add(this.InsertShipInfoBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddShipPopup";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AddShipPopup_Load);
             this.InsertShipInfoBox.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -420,7 +385,6 @@ namespace db_crociere
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,11 +418,8 @@ namespace db_crociere
         private System.Windows.Forms.TextBox DurationTextBox;
         private System.Windows.Forms.Label ShipNameInfo;
         private System.Windows.Forms.ComboBox ShipNameComboPath;
-        private System.Windows.Forms.Label SectionInfo;
-        private System.Windows.Forms.ComboBox SectionComboPath;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox InsertedSections;
+        private System.Windows.Forms.ListBox SectionsListBox;
     }
 }
