@@ -76,39 +76,41 @@ namespace db_crociere
 
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            try
             {
-                /* check con TryParse */
-                string name = ShipNameTextBox.Text;
-                int length = int.Parse(LengthTextBox.Text);
-                int width = int.Parse(WidthTextBox.Text);
-                int weight = int.Parse(WeightTextBox.Text);
-                int height = int.Parse(HeightTextBox.Text);
-                int cabinsNum = int.Parse(CabinsNumTextBox.Text);
+                string name;
+                int length, width, weight, height, cabinsNum;
 
-                /*
-                NAVI nave = new NAVI
+                if (ValidateChildren(ValidationConstraints.Enabled))
                 {
-                    Nome = name,
-                    Larghezza = width,
-                    Lunghezza = length,
-                    Peso = weight,
-                    Altezza = height,
-                    NumeroCabine = cabinsNum
-                };
+                    name = ShipNameTextBox.Text;
+                    length = int.Parse(LengthTextBox.Text);
+                    width = int.Parse(WidthTextBox.Text);
+                    weight = int.Parse(WeightTextBox.Text);
+                    height = int.Parse(HeightTextBox.Text);
+                    cabinsNum = int.Parse(CabinsNumTextBox.Text);
 
-                db.NAVIs.InsertOnSubmit(nave);
+                    /* Inserimento di una nuova nave */
+                    NAVI nave = new NAVI
+                    {
+                        Nome = name,
+                        Larghezza = width,
+                        Lunghezza = length,
+                        Peso = weight,
+                        Altezza = height,
+                        NumeroCabine = cabinsNum
+                    };
 
-                try
-                {
+                    db.NAVIs.InsertOnSubmit(nave);
                     db.SubmitChanges();
-                    Console.WriteLine("Inserita correttamente una nuova nave");
+                    var msg = "Inserimento avvenuto con SUCCESSO";
+                    MessageBox.Show(msg, "SUCCESSO");
                 }
-                catch (Exception exception)
-                {
-                    Console.WriteLine(exception);
-                }
-                */
+            }
+            catch (Exception exc)
+            {
+                var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.ToString() + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

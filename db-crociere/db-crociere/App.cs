@@ -78,7 +78,7 @@ namespace db_crociere
 
         }
 
-        private void onShipTabClick(object sender, EventArgs e)
+        private void updateShipList(object sender, EventArgs e)
         {
             var ships = from navi in db.NAVIs
                         select navi.Nome;
@@ -90,8 +90,7 @@ namespace db_crociere
 
         private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListBox lb = (ListBox)sender;
-            Console.WriteLine("" + lb.SelectedIndex);
+            Console.WriteLine("INDEX SHIPLIST CHANGED");
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -105,14 +104,15 @@ namespace db_crociere
             addShipPopup.ShowDialog(this);
         }
 
-        private void shipListBox_Click(object sender, EventArgs e)
+        private void App_Activated(object sender, EventArgs e)
         {
-            Console.WriteLine(sender);
+            updateShipList(sender, e);
         }
 
-        private void groupBox1_Enter_1(object sender, EventArgs e)
+        private void shipListBox_Click(object sender, EventArgs e)
         {
-
+            //Console.WriteLine(shipListBox.SelectedItem.ToString());
+            fillShipInfo(shipListBox.SelectedItem.ToString());
         }
     }
 }
