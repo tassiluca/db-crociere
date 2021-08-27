@@ -64,11 +64,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
     </Compile>
-    <Compile Include="dbCrociereDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbCrociereDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,17 +98,6 @@
     </None>
     <None Include="DataClassesDBCrociere.dbml.layout">
       <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
-    </None>
-    <None Include="dbCrociereDataSet.xsc">
-      <DependentUpon>dbCrociereDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbCrociereDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbCrociereDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbCrociereDataSet.xss">
-      <DependentUpon>dbCrociereDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

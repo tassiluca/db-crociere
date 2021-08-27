@@ -178,7 +178,7 @@ namespace db_crociere
 
         private void bookingTab_Enter(object sender, EventArgs e)
         {
-            this.pRENOTAZIONITableAdapter.Fill(this.dbCrociereDataSet.PRENOTAZIONI);
+            
             var path = from p in db.PERCORSIs
                         select p.CodPercorso;
             pathSelPren.DataSource = path;

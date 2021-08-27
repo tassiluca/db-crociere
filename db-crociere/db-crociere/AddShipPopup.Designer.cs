@@ -365,7 +365,7 @@ namespace db_crociere
             this.InsertSectionPathBtn.Name = "InsertSectionPathBtn";
             this.InsertSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.InsertSectionPathBtn.TabIndex = 18;
-            this.InsertSectionPathBtn.Text = "+";
+            this.InsertSectionPathBtn.Text = "->";
             this.InsertSectionPathBtn.UseVisualStyleBackColor = true;
             this.InsertSectionPathBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -375,7 +375,7 @@ namespace db_crociere
             this.DeleteSectionPathBtn.Name = "DeleteSectionPathBtn";
             this.DeleteSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.DeleteSectionPathBtn.TabIndex = 19;
-            this.DeleteSectionPathBtn.Text = "-";
+            this.DeleteSectionPathBtn.Text = "<-";
             this.DeleteSectionPathBtn.UseVisualStyleBackColor = true;
             this.DeleteSectionPathBtn.Click += new System.EventHandler(this.DeleteSectionPathBtn_Click);
             // 

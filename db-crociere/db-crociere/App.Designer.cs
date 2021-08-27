@@ -74,19 +74,7 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dbCrociereDataSet = new db_crociere.dbCrociereDataSet();
             this.pRENOTAZIONIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pRENOTAZIONITableAdapter = new db_crociere.dbCrociereDataSetTableAdapters.PRENOTAZIONITableAdapter();
-            this.codPrenotazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codTransazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataEffettuazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataOraImbarcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataOraSbarcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trattamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroPasseggeriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codNavigazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codPortoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.prenotBox.SuspendLayout();
@@ -109,8 +97,6 @@ namespace db_crociere
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbCrociereDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,7 +149,6 @@ namespace db_crociere
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.newPrenSelectBar);
-            this.flowLayoutPanel4.Controls.Add(this.dataGridView1);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 19);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(595, 455);
@@ -716,105 +701,9 @@ namespace db_crociere
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codPrenotazioneDataGridViewTextBoxColumn,
-            this.codTransazioneDataGridViewTextBoxColumn,
-            this.dataEffettuazioneDataGridViewTextBoxColumn,
-            this.dataOraImbarcoDataGridViewTextBoxColumn,
-            this.dataOraSbarcoDataGridViewTextBoxColumn,
-            this.trattamentoDataGridViewTextBoxColumn,
-            this.numeroPasseggeriDataGridViewTextBoxColumn,
-            this.codNavigazioneDataGridViewTextBoxColumn,
-            this.codPortoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.pRENOTAZIONIBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 412);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // dbCrociereDataSet
-            // 
-            this.dbCrociereDataSet.DataSetName = "dbCrociereDataSet";
-            this.dbCrociereDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // pRENOTAZIONIBindingSource
             // 
             this.pRENOTAZIONIBindingSource.DataMember = "PRENOTAZIONI";
-            this.pRENOTAZIONIBindingSource.DataSource = this.dbCrociereDataSet;
-            // 
-            // pRENOTAZIONITableAdapter
-            // 
-            this.pRENOTAZIONITableAdapter.ClearBeforeFill = true;
-            // 
-            // codPrenotazioneDataGridViewTextBoxColumn
-            // 
-            this.codPrenotazioneDataGridViewTextBoxColumn.DataPropertyName = "CodPrenotazione";
-            this.codPrenotazioneDataGridViewTextBoxColumn.HeaderText = "CodPrenotazione";
-            this.codPrenotazioneDataGridViewTextBoxColumn.Name = "codPrenotazioneDataGridViewTextBoxColumn";
-            this.codPrenotazioneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codTransazioneDataGridViewTextBoxColumn
-            // 
-            this.codTransazioneDataGridViewTextBoxColumn.DataPropertyName = "CodTransazione";
-            this.codTransazioneDataGridViewTextBoxColumn.HeaderText = "CodTransazione";
-            this.codTransazioneDataGridViewTextBoxColumn.Name = "codTransazioneDataGridViewTextBoxColumn";
-            this.codTransazioneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataEffettuazioneDataGridViewTextBoxColumn
-            // 
-            this.dataEffettuazioneDataGridViewTextBoxColumn.DataPropertyName = "DataEffettuazione";
-            this.dataEffettuazioneDataGridViewTextBoxColumn.HeaderText = "DataEffettuazione";
-            this.dataEffettuazioneDataGridViewTextBoxColumn.Name = "dataEffettuazioneDataGridViewTextBoxColumn";
-            this.dataEffettuazioneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataOraImbarcoDataGridViewTextBoxColumn
-            // 
-            this.dataOraImbarcoDataGridViewTextBoxColumn.DataPropertyName = "DataOraImbarco";
-            this.dataOraImbarcoDataGridViewTextBoxColumn.HeaderText = "DataOraImbarco";
-            this.dataOraImbarcoDataGridViewTextBoxColumn.Name = "dataOraImbarcoDataGridViewTextBoxColumn";
-            this.dataOraImbarcoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataOraSbarcoDataGridViewTextBoxColumn
-            // 
-            this.dataOraSbarcoDataGridViewTextBoxColumn.DataPropertyName = "DataOraSbarco";
-            this.dataOraSbarcoDataGridViewTextBoxColumn.HeaderText = "DataOraSbarco";
-            this.dataOraSbarcoDataGridViewTextBoxColumn.Name = "dataOraSbarcoDataGridViewTextBoxColumn";
-            this.dataOraSbarcoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // trattamentoDataGridViewTextBoxColumn
-            // 
-            this.trattamentoDataGridViewTextBoxColumn.DataPropertyName = "Trattamento";
-            this.trattamentoDataGridViewTextBoxColumn.HeaderText = "Trattamento";
-            this.trattamentoDataGridViewTextBoxColumn.Name = "trattamentoDataGridViewTextBoxColumn";
-            this.trattamentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numeroPasseggeriDataGridViewTextBoxColumn
-            // 
-            this.numeroPasseggeriDataGridViewTextBoxColumn.DataPropertyName = "NumeroPasseggeri";
-            this.numeroPasseggeriDataGridViewTextBoxColumn.HeaderText = "NumeroPasseggeri";
-            this.numeroPasseggeriDataGridViewTextBoxColumn.Name = "numeroPasseggeriDataGridViewTextBoxColumn";
-            this.numeroPasseggeriDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codNavigazioneDataGridViewTextBoxColumn
-            // 
-            this.codNavigazioneDataGridViewTextBoxColumn.DataPropertyName = "CodNavigazione";
-            this.codNavigazioneDataGridViewTextBoxColumn.HeaderText = "CodNavigazione";
-            this.codNavigazioneDataGridViewTextBoxColumn.Name = "codNavigazioneDataGridViewTextBoxColumn";
-            this.codNavigazioneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codPortoDataGridViewTextBoxColumn
-            // 
-            this.codPortoDataGridViewTextBoxColumn.DataPropertyName = "CodPorto";
-            this.codPortoDataGridViewTextBoxColumn.HeaderText = "CodPorto";
-            this.codPortoDataGridViewTextBoxColumn.Name = "codPortoDataGridViewTextBoxColumn";
-            this.codPortoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // App
             // 
@@ -853,8 +742,6 @@ namespace db_crociere
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbCrociereDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -906,18 +793,6 @@ namespace db_crociere
         private System.Windows.Forms.Label CabinsNumLabel;
         private System.Windows.Forms.ComboBox portSelPren;
         private System.Windows.Forms.ComboBox startDateSelPren;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private dbCrociereDataSet dbCrociereDataSet;
         private System.Windows.Forms.BindingSource pRENOTAZIONIBindingSource;
-        private dbCrociereDataSetTableAdapters.PRENOTAZIONITableAdapter pRENOTAZIONITableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codPrenotazioneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codTransazioneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataEffettuazioneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataOraImbarcoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataOraSbarcoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trattamentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numeroPasseggeriDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codNavigazioneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codPortoDataGridViewTextBoxColumn;
     }
 }
