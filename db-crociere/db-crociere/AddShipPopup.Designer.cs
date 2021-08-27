@@ -47,7 +47,7 @@ namespace db_crociere
             this.CabinsNumInfo = new System.Windows.Forms.Label();
             this.CabinsNumTextBox = new System.Windows.Forms.TextBox();
             this.errorProviderInfo = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.InsertPathInfoBox = new System.Windows.Forms.GroupBox();
             this.InsertedSections = new System.Windows.Forms.ListBox();
             this.SectionsListBox = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -61,11 +61,25 @@ namespace db_crociere
             this.ShipNameComboPath = new System.Windows.Forms.ComboBox();
             this.InsertSectionPathBtn = new System.Windows.Forms.Button();
             this.DeleteSectionPathBtn = new System.Windows.Forms.Button();
+            this.InsertHarborInfoBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.AddHarbour = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.HarborCodeInfo = new System.Windows.Forms.Label();
+            this.HarborCodeTextBox = new System.Windows.Forms.TextBox();
+            this.NationalityInfo = new System.Windows.Forms.Label();
+            this.NationalityTextBox = new System.Windows.Forms.TextBox();
+            this.CityInfo = new System.Windows.Forms.Label();
+            this.CityTextBox = new System.Windows.Forms.TextBox();
+            this.DockingPriceInfo = new System.Windows.Forms.Label();
+            this.DockingPriceTextBox = new System.Windows.Forms.TextBox();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.InsertPathInfoBox.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.InsertHarborInfoBox.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // InsertShipInfoBox
@@ -237,21 +251,21 @@ namespace db_crociere
             // 
             this.errorProviderInfo.ContainerControl = this;
             // 
-            // groupBox1
+            // InsertPathInfoBox
             // 
-            this.groupBox1.Controls.Add(this.InsertedSections);
-            this.groupBox1.Controls.Add(this.SectionsListBox);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.AddPathBtn);
-            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
-            this.groupBox1.Controls.Add(this.InsertSectionPathBtn);
-            this.groupBox1.Controls.Add(this.DeleteSectionPathBtn);
-            this.groupBox1.Location = new System.Drawing.Point(3, 80);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(710, 152);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Inserisci Percorso";
+            this.InsertPathInfoBox.Controls.Add(this.InsertedSections);
+            this.InsertPathInfoBox.Controls.Add(this.SectionsListBox);
+            this.InsertPathInfoBox.Controls.Add(this.button2);
+            this.InsertPathInfoBox.Controls.Add(this.AddPathBtn);
+            this.InsertPathInfoBox.Controls.Add(this.flowLayoutPanel2);
+            this.InsertPathInfoBox.Controls.Add(this.InsertSectionPathBtn);
+            this.InsertPathInfoBox.Controls.Add(this.DeleteSectionPathBtn);
+            this.InsertPathInfoBox.Location = new System.Drawing.Point(3, 80);
+            this.InsertPathInfoBox.Name = "InsertPathInfoBox";
+            this.InsertPathInfoBox.Size = new System.Drawing.Size(710, 152);
+            this.InsertPathInfoBox.TabIndex = 1;
+            this.InsertPathInfoBox.TabStop = false;
+            this.InsertPathInfoBox.Text = "Inserisci Percorso";
             // 
             // InsertedSections
             // 
@@ -355,7 +369,7 @@ namespace db_crociere
             this.ShipNameComboPath.FormattingEnabled = true;
             this.ShipNameComboPath.Location = new System.Drawing.Point(3, 51);
             this.ShipNameComboPath.Name = "ShipNameComboPath";
-            this.ShipNameComboPath.Size = new System.Drawing.Size(291, 21);
+            this.ShipNameComboPath.Size = new System.Drawing.Size(307, 21);
             this.ShipNameComboPath.TabIndex = 2;
             this.ShipNameComboPath.Click += new System.EventHandler(this.ShipNameComboPath_Click);
             // 
@@ -367,7 +381,7 @@ namespace db_crociere
             this.InsertSectionPathBtn.TabIndex = 18;
             this.InsertSectionPathBtn.Text = "->";
             this.InsertSectionPathBtn.UseVisualStyleBackColor = true;
-            this.InsertSectionPathBtn.Click += new System.EventHandler(this.button1_Click);
+            this.InsertSectionPathBtn.Click += new System.EventHandler(this.InsertSectionPathBtn_Click);
             // 
             // DeleteSectionPathBtn
             // 
@@ -379,14 +393,138 @@ namespace db_crociere
             this.DeleteSectionPathBtn.UseVisualStyleBackColor = true;
             this.DeleteSectionPathBtn.Click += new System.EventHandler(this.DeleteSectionPathBtn_Click);
             // 
+            // InsertHarborInfoBox
+            // 
+            this.InsertHarborInfoBox.Controls.Add(this.flowLayoutPanel3);
+            this.InsertHarborInfoBox.Controls.Add(this.AddHarbour);
+            this.InsertHarborInfoBox.Controls.Add(this.button1);
+            this.InsertHarborInfoBox.Location = new System.Drawing.Point(3, 238);
+            this.InsertHarborInfoBox.Name = "InsertHarborInfoBox";
+            this.InsertHarborInfoBox.Size = new System.Drawing.Size(383, 105);
+            this.InsertHarborInfoBox.TabIndex = 20;
+            this.InsertHarborInfoBox.TabStop = false;
+            this.InsertHarborInfoBox.Text = "Inserisci Porto";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(301, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Pulisci";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // AddHarbour
+            // 
+            this.AddHarbour.Location = new System.Drawing.Point(301, 19);
+            this.AddHarbour.Name = "AddHarbour";
+            this.AddHarbour.Size = new System.Drawing.Size(75, 23);
+            this.AddHarbour.TabIndex = 3;
+            this.AddHarbour.Text = "Aggiungi";
+            this.AddHarbour.UseVisualStyleBackColor = true;
+            this.AddHarbour.Click += new System.EventHandler(this.AddHarbour_Click);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.HarborCodeInfo);
+            this.flowLayoutPanel3.Controls.Add(this.HarborCodeTextBox);
+            this.flowLayoutPanel3.Controls.Add(this.NationalityInfo);
+            this.flowLayoutPanel3.Controls.Add(this.NationalityTextBox);
+            this.flowLayoutPanel3.Controls.Add(this.CityInfo);
+            this.flowLayoutPanel3.Controls.Add(this.CityTextBox);
+            this.flowLayoutPanel3.Controls.Add(this.DockingPriceInfo);
+            this.flowLayoutPanel3.Controls.Add(this.DockingPriceTextBox);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(9, 19);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(286, 80);
+            this.flowLayoutPanel3.TabIndex = 14;
+            // 
+            // HarborCodeInfo
+            // 
+            this.HarborCodeInfo.AutoSize = true;
+            this.HarborCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HarborCodeInfo.Location = new System.Drawing.Point(3, 3);
+            this.HarborCodeInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.HarborCodeInfo.Name = "HarborCodeInfo";
+            this.HarborCodeInfo.Size = new System.Drawing.Size(86, 16);
+            this.HarborCodeInfo.TabIndex = 0;
+            this.HarborCodeInfo.Text = "Codice Porto";
+            this.HarborCodeInfo.Click += new System.EventHandler(this.AddHarbour_Click);
+            // 
+            // HarborCodeTextBox
+            // 
+            this.HarborCodeTextBox.Location = new System.Drawing.Point(95, 3);
+            this.HarborCodeTextBox.MaxLength = 4;
+            this.HarborCodeTextBox.Name = "HarborCodeTextBox";
+            this.HarborCodeTextBox.Size = new System.Drawing.Size(52, 20);
+            this.HarborCodeTextBox.TabIndex = 1;
+            // 
+            // NationalityInfo
+            // 
+            this.NationalityInfo.AutoSize = true;
+            this.NationalityInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NationalityInfo.Location = new System.Drawing.Point(153, 3);
+            this.NationalityInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.NationalityInfo.Name = "NationalityInfo";
+            this.NationalityInfo.Size = new System.Drawing.Size(75, 16);
+            this.NationalityInfo.TabIndex = 4;
+            this.NationalityInfo.Text = "Nazionalità";
+            // 
+            // NationalityTextBox
+            // 
+            this.NationalityTextBox.Location = new System.Drawing.Point(234, 3);
+            this.NationalityTextBox.MaxLength = 3;
+            this.NationalityTextBox.Name = "NationalityTextBox";
+            this.NationalityTextBox.Size = new System.Drawing.Size(42, 20);
+            this.NationalityTextBox.TabIndex = 5;
+            // 
+            // CityInfo
+            // 
+            this.CityInfo.AutoSize = true;
+            this.CityInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CityInfo.Location = new System.Drawing.Point(3, 29);
+            this.CityInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.CityInfo.Name = "CityInfo";
+            this.CityInfo.Size = new System.Drawing.Size(34, 16);
+            this.CityInfo.TabIndex = 14;
+            this.CityInfo.Text = "Città";
+            // 
+            // CityTextBox
+            // 
+            this.CityTextBox.Location = new System.Drawing.Point(43, 29);
+            this.CityTextBox.MaxLength = 30;
+            this.CityTextBox.Name = "CityTextBox";
+            this.CityTextBox.Size = new System.Drawing.Size(233, 20);
+            this.CityTextBox.TabIndex = 15;
+            // 
+            // DockingPriceInfo
+            // 
+            this.DockingPriceInfo.AutoSize = true;
+            this.DockingPriceInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DockingPriceInfo.Location = new System.Drawing.Point(3, 55);
+            this.DockingPriceInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.DockingPriceInfo.Name = "DockingPriceInfo";
+            this.DockingPriceInfo.Size = new System.Drawing.Size(101, 16);
+            this.DockingPriceInfo.TabIndex = 16;
+            this.DockingPriceInfo.Text = "Prezzo Attracco";
+            // 
+            // DockingPriceTextBox
+            // 
+            this.DockingPriceTextBox.Location = new System.Drawing.Point(110, 55);
+            this.DockingPriceTextBox.MaxLength = 4;
+            this.DockingPriceTextBox.Name = "DockingPriceTextBox";
+            this.DockingPriceTextBox.Size = new System.Drawing.Size(52, 20);
+            this.DockingPriceTextBox.TabIndex = 17;
+            // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(714, 450);
+            this.Controls.Add(this.InsertHarborInfoBox);
             this.Controls.Add(this.InsertShipInfoBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.InsertPathInfoBox);
             this.Name = "AddShipPopup";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AddShipPopup_Load);
@@ -394,9 +532,12 @@ namespace db_crociere
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.InsertPathInfoBox.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.InsertHarborInfoBox.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +561,7 @@ namespace db_crociere
         private System.Windows.Forms.Button AddShipInfoBtn;
         private System.Windows.Forms.Button ClearShipInfoBtn;
         private System.Windows.Forms.ErrorProvider errorProviderInfo;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox InsertPathInfoBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddPathBtn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -434,5 +575,17 @@ namespace db_crociere
         private System.Windows.Forms.ListBox InsertedSections;
         private System.Windows.Forms.ListBox SectionsListBox;
         private System.Windows.Forms.Button DeleteSectionPathBtn;
+        private System.Windows.Forms.GroupBox InsertHarborInfoBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddHarbour;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label HarborCodeInfo;
+        private System.Windows.Forms.TextBox HarborCodeTextBox;
+        private System.Windows.Forms.Label NationalityInfo;
+        private System.Windows.Forms.TextBox NationalityTextBox;
+        private System.Windows.Forms.Label CityInfo;
+        private System.Windows.Forms.TextBox CityTextBox;
+        private System.Windows.Forms.Label DockingPriceInfo;
+        private System.Windows.Forms.TextBox DockingPriceTextBox;
     }
 }

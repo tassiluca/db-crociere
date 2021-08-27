@@ -31,6 +31,18 @@ namespace db_crociere
                                       .Where(c => c.GetType() == type);
         }
 
+        private void ClearAll(Control control)
+        {
+            foreach (TextBox elem in GetAll(this, typeof(TextBox)))
+            {
+                elem.Clear();
+            }
+            foreach (ComboBox elem in GetAll(this, typeof(ComboBox)))
+            {
+                elem.SelectedIndex = -1;
+            }
+        }
+
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
         {
             try
@@ -63,6 +75,7 @@ namespace db_crociere
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            ClearAll(InsertShipInfoBox);
         }
 
         private void ShipNameComboPath_Click(object sender, EventArgs e)
@@ -72,10 +85,16 @@ namespace db_crociere
             ShipNameComboPath.DataSource = ships;
         }
 
-        private List<string> getHarboursOfSections(decimal codSection)
+        /// <summary>
+        /// Return the Harbors codes of given section.
+        /// </summary>
+        /// <param name="codSection">The code of the section.</param>
+        /// <returns>A dictionary: associated with the "START" key there is the departure
+        /// code harbor and associated with the "END" key the arrival one.</returns>
+        private Dictionary<string, string> getHarborsOfSection(decimal codSection)
         {
-            List<string> harboursList = new List<string>();
-            var harbours = (from p1 in db.PORTIs
+            Dictionary<string, string> harborsDict = new Dictionary<string, string>();
+            var harbors = (from p1 in db.PORTIs
                             from p2 in db.PORTIs
                             from t in db.TRATTEs
                             where t.CodTratta == codSection &&
@@ -87,25 +106,28 @@ namespace db_crociere
                                   END = p2.CodPorto
                             }).ToList();
 
-            harboursList.Add(harbours[0].START);
-            harboursList.Add(harbours[0].END);
-            return harboursList;
+            harborsDict.Add("START", harbors[0].START);
+            harborsDict.Add("END", harbors[0].END);
+            return harborsDict;
         }
 
         private bool checksSections()
         {
-            var start = getHarboursOfSections(selectedSections[0])[0];
-            var end = getHarboursOfSections(selectedSections[selectedSections.Count() - 1])[1];
-
-            if ( start.First() != end.First() )
+            for (int i = 0; i < selectedSections.Count(); i++)
             {
-                return false;
+                if (getHarborsOfSection(selectedSections[i])["END"] !=
+                    getHarborsOfSection(selectedSections[(i + 1) % selectedSections.Count()])["START"])
+                {
+                    return false;
+                }
             }
+
             return true;
         }
 
         private void AddPathBtn_Click(object sender, EventArgs e)
         {
+            string msg;
             try
             {
                 string pathCode = CodPathTextBox.Text;
@@ -114,7 +136,9 @@ namespace db_crociere
 
                 if (!checksSections())
                 {
-                    throw new ArgumentException("Il porto di partenza della prima tratta deve coincidere con il porto di arrivo dell'ultima");
+                    msg = "Il porto di arrivo di tratta deve coincidere con il" +
+                        " porto di partenza di quella successiva";
+                    throw new ArgumentException(msg);
                 }
 
                 /* Inserimento di una nuovo percorso */
@@ -141,14 +165,15 @@ namespace db_crociere
 
                 }
                 db.SubmitChanges();
-                var msg = "Inserimento avvenuto con SUCCESSO";
+                msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
             }
             catch (Exception exc)
             {
-                var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            ClearAll(InsertPathInfoBox);
             AddShipPopup_Load(sender, e);
         }
 
@@ -178,7 +203,7 @@ namespace db_crociere
             InsertedSections.Items.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InsertSectionPathBtn_Click(object sender, EventArgs e)
         {
             if (SectionsListBox.SelectedIndex != -1)
             {
@@ -193,7 +218,8 @@ namespace db_crociere
                     Console.WriteLine(elem);
                 }
                 Console.WriteLine("---------------------");
-            } else
+            }
+            else
             {
                 var msg = "Nessuna selezione!";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -227,5 +253,38 @@ namespace db_crociere
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void AddHarbour_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string harborCode = HarborCodeTextBox.Text;
+                string nationality = NationalityTextBox.Text;
+                string city = CityTextBox.Text;
+                int dockingPrice = int.Parse(DockingPriceTextBox.Text);
+
+                /* Inserting a new harbor */
+                PORTI porto = new PORTI
+                {
+                    CodPorto = harborCode,
+                    Nazionalità = nationality,
+                    Città = city,
+                    PrezzoAttracco = dockingPrice
+                };
+
+                db.PORTIs.InsertOnSubmit(porto);
+                db.SubmitChanges();
+                var msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll(InsertHarborInfoBox);
+        }
+
+
     }
 }
