@@ -29,13 +29,11 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.prenotBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.newPrenSelectBar = new System.Windows.Forms.FlowLayoutPanel();
             this.pathSelPren = new System.Windows.Forms.ComboBox();
             this.navSelPren = new System.Windows.Forms.ComboBox();
             this.portSelPren = new System.Windows.Forms.ComboBox();
@@ -74,12 +72,17 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pRENOTAZIONIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPren = new System.Windows.Forms.Label();
+            this.labelNavPren = new System.Windows.Forms.Label();
+            this.labelStartPortPren = new System.Windows.Forms.Label();
+            this.labelDatePren = new System.Windows.Forms.Label();
+            this.labelNumPassengerPren = new System.Windows.Forms.Label();
+            this.numPassengerBoxPren = new System.Windows.Forms.TextBox();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.prenotBox.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.newPrenSelectBar.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,7 +100,7 @@ namespace db_crociere
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -129,9 +132,9 @@ namespace db_crociere
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(621, 7);
+            this.groupBox1.Location = new System.Drawing.Point(740, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(368, 488);
+            this.groupBox1.Size = new System.Drawing.Size(333, 488);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -141,36 +144,26 @@ namespace db_crociere
             this.prenotBox.Controls.Add(this.flowLayoutPanel4);
             this.prenotBox.Location = new System.Drawing.Point(7, 7);
             this.prenotBox.Name = "prenotBox";
-            this.prenotBox.Size = new System.Drawing.Size(607, 583);
+            this.prenotBox.Size = new System.Drawing.Size(727, 583);
             this.prenotBox.TabIndex = 0;
             this.prenotBox.TabStop = false;
             this.prenotBox.Text = "Prenotazini Effettuate";
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.newPrenSelectBar);
+            this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel3);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 19);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(595, 455);
+            this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(721, 455);
             this.flowLayoutPanel4.TabIndex = 2;
-            // 
-            // newPrenSelectBar
-            // 
-            this.newPrenSelectBar.Controls.Add(this.pathSelPren);
-            this.newPrenSelectBar.Controls.Add(this.navSelPren);
-            this.newPrenSelectBar.Controls.Add(this.portSelPren);
-            this.newPrenSelectBar.Controls.Add(this.startDateSelPren);
-            this.newPrenSelectBar.Location = new System.Drawing.Point(3, 3);
-            this.newPrenSelectBar.Name = "newPrenSelectBar";
-            this.newPrenSelectBar.Size = new System.Drawing.Size(591, 34);
-            this.newPrenSelectBar.TabIndex = 1;
             // 
             // pathSelPren
             // 
             this.pathSelPren.FormattingEnabled = true;
-            this.pathSelPren.Location = new System.Drawing.Point(3, 3);
+            this.pathSelPren.Location = new System.Drawing.Point(78, 3);
             this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(121, 21);
+            this.pathSelPren.Size = new System.Drawing.Size(128, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
             this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.pathSelPren_SelectedIndexChanged);
@@ -178,16 +171,16 @@ namespace db_crociere
             // navSelPren
             // 
             this.navSelPren.FormattingEnabled = true;
-            this.navSelPren.Location = new System.Drawing.Point(130, 3);
+            this.navSelPren.Location = new System.Drawing.Point(348, 3);
             this.navSelPren.Name = "navSelPren";
-            this.navSelPren.Size = new System.Drawing.Size(121, 21);
+            this.navSelPren.Size = new System.Drawing.Size(130, 21);
             this.navSelPren.TabIndex = 1;
             this.navSelPren.Text = "Navigazione";
             // 
             // portSelPren
             // 
             this.portSelPren.FormattingEnabled = true;
-            this.portSelPren.Location = new System.Drawing.Point(257, 3);
+            this.portSelPren.Location = new System.Drawing.Point(584, 3);
             this.portSelPren.Name = "portSelPren";
             this.portSelPren.Size = new System.Drawing.Size(121, 21);
             this.portSelPren.TabIndex = 4;
@@ -196,7 +189,7 @@ namespace db_crociere
             // startDateSelPren
             // 
             this.startDateSelPren.FormattingEnabled = true;
-            this.startDateSelPren.Location = new System.Drawing.Point(384, 3);
+            this.startDateSelPren.Location = new System.Drawing.Point(78, 31);
             this.startDateSelPren.Name = "startDateSelPren";
             this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
             this.startDateSelPren.TabIndex = 5;
@@ -701,9 +694,95 @@ namespace db_crociere
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // pRENOTAZIONIBindingSource
+            // tableLayoutPanel3
             // 
-            this.pRENOTAZIONIBindingSource.DataMember = "PRENOTAZIONI";
+            this.tableLayoutPanel3.ColumnCount = 6;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.92064F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.07937F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel3.Controls.Add(this.labelNumPassengerPren, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelStartPortPren, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelNavPren, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pathSelPren, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelPren, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.navSelPren, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.portSelPren, 5, 0);
+            this.tableLayoutPanel3.Controls.Add(this.startDateSelPren, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelDatePren, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.numPassengerBoxPren, 3, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 8);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.75F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(712, 83);
+            this.tableLayoutPanel3.TabIndex = 7;
+            // 
+            // labelPren
+            // 
+            this.labelPren.AutoSize = true;
+            this.labelPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPren.Location = new System.Drawing.Point(3, 0);
+            this.labelPren.Name = "labelPren";
+            this.labelPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelPren.Size = new System.Drawing.Size(56, 20);
+            this.labelPren.TabIndex = 6;
+            this.labelPren.Text = "Percorso";
+            // 
+            // labelNavPren
+            // 
+            this.labelNavPren.AutoSize = true;
+            this.labelNavPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNavPren.Location = new System.Drawing.Point(217, 0);
+            this.labelNavPren.Name = "labelNavPren";
+            this.labelNavPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelNavPren.Size = new System.Drawing.Size(121, 20);
+            this.labelNavPren.TabIndex = 7;
+            this.labelNavPren.Text = "Periodo Navigazione";
+            // 
+            // labelStartPortPren
+            // 
+            this.labelStartPortPren.AutoSize = true;
+            this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStartPortPren.Location = new System.Drawing.Point(484, 0);
+            this.labelStartPortPren.Name = "labelStartPortPren";
+            this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelStartPortPren.Size = new System.Drawing.Size(88, 20);
+            this.labelStartPortPren.TabIndex = 8;
+            this.labelStartPortPren.Text = "Porto Partenza";
+            // 
+            // labelDatePren
+            // 
+            this.labelDatePren.AutoSize = true;
+            this.labelDatePren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDatePren.Location = new System.Drawing.Point(3, 28);
+            this.labelDatePren.Name = "labelDatePren";
+            this.labelDatePren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelDatePren.Size = new System.Drawing.Size(56, 35);
+            this.labelDatePren.TabIndex = 9;
+            this.labelDatePren.Text = "Data Partenza";
+            // 
+            // labelNumPassengerPren
+            // 
+            this.labelNumPassengerPren.AutoSize = true;
+            this.labelNumPassengerPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumPassengerPren.Location = new System.Drawing.Point(217, 28);
+            this.labelNumPassengerPren.Name = "labelNumPassengerPren";
+            this.labelNumPassengerPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelNumPassengerPren.Size = new System.Drawing.Size(91, 20);
+            this.labelNumPassengerPren.TabIndex = 10;
+            this.labelNumPassengerPren.Text = "No. Passeggeri";
+            // 
+            // numPassengerBoxPren
+            // 
+            this.numPassengerBoxPren.Location = new System.Drawing.Point(348, 31);
+            this.numPassengerBoxPren.MaxLength = 2;
+            this.numPassengerBoxPren.Name = "numPassengerBoxPren";
+            this.numPassengerBoxPren.Size = new System.Drawing.Size(84, 20);
+            this.numPassengerBoxPren.TabIndex = 11;
             // 
             // App
             // 
@@ -720,7 +799,6 @@ namespace db_crociere
             this.bookingTab.ResumeLayout(false);
             this.prenotBox.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
-            this.newPrenSelectBar.ResumeLayout(false);
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -742,7 +820,8 @@ namespace db_crociere
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -760,7 +839,6 @@ namespace db_crociere
         private System.Windows.Forms.Button DeleteShipBtn;
         private System.Windows.Forms.Button AddShipBtn;
         private System.Windows.Forms.GroupBox prenotBox;
-        private System.Windows.Forms.FlowLayoutPanel newPrenSelectBar;
         private System.Windows.Forms.ComboBox navSelPren;
         private System.Windows.Forms.ComboBox pathSelPren;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -793,6 +871,12 @@ namespace db_crociere
         private System.Windows.Forms.Label CabinsNumLabel;
         private System.Windows.Forms.ComboBox portSelPren;
         private System.Windows.Forms.ComboBox startDateSelPren;
-        private System.Windows.Forms.BindingSource pRENOTAZIONIBindingSource;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label labelStartPortPren;
+        private System.Windows.Forms.Label labelNavPren;
+        private System.Windows.Forms.Label labelPren;
+        private System.Windows.Forms.Label labelNumPassengerPren;
+        private System.Windows.Forms.Label labelDatePren;
+        private System.Windows.Forms.TextBox numPassengerBoxPren;
     }
 }
