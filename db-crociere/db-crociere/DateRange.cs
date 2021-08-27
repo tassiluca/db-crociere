@@ -4,17 +4,17 @@ namespace db_crociere
 {
     class DateRange
     {
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         public DateRange(DateTime Start, DateTime End) {
-            this.Start = Start;
-            this.End = End;
+            this.StartDate = Start;
+            this.EndDate = End;
         }
 
         public override string ToString()
         {
-            return this.Start.ToString() + " - " + this.End.ToString();
+            return this.StartDate.ToString() + "-" + this.EndDate.ToString();
         }
     }
 }

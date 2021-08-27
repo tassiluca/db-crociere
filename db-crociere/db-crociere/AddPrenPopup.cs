@@ -12,13 +12,22 @@ namespace db_crociere
 {
     public partial class AddPrenPopup : Form
     {
+        private Dictionary<String, DateRange> navDateMap;
+
         private DataClassesDBCrociereDataContext db;
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
             db = dbDataContext;
+            navDateMap = new Dictionary<string, DateRange>();
             InitializeComponent();
         }
 
+        private void AddPrenPopup_Load(object sender, EventArgs e)
+        {
+            var path = from p in db.PERCORSIs
+                        select p.CodPercorso;
+            pathSelPren.DataSource = path;
+        }
         private void pathSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
             var pathCode = pathSelPren.SelectedItem.ToString();
@@ -31,23 +40,28 @@ namespace db_crociere
                           endNavDate = n.DataFine
                       };
 
-            List<DateRange> avaiableDateRanges = new List<DateRange>();
+            List<String> avaiableDateRanges = new List<String>();
             foreach (var p in nav)
             {
-                avaiableDateRanges.Add(new DateRange(p.startNavDate, p.endNavDate));
+                var rd = new DateRange(p.startNavDate, p.endNavDate);
+                navDateMap.Add(rd.ToString(),rd);
+                avaiableDateRanges.Add(rd.ToString());
             }
 
-            navSelPren.DataSource = avaiableDateRanges;
-
+            navPeriodSelector.DataSource = avaiableDateRanges;
         }
 
-        private void bookingTab_Enter(object sender, EventArgs e)
+        private void portSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            var path = from p in db.PERCORSIs
-                       select p.CodPercorso;
-            pathSelPren.DataSource = path;
+            String selectedPeriod = navPeriodSelector.SelectedItem.ToString();
+            var startDate = this.navDateMap[selectedPeriod].StartDate;
+            var nav = from est in db.ESECUZIONI_TRATTAs
+                      where est.Partenza_Data == startDate;
+                     /* and 
+                      select new
+                      {
+                     
+                      };*/
         }
-
     }
 }
