@@ -93,13 +93,14 @@ namespace db_crociere
             var ships = from navi in db.NAVIs
                         select navi.Nome;
             shipListBox.DataSource = ships;
+            shipSelectorPrenot.DataSource = ships;
             if(ships.Count() > 0)
             {
                 fillShipInfo(ships.ToArray()[0]);
                 fillPathInfo(ships.ToArray()[0]);
                 initNavigation();
             }
-            
+        
         }
 
         private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,6 +131,12 @@ namespace db_crociere
             var shipName = shipListBox.SelectedItem.ToString();
             fillShipInfo(shipName);
             fillPathInfo(shipName);
+        }
+
+        private void shipSelectorPrenot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var shipName = shipListBox.SelectedItem.ToString();
+
         }
     }
 }
