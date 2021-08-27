@@ -28,8 +28,9 @@ namespace db_crociere
                         select p.CodPercorso;
             pathSelPren.DataSource = path;
         }
-        private void pathSelPren_SelectedIndexChanged(object sender, EventArgs e)
+        private void pathSelPren_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Ci simao\n");
             var pathCode = pathSelPren.SelectedItem.ToString();
             var nav = from n in db.NAVIGAZIONIs
                       where n.CodPercorso == pathCode
@@ -47,7 +48,7 @@ namespace db_crociere
                 navDateMap.Add(rd.ToString(),rd);
                 avaiableDateRanges.Add(rd.ToString());
             }
-
+            Console.WriteLine(avaiableDateRanges.ToString());
             navPeriodSelector.DataSource = avaiableDateRanges;
         }
 
