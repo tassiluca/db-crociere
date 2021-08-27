@@ -304,26 +304,40 @@ namespace db_crociere
 
         private void AddHarborBtn_Click(object sender, EventArgs e)
         {
+            string msg;
             try
             {
-                string sectionCode = SectionCodeTextBox.Text;
                 string departureHarbor = DepartureHarborComboBox.Text;
                 string arrivalHarbor = ArrivalHarborComboBox.Text;
+
+                string departureHarborCode = (from p in db.PORTIs
+                                             where p.Città == departureHarbor
+                                             select p.CodPorto).First();
+                string arrivalHarborCode = (from p in db.PORTIs
+                                            where p.Città == arrivalHarbor
+                                            select p.CodPorto).First();
+
+                if (departureHarborCode == arrivalHarborCode)
+                {
+                    msg = "Il porto di arrivo e destinazione non possono coincidere";
+                    throw new ArgumentException(msg);
+                }
 
                 /* Inserting a new harbor */
                 TRATTE tratta = new TRATTE
                 {
-                    
+                    CodPortoPartenza = departureHarborCode,
+                    CodPortoArrivo = arrivalHarborCode
                 };
 
                 db.TRATTEs.InsertOnSubmit(tratta);
                 db.SubmitChanges();
-                var msg = "Inserimento avvenuto con SUCCESSO";
+                msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
             }
             catch (Exception exc)
             {
-                var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ClearAll(InsertHarborInfoBox);
