@@ -170,6 +170,7 @@ namespace db_crociere
             this.shipSelectorPrenot.Size = new System.Drawing.Size(153, 21);
             this.shipSelectorPrenot.TabIndex = 0;
             this.shipSelectorPrenot.Text = "Nave";
+            this.shipSelectorPrenot.SelectedIndexChanged += new System.EventHandler(this.shipSelectorPrenot_SelectedIndexChanged);
             // 
             // navSelectorPren
             // 
