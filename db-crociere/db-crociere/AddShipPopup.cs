@@ -86,29 +86,17 @@ namespace db_crociere
                                   START = p1.CodPorto,
                                   END = p2.CodPorto
                             }).ToList();
+
             harboursList.Add(harbours[0].START);
             harboursList.Add(harbours[0].END);
-            Console.WriteLine(harboursList);
             return harboursList;
         }
 
         private bool checksSections()
         {
-            /*var start = from p in db.PORTIs
-                        from t in db.TRATTEs
-                        where t.CodTratta == selectedSections.ToArray()[0] &&
-                              t.CodPortoPartenza == p.CodPorto
-                        select p.CodPorto;
-            var end = from p in db.PORTIs
-                      from t in db.TRATTEs
-                      where t.CodTratta == selectedSections.ToArray()[selectedSections.Count() - 1] &&
-                            t.CodPortoArrivo == p.CodPorto
-                      select p.CodPorto;*/
-            var start = getHarboursOfSections(selectedSections[0]);
-            var end = getHarboursOfSections(selectedSections[selectedSections.Count() - 1]);
+            var start = getHarboursOfSections(selectedSections[0])[0];
+            var end = getHarboursOfSections(selectedSections[selectedSections.Count() - 1])[1];
 
-            Console.WriteLine("START = " + start);
-            Console.WriteLine("STOP = " + end);
             if ( start.First() != end.First() )
             {
                 return false;
@@ -179,6 +167,7 @@ namespace db_crociere
                            }).ToList();
 
             sectionsList.Clear();
+            SectionsListBox.Items.Clear();
             foreach (var elem in sections)
             {
                 string msg = "[" + elem.SEC_CODE + "] "+ elem.DEP_PORT + " -> " + elem.ARR_PORT;
