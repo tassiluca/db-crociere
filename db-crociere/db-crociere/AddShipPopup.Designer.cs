@@ -59,7 +59,8 @@ namespace db_crociere
             this.DurationTextBox = new System.Windows.Forms.TextBox();
             this.ShipNameInfo = new System.Windows.Forms.Label();
             this.ShipNameComboPath = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.InsertSectionPathBtn = new System.Windows.Forms.Button();
+            this.DeleteSectionPathBtn = new System.Windows.Forms.Button();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
@@ -75,7 +76,7 @@ namespace db_crociere
             this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.InsertShipInfoBox.Location = new System.Drawing.Point(0, 0);
             this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(806, 81);
+            this.InsertShipInfoBox.Size = new System.Drawing.Size(714, 81);
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
@@ -243,9 +244,11 @@ namespace db_crociere
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.AddPathBtn);
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
+            this.groupBox1.Controls.Add(this.InsertSectionPathBtn);
+            this.groupBox1.Controls.Add(this.DeleteSectionPathBtn);
             this.groupBox1.Location = new System.Drawing.Point(3, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(803, 276);
+            this.groupBox1.Size = new System.Drawing.Size(710, 152);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserisci Percorso";
@@ -253,22 +256,22 @@ namespace db_crociere
             // InsertedSections
             // 
             this.InsertedSections.FormattingEnabled = true;
-            this.InsertedSections.Location = new System.Drawing.Point(6, 146);
+            this.InsertedSections.Location = new System.Drawing.Point(223, 19);
             this.InsertedSections.Name = "InsertedSections";
-            this.InsertedSections.Size = new System.Drawing.Size(315, 121);
+            this.InsertedSections.Size = new System.Drawing.Size(160, 121);
             this.InsertedSections.TabIndex = 16;
             // 
             // SectionsListBox
             // 
             this.SectionsListBox.FormattingEnabled = true;
-            this.SectionsListBox.Location = new System.Drawing.Point(6, 19);
+            this.SectionsListBox.Location = new System.Drawing.Point(9, 19);
             this.SectionsListBox.Name = "SectionsListBox";
-            this.SectionsListBox.Size = new System.Drawing.Size(315, 121);
+            this.SectionsListBox.Size = new System.Drawing.Size(170, 121);
             this.SectionsListBox.TabIndex = 15;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(722, 45);
+            this.button2.Location = new System.Drawing.Point(470, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -277,7 +280,7 @@ namespace db_crociere
             // 
             // AddPathBtn
             // 
-            this.AddPathBtn.Location = new System.Drawing.Point(722, 19);
+            this.AddPathBtn.Location = new System.Drawing.Point(389, 117);
             this.AddPathBtn.Name = "AddPathBtn";
             this.AddPathBtn.Size = new System.Drawing.Size(75, 23);
             this.AddPathBtn.TabIndex = 3;
@@ -293,10 +296,9 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.DurationTextBox);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameInfo);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
-            this.flowLayoutPanel2.Controls.Add(this.button1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(327, 19);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(389, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(389, 122);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(315, 80);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // CodPathInfo
@@ -322,8 +324,8 @@ namespace db_crociere
             // 
             this.DurationInfo.AutoSize = true;
             this.DurationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DurationInfo.Location = new System.Drawing.Point(198, 3);
-            this.DurationInfo.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
+            this.DurationInfo.Location = new System.Drawing.Point(176, 3);
+            this.DurationInfo.Margin = new System.Windows.Forms.Padding(3);
             this.DurationInfo.Name = "DurationInfo";
             this.DurationInfo.Size = new System.Drawing.Size(86, 16);
             this.DurationInfo.TabIndex = 4;
@@ -331,7 +333,7 @@ namespace db_crociere
             // 
             // DurationTextBox
             // 
-            this.DurationTextBox.Location = new System.Drawing.Point(290, 3);
+            this.DurationTextBox.Location = new System.Drawing.Point(268, 3);
             this.DurationTextBox.MaxLength = 2;
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(42, 20);
@@ -351,28 +353,38 @@ namespace db_crociere
             // ShipNameComboPath
             // 
             this.ShipNameComboPath.FormattingEnabled = true;
-            this.ShipNameComboPath.Location = new System.Drawing.Point(90, 29);
+            this.ShipNameComboPath.Location = new System.Drawing.Point(3, 51);
             this.ShipNameComboPath.Name = "ShipNameComboPath";
             this.ShipNameComboPath.Size = new System.Drawing.Size(291, 21);
             this.ShipNameComboPath.TabIndex = 2;
             this.ShipNameComboPath.Click += new System.EventHandler(this.ShipNameComboPath_Click);
             // 
-            // button1
+            // InsertSectionPathBtn
             // 
-            this.button1.Location = new System.Drawing.Point(3, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.InsertSectionPathBtn.Location = new System.Drawing.Point(185, 41);
+            this.InsertSectionPathBtn.Name = "InsertSectionPathBtn";
+            this.InsertSectionPathBtn.Size = new System.Drawing.Size(32, 23);
+            this.InsertSectionPathBtn.TabIndex = 18;
+            this.InsertSectionPathBtn.Text = "+";
+            this.InsertSectionPathBtn.UseVisualStyleBackColor = true;
+            this.InsertSectionPathBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // DeleteSectionPathBtn
+            // 
+            this.DeleteSectionPathBtn.Location = new System.Drawing.Point(185, 68);
+            this.DeleteSectionPathBtn.Name = "DeleteSectionPathBtn";
+            this.DeleteSectionPathBtn.Size = new System.Drawing.Size(32, 23);
+            this.DeleteSectionPathBtn.TabIndex = 19;
+            this.DeleteSectionPathBtn.Text = "-";
+            this.DeleteSectionPathBtn.UseVisualStyleBackColor = true;
+            this.DeleteSectionPathBtn.Click += new System.EventHandler(this.DeleteSectionPathBtn_Click);
             // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(806, 450);
+            this.ClientSize = new System.Drawing.Size(714, 450);
             this.Controls.Add(this.InsertShipInfoBox);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddShipPopup";
@@ -418,8 +430,9 @@ namespace db_crociere
         private System.Windows.Forms.TextBox DurationTextBox;
         private System.Windows.Forms.Label ShipNameInfo;
         private System.Windows.Forms.ComboBox ShipNameComboPath;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button InsertSectionPathBtn;
         private System.Windows.Forms.ListBox InsertedSections;
         private System.Windows.Forms.ListBox SectionsListBox;
+        private System.Windows.Forms.Button DeleteSectionPathBtn;
     }
 }

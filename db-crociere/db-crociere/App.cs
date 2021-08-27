@@ -86,6 +86,29 @@ namespace db_crociere
             string defaultMsg = "Non ancora inserito";
             PathCodeLabel.Text = path.Count() == 0 ? defaultMsg : path.FirstOrDefault().COD_PATH;
             DurationLabel.Text = path.Count() == 0 ? defaultMsg : path.First().DURATION.ToString();
+
+            if (path.Count() > 0)
+            {
+                var sections = from sq in db.SEQUENZE_TRATTEs
+                               from t in db.TRATTEs
+                               from p1 in db.PORTIs
+                               from p2 in db.PORTIs
+                               where sq.CodPercorso == path.First().COD_PATH &&
+                                     sq.CodTratta == t.CodTratta &&
+                                     p1.CodPorto == t.CodPortoPartenza &&
+                                     p2.CodPorto == t.CodPortoArrivo
+                               select new
+                               {
+                                   Percorso = sq.CodPercorso,
+                                   Tratta = sq.CodTratta,
+                                   Partenza = p1.Città,
+                                   Arrivo = p2.Città,
+                                   Ordine = sq.Ordine
+                               };
+                SectionsGridView.DataSource = sections;
+                SectionsGridView.Sort(SectionsGridView.Columns["Ordine"], ListSortDirection.Ascending);
+            }
+
         }
 
         private void updateShipList(object sender, EventArgs e)
