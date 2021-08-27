@@ -107,6 +107,9 @@ namespace db_crociere
                                };
                 SectionsGridView.DataSource = sections;
                 SectionsGridView.Sort(SectionsGridView.Columns["Ordine"], ListSortDirection.Ascending);
+            } else
+            {
+                SectionsGridView.Rows.Clear();
             }
 
         }
