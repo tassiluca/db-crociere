@@ -25,3 +25,6 @@ VALUES('MED01', 5, 1),
 ('MED01', 13, 3),
 ('MED01', 14, 4),
 ('MED01', 15, 5);
+
+INSERT INTO NAVIGAZIONI(NomeNave, DataInizio, DataFine, NumeroEsecuzioni, CodPercorso)
+VALUES('Bellissima', '17-07-2021', '23-08-2021', 25, 'MED01');
