@@ -78,13 +78,6 @@ namespace db_crociere
             ClearAll(InsertShipInfoBox);
         }
 
-        private void ShipNameComboPath_Click(object sender, EventArgs e)
-        {
-            var ships = from navi in db.NAVIs
-                        select navi.Nome;
-            ShipNameComboPath.DataSource = ships;
-        }
-
         /// <summary>
         /// Return the Harbors codes of given section.
         /// </summary>
@@ -331,6 +324,74 @@ namespace db_crociere
                 };
 
                 db.TRATTEs.InsertOnSubmit(tratta);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll(InsertHarborInfoBox);
+        }
+
+        private void fillShipNameCombo(ComboBox cb)
+        {
+            var ships = from navi in db.NAVIs
+                        select navi.Nome;
+            cb.DataSource = ships;
+        }
+
+        private void ShipNameNavigationComboBox_Click(object sender, EventArgs e)
+        {
+            fillShipNameCombo(ShipNameNavigationComboBox);
+        }
+
+        private void ShipNameComboPath_Click(object sender, EventArgs e)
+        {
+            fillShipNameCombo(ShipNameComboPath);
+        }
+
+        private void PathComboBox_Click(object sender, EventArgs e)
+        {
+            var paths = from s in db.PERCORSIs
+                        select s.CodPercorso;
+            PathComboBox.DataSource = paths;
+        }
+
+        private void AddNavigationBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                string shipName = ShipNameNavigationComboBox.Text;
+                DateTime startDate = StartNavigationDatePicker.Value.Date;
+                DateTime endDate = EndNavigationDatePicker.Value.Date;
+                int executions = int.Parse(ExecutionsTextBox.Text);
+                string pathCode = PathComboBox.Text;
+
+                Console.WriteLine("DATE = " + startDate);
+                Console.WriteLine("PATH = " + pathCode);
+
+                /*
+                if (departureHarborCode == arrivalHarborCode)
+                {
+                    msg = "Il porto di arrivo e destinazione non possono coincidere";
+                    throw new ArgumentException(msg);
+                }
+                */
+                /* Inserting a new harbor */
+                NAVIGAZIONI navigazione = new NAVIGAZIONI
+                {
+                    NomeNave = shipName,
+                    DataInizio = startDate,
+                    DataFine = endDate,
+                    NumeroEsecuzioni = executions,
+                    CodPercorso = pathCode
+                };
+
+                db.NAVIGAZIONIs.InsertOnSubmit(navigazione);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
