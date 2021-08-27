@@ -55,9 +55,9 @@ namespace db_crociere
         {
             String selectedPeriod = navPeriodSelector.SelectedItem.ToString();
             var startDate = this.navDateMap[selectedPeriod].StartDate;
-            var nav = from est in db.ESECUZIONI_TRATTAs
+            /*var nav = from est in db.ESECUZIONI_TRATTAs
                       where est.Partenza_Data == startDate;
-                     /* and 
+                      and 
                       select new
                       {
                      
