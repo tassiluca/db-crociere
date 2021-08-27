@@ -13,6 +13,8 @@ namespace db_crociere
     public partial class AddShipPopup : Form
     {
         private DataClassesDBCrociereDataContext db;
+        private List<decimal> sectionsList = new List<decimal>();
+        private List<decimal> selectedSections = new List<decimal>();
 
         public AddShipPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -85,6 +87,8 @@ namespace db_crociere
                     NomeNave = shipName,
                     GiorniDurata = duration
                 };
+
+                /* Inserimento delle nuove sequenze_tratte */
                 
                 db.PERCORSIs.InsertOnSubmit(percorso);
                 db.SubmitChanges();
@@ -100,7 +104,7 @@ namespace db_crociere
 
         private void AddShipPopup_Load(object sender, EventArgs e)
         {
-            var sections = from t in db.TRATTEs
+            var sections = (from t in db.TRATTEs
                            from p1 in db.PORTIs
                            from p2 in db.PORTIs
                            where p1.CodPorto == t.CodPortoPartenza && p2.CodPorto == t.CodPortoArrivo
@@ -109,16 +113,50 @@ namespace db_crociere
                                SEC_CODE = t.CodTratta,
                                ARR_PORT = p2.Città,
                                DEP_PORT = p1.Città                               
-                           };
-            SectionsListBox.DataSource = sections;
+                           }).ToList();
+            Console.WriteLine(sections.GetType());
+            foreach (var elem in sections)
+            {
+                string msg = "[" + elem.SEC_CODE + "] "+ elem.ARR_PORT + " -> " + elem.DEP_PORT;
+                SectionsListBox.Items.Add(msg);
+                sectionsList.Add(elem.SEC_CODE);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             InsertedSections.Items.Add(SectionsListBox.SelectedItem.ToString());
+            selectedSections.Add(sectionsList.ToArray()[SectionsListBox.SelectedIndex]);
+            sectionsList.RemoveAt(SectionsListBox.SelectedIndex);
             SectionsListBox.Items.RemoveAt(SectionsListBox.SelectedIndex);
-            
 
+            Console.WriteLine("---- SELEZIONATI --- ");
+            foreach (var elem in selectedSections)
+            {
+                Console.WriteLine(elem);
+            }
+            Console.WriteLine("---------------------");
+        }
+
+        private void DeleteSectionPathBtn_Click(object sender, EventArgs e)
+        {
+            SectionsListBox.Items.Add(InsertedSections.SelectedItem.ToString());
+            sectionsList.Add(selectedSections.ToArray()[InsertedSections.SelectedIndex]);
+            selectedSections.RemoveAt(InsertedSections.SelectedIndex);
+            InsertedSections.Items.RemoveAt(InsertedSections.SelectedIndex);
+
+            Console.WriteLine("---- SELEZIONATI --- ");
+            foreach (var elem in selectedSections)
+            {
+                Console.WriteLine(elem);
+            }
+            Console.WriteLine("---------------------");
+            Console.WriteLine("---- SELEZIONABILI --- ");
+            foreach (var elem in sectionsList)
+            {
+                Console.WriteLine(elem);
+            }
+            Console.WriteLine("---------------------");
         }
     }
 }
