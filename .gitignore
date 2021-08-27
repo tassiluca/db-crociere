@@ -3,4 +3,4 @@ obj/
 bin/
 .vs/
 *DataClassesDBCrociere.*
-
+*Settings.Designer.cs
