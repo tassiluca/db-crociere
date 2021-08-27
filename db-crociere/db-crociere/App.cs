@@ -153,57 +153,16 @@ namespace db_crociere
             fillPathInfo(shipName);
         }
 
-
-        private void pathSelPren_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var pathCode = pathSelPren.SelectedItem.ToString();
-            var nav = from n in db.NAVIGAZIONIs
-                      where n.CodPercorso == pathCode
-                      orderby n.DataInizio
-                      select new
-                      {
-                          startNavDate = n.DataInizio,
-                          endNavDate = n.DataFine
-                      };
-
-            List<DateRange> avaiableDateRanges = new List<DateRange>();
-            foreach(var p in nav)
-            {
-                avaiableDateRanges.Add(new DateRange(p.startNavDate,p.endNavDate));
-            }
-            
-            navSelPren.DataSource = avaiableDateRanges;
-
-        }
-
-        private void bookingTab_Enter(object sender, EventArgs e)
-        {
-            
-            var path = from p in db.PERCORSIs
-                        select p.CodPercorso;
-            pathSelPren.DataSource = path;
-        }
-
         private void App_Load(object sender, EventArgs e)
         {
                        
 
         }
-    }
 
-    class DateRange
-    {
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
-
-        public DateRange(DateTime Start, DateTime End) {
-            this.Start = Start;
-            this.End = End;
-        }
-
-        public override string ToString()
+        private void addPrenBtn_Click(object sender, EventArgs e)
         {
-            return this.Start.ToString() + " - " + this.End.ToString();
+            AddPrenPopup AddPrenPopup_window = new AddPrenPopup(db);
+            AddPrenPopup_window.ShowDialog(this);
         }
     }
 }
