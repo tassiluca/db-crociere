@@ -29,16 +29,17 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.prenotBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.shipSelectorPrenot = new System.Windows.Forms.ComboBox();
-            this.navSelectorPren = new System.Windows.Forms.ComboBox();
-            this.paymentSelectPren = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.newPrenSelectBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.pathSelPren = new System.Windows.Forms.ComboBox();
+            this.navSelPren = new System.Windows.Forms.ComboBox();
+            this.portSelPren = new System.Windows.Forms.ComboBox();
+            this.startDateSelPren = new System.Windows.Forms.ComboBox();
             this.shipPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.shipListContainer = new System.Windows.Forms.SplitContainer();
@@ -73,11 +74,24 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dbCrociereDataSet = new db_crociere.dbCrociereDataSet();
+            this.pRENOTAZIONIBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pRENOTAZIONITableAdapter = new db_crociere.dbCrociereDataSetTableAdapters.PRENOTAZIONITableAdapter();
+            this.codPrenotazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codTransazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataEffettuazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataOraImbarcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataOraSbarcoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trattamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroPasseggeriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codNavigazioneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codPortoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.prenotBox.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
+            this.newPrenSelectBar.SuspendLayout();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -95,6 +109,9 @@ namespace db_crociere
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbCrociereDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -118,10 +135,11 @@ namespace db_crociere
             this.bookingTab.Location = new System.Drawing.Point(4, 22);
             this.bookingTab.Name = "bookingTab";
             this.bookingTab.Padding = new System.Windows.Forms.Padding(3);
-            this.bookingTab.Size = new System.Drawing.Size(1056, 624);
+            this.bookingTab.Size = new System.Drawing.Size(1079, 624);
             this.bookingTab.TabIndex = 0;
             this.bookingTab.Text = "Prenotazioni";
             this.bookingTab.UseVisualStyleBackColor = true;
+            this.bookingTab.Enter += new System.EventHandler(this.bookingTab_Enter);
             // 
             // groupBox1
             // 
@@ -141,62 +159,63 @@ namespace db_crociere
             this.prenotBox.TabIndex = 0;
             this.prenotBox.TabStop = false;
             this.prenotBox.Text = "Prenotazini Effettuate";
-            this.prenotBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel4.Controls.Add(this.newPrenSelectBar);
+            this.flowLayoutPanel4.Controls.Add(this.dataGridView1);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 19);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(595, 217);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(595, 455);
             this.flowLayoutPanel4.TabIndex = 2;
             // 
-            // flowLayoutPanel3
+            // newPrenSelectBar
             // 
-            this.flowLayoutPanel3.Controls.Add(this.shipSelectorPrenot);
-            this.flowLayoutPanel3.Controls.Add(this.navSelectorPren);
-            this.flowLayoutPanel3.Controls.Add(this.paymentSelectPren);
-            this.flowLayoutPanel3.Controls.Add(this.comboBox2);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(591, 33);
-            this.flowLayoutPanel3.TabIndex = 1;
+            this.newPrenSelectBar.Controls.Add(this.pathSelPren);
+            this.newPrenSelectBar.Controls.Add(this.navSelPren);
+            this.newPrenSelectBar.Controls.Add(this.portSelPren);
+            this.newPrenSelectBar.Controls.Add(this.startDateSelPren);
+            this.newPrenSelectBar.Location = new System.Drawing.Point(3, 3);
+            this.newPrenSelectBar.Name = "newPrenSelectBar";
+            this.newPrenSelectBar.Size = new System.Drawing.Size(591, 34);
+            this.newPrenSelectBar.TabIndex = 1;
             // 
-            // shipSelectorPrenot
+            // pathSelPren
             // 
-            this.shipSelectorPrenot.FormattingEnabled = true;
-            this.shipSelectorPrenot.Location = new System.Drawing.Point(3, 3);
-            this.shipSelectorPrenot.Name = "shipSelectorPrenot";
-            this.shipSelectorPrenot.Size = new System.Drawing.Size(153, 21);
-            this.shipSelectorPrenot.TabIndex = 0;
-            this.shipSelectorPrenot.Text = "Nave";
-            this.shipSelectorPrenot.SelectedIndexChanged += new System.EventHandler(this.shipSelectorPrenot_SelectedIndexChanged);
+            this.pathSelPren.FormattingEnabled = true;
+            this.pathSelPren.Location = new System.Drawing.Point(3, 3);
+            this.pathSelPren.Name = "pathSelPren";
+            this.pathSelPren.Size = new System.Drawing.Size(121, 21);
+            this.pathSelPren.TabIndex = 3;
+            this.pathSelPren.Text = "Percorso";
+            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.pathSelPren_SelectedIndexChanged);
             // 
-            // navSelectorPren
+            // navSelPren
             // 
-            this.navSelectorPren.FormattingEnabled = true;
-            this.navSelectorPren.Location = new System.Drawing.Point(162, 3);
-            this.navSelectorPren.Name = "navSelectorPren";
-            this.navSelectorPren.Size = new System.Drawing.Size(121, 21);
-            this.navSelectorPren.TabIndex = 1;
-            this.navSelectorPren.Text = "Navigazione";
+            this.navSelPren.FormattingEnabled = true;
+            this.navSelPren.Location = new System.Drawing.Point(130, 3);
+            this.navSelPren.Name = "navSelPren";
+            this.navSelPren.Size = new System.Drawing.Size(121, 21);
+            this.navSelPren.TabIndex = 1;
+            this.navSelPren.Text = "Navigazione";
             // 
-            // paymentSelectPren
+            // portSelPren
             // 
-            this.paymentSelectPren.FormattingEnabled = true;
-            this.paymentSelectPren.Location = new System.Drawing.Point(289, 3);
-            this.paymentSelectPren.Name = "paymentSelectPren";
-            this.paymentSelectPren.Size = new System.Drawing.Size(121, 21);
-            this.paymentSelectPren.TabIndex = 2;
-            this.paymentSelectPren.Text = "Pagamento";
+            this.portSelPren.FormattingEnabled = true;
+            this.portSelPren.Location = new System.Drawing.Point(257, 3);
+            this.portSelPren.Name = "portSelPren";
+            this.portSelPren.Size = new System.Drawing.Size(121, 21);
+            this.portSelPren.TabIndex = 4;
+            this.portSelPren.Text = "Porto Partenza";
             // 
-            // comboBox2
+            // startDateSelPren
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(416, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 3;
+            this.startDateSelPren.FormattingEnabled = true;
+            this.startDateSelPren.Location = new System.Drawing.Point(384, 3);
+            this.startDateSelPren.Name = "startDateSelPren";
+            this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
+            this.startDateSelPren.TabIndex = 5;
+            this.startDateSelPren.Text = "Data Partenza";
             // 
             // shipPage
             // 
@@ -692,10 +711,110 @@ namespace db_crociere
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1056, 624);
+            this.tabPage3.Size = new System.Drawing.Size(1079, 624);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codPrenotazioneDataGridViewTextBoxColumn,
+            this.codTransazioneDataGridViewTextBoxColumn,
+            this.dataEffettuazioneDataGridViewTextBoxColumn,
+            this.dataOraImbarcoDataGridViewTextBoxColumn,
+            this.dataOraSbarcoDataGridViewTextBoxColumn,
+            this.trattamentoDataGridViewTextBoxColumn,
+            this.numeroPasseggeriDataGridViewTextBoxColumn,
+            this.codNavigazioneDataGridViewTextBoxColumn,
+            this.codPortoDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.pRENOTAZIONIBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 43);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(591, 412);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // dbCrociereDataSet
+            // 
+            this.dbCrociereDataSet.DataSetName = "dbCrociereDataSet";
+            this.dbCrociereDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // pRENOTAZIONIBindingSource
+            // 
+            this.pRENOTAZIONIBindingSource.DataMember = "PRENOTAZIONI";
+            this.pRENOTAZIONIBindingSource.DataSource = this.dbCrociereDataSet;
+            // 
+            // pRENOTAZIONITableAdapter
+            // 
+            this.pRENOTAZIONITableAdapter.ClearBeforeFill = true;
+            // 
+            // codPrenotazioneDataGridViewTextBoxColumn
+            // 
+            this.codPrenotazioneDataGridViewTextBoxColumn.DataPropertyName = "CodPrenotazione";
+            this.codPrenotazioneDataGridViewTextBoxColumn.HeaderText = "CodPrenotazione";
+            this.codPrenotazioneDataGridViewTextBoxColumn.Name = "codPrenotazioneDataGridViewTextBoxColumn";
+            this.codPrenotazioneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codTransazioneDataGridViewTextBoxColumn
+            // 
+            this.codTransazioneDataGridViewTextBoxColumn.DataPropertyName = "CodTransazione";
+            this.codTransazioneDataGridViewTextBoxColumn.HeaderText = "CodTransazione";
+            this.codTransazioneDataGridViewTextBoxColumn.Name = "codTransazioneDataGridViewTextBoxColumn";
+            this.codTransazioneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataEffettuazioneDataGridViewTextBoxColumn
+            // 
+            this.dataEffettuazioneDataGridViewTextBoxColumn.DataPropertyName = "DataEffettuazione";
+            this.dataEffettuazioneDataGridViewTextBoxColumn.HeaderText = "DataEffettuazione";
+            this.dataEffettuazioneDataGridViewTextBoxColumn.Name = "dataEffettuazioneDataGridViewTextBoxColumn";
+            this.dataEffettuazioneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataOraImbarcoDataGridViewTextBoxColumn
+            // 
+            this.dataOraImbarcoDataGridViewTextBoxColumn.DataPropertyName = "DataOraImbarco";
+            this.dataOraImbarcoDataGridViewTextBoxColumn.HeaderText = "DataOraImbarco";
+            this.dataOraImbarcoDataGridViewTextBoxColumn.Name = "dataOraImbarcoDataGridViewTextBoxColumn";
+            this.dataOraImbarcoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataOraSbarcoDataGridViewTextBoxColumn
+            // 
+            this.dataOraSbarcoDataGridViewTextBoxColumn.DataPropertyName = "DataOraSbarco";
+            this.dataOraSbarcoDataGridViewTextBoxColumn.HeaderText = "DataOraSbarco";
+            this.dataOraSbarcoDataGridViewTextBoxColumn.Name = "dataOraSbarcoDataGridViewTextBoxColumn";
+            this.dataOraSbarcoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // trattamentoDataGridViewTextBoxColumn
+            // 
+            this.trattamentoDataGridViewTextBoxColumn.DataPropertyName = "Trattamento";
+            this.trattamentoDataGridViewTextBoxColumn.HeaderText = "Trattamento";
+            this.trattamentoDataGridViewTextBoxColumn.Name = "trattamentoDataGridViewTextBoxColumn";
+            this.trattamentoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numeroPasseggeriDataGridViewTextBoxColumn
+            // 
+            this.numeroPasseggeriDataGridViewTextBoxColumn.DataPropertyName = "NumeroPasseggeri";
+            this.numeroPasseggeriDataGridViewTextBoxColumn.HeaderText = "NumeroPasseggeri";
+            this.numeroPasseggeriDataGridViewTextBoxColumn.Name = "numeroPasseggeriDataGridViewTextBoxColumn";
+            this.numeroPasseggeriDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codNavigazioneDataGridViewTextBoxColumn
+            // 
+            this.codNavigazioneDataGridViewTextBoxColumn.DataPropertyName = "CodNavigazione";
+            this.codNavigazioneDataGridViewTextBoxColumn.HeaderText = "CodNavigazione";
+            this.codNavigazioneDataGridViewTextBoxColumn.Name = "codNavigazioneDataGridViewTextBoxColumn";
+            this.codNavigazioneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codPortoDataGridViewTextBoxColumn
+            // 
+            this.codPortoDataGridViewTextBoxColumn.DataPropertyName = "CodPorto";
+            this.codPortoDataGridViewTextBoxColumn.HeaderText = "CodPorto";
+            this.codPortoDataGridViewTextBoxColumn.Name = "codPortoDataGridViewTextBoxColumn";
+            this.codPortoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // App
             // 
@@ -707,11 +826,12 @@ namespace db_crociere
             this.Text = "App";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.App_Activated);
+            this.Load += new System.EventHandler(this.App_Load);
             this.menuContainer.ResumeLayout(false);
             this.bookingTab.ResumeLayout(false);
             this.prenotBox.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
+            this.newPrenSelectBar.ResumeLayout(false);
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -733,6 +853,9 @@ namespace db_crociere
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbCrociereDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRENOTAZIONIBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -750,11 +873,9 @@ namespace db_crociere
         private System.Windows.Forms.Button DeleteShipBtn;
         private System.Windows.Forms.Button AddShipBtn;
         private System.Windows.Forms.GroupBox prenotBox;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.ComboBox shipSelectorPrenot;
-        private System.Windows.Forms.ComboBox navSelectorPren;
-        private System.Windows.Forms.ComboBox paymentSelectPren;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.FlowLayoutPanel newPrenSelectBar;
+        private System.Windows.Forms.ComboBox navSelPren;
+        private System.Windows.Forms.ComboBox pathSelPren;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.GroupBox InfoShipBox;
@@ -783,5 +904,20 @@ namespace db_crociere
         private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.Label CabinsNumLabel;
+        private System.Windows.Forms.ComboBox portSelPren;
+        private System.Windows.Forms.ComboBox startDateSelPren;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private dbCrociereDataSet dbCrociereDataSet;
+        private System.Windows.Forms.BindingSource pRENOTAZIONIBindingSource;
+        private dbCrociereDataSetTableAdapters.PRENOTAZIONITableAdapter pRENOTAZIONITableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codPrenotazioneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codTransazioneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataEffettuazioneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataOraImbarcoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataOraSbarcoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trattamentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroPasseggeriDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codNavigazioneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codPortoDataGridViewTextBoxColumn;
     }
 }

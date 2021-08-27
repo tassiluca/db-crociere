@@ -119,7 +119,6 @@ namespace db_crociere
             var ships = from navi in db.NAVIs
                         select navi.Nome;
             shipListBox.DataSource = ships;
-            shipSelectorPrenot.DataSource = ships;
             if(ships.Count() > 0)
             {
                 fillShipInfo(ships.ToArray()[0]);
@@ -132,11 +131,6 @@ namespace db_crociere
         private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine("INDEX SHIPLIST CHANGED");
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void AddShipBtnClick(object sender, EventArgs e)
@@ -159,10 +153,57 @@ namespace db_crociere
             fillPathInfo(shipName);
         }
 
-        private void shipSelectorPrenot_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var shipName = shipListBox.SelectedItem.ToString();
 
+        private void pathSelPren_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var pathCode = pathSelPren.SelectedItem.ToString();
+            var nav = from n in db.NAVIGAZIONIs
+                      where n.CodPercorso == pathCode
+                      orderby n.DataInizio
+                      select new
+                      {
+                          startNavDate = n.DataInizio,
+                          endNavDate = n.DataFine
+                      };
+
+            List<DateRange> avaiableDateRanges = new List<DateRange>();
+            foreach(var p in nav)
+            {
+                avaiableDateRanges.Add(new DateRange(p.startNavDate,p.endNavDate));
+            }
+            
+            navSelPren.DataSource = avaiableDateRanges;
+
+        }
+
+        private void bookingTab_Enter(object sender, EventArgs e)
+        {
+            this.pRENOTAZIONITableAdapter.Fill(this.dbCrociereDataSet.PRENOTAZIONI);
+            var path = from p in db.PERCORSIs
+                        select p.CodPercorso;
+            pathSelPren.DataSource = path;
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+                       
+
+        }
+    }
+
+    class DateRange
+    {
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+
+        public DateRange(DateTime Start, DateTime End) {
+            this.Start = Start;
+            this.End = End;
+        }
+
+        public override string ToString()
+        {
+            return this.Start.ToString() + " - " + this.End.ToString();
         }
     }
 }
