@@ -41,6 +41,7 @@ namespace db_crociere
             {
                 elem.SelectedIndex = -1;
             }
+            EndNavigationDatePicker.Value = DateTime.Today;
         }
 
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
@@ -353,11 +354,17 @@ namespace db_crociere
             fillShipNameCombo(ShipNameComboPath);
         }
 
-        private void PathComboBox_Click(object sender, EventArgs e)
+        private bool checksNavigation(string shipName, DateTime start, DateTime end)
         {
-            var paths = from s in db.PERCORSIs
-                        select s.CodPercorso;
-            PathComboBox.DataSource = paths;
+            var intersections = (from n in db.NAVIGAZIONIs
+                                 where n.NomeNave == shipName &&
+                                       (start >= n.DataInizio && start <= n.DataFine) ||
+                                       (end >= n.DataInizio && end <= n.DataFine) ||
+                                       (n.DataInizio >= start && n.DataFine <= start ) ||
+                                       (n.DataInizio >= end && n.DataFine <= end)
+                                 select n.CodNavigazione).Count();
+            
+            return intersections == 0;
         }
 
         private void AddNavigationBtn_Click(object sender, EventArgs e)
@@ -369,19 +376,15 @@ namespace db_crociere
                 DateTime startDate = StartNavigationDatePicker.Value.Date;
                 DateTime endDate = EndNavigationDatePicker.Value.Date;
                 int executions = int.Parse(ExecutionsTextBox.Text);
-                string pathCode = PathComboBox.Text;
-
-                Console.WriteLine("DATE = " + startDate);
-                Console.WriteLine("PATH = " + pathCode);
-
-                /*
-                if (departureHarborCode == arrivalHarborCode)
+                string pathCode = PathCodeTextBox.Text;
+             
+                if (!checksNavigation(shipName, startDate, endDate))
                 {
-                    msg = "Il porto di arrivo e destinazione non possono coincidere";
+                    msg = "Intersezione date con un'altra navigazione già presente nel DB!";
                     throw new ArgumentException(msg);
                 }
-                */
-                /* Inserting a new harbor */
+                
+                /* Inserting a new navigation */
                 NAVIGAZIONI navigazione = new NAVIGAZIONI
                 {
                     NomeNave = shipName,
@@ -402,6 +405,14 @@ namespace db_crociere
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ClearAll(InsertHarborInfoBox);
+        }
+
+        private void ShipNameNavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var res = from p in db.PERCORSIs
+                      where p.NomeNave == (String)ShipNameNavigationComboBox.SelectedItem
+                      select p.CodPercorso;
+            PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NO";
         }
     }
 }

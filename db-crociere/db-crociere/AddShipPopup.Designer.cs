@@ -92,9 +92,9 @@ namespace db_crociere
             this.ExecutionsInfo = new System.Windows.Forms.Label();
             this.ExecutionsTextBox = new System.Windows.Forms.TextBox();
             this.PathInfo = new System.Windows.Forms.Label();
-            this.PathComboBox = new System.Windows.Forms.ComboBox();
             this.AddNavigationBtn = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.PathCodeTextBox = new System.Windows.Forms.TextBox();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
@@ -641,17 +641,17 @@ namespace db_crociere
             // 
             this.flowLayoutPanel5.Controls.Add(this.ShipNameNavigationInfo);
             this.flowLayoutPanel5.Controls.Add(this.ShipNameNavigationComboBox);
+            this.flowLayoutPanel5.Controls.Add(this.PathInfo);
+            this.flowLayoutPanel5.Controls.Add(this.PathCodeTextBox);
+            this.flowLayoutPanel5.Controls.Add(this.ExecutionsInfo);
+            this.flowLayoutPanel5.Controls.Add(this.ExecutionsTextBox);
             this.flowLayoutPanel5.Controls.Add(this.StartNavigationDateInfo);
             this.flowLayoutPanel5.Controls.Add(this.StartNavigationDatePicker);
             this.flowLayoutPanel5.Controls.Add(this.EndNavigationDateInfo);
             this.flowLayoutPanel5.Controls.Add(this.EndNavigationDatePicker);
-            this.flowLayoutPanel5.Controls.Add(this.ExecutionsInfo);
-            this.flowLayoutPanel5.Controls.Add(this.ExecutionsTextBox);
-            this.flowLayoutPanel5.Controls.Add(this.PathInfo);
-            this.flowLayoutPanel5.Controls.Add(this.PathComboBox);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 19);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(556, 56);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(574, 56);
             this.flowLayoutPanel5.TabIndex = 14;
             // 
             // ShipNameNavigationInfo
@@ -672,25 +672,26 @@ namespace db_crociere
             this.ShipNameNavigationComboBox.Name = "ShipNameNavigationComboBox";
             this.ShipNameNavigationComboBox.Size = new System.Drawing.Size(193, 21);
             this.ShipNameNavigationComboBox.TabIndex = 15;
+            this.ShipNameNavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.ShipNameNavigationComboBox_SelectedIndexChanged);
             this.ShipNameNavigationComboBox.Click += new System.EventHandler(this.ShipNameNavigationComboBox_Click);
             // 
             // StartNavigationDateInfo
             // 
             this.StartNavigationDateInfo.AutoSize = true;
             this.StartNavigationDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartNavigationDateInfo.Location = new System.Drawing.Point(289, 3);
+            this.StartNavigationDateInfo.Location = new System.Drawing.Point(3, 30);
             this.StartNavigationDateInfo.Margin = new System.Windows.Forms.Padding(3);
             this.StartNavigationDateInfo.Name = "StartNavigationDateInfo";
-            this.StartNavigationDateInfo.Size = new System.Drawing.Size(70, 16);
+            this.StartNavigationDateInfo.Size = new System.Drawing.Size(38, 16);
             this.StartNavigationDateInfo.TabIndex = 18;
-            this.StartNavigationDateInfo.Text = "Data Inizio";
+            this.StartNavigationDateInfo.Text = "Inizio";
             // 
             // StartNavigationDatePicker
             // 
             this.StartNavigationDatePicker.CustomFormat = "\"aaaa-MM-gg\"";
-            this.StartNavigationDatePicker.Location = new System.Drawing.Point(365, 3);
+            this.StartNavigationDatePicker.Location = new System.Drawing.Point(47, 30);
             this.StartNavigationDatePicker.Name = "StartNavigationDatePicker";
-            this.StartNavigationDatePicker.Size = new System.Drawing.Size(178, 20);
+            this.StartNavigationDatePicker.Size = new System.Drawing.Size(184, 20);
             this.StartNavigationDatePicker.TabIndex = 17;
             this.StartNavigationDatePicker.Value = new System.DateTime(2021, 8, 27, 0, 0, 0, 0);
             // 
@@ -698,19 +699,19 @@ namespace db_crociere
             // 
             this.EndNavigationDateInfo.AutoSize = true;
             this.EndNavigationDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndNavigationDateInfo.Location = new System.Drawing.Point(3, 30);
+            this.EndNavigationDateInfo.Location = new System.Drawing.Point(237, 30);
             this.EndNavigationDateInfo.Margin = new System.Windows.Forms.Padding(3);
             this.EndNavigationDateInfo.Name = "EndNavigationDateInfo";
-            this.EndNavigationDateInfo.Size = new System.Drawing.Size(66, 16);
+            this.EndNavigationDateInfo.Size = new System.Drawing.Size(34, 16);
             this.EndNavigationDateInfo.TabIndex = 19;
-            this.EndNavigationDateInfo.Text = "Data Fine";
+            this.EndNavigationDateInfo.Text = "Fine";
             // 
             // EndNavigationDatePicker
             // 
             this.EndNavigationDatePicker.CustomFormat = "aaaa-MM-gg";
-            this.EndNavigationDatePicker.Location = new System.Drawing.Point(75, 30);
+            this.EndNavigationDatePicker.Location = new System.Drawing.Point(277, 30);
             this.EndNavigationDatePicker.Name = "EndNavigationDatePicker";
-            this.EndNavigationDatePicker.Size = new System.Drawing.Size(182, 20);
+            this.EndNavigationDatePicker.Size = new System.Drawing.Size(185, 20);
             this.EndNavigationDatePicker.TabIndex = 20;
             this.EndNavigationDatePicker.Value = new System.DateTime(2021, 8, 27, 0, 0, 0, 0);
             // 
@@ -718,7 +719,7 @@ namespace db_crociere
             // 
             this.ExecutionsInfo.AutoSize = true;
             this.ExecutionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExecutionsInfo.Location = new System.Drawing.Point(263, 30);
+            this.ExecutionsInfo.Location = new System.Drawing.Point(436, 3);
             this.ExecutionsInfo.Margin = new System.Windows.Forms.Padding(3);
             this.ExecutionsInfo.Name = "ExecutionsInfo";
             this.ExecutionsInfo.Size = new System.Drawing.Size(73, 16);
@@ -727,7 +728,7 @@ namespace db_crociere
             // 
             // ExecutionsTextBox
             // 
-            this.ExecutionsTextBox.Location = new System.Drawing.Point(342, 30);
+            this.ExecutionsTextBox.Location = new System.Drawing.Point(515, 3);
             this.ExecutionsTextBox.MaxLength = 4;
             this.ExecutionsTextBox.Name = "ExecutionsTextBox";
             this.ExecutionsTextBox.Size = new System.Drawing.Size(52, 20);
@@ -737,25 +738,16 @@ namespace db_crociere
             // 
             this.PathInfo.AutoSize = true;
             this.PathInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PathInfo.Location = new System.Drawing.Point(400, 30);
+            this.PathInfo.Location = new System.Drawing.Point(289, 3);
             this.PathInfo.Margin = new System.Windows.Forms.Padding(3);
             this.PathInfo.Name = "PathInfo";
             this.PathInfo.Size = new System.Drawing.Size(63, 16);
             this.PathInfo.TabIndex = 23;
             this.PathInfo.Text = "Percorso";
             // 
-            // PathComboBox
-            // 
-            this.PathComboBox.FormattingEnabled = true;
-            this.PathComboBox.Location = new System.Drawing.Point(469, 30);
-            this.PathComboBox.Name = "PathComboBox";
-            this.PathComboBox.Size = new System.Drawing.Size(70, 21);
-            this.PathComboBox.TabIndex = 24;
-            this.PathComboBox.Click += new System.EventHandler(this.PathComboBox_Click);
-            // 
             // AddNavigationBtn
             // 
-            this.AddNavigationBtn.Location = new System.Drawing.Point(562, 19);
+            this.AddNavigationBtn.Location = new System.Drawing.Point(621, 19);
             this.AddNavigationBtn.Name = "AddNavigationBtn";
             this.AddNavigationBtn.Size = new System.Drawing.Size(75, 23);
             this.AddNavigationBtn.TabIndex = 3;
@@ -765,12 +757,21 @@ namespace db_crociere
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(562, 52);
+            this.button5.Location = new System.Drawing.Point(621, 50);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 3;
             this.button5.Text = "Pulisci";
             this.button5.UseVisualStyleBackColor = true;
+            // 
+            // PathCodeTextBox
+            // 
+            this.PathCodeTextBox.Location = new System.Drawing.Point(358, 3);
+            this.PathCodeTextBox.MaxLength = 3;
+            this.PathCodeTextBox.Name = "PathCodeTextBox";
+            this.PathCodeTextBox.ReadOnly = true;
+            this.PathCodeTextBox.Size = new System.Drawing.Size(72, 20);
+            this.PathCodeTextBox.TabIndex = 14;
             // 
             // AddShipPopup
             // 
@@ -870,8 +871,8 @@ namespace db_crociere
         private System.Windows.Forms.Label ExecutionsInfo;
         private System.Windows.Forms.TextBox ExecutionsTextBox;
         private System.Windows.Forms.Label PathInfo;
-        private System.Windows.Forms.ComboBox PathComboBox;
         private System.Windows.Forms.Button AddNavigationBtn;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox PathCodeTextBox;
     }
 }
