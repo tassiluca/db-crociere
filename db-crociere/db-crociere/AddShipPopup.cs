@@ -41,7 +41,14 @@ namespace db_crociere
             {
                 elem.SelectedIndex = -1;
             }
-            EndNavigationDatePicker.Value = DateTime.Today;
+            foreach (DateTimePicker elem in GetAll(this, typeof(DateTimePicker)))
+            {
+                /* COULD CREATE PROBLEMS IN BOOKINGS (in navigation combobox) 
+                 * If this happens test it with: elem.Value = DateTime.Now;
+                 * @see shorturl.at/gkmuS */
+                elem.Value = DateTime.Today;
+            }
+
         }
 
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
@@ -412,7 +419,7 @@ namespace db_crociere
             var res = from p in db.PERCORSIs
                       where p.NomeNave == (String)ShipNameNavigationComboBox.SelectedItem
                       select p.CodPercorso;
-            PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NO";
+            PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NOT_SET";
         }
     }
 }
