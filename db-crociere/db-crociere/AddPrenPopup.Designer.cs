@@ -107,6 +107,7 @@ namespace db_crociere
             this.pathSelPren.Size = new System.Drawing.Size(128, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
+            this.pathSelPren.Click += new System.EventHandler(this.pathSelPren_Click);
             // 
             // labelPren
             // 
