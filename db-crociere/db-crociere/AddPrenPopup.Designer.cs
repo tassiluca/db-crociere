@@ -49,7 +49,7 @@ namespace db_crociere
             this.flowLayoutPanel4.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(721, 291);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(788, 291);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // tableLayoutPanel3
@@ -58,9 +58,9 @@ namespace db_crociere
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.92064F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.07937F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel3.Controls.Add(this.labelStartPortPren, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelNavPren, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.pathSelPren, 1, 0);
@@ -74,17 +74,17 @@ namespace db_crociere
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.75F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(712, 83);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(785, 83);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // labelStartPortPren
             // 
             this.labelStartPortPren.AutoSize = true;
             this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStartPortPren.Location = new System.Drawing.Point(483, 0);
+            this.labelStartPortPren.Location = new System.Drawing.Point(568, 0);
             this.labelStartPortPren.Name = "labelStartPortPren";
             this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.labelStartPortPren.Size = new System.Drawing.Size(88, 20);
+            this.labelStartPortPren.Size = new System.Drawing.Size(49, 28);
             this.labelStartPortPren.TabIndex = 8;
             this.labelStartPortPren.Text = "Porto Partenza";
             // 
@@ -92,7 +92,7 @@ namespace db_crociere
             // 
             this.labelNavPren.AutoSize = true;
             this.labelNavPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNavPren.Location = new System.Drawing.Point(216, 0);
+            this.labelNavPren.Location = new System.Drawing.Point(238, 0);
             this.labelNavPren.Name = "labelNavPren";
             this.labelNavPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.labelNavPren.Size = new System.Drawing.Size(121, 20);
@@ -102,9 +102,9 @@ namespace db_crociere
             // pathSelPren
             // 
             this.pathSelPren.FormattingEnabled = true;
-            this.pathSelPren.Location = new System.Drawing.Point(77, 3);
+            this.pathSelPren.Location = new System.Drawing.Point(85, 3);
             this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(128, 21);
+            this.pathSelPren.Size = new System.Drawing.Size(147, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
             this.pathSelPren.Click += new System.EventHandler(this.pathSelPren_Click);
@@ -123,18 +123,18 @@ namespace db_crociere
             // navPeriodSelector
             // 
             this.navPeriodSelector.FormattingEnabled = true;
-            this.navPeriodSelector.Location = new System.Drawing.Point(347, 3);
+            this.navPeriodSelector.Location = new System.Drawing.Point(369, 3);
             this.navPeriodSelector.Name = "navPeriodSelector";
-            this.navPeriodSelector.Size = new System.Drawing.Size(130, 21);
+            this.navPeriodSelector.Size = new System.Drawing.Size(180, 21);
             this.navPeriodSelector.TabIndex = 1;
             this.navPeriodSelector.Text = "Navigazione";
             // 
             // portSelPren
             // 
             this.portSelPren.FormattingEnabled = true;
-            this.portSelPren.Location = new System.Drawing.Point(583, 3);
+            this.portSelPren.Location = new System.Drawing.Point(629, 3);
             this.portSelPren.Name = "portSelPren";
-            this.portSelPren.Size = new System.Drawing.Size(121, 21);
+            this.portSelPren.Size = new System.Drawing.Size(135, 21);
             this.portSelPren.TabIndex = 4;
             this.portSelPren.Text = "Porto Partenza";
             this.portSelPren.SelectedIndexChanged += new System.EventHandler(this.portSelPren_SelectedIndexChanged);
@@ -142,7 +142,7 @@ namespace db_crociere
             // startDateSelPren
             // 
             this.startDateSelPren.FormattingEnabled = true;
-            this.startDateSelPren.Location = new System.Drawing.Point(77, 31);
+            this.startDateSelPren.Location = new System.Drawing.Point(85, 31);
             this.startDateSelPren.Name = "startDateSelPren";
             this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
             this.startDateSelPren.TabIndex = 5;

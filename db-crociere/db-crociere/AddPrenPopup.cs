@@ -30,7 +30,7 @@ namespace db_crociere
         }
         private void pathSelPren_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Ci simao\n");
+            this.navDateMap.Clear();
             var pathCode = pathSelPren.SelectedItem.ToString();
             var nav = from n in db.NAVIGAZIONIs
                       where n.CodPercorso == pathCode
@@ -45,24 +45,23 @@ namespace db_crociere
             foreach (var p in nav)
             {
                 var rd = new DateRange(p.startNavDate, p.endNavDate);
-                navDateMap.Add(rd.ToString(),rd);
-                avaiableDateRanges.Add(rd.ToString());
+                navDateMap.Add(rd.ToStringDate(),rd);
+                avaiableDateRanges.Add(rd.ToStringDate());
             }
-            Console.WriteLine(avaiableDateRanges.ToString());
             navPeriodSelector.DataSource = avaiableDateRanges;
         }
 
         private void portSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
             String selectedPeriod = navPeriodSelector.SelectedItem.ToString();
+            var pathCode = pathSelPren.SelectedItem.ToString();
             var startDate = this.navDateMap[selectedPeriod].StartDate;
-            /*var nav = from est in db.ESECUZIONI_TRATTAs
-                      where est.Partenza_Data == startDate;
-                      and 
-                      select new
-                      {
-                     
-                      };*/
+            //mostra tutti i porti che ci sono nel percorso
+            //TODO
+            /* var port = from p in db.PERCORSIs db.SEQUENZE_TRATTEs
+                       where p
+                       select p;
+            */
         }
     }
 }
