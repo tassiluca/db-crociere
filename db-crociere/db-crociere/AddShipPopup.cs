@@ -115,7 +115,10 @@ namespace db_crociere
 
         private void button1_Click(object sender, EventArgs e)
         {
+            InsertedSections.Items.Add(SectionsListBox.SelectedItem.ToString());
+            SectionsListBox.Items.RemoveAt(SectionsListBox.SelectedIndex);
+            
 
-         }
+        }
     }
 }
