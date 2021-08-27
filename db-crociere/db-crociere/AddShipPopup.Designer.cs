@@ -75,8 +75,6 @@ namespace db_crociere
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SectionCodeInfo = new System.Windows.Forms.Label();
-            this.SectionCodeTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DepartureHarborComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -543,8 +541,6 @@ namespace db_crociere
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.Controls.Add(this.SectionCodeInfo);
-            this.flowLayoutPanel4.Controls.Add(this.SectionCodeTextBox);
             this.flowLayoutPanel4.Controls.Add(this.label2);
             this.flowLayoutPanel4.Controls.Add(this.DepartureHarborComboBox);
             this.flowLayoutPanel4.Controls.Add(this.label3);
@@ -554,30 +550,11 @@ namespace db_crociere
             this.flowLayoutPanel4.Size = new System.Drawing.Size(246, 80);
             this.flowLayoutPanel4.TabIndex = 14;
             // 
-            // SectionCodeInfo
-            // 
-            this.SectionCodeInfo.AutoSize = true;
-            this.SectionCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionCodeInfo.Location = new System.Drawing.Point(3, 3);
-            this.SectionCodeInfo.Margin = new System.Windows.Forms.Padding(3);
-            this.SectionCodeInfo.Name = "SectionCodeInfo";
-            this.SectionCodeInfo.Size = new System.Drawing.Size(89, 16);
-            this.SectionCodeInfo.TabIndex = 0;
-            this.SectionCodeInfo.Text = "Codice Tratta";
-            // 
-            // SectionCodeTextBox
-            // 
-            this.SectionCodeTextBox.Location = new System.Drawing.Point(98, 3);
-            this.SectionCodeTextBox.MaxLength = 3;
-            this.SectionCodeTextBox.Name = "SectionCodeTextBox";
-            this.SectionCodeTextBox.Size = new System.Drawing.Size(49, 20);
-            this.SectionCodeTextBox.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Margin = new System.Windows.Forms.Padding(3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 16);
@@ -587,7 +564,7 @@ namespace db_crociere
             // DepartureHarborComboBox
             // 
             this.DepartureHarborComboBox.FormattingEnabled = true;
-            this.DepartureHarborComboBox.Location = new System.Drawing.Point(105, 29);
+            this.DepartureHarborComboBox.Location = new System.Drawing.Point(105, 3);
             this.DepartureHarborComboBox.Name = "DepartureHarborComboBox";
             this.DepartureHarborComboBox.Size = new System.Drawing.Size(134, 21);
             this.DepartureHarborComboBox.TabIndex = 15;
@@ -597,7 +574,7 @@ namespace db_crociere
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 56);
+            this.label3.Location = new System.Drawing.Point(3, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
@@ -607,7 +584,7 @@ namespace db_crociere
             // ArrivalHarborComboBox
             // 
             this.ArrivalHarborComboBox.FormattingEnabled = true;
-            this.ArrivalHarborComboBox.Location = new System.Drawing.Point(87, 56);
+            this.ArrivalHarborComboBox.Location = new System.Drawing.Point(87, 30);
             this.ArrivalHarborComboBox.Name = "ArrivalHarborComboBox";
             this.ArrivalHarborComboBox.Size = new System.Drawing.Size(152, 21);
             this.ArrivalHarborComboBox.TabIndex = 16;
@@ -709,8 +686,6 @@ namespace db_crociere
         private System.Windows.Forms.TextBox DockingPriceTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.Label SectionCodeInfo;
-        private System.Windows.Forms.TextBox SectionCodeTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox DepartureHarborComboBox;
         private System.Windows.Forms.Label label3;
