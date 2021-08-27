@@ -285,6 +285,48 @@ namespace db_crociere
             ClearAll(InsertHarborInfoBox);
         }
 
+        private void InitHarborComboBox(ComboBox cb)
+        {
+            var harbors = from porto in db.PORTIs
+                          select porto.Città;
+            cb.DataSource = harbors;
+        }
 
+        private void DepartureHarborComboBox_Click(object sender, EventArgs e)
+        {
+            InitHarborComboBox(DepartureHarborComboBox);
+        }
+
+        private void ArrivalHarborComboBox_Click(object sender, EventArgs e)
+        {
+            InitHarborComboBox(ArrivalHarborComboBox);
+        }
+
+        private void AddHarborBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sectionCode = SectionCodeTextBox.Text;
+                string departureHarbor = DepartureHarborComboBox.Text;
+                string arrivalHarbor = ArrivalHarborComboBox.Text;
+
+                /* Inserting a new harbor */
+                TRATTE tratta = new TRATTE
+                {
+                    
+                };
+
+                db.TRATTEs.InsertOnSubmit(tratta);
+                db.SubmitChanges();
+                var msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll(InsertHarborInfoBox);
+        }
     }
 }

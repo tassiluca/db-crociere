@@ -62,8 +62,6 @@ namespace db_crociere
             this.InsertSectionPathBtn = new System.Windows.Forms.Button();
             this.DeleteSectionPathBtn = new System.Windows.Forms.Button();
             this.InsertHarborInfoBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.AddHarbour = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.HarborCodeInfo = new System.Windows.Forms.Label();
             this.HarborCodeTextBox = new System.Windows.Forms.TextBox();
@@ -73,6 +71,18 @@ namespace db_crociere
             this.CityTextBox = new System.Windows.Forms.TextBox();
             this.DockingPriceInfo = new System.Windows.Forms.Label();
             this.DockingPriceTextBox = new System.Windows.Forms.TextBox();
+            this.AddHarbour = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SectionCodeInfo = new System.Windows.Forms.Label();
+            this.SectionCodeTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DepartureHarborComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ArrivalHarborComboBox = new System.Windows.Forms.ComboBox();
+            this.AddHarborBtn = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
@@ -80,6 +90,8 @@ namespace db_crociere
             this.flowLayoutPanel2.SuspendLayout();
             this.InsertHarborInfoBox.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // InsertShipInfoBox
@@ -260,9 +272,10 @@ namespace db_crociere
             this.InsertPathInfoBox.Controls.Add(this.flowLayoutPanel2);
             this.InsertPathInfoBox.Controls.Add(this.InsertSectionPathBtn);
             this.InsertPathInfoBox.Controls.Add(this.DeleteSectionPathBtn);
-            this.InsertPathInfoBox.Location = new System.Drawing.Point(3, 80);
+            this.InsertPathInfoBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.InsertPathInfoBox.Location = new System.Drawing.Point(0, 298);
             this.InsertPathInfoBox.Name = "InsertPathInfoBox";
-            this.InsertPathInfoBox.Size = new System.Drawing.Size(710, 152);
+            this.InsertPathInfoBox.Size = new System.Drawing.Size(714, 152);
             this.InsertPathInfoBox.TabIndex = 1;
             this.InsertPathInfoBox.TabStop = false;
             this.InsertPathInfoBox.Text = "Inserisci Percorso";
@@ -398,31 +411,12 @@ namespace db_crociere
             this.InsertHarborInfoBox.Controls.Add(this.flowLayoutPanel3);
             this.InsertHarborInfoBox.Controls.Add(this.AddHarbour);
             this.InsertHarborInfoBox.Controls.Add(this.button1);
-            this.InsertHarborInfoBox.Location = new System.Drawing.Point(3, 238);
+            this.InsertHarborInfoBox.Location = new System.Drawing.Point(3, 187);
             this.InsertHarborInfoBox.Name = "InsertHarborInfoBox";
-            this.InsertHarborInfoBox.Size = new System.Drawing.Size(383, 105);
+            this.InsertHarborInfoBox.Size = new System.Drawing.Size(372, 105);
             this.InsertHarborInfoBox.TabIndex = 20;
             this.InsertHarborInfoBox.TabStop = false;
             this.InsertHarborInfoBox.Text = "Inserisci Porto";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(301, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Pulisci";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // AddHarbour
-            // 
-            this.AddHarbour.Location = new System.Drawing.Point(301, 19);
-            this.AddHarbour.Name = "AddHarbour";
-            this.AddHarbour.Size = new System.Drawing.Size(75, 23);
-            this.AddHarbour.TabIndex = 3;
-            this.AddHarbour.Text = "Aggiungi";
-            this.AddHarbour.UseVisualStyleBackColor = true;
-            this.AddHarbour.Click += new System.EventHandler(this.AddHarbour_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -434,9 +428,9 @@ namespace db_crociere
             this.flowLayoutPanel3.Controls.Add(this.CityTextBox);
             this.flowLayoutPanel3.Controls.Add(this.DockingPriceInfo);
             this.flowLayoutPanel3.Controls.Add(this.DockingPriceTextBox);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(9, 19);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 19);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(286, 80);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(283, 80);
             this.flowLayoutPanel3.TabIndex = 14;
             // 
             // HarborCodeInfo
@@ -516,12 +510,135 @@ namespace db_crociere
             this.DockingPriceTextBox.Size = new System.Drawing.Size(52, 20);
             this.DockingPriceTextBox.TabIndex = 17;
             // 
+            // AddHarbour
+            // 
+            this.AddHarbour.Location = new System.Drawing.Point(289, 19);
+            this.AddHarbour.Name = "AddHarbour";
+            this.AddHarbour.Size = new System.Drawing.Size(75, 23);
+            this.AddHarbour.TabIndex = 3;
+            this.AddHarbour.Text = "Aggiungi";
+            this.AddHarbour.UseVisualStyleBackColor = true;
+            this.AddHarbour.Click += new System.EventHandler(this.AddHarbour_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(289, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Pulisci";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.flowLayoutPanel4);
+            this.groupBox1.Controls.Add(this.AddHarborBtn);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Location = new System.Drawing.Point(381, 187);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(333, 105);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Inserisci Tratta";
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.SectionCodeInfo);
+            this.flowLayoutPanel4.Controls.Add(this.SectionCodeTextBox);
+            this.flowLayoutPanel4.Controls.Add(this.label2);
+            this.flowLayoutPanel4.Controls.Add(this.DepartureHarborComboBox);
+            this.flowLayoutPanel4.Controls.Add(this.label3);
+            this.flowLayoutPanel4.Controls.Add(this.ArrivalHarborComboBox);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 19);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(246, 80);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // SectionCodeInfo
+            // 
+            this.SectionCodeInfo.AutoSize = true;
+            this.SectionCodeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SectionCodeInfo.Location = new System.Drawing.Point(3, 3);
+            this.SectionCodeInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.SectionCodeInfo.Name = "SectionCodeInfo";
+            this.SectionCodeInfo.Size = new System.Drawing.Size(89, 16);
+            this.SectionCodeInfo.TabIndex = 0;
+            this.SectionCodeInfo.Text = "Codice Tratta";
+            // 
+            // SectionCodeTextBox
+            // 
+            this.SectionCodeTextBox.Location = new System.Drawing.Point(98, 3);
+            this.SectionCodeTextBox.MaxLength = 3;
+            this.SectionCodeTextBox.Name = "SectionCodeTextBox";
+            this.SectionCodeTextBox.Size = new System.Drawing.Size(49, 20);
+            this.SectionCodeTextBox.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Porto Partenza";
+            // 
+            // DepartureHarborComboBox
+            // 
+            this.DepartureHarborComboBox.FormattingEnabled = true;
+            this.DepartureHarborComboBox.Location = new System.Drawing.Point(105, 29);
+            this.DepartureHarborComboBox.Name = "DepartureHarborComboBox";
+            this.DepartureHarborComboBox.Size = new System.Drawing.Size(134, 21);
+            this.DepartureHarborComboBox.TabIndex = 15;
+            this.DepartureHarborComboBox.Click += new System.EventHandler(this.DepartureHarborComboBox_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 56);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 16);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Porto Arrivo";
+            // 
+            // ArrivalHarborComboBox
+            // 
+            this.ArrivalHarborComboBox.FormattingEnabled = true;
+            this.ArrivalHarborComboBox.Location = new System.Drawing.Point(87, 56);
+            this.ArrivalHarborComboBox.Name = "ArrivalHarborComboBox";
+            this.ArrivalHarborComboBox.Size = new System.Drawing.Size(152, 21);
+            this.ArrivalHarborComboBox.TabIndex = 16;
+            this.ArrivalHarborComboBox.Click += new System.EventHandler(this.ArrivalHarborComboBox_Click);
+            // 
+            // AddHarborBtn
+            // 
+            this.AddHarborBtn.Location = new System.Drawing.Point(252, 19);
+            this.AddHarborBtn.Name = "AddHarborBtn";
+            this.AddHarborBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddHarborBtn.TabIndex = 3;
+            this.AddHarborBtn.Text = "Aggiungi";
+            this.AddHarborBtn.UseVisualStyleBackColor = true;
+            this.AddHarborBtn.Click += new System.EventHandler(this.AddHarborBtn_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(252, 45);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Pulisci";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(714, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.InsertHarborInfoBox);
             this.Controls.Add(this.InsertShipInfoBox);
             this.Controls.Add(this.InsertPathInfoBox);
@@ -538,6 +655,9 @@ namespace db_crociere
             this.InsertHarborInfoBox.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -587,5 +707,15 @@ namespace db_crociere
         private System.Windows.Forms.TextBox CityTextBox;
         private System.Windows.Forms.Label DockingPriceInfo;
         private System.Windows.Forms.TextBox DockingPriceTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label SectionCodeInfo;
+        private System.Windows.Forms.TextBox SectionCodeTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox DepartureHarborComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ArrivalHarborComboBox;
+        private System.Windows.Forms.Button AddHarborBtn;
+        private System.Windows.Forms.Button button4;
     }
 }
