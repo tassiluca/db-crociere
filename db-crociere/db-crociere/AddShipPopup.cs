@@ -428,15 +428,18 @@ namespace db_crociere
 
         private void ShipNameSectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var nav = from n in db.NAVIGAZIONIs
-                      where n.NomeNave == ShipNameSectionComboBox.SelectedItem.ToString()
-                      select n.CodNavigazione;
-
-            if (nav.Count() == 0)
+            if (ShipNameSectionComboBox.SelectedIndex != -1)
             {
-                NavigationSectionsComboBox.SelectedIndex = -1;
-            } 
-            NavigationSectionsComboBox.DataSource = nav;
+                var nav = from n in db.NAVIGAZIONIs
+                          where n.NomeNave == ShipNameSectionComboBox.SelectedItem.ToString()
+                          select n.CodNavigazione;
+                if (nav.Count() == 0)
+                {
+                    NavigationSectionsComboBox.SelectedIndex = -1;
+                    SectionsComboBox.SelectedIndex = -1;
+                }
+                NavigationSectionsComboBox.DataSource = nav;
+            }
         }
 
         private void NavigationSectionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -460,12 +463,7 @@ namespace db_crociere
                            from t in db.TRATTEs
                            where s.CodPercorso == pathCode &&
                                  s.CodTratta == t.CodTratta
-                           select new
-                           {
-                               codSec = s.CodTratta,
-                               depHarbor = t.CodPortoPartenza,
-                               arrHarbor = t.CodPortoArrivo
-                           };
+                           select s.CodTratta;
                 SectionsComboBox.DataSource = secs;
             }
             else
@@ -473,6 +471,91 @@ namespace db_crociere
                 RangeNavigationTextBox.Clear();
                 SectionsComboBox.DataSource = null;
             }
+        }
+
+        private void SectionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SectionsComboBox.SelectedIndex != -1)
+            {
+                var harbors = from t in db.TRATTEs
+                              where t.CodTratta == int.Parse(SectionsComboBox.SelectedItem.ToString())
+                              select new
+                              {
+                                  start = t.CodPortoPartenza,
+                                  end = t.CodPortoArrivo
+                              };
+                string sectionHarbors = (String)harbors.First().start + " - " + (String)harbors.First().end;
+                SectionHarborTextBox.Text = sectionHarbors;
+            } else
+            {
+                SectionHarborTextBox.Clear();
+            }
+        }
+
+        private bool checksExecutionSection(int navigation, DateTime start, DateTime stop)
+        {
+            var intersections = from e in db.ESECUZIONI_TRATTAs
+                                where e.CodNavigazione == navigation &&
+                                      ((start > e.Partenza_Data && start < e.Arrivo_Data) ||
+                                      (stop > e.Partenza_Data && stop < e.Arrivo_Data))
+                                select e.CodTratta;
+            return intersections.Count() == 0;
+
+            /*
+            var infoNav = from n in db.NAVIGAZIONIs
+                          where n.CodNavigazione == int.Parse(NavigationSectionsComboBox.SelectedItem.ToString())
+                          select new
+                          {
+                              startNavDate = n.DataInizio,
+                              endNavDate = n.DataFine
+                          };
+            var dates = new DateRange(infoNav.First().startNavDate, infoNav.First().endNavDate);
+            return start >= dates.StartDate && stop <= dates.EndDate;
+            */
+        }
+
+        private void AddExecutionSection_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                int navigation = int.Parse(NavigationSectionsComboBox.Text);
+                int section = int.Parse(SectionsComboBox.Text);
+                DateTime startDate = DateStartSection.Value.Date;
+                TimeSpan startTime = new TimeSpan(TimeStartSection.Value.Hour, 
+                    TimeStartSection.Value.Minute, TimeStartSection.Value.Second);
+                DateTime endDate = EndDateSection.Value.Date;
+                TimeSpan endTime = new TimeSpan(EndTimeSection.Value.Hour,
+                    EndTimeSection.Value.Minute, EndTimeSection.Value.Second);
+
+                if (!checksExecutionSection(navigation, startDate, endDate))
+                {
+                    msg = "La data di esecuzione tratta devono essere coerenti tra loro!";
+                    throw new ArgumentException(msg);
+                }
+
+                /* Inserting a new section execution */
+                ESECUZIONI_TRATTA estratta = new ESECUZIONI_TRATTA
+                {
+                    CodNavigazione = navigation,
+                    CodTratta = section,
+                    Partenza_Data = startDate,
+                    Partenza_Ora = startTime,
+                    Arrivo_Data = endDate,
+                    Arrivo_Ora = endTime
+                };
+
+                db.ESECUZIONI_TRATTAs.InsertOnSubmit(estratta);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll(InsertHarborInfoBox);
         }
     }
 }

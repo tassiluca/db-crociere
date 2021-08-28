@@ -100,6 +100,7 @@ namespace db_crociere
             this.ShipNameSectionInfo = new System.Windows.Forms.Label();
             this.ShipNameSectionComboBox = new System.Windows.Forms.ComboBox();
             this.NavigationSectionsInfo = new System.Windows.Forms.Label();
+            this.NavigationSectionsComboBox = new System.Windows.Forms.ComboBox();
             this.RangeNavigationTextBox = new System.Windows.Forms.TextBox();
             this.SectionsInfo = new System.Windows.Forms.Label();
             this.SectionsComboBox = new System.Windows.Forms.ComboBox();
@@ -109,9 +110,9 @@ namespace db_crociere
             this.EndSectionInfo = new System.Windows.Forms.Label();
             this.EndDateSection = new System.Windows.Forms.DateTimePicker();
             this.EndTimeSection = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddExecutionSection = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.NavigationSectionsComboBox = new System.Windows.Forms.ComboBox();
+            this.SectionHarborTextBox = new System.Windows.Forms.TextBox();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
@@ -135,7 +136,7 @@ namespace db_crociere
             this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.InsertShipInfoBox.Location = new System.Drawing.Point(0, 0);
             this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(722, 81);
+            this.InsertShipInfoBox.Size = new System.Drawing.Size(794, 81);
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
@@ -308,7 +309,7 @@ namespace db_crociere
             this.InsertPathInfoBox.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.InsertPathInfoBox.Location = new System.Drawing.Point(0, 443);
             this.InsertPathInfoBox.Name = "InsertPathInfoBox";
-            this.InsertPathInfoBox.Size = new System.Drawing.Size(722, 152);
+            this.InsertPathInfoBox.Size = new System.Drawing.Size(794, 152);
             this.InsertPathInfoBox.TabIndex = 1;
             this.InsertPathInfoBox.TabStop = false;
             this.InsertPathInfoBox.Text = "Inserisci Percorso";
@@ -651,7 +652,7 @@ namespace db_crociere
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Location = new System.Drawing.Point(0, 247);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(722, 79);
+            this.groupBox2.Size = new System.Drawing.Size(794, 79);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inserisci Navigazione";
@@ -670,7 +671,7 @@ namespace db_crociere
             this.flowLayoutPanel5.Controls.Add(this.EndNavigationDatePicker);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 19);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(574, 56);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(577, 56);
             this.flowLayoutPanel5.TabIndex = 14;
             // 
             // ShipNameNavigationInfo
@@ -777,7 +778,7 @@ namespace db_crociere
             // 
             // AddNavigationBtn
             // 
-            this.AddNavigationBtn.Location = new System.Drawing.Point(621, 19);
+            this.AddNavigationBtn.Location = new System.Drawing.Point(583, 19);
             this.AddNavigationBtn.Name = "AddNavigationBtn";
             this.AddNavigationBtn.Size = new System.Drawing.Size(75, 23);
             this.AddNavigationBtn.TabIndex = 3;
@@ -787,7 +788,7 @@ namespace db_crociere
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(621, 50);
+            this.button5.Location = new System.Drawing.Point(583, 48);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 3;
@@ -797,11 +798,11 @@ namespace db_crociere
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel6);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.AddExecutionSection);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Location = new System.Drawing.Point(0, 162);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(722, 79);
+            this.groupBox3.Size = new System.Drawing.Size(794, 79);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Inserisci Eecuzione Tratta";
@@ -815,6 +816,7 @@ namespace db_crociere
             this.flowLayoutPanel6.Controls.Add(this.RangeNavigationTextBox);
             this.flowLayoutPanel6.Controls.Add(this.SectionsInfo);
             this.flowLayoutPanel6.Controls.Add(this.SectionsComboBox);
+            this.flowLayoutPanel6.Controls.Add(this.SectionHarborTextBox);
             this.flowLayoutPanel6.Controls.Add(this.StartSectionInfo);
             this.flowLayoutPanel6.Controls.Add(this.DateStartSection);
             this.flowLayoutPanel6.Controls.Add(this.TimeStartSection);
@@ -823,7 +825,7 @@ namespace db_crociere
             this.flowLayoutPanel6.Controls.Add(this.EndTimeSection);
             this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 19);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(620, 56);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(708, 56);
             this.flowLayoutPanel6.TabIndex = 14;
             // 
             // ShipNameSectionInfo
@@ -842,7 +844,7 @@ namespace db_crociere
             this.ShipNameSectionComboBox.FormattingEnabled = true;
             this.ShipNameSectionComboBox.Location = new System.Drawing.Point(90, 3);
             this.ShipNameSectionComboBox.Name = "ShipNameSectionComboBox";
-            this.ShipNameSectionComboBox.Size = new System.Drawing.Size(138, 21);
+            this.ShipNameSectionComboBox.Size = new System.Drawing.Size(97, 21);
             this.ShipNameSectionComboBox.TabIndex = 15;
             this.ShipNameSectionComboBox.SelectedIndexChanged += new System.EventHandler(this.ShipNameSectionComboBox_SelectedIndexChanged);
             this.ShipNameSectionComboBox.Click += new System.EventHandler(this.ShipNameSectionComboBox_Click);
@@ -851,27 +853,36 @@ namespace db_crociere
             // 
             this.NavigationSectionsInfo.AutoSize = true;
             this.NavigationSectionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NavigationSectionsInfo.Location = new System.Drawing.Point(234, 3);
+            this.NavigationSectionsInfo.Location = new System.Drawing.Point(193, 3);
             this.NavigationSectionsInfo.Margin = new System.Windows.Forms.Padding(3);
             this.NavigationSectionsInfo.Name = "NavigationSectionsInfo";
             this.NavigationSectionsInfo.Size = new System.Drawing.Size(84, 16);
             this.NavigationSectionsInfo.TabIndex = 23;
             this.NavigationSectionsInfo.Text = "Navigazione";
             // 
+            // NavigationSectionsComboBox
+            // 
+            this.NavigationSectionsComboBox.FormattingEnabled = true;
+            this.NavigationSectionsComboBox.Location = new System.Drawing.Point(283, 3);
+            this.NavigationSectionsComboBox.Name = "NavigationSectionsComboBox";
+            this.NavigationSectionsComboBox.Size = new System.Drawing.Size(50, 21);
+            this.NavigationSectionsComboBox.TabIndex = 26;
+            this.NavigationSectionsComboBox.SelectedIndexChanged += new System.EventHandler(this.NavigationSectionsComboBox_SelectedIndexChanged);
+            // 
             // RangeNavigationTextBox
             // 
-            this.RangeNavigationTextBox.Location = new System.Drawing.Point(381, 3);
+            this.RangeNavigationTextBox.Location = new System.Drawing.Point(339, 3);
             this.RangeNavigationTextBox.MaxLength = 3;
             this.RangeNavigationTextBox.Name = "RangeNavigationTextBox";
             this.RangeNavigationTextBox.ReadOnly = true;
-            this.RangeNavigationTextBox.Size = new System.Drawing.Size(234, 20);
+            this.RangeNavigationTextBox.Size = new System.Drawing.Size(134, 20);
             this.RangeNavigationTextBox.TabIndex = 24;
             // 
             // SectionsInfo
             // 
             this.SectionsInfo.AutoSize = true;
             this.SectionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionsInfo.Location = new System.Drawing.Point(3, 30);
+            this.SectionsInfo.Location = new System.Drawing.Point(479, 3);
             this.SectionsInfo.Margin = new System.Windows.Forms.Padding(3);
             this.SectionsInfo.Name = "SectionsInfo";
             this.SectionsInfo.Size = new System.Drawing.Size(43, 16);
@@ -881,16 +892,17 @@ namespace db_crociere
             // SectionsComboBox
             // 
             this.SectionsComboBox.FormattingEnabled = true;
-            this.SectionsComboBox.Location = new System.Drawing.Point(52, 30);
+            this.SectionsComboBox.Location = new System.Drawing.Point(528, 3);
             this.SectionsComboBox.Name = "SectionsComboBox";
-            this.SectionsComboBox.Size = new System.Drawing.Size(101, 21);
+            this.SectionsComboBox.Size = new System.Drawing.Size(52, 21);
             this.SectionsComboBox.TabIndex = 25;
+            this.SectionsComboBox.SelectedIndexChanged += new System.EventHandler(this.SectionsComboBox_SelectedIndexChanged);
             // 
             // StartSectionInfo
             // 
             this.StartSectionInfo.AutoSize = true;
             this.StartSectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartSectionInfo.Location = new System.Drawing.Point(159, 30);
+            this.StartSectionInfo.Location = new System.Drawing.Point(3, 30);
             this.StartSectionInfo.Margin = new System.Windows.Forms.Padding(3);
             this.StartSectionInfo.Name = "StartSectionInfo";
             this.StartSectionInfo.Size = new System.Drawing.Size(38, 16);
@@ -901,7 +913,7 @@ namespace db_crociere
             // 
             this.DateStartSection.CustomFormat = "dd-MM-yyyy";
             this.DateStartSection.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateStartSection.Location = new System.Drawing.Point(203, 30);
+            this.DateStartSection.Location = new System.Drawing.Point(47, 30);
             this.DateStartSection.Name = "DateStartSection";
             this.DateStartSection.Size = new System.Drawing.Size(100, 20);
             this.DateStartSection.TabIndex = 17;
@@ -911,7 +923,7 @@ namespace db_crociere
             // 
             this.TimeStartSection.CustomFormat = "HH:mm";
             this.TimeStartSection.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.TimeStartSection.Location = new System.Drawing.Point(309, 30);
+            this.TimeStartSection.Location = new System.Drawing.Point(153, 30);
             this.TimeStartSection.Name = "TimeStartSection";
             this.TimeStartSection.ShowUpDown = true;
             this.TimeStartSection.Size = new System.Drawing.Size(57, 20);
@@ -921,7 +933,7 @@ namespace db_crociere
             // 
             this.EndSectionInfo.AutoSize = true;
             this.EndSectionInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndSectionInfo.Location = new System.Drawing.Point(372, 30);
+            this.EndSectionInfo.Location = new System.Drawing.Point(216, 30);
             this.EndSectionInfo.Margin = new System.Windows.Forms.Padding(3);
             this.EndSectionInfo.Name = "EndSectionInfo";
             this.EndSectionInfo.Size = new System.Drawing.Size(34, 16);
@@ -932,7 +944,7 @@ namespace db_crociere
             // 
             this.EndDateSection.CustomFormat = "dd-MM-yyyy";
             this.EndDateSection.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.EndDateSection.Location = new System.Drawing.Point(412, 30);
+            this.EndDateSection.Location = new System.Drawing.Point(256, 30);
             this.EndDateSection.Name = "EndDateSection";
             this.EndDateSection.Size = new System.Drawing.Size(103, 20);
             this.EndDateSection.TabIndex = 20;
@@ -942,46 +954,46 @@ namespace db_crociere
             // 
             this.EndTimeSection.CustomFormat = "HH:mm";
             this.EndTimeSection.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.EndTimeSection.Location = new System.Drawing.Point(521, 30);
+            this.EndTimeSection.Location = new System.Drawing.Point(365, 30);
             this.EndTimeSection.Name = "EndTimeSection";
             this.EndTimeSection.ShowUpDown = true;
             this.EndTimeSection.Size = new System.Drawing.Size(57, 20);
             this.EndTimeSection.TabIndex = 24;
             // 
-            // button3
+            // AddExecutionSection
             // 
-            this.button3.Location = new System.Drawing.Point(621, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Aggiungi";
-            this.button3.UseVisualStyleBackColor = true;
+            this.AddExecutionSection.Location = new System.Drawing.Point(713, 20);
+            this.AddExecutionSection.Name = "AddExecutionSection";
+            this.AddExecutionSection.Size = new System.Drawing.Size(75, 23);
+            this.AddExecutionSection.TabIndex = 3;
+            this.AddExecutionSection.Text = "Aggiungi";
+            this.AddExecutionSection.UseVisualStyleBackColor = true;
+            this.AddExecutionSection.Click += new System.EventHandler(this.AddExecutionSection_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(621, 50);
+            this.button6.Location = new System.Drawing.Point(713, 50);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 3;
             this.button6.Text = "Pulisci";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // NavigationSectionsComboBox
+            // SectionHarborTextBox
             // 
-            this.NavigationSectionsComboBox.FormattingEnabled = true;
-            this.NavigationSectionsComboBox.Location = new System.Drawing.Point(324, 3);
-            this.NavigationSectionsComboBox.Name = "NavigationSectionsComboBox";
-            this.NavigationSectionsComboBox.Size = new System.Drawing.Size(51, 21);
-            this.NavigationSectionsComboBox.TabIndex = 26;
-            this.NavigationSectionsComboBox.Text = "NO";
-            this.NavigationSectionsComboBox.SelectedIndexChanged += new System.EventHandler(this.NavigationSectionsComboBox_SelectedIndexChanged);
+            this.SectionHarborTextBox.Location = new System.Drawing.Point(586, 3);
+            this.SectionHarborTextBox.MaxLength = 3;
+            this.SectionHarborTextBox.Name = "SectionHarborTextBox";
+            this.SectionHarborTextBox.ReadOnly = true;
+            this.SectionHarborTextBox.Size = new System.Drawing.Size(118, 20);
+            this.SectionHarborTextBox.TabIndex = 27;
             // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(722, 595);
+            this.ClientSize = new System.Drawing.Size(794, 595);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -1091,12 +1103,13 @@ namespace db_crociere
         private System.Windows.Forms.DateTimePicker DateStartSection;
         private System.Windows.Forms.Label EndSectionInfo;
         private System.Windows.Forms.DateTimePicker EndDateSection;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddExecutionSection;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox SectionsComboBox;
         private System.Windows.Forms.DateTimePicker TimeStartSection;
         private System.Windows.Forms.DateTimePicker EndTimeSection;
         private System.Windows.Forms.TextBox RangeNavigationTextBox;
         private System.Windows.Forms.ComboBox NavigationSectionsComboBox;
+        private System.Windows.Forms.TextBox SectionHarborTextBox;
     }
 }
