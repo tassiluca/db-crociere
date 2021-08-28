@@ -4,7 +4,7 @@ namespace db_crociere
 {
     class DateRange
     {
-        private static string SEPARATOR = " - ";
+        private const string SEPARATOR = " - ";
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

@@ -60,7 +60,7 @@ namespace db_crociere
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 158F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel3.Controls.Add(this.labelStartPortPren, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelNavPren, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.pathSelPren, 1, 0);
@@ -81,7 +81,7 @@ namespace db_crociere
             // 
             this.labelStartPortPren.AutoSize = true;
             this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStartPortPren.Location = new System.Drawing.Point(568, 0);
+            this.labelStartPortPren.Location = new System.Drawing.Point(567, 0);
             this.labelStartPortPren.Name = "labelStartPortPren";
             this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.labelStartPortPren.Size = new System.Drawing.Size(49, 28);
@@ -92,7 +92,7 @@ namespace db_crociere
             // 
             this.labelNavPren.AutoSize = true;
             this.labelNavPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNavPren.Location = new System.Drawing.Point(238, 0);
+            this.labelNavPren.Location = new System.Drawing.Point(237, 0);
             this.labelNavPren.Name = "labelNavPren";
             this.labelNavPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.labelNavPren.Size = new System.Drawing.Size(121, 20);
@@ -104,10 +104,10 @@ namespace db_crociere
             this.pathSelPren.FormattingEnabled = true;
             this.pathSelPren.Location = new System.Drawing.Point(85, 3);
             this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(147, 21);
+            this.pathSelPren.Size = new System.Drawing.Size(146, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
-            this.pathSelPren.Click += new System.EventHandler(this.pathSelPren_Click);
+            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.pathSelPren_Click);
             // 
             // labelPren
             // 
@@ -123,16 +123,17 @@ namespace db_crociere
             // navPeriodSelector
             // 
             this.navPeriodSelector.FormattingEnabled = true;
-            this.navPeriodSelector.Location = new System.Drawing.Point(369, 3);
+            this.navPeriodSelector.Location = new System.Drawing.Point(368, 3);
             this.navPeriodSelector.Name = "navPeriodSelector";
             this.navPeriodSelector.Size = new System.Drawing.Size(180, 21);
             this.navPeriodSelector.TabIndex = 1;
             this.navPeriodSelector.Text = "Navigazione";
+            this.navPeriodSelector.SelectedIndexChanged += new System.EventHandler(this.navPeriodSelector_SelectedIndexChanged);
             // 
             // portSelPren
             // 
             this.portSelPren.FormattingEnabled = true;
-            this.portSelPren.Location = new System.Drawing.Point(629, 3);
+            this.portSelPren.Location = new System.Drawing.Point(628, 3);
             this.portSelPren.Name = "portSelPren";
             this.portSelPren.Size = new System.Drawing.Size(135, 21);
             this.portSelPren.TabIndex = 4;
