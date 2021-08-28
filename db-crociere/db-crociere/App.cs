@@ -18,13 +18,6 @@ namespace db_crociere
             InitializeComponent();
         }
 
-        private void initNavigation()
-        {
-            var res = from porti in db.PORTIs
-                      select new { porti.CodPorto };
-            NavigationDropDownMenu.DataSource = res;
-        }
-
         private Dictionary<Label, string> getShipCode(string shipName)
         {
             var shipInfos = new Dictionary<Label, string>();
@@ -119,18 +112,11 @@ namespace db_crociere
             var ships = from navi in db.NAVIs
                         select navi.Nome;
             shipListBox.DataSource = ships;
-            if(ships.Count() > 0)
+            if (ships.Count() > 0)
             {
                 fillShipInfo(ships.ToArray()[0]);
                 fillPathInfo(ships.ToArray()[0]);
-                initNavigation();
-            }
-        
-        }
-
-        private void shipListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Console.WriteLine("INDEX SHIPLIST CHANGED");
+            }        
         }
 
         private void AddShipBtnClick(object sender, EventArgs e)
@@ -151,6 +137,7 @@ namespace db_crociere
             var shipName = shipListBox.SelectedItem.ToString();
             fillShipInfo(shipName);
             fillPathInfo(shipName);
+            NavigationDropDownMenu_Click(sender, e);
         }
 
         private void App_Load(object sender, EventArgs e)
@@ -163,6 +150,42 @@ namespace db_crociere
         {
             AddPrenPopup AddPrenPopup_window = new AddPrenPopup(db);
             AddPrenPopup_window.ShowDialog(this);
+        }
+
+        private void NavigationDropDownMenu_Click(object sender, EventArgs e)
+        {
+            var nav = from n in db.NAVIGAZIONIs
+                      where n.NomeNave == ShipNameLabel.Text
+                      select n.CodNavigazione;
+
+            if (nav.Count() == 0)
+            {
+                NavigationDropDownMenu.SelectedIndex = -1;
+            }
+            NavigationDropDownMenu.DataSource = nav;
+        }
+
+        private void NavigationDropDownMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (NavigationDropDownMenu.SelectedIndex != -1)
+            {
+                var exSecs = from et in db.ESECUZIONI_TRATTAs
+                             from t in db.TRATTEs
+                             where et.CodNavigazione == int.Parse(NavigationDropDownMenu.SelectedItem.ToString()) &&
+                                   et.CodTratta == t.CodTratta
+                             select new
+                             {
+                                 Tratta = et.CodTratta,
+                                 Porto_Partenza = t.CodPortoPartenza,
+                                 Porto_Arrivo = t.CodPortoArrivo,
+                                 Navigazione = et.CodNavigazione,
+                                 Data_Partenza = et.Partenza_Data,
+                                 Orario_Partenza = et.Partenza_Ora,
+                                 Data_Arrivo = et.Arrivo_Data,
+                                 Orario_Arrivo = et.Arrivo_Ora,
+                             };
+                NavigationExecutionGridView.DataSource = exSecs;
+            }
         }
     }
 }

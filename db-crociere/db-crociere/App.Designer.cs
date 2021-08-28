@@ -32,6 +32,9 @@ namespace db_crociere
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.editBtnFlow = new System.Windows.Forms.FlowLayoutPanel();
+            this.addPrenBtn = new System.Windows.Forms.Button();
+            this.prenViewTable = new System.Windows.Forms.DataGridView();
             this.shipPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.shipListContainer = new System.Windows.Forms.SplitContainer();
@@ -66,12 +69,11 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.prenViewTable = new System.Windows.Forms.DataGridView();
-            this.editBtnFlow = new System.Windows.Forms.FlowLayoutPanel();
-            this.addPrenBtn = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.editBtnFlow.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).BeginInit();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -89,8 +91,6 @@ namespace db_crociere
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).BeginInit();
-            this.editBtnFlow.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -128,6 +128,35 @@ namespace db_crociere
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // editBtnFlow
+            // 
+            this.editBtnFlow.Controls.Add(this.addPrenBtn);
+            this.editBtnFlow.Location = new System.Drawing.Point(7, 284);
+            this.editBtnFlow.Name = "editBtnFlow";
+            this.editBtnFlow.Size = new System.Drawing.Size(100, 28);
+            this.editBtnFlow.TabIndex = 1;
+            // 
+            // addPrenBtn
+            // 
+            this.addPrenBtn.Location = new System.Drawing.Point(3, 3);
+            this.addPrenBtn.Name = "addPrenBtn";
+            this.addPrenBtn.Size = new System.Drawing.Size(75, 23);
+            this.addPrenBtn.TabIndex = 0;
+            this.addPrenBtn.Text = "Aggiungi";
+            this.addPrenBtn.UseVisualStyleBackColor = true;
+            this.addPrenBtn.Click += new System.EventHandler(this.addPrenBtn_Click);
+            // 
+            // prenViewTable
+            // 
+            this.prenViewTable.AllowUserToAddRows = false;
+            this.prenViewTable.AllowUserToDeleteRows = false;
+            this.prenViewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.prenViewTable.Location = new System.Drawing.Point(6, 19);
+            this.prenViewTable.Name = "prenViewTable";
+            this.prenViewTable.ReadOnly = true;
+            this.prenViewTable.Size = new System.Drawing.Size(611, 258);
+            this.prenViewTable.TabIndex = 0;
             // 
             // shipPage
             // 
@@ -277,6 +306,8 @@ namespace db_crociere
             this.NavigationDropDownMenu.Size = new System.Drawing.Size(813, 24);
             this.NavigationDropDownMenu.TabIndex = 2;
             this.NavigationDropDownMenu.Text = "Scegli Navigazione";
+            this.NavigationDropDownMenu.SelectedIndexChanged += new System.EventHandler(this.NavigationDropDownMenu_SelectedIndexChanged);
+            this.NavigationDropDownMenu.Click += new System.EventHandler(this.NavigationDropDownMenu_Click);
             // 
             // InfoPathBox
             // 
@@ -628,35 +659,6 @@ namespace db_crociere
             this.tabPage3.Text = "tab3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // prenViewTable
-            // 
-            this.prenViewTable.AllowUserToAddRows = false;
-            this.prenViewTable.AllowUserToDeleteRows = false;
-            this.prenViewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.prenViewTable.Location = new System.Drawing.Point(6, 19);
-            this.prenViewTable.Name = "prenViewTable";
-            this.prenViewTable.ReadOnly = true;
-            this.prenViewTable.Size = new System.Drawing.Size(611, 258);
-            this.prenViewTable.TabIndex = 0;
-            // 
-            // editBtnFlow
-            // 
-            this.editBtnFlow.Controls.Add(this.addPrenBtn);
-            this.editBtnFlow.Location = new System.Drawing.Point(7, 284);
-            this.editBtnFlow.Name = "editBtnFlow";
-            this.editBtnFlow.Size = new System.Drawing.Size(100, 28);
-            this.editBtnFlow.TabIndex = 1;
-            // 
-            // addPrenBtn
-            // 
-            this.addPrenBtn.Location = new System.Drawing.Point(3, 3);
-            this.addPrenBtn.Name = "addPrenBtn";
-            this.addPrenBtn.Size = new System.Drawing.Size(75, 23);
-            this.addPrenBtn.TabIndex = 0;
-            this.addPrenBtn.Text = "Aggiungi";
-            this.addPrenBtn.UseVisualStyleBackColor = true;
-            this.addPrenBtn.Click += new System.EventHandler(this.addPrenBtn_Click);
-            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -671,6 +673,8 @@ namespace db_crociere
             this.menuContainer.ResumeLayout(false);
             this.bookingTab.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.editBtnFlow.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).EndInit();
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -692,8 +696,6 @@ namespace db_crociere
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).EndInit();
-            this.editBtnFlow.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
