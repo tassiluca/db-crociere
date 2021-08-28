@@ -361,17 +361,21 @@ namespace db_crociere
             fillShipNameCombo(ShipNameComboPath);
         }
 
+        private void ShipNameSectionComboBox_Click(object sender, EventArgs e)
+        {
+            fillShipNameCombo(ShipNameSectionComboBox);
+        }
+
         private bool checksNavigation(string shipName, DateTime start, DateTime end)
         {
-            var intersections = (from n in db.NAVIGAZIONIs
+            var intersections =  from n in db.NAVIGAZIONIs
                                  where n.NomeNave == shipName &&
-                                       (start >= n.DataInizio && start <= n.DataFine) ||
+                                       ((start >= n.DataInizio && start <= n.DataFine) ||
                                        (end >= n.DataInizio && end <= n.DataFine) ||
                                        (n.DataInizio >= start && n.DataFine <= start ) ||
-                                       (n.DataInizio >= end && n.DataFine <= end)
-                                 select n.CodNavigazione).Count();
-            
-            return intersections == 0;
+                                       (n.DataInizio >= end && n.DataFine <= end))
+                                 select n.CodNavigazione;
+            return intersections.Count() == 0;
         }
 
         private void AddNavigationBtn_Click(object sender, EventArgs e)
@@ -420,6 +424,55 @@ namespace db_crociere
                       where p.NomeNave == (String)ShipNameNavigationComboBox.SelectedItem
                       select p.CodPercorso;
             PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NOT_SET";
+        }
+
+        private void ShipNameSectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var nav = from n in db.NAVIGAZIONIs
+                      where n.NomeNave == ShipNameSectionComboBox.SelectedItem.ToString()
+                      select n.CodNavigazione;
+
+            if (nav.Count() == 0)
+            {
+                NavigationSectionsComboBox.SelectedIndex = -1;
+            } 
+            NavigationSectionsComboBox.DataSource = nav;
+        }
+
+        private void NavigationSectionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (NavigationSectionsComboBox.SelectedIndex != -1)
+            {
+                var infoNav = from n in db.NAVIGAZIONIs
+                              where n.CodNavigazione == int.Parse(NavigationSectionsComboBox.SelectedItem.ToString())
+                              select new
+                              {
+                                  pathCode = n.CodPercorso,
+                                  startNavDate = n.DataInizio,
+                                  endNavDate = n.DataFine
+                              };
+
+                var dates = new DateRange(infoNav.First().startNavDate, infoNav.First().endNavDate);
+                RangeNavigationTextBox.Text = dates.ToStringDate();
+
+                var pathCode = infoNav.First().pathCode;
+                var secs = from s in db.SEQUENZE_TRATTEs
+                           from t in db.TRATTEs
+                           where s.CodPercorso == pathCode &&
+                                 s.CodTratta == t.CodTratta
+                           select new
+                           {
+                               codSec = s.CodTratta,
+                               depHarbor = t.CodPortoPartenza,
+                               arrHarbor = t.CodPortoArrivo
+                           };
+                SectionsComboBox.DataSource = secs;
+            }
+            else
+            {
+                RangeNavigationTextBox.Clear();
+                SectionsComboBox.DataSource = null;
+            }
         }
     }
 }
