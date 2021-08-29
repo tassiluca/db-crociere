@@ -79,7 +79,7 @@ namespace db_crociere
             this.DepartureHarborComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ArrivalHarborComboBox = new System.Windows.Forms.ComboBox();
-            this.AddHarborBtn = new System.Windows.Forms.Button();
+            this.AddSectionBtn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -104,6 +104,7 @@ namespace db_crociere
             this.RangeNavigationTextBox = new System.Windows.Forms.TextBox();
             this.SectionsInfo = new System.Windows.Forms.Label();
             this.SectionsComboBox = new System.Windows.Forms.ComboBox();
+            this.SectionHarborTextBox = new System.Windows.Forms.TextBox();
             this.StartSectionInfo = new System.Windows.Forms.Label();
             this.DateStartSection = new System.Windows.Forms.DateTimePicker();
             this.TimeStartSection = new System.Windows.Forms.DateTimePicker();
@@ -112,7 +113,6 @@ namespace db_crociere
             this.EndTimeSection = new System.Windows.Forms.DateTimePicker();
             this.AddExecutionSection = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.SectionHarborTextBox = new System.Windows.Forms.TextBox();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderInfo)).BeginInit();
@@ -566,7 +566,7 @@ namespace db_crociere
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel4);
-            this.groupBox1.Controls.Add(this.AddHarborBtn);
+            this.groupBox1.Controls.Add(this.AddSectionBtn);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Location = new System.Drawing.Point(381, 332);
             this.groupBox1.Name = "groupBox1";
@@ -626,15 +626,15 @@ namespace db_crociere
             this.ArrivalHarborComboBox.TabIndex = 16;
             this.ArrivalHarborComboBox.Click += new System.EventHandler(this.ArrivalHarborComboBox_Click);
             // 
-            // AddHarborBtn
+            // AddSectionBtn
             // 
-            this.AddHarborBtn.Location = new System.Drawing.Point(252, 19);
-            this.AddHarborBtn.Name = "AddHarborBtn";
-            this.AddHarborBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddHarborBtn.TabIndex = 3;
-            this.AddHarborBtn.Text = "Aggiungi";
-            this.AddHarborBtn.UseVisualStyleBackColor = true;
-            this.AddHarborBtn.Click += new System.EventHandler(this.AddHarborBtn_Click);
+            this.AddSectionBtn.Location = new System.Drawing.Point(252, 19);
+            this.AddSectionBtn.Name = "AddSectionBtn";
+            this.AddSectionBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddSectionBtn.TabIndex = 3;
+            this.AddSectionBtn.Text = "Aggiungi";
+            this.AddSectionBtn.UseVisualStyleBackColor = true;
+            this.AddSectionBtn.Click += new System.EventHandler(this.AddSectionBtn_Click);
             // 
             // button4
             // 
@@ -898,6 +898,15 @@ namespace db_crociere
             this.SectionsComboBox.TabIndex = 25;
             this.SectionsComboBox.SelectedIndexChanged += new System.EventHandler(this.SectionsComboBox_SelectedIndexChanged);
             // 
+            // SectionHarborTextBox
+            // 
+            this.SectionHarborTextBox.Location = new System.Drawing.Point(586, 3);
+            this.SectionHarborTextBox.MaxLength = 3;
+            this.SectionHarborTextBox.Name = "SectionHarborTextBox";
+            this.SectionHarborTextBox.ReadOnly = true;
+            this.SectionHarborTextBox.Size = new System.Drawing.Size(118, 20);
+            this.SectionHarborTextBox.TabIndex = 27;
+            // 
             // StartSectionInfo
             // 
             this.StartSectionInfo.AutoSize = true;
@@ -978,15 +987,6 @@ namespace db_crociere
             this.button6.TabIndex = 3;
             this.button6.Text = "Pulisci";
             this.button6.UseVisualStyleBackColor = true;
-            // 
-            // SectionHarborTextBox
-            // 
-            this.SectionHarborTextBox.Location = new System.Drawing.Point(586, 3);
-            this.SectionHarborTextBox.MaxLength = 3;
-            this.SectionHarborTextBox.Name = "SectionHarborTextBox";
-            this.SectionHarborTextBox.ReadOnly = true;
-            this.SectionHarborTextBox.Size = new System.Drawing.Size(118, 20);
-            this.SectionHarborTextBox.TabIndex = 27;
             // 
             // AddShipPopup
             // 
@@ -1077,7 +1077,7 @@ namespace db_crociere
         private System.Windows.Forms.ComboBox DepartureHarborComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ArrivalHarborComboBox;
-        private System.Windows.Forms.Button AddHarborBtn;
+        private System.Windows.Forms.Button AddSectionBtn;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;

@@ -22,6 +22,12 @@ namespace db_crociere
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Get all controls of type given in input.
+        /// </summary>
+        /// <param name="control">The control visual representation.</param>
+        /// <param name="type">The type of the control.</param>
+        /// <returns>IENumerable with all the controls.</returns>
         private IEnumerable<Control> GetAll(Control control, Type type)
         {
             var controls = control.Controls.Cast<Control>();
@@ -31,7 +37,11 @@ namespace db_crociere
                                       .Where(c => c.GetType() == type);
         }
 
-        private void ClearAll(Control control)
+        /// <summary>
+        /// Clears all the visual components of the form or set them to their
+        /// actual value (i.e. for DateTimePicker).
+        /// </summary>
+        private void ClearAll()
         {
             foreach (TextBox elem in GetAll(this, typeof(TextBox)))
             {
@@ -48,9 +58,13 @@ namespace db_crociere
                  * @see shorturl.at/gkmuS */
                 elem.Value = DateTime.Today;
             }
-
         }
 
+        /// <summary>
+        /// The routine which inserts a new ship into the database.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
         private void AddShipInfoBtn_Click(object sender, EventArgs e)
         {
             try
@@ -62,7 +76,6 @@ namespace db_crociere
                 int height = int.Parse(HeightTextBox.Text);
                 int cabinsNum = int.Parse(CabinsNumTextBox.Text);
 
-                /* Inserimento di una nuova nave */
                 NAVI nave = new NAVI
                 {
                     Nome = name,
@@ -83,7 +96,7 @@ namespace db_crociere
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertShipInfoBox);
+            ClearAll();
         }
 
         /// <summary>
@@ -112,6 +125,11 @@ namespace db_crociere
             return harborsDict;
         }
 
+        /// <summary>
+        /// Implements the integrity checks for sections. In detail: the port of arrival of the 
+        /// section must coincide with the port of departure of the next one.
+        /// </summary>
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
         private bool checksSections()
         {
             for (int i = 0; i < selectedSections.Count(); i++)
@@ -126,6 +144,11 @@ namespace db_crociere
             return true;
         }
 
+        /// <summary>
+        /// The routine which inserts path and related sections sequences.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
         private void AddPathBtn_Click(object sender, EventArgs e)
         {
             string msg;
@@ -142,7 +165,7 @@ namespace db_crociere
                     throw new ArgumentException(msg);
                 }
 
-                /* Inserimento di una nuovo percorso */
+                /* Inserts the new path. */
                 PERCORSI percorso = new PERCORSI
                 {
                     CodPercorso = pathCode,
@@ -151,7 +174,7 @@ namespace db_crociere
                 };
                 db.PERCORSIs.InsertOnSubmit(percorso);
 
-                /* Inserimento delle nuove sequenze_tratte */
+                /* Inserts the sections sequences. */
                 int i = 0;
                 foreach (var codSequence in selectedSections)
                 {
@@ -174,10 +197,15 @@ namespace db_crociere
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertPathInfoBox);
+            ClearAll();
             AddShipPopup_Load(sender, e);
         }
 
+        /// <summary>
+        /// The routine which updates the section list in the ListBox.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
         private void AddShipPopup_Load(object sender, EventArgs e)
         {
             var sections = (from t in db.TRATTEs
@@ -204,21 +232,20 @@ namespace db_crociere
             InsertedSections.Items.Clear();
         }
 
+        /// <summary>
+        /// Add to the selected sections listbox the one which the user has just selected
+        /// and remove it from the listbox of available sections.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>
         private void InsertSectionPathBtn_Click(object sender, EventArgs e)
         {
             if (SectionsListBox.SelectedIndex != -1)
             {
                 InsertedSections.Items.Add(SectionsListBox.SelectedItem.ToString());
-                selectedSections.Add(sectionsList.ToArray()[SectionsListBox.SelectedIndex]);
+                selectedSections.Add(sectionsList[SectionsListBox.SelectedIndex]);
                 sectionsList.RemoveAt(SectionsListBox.SelectedIndex);
                 SectionsListBox.Items.RemoveAt(SectionsListBox.SelectedIndex);
-
-                Console.WriteLine("---- SELEZIONATI --- ");
-                foreach (var elem in selectedSections)
-                {
-                    Console.WriteLine(elem);
-                }
-                Console.WriteLine("---------------------");
             }
             else
             {
@@ -227,27 +254,21 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Remove to the selected sections listbox the one which the user has just selected
+        /// and add it from the listbox of available sections. This is the opposite of 
+        /// InsertSectionPathBtn_Click.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>        
         private void DeleteSectionPathBtn_Click(object sender, EventArgs e)
         {
             if (InsertedSections.SelectedIndex != -1)
             {
                 SectionsListBox.Items.Add(InsertedSections.SelectedItem.ToString());
-                sectionsList.Add(selectedSections.ToArray()[InsertedSections.SelectedIndex]);
+                sectionsList.Add(selectedSections[InsertedSections.SelectedIndex]);
                 selectedSections.RemoveAt(InsertedSections.SelectedIndex);
                 InsertedSections.Items.RemoveAt(InsertedSections.SelectedIndex);
-
-                Console.WriteLine("---- SELEZIONATI --- ");
-                foreach (var elem in selectedSections)
-                {
-                    Console.WriteLine(elem);
-                }
-                Console.WriteLine("---------------------");
-                Console.WriteLine("---- SELEZIONABILI --- ");
-                foreach (var elem in sectionsList)
-                {
-                    Console.WriteLine(elem);
-                }
-                Console.WriteLine("---------------------");
             } else
             {
                 var msg = "Nessuna selezione!";
@@ -255,6 +276,11 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Inserts a new harbor into the database.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void AddHarbour_Click(object sender, EventArgs e)
         {
             try
@@ -283,10 +309,14 @@ namespace db_crociere
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertHarborInfoBox);
+            ClearAll();
         }
 
-        private void InitHarborComboBox(ComboBox cb)
+        /// <summary>
+        /// Fills the harbor combobox with the harbors in the db.
+        /// </summary>
+        /// <param name="cb">the combobox into which inserts data.</param>
+        private void FillHarborComboBox(ComboBox cb)
         {
             var harbors = from porto in db.PORTIs
                           select porto.Città;
@@ -295,15 +325,20 @@ namespace db_crociere
 
         private void DepartureHarborComboBox_Click(object sender, EventArgs e)
         {
-            InitHarborComboBox(DepartureHarborComboBox);
+            FillHarborComboBox(DepartureHarborComboBox);
         }
 
         private void ArrivalHarborComboBox_Click(object sender, EventArgs e)
         {
-            InitHarborComboBox(ArrivalHarborComboBox);
+            FillHarborComboBox(ArrivalHarborComboBox);
         }
 
-        private void AddHarborBtn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Adds into the database a new section.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
+        private void AddSectionBtn_Click(object sender, EventArgs e)
         {
             string msg;
             try
@@ -318,13 +353,13 @@ namespace db_crociere
                                             where p.Città == arrivalHarbor
                                             select p.CodPorto).First();
 
+                // checks departure harbor and arrival one are not the same
                 if (departureHarborCode == arrivalHarborCode)
                 {
                     msg = "Il porto di arrivo e destinazione non possono coincidere";
                     throw new ArgumentException(msg);
                 }
 
-                /* Inserting a new harbor */
                 TRATTE tratta = new TRATTE
                 {
                     CodPortoPartenza = departureHarborCode,
@@ -341,10 +376,14 @@ namespace db_crociere
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertHarborInfoBox);
+            ClearAll();
         }
 
-        private void fillShipNameCombo(ComboBox cb)
+        /// <summary>
+        /// Fills the ship name combo box.
+        /// </summary>
+        /// <param name="cb">The combobox into which inserts data.</param>
+        private void FillShipNameCombo(ComboBox cb)
         {
             var ships = from navi in db.NAVIs
                         select navi.Nome;
@@ -353,19 +392,27 @@ namespace db_crociere
 
         private void ShipNameNavigationComboBox_Click(object sender, EventArgs e)
         {
-            fillShipNameCombo(ShipNameNavigationComboBox);
+            FillShipNameCombo(ShipNameNavigationComboBox);
         }
 
         private void ShipNameComboPath_Click(object sender, EventArgs e)
         {
-            fillShipNameCombo(ShipNameComboPath);
+            FillShipNameCombo(ShipNameComboPath);
         }
 
         private void ShipNameSectionComboBox_Click(object sender, EventArgs e)
         {
-            fillShipNameCombo(ShipNameSectionComboBox);
+            FillShipNameCombo(ShipNameSectionComboBox);
         }
 
+        /// <summary>
+        /// Implements the integrity checks for navigations. In detail: a navigation cannot 
+        /// overlaps with another one already inserted into the database.
+        /// </summary>
+        /// <param name="shipName">The ship name.</param>
+        /// <param name="start">The navigation start date.</param>
+        /// <param name="end">The navigation end date.</param>
+        /// <returns></returns>
         private bool checksNavigation(string shipName, DateTime start, DateTime end)
         {
             var intersections =  from n in db.NAVIGAZIONIs
@@ -378,6 +425,11 @@ namespace db_crociere
             return intersections.Count() == 0;
         }
 
+        /// <summary>
+        /// Inserts into the database a new navigation.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void AddNavigationBtn_Click(object sender, EventArgs e)
         {
             string msg;
@@ -415,9 +467,14 @@ namespace db_crociere
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertHarborInfoBox);
+            ClearAll();
         }
 
+        /// <summary>
+        /// Fills the path texbox with the one associated to the ship name selected.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void ShipNameNavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var res = from p in db.PERCORSIs
@@ -426,6 +483,11 @@ namespace db_crociere
             PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NOT_SET";
         }
 
+        /// <summary>
+        /// Fills the navigation combobox with all navigations of the ship name selected.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void ShipNameSectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ShipNameSectionComboBox.SelectedIndex != -1)
@@ -442,6 +504,12 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Fills the range navigation textbox and sections combobox with, respectively, the navigation 
+        /// start and end date and all sections of the path associated to the navigation itself.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void NavigationSectionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (NavigationSectionsComboBox.SelectedIndex != -1)
@@ -458,6 +526,8 @@ namespace db_crociere
                 var dates = new DateRange(infoNav.First().startNavDate, infoNav.First().endNavDate);
                 RangeNavigationTextBox.Text = dates.ToStringDate();
 
+                /* NOTES that if the navigation is present into the database also the path is present.*/
+
                 var pathCode = infoNav.First().pathCode;
                 var secs = from s in db.SEQUENZE_TRATTEs
                            from t in db.TRATTEs
@@ -473,6 +543,11 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Fills the harbors of the section textbox.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param>   
         private void SectionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SectionsComboBox.SelectedIndex != -1)
@@ -492,6 +567,13 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Implements integrity checks for sections execution. In details checks if the dates 
+        /// are consistent with the other sections execution in the database.
+        /// [NOTE] Not implemented checks on times!
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
         private bool checksExecutionSection(int navigation, DateTime start, DateTime stop)
         {
             var intersections = from e in db.ESECUZIONI_TRATTAs
@@ -514,6 +596,11 @@ namespace db_crociere
             */
         }
 
+        /// <summary>
+        /// Insert a new section execution.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
         private void AddExecutionSection_Click(object sender, EventArgs e)
         {
             string msg;
@@ -555,7 +642,8 @@ namespace db_crociere
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
                 MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ClearAll(InsertHarborInfoBox);
+            ClearAll();
         }
+
     }
 }
