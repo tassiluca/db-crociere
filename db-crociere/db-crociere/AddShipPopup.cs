@@ -411,6 +411,11 @@ namespace db_crociere
             FillShipNameCombo(ShipNameDeckComboBox);
         }
 
+        private void ShipNameSpaceComboBox_Click(object sender, EventArgs e)
+        {
+            FillShipNameCombo(ShipNameSpaceComboBox);
+        }
+
         /// <summary>
         /// Implements the integrity checks for navigations. In detail: a navigation cannot 
         /// overlaps with another one already inserted into the database.
@@ -486,6 +491,7 @@ namespace db_crociere
             var res = from p in db.PERCORSIs
                       where p.NomeNave == (String)ShipNameNavigationComboBox.SelectedItem
                       select p.CodPercorso;
+            //PathCodeTextBox.Text = res.FirstOrDefault();
             PathCodeTextBox.Text = res.Count() > 0 ? res.First() : "NOT_SET";
         }
 
@@ -720,5 +726,153 @@ namespace db_crociere
             }
             ClearAll();
         }
+
+        /// <summary>
+        /// Manages the graphics insertion of cabins or rooms enabling or disabling
+        /// the correctly related fields. This routine is activated when cabins insertion
+        /// is requested by the user.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void InsertCabinCheckBox_Click(object sender, EventArgs e)
+        {
+            if (InsertCabinCheckBox.Checked == true)
+            {
+                InsertRoomCheckBox.Checked = false;
+                SpaceCapacityTextBox.Enabled = true;
+                CapacitySpaceInfo.Text = "Posti Letto";
+                SpacePositionComboBox.Enabled = true;
+                SpaceTypeComboBox.Enabled = true;
+            }
+            else
+            {
+                SpaceCapacityTextBox.Enabled = false;
+                SpaceCapacityTextBox.Clear();
+
+                SpacePositionComboBox.Enabled = false;
+                SpacePositionComboBox.SelectedIndex = -1;
+
+                SpaceTypeComboBox.Enabled = false;
+                SpaceTypeComboBox.DataSource = null;
+            }
+        }
+
+        /// <summary>
+        /// Manages the graphics insertion of cabins or rooms enabling or disabling
+        /// the correctly related fields. This routine is activated when rooms insertion
+        /// is requested by the user.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void InsertRoomCheckBox_Click(object sender, EventArgs e)
+        {
+            if (InsertRoomCheckBox.Checked == true)
+            {
+                InsertCabinCheckBox.Checked = false;
+                SpaceCapacityTextBox.Enabled = true;
+                CapacitySpaceInfo.Text = "Capienza";
+
+                SpacePositionComboBox.Enabled = false;
+                SpacePositionComboBox.SelectedIndex = -1;
+
+                SpaceTypeComboBox.Enabled = false;
+                SpaceTypeComboBox.DataSource = null;
+            }
+            else
+            {
+                CapacitySpaceInfo.Text = "Posti Letto";
+                SpaceCapacityTextBox.Enabled = false;
+                SpaceCapacityTextBox.Clear();
+            }
+        }
+
+        private void ShipNameSpaceComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ShipNameSpaceComboBox.SelectedIndex != -1)
+            {
+                var decks = from p in db.PONTIs
+                            where p.NomeNave == ShipNameSpaceComboBox.SelectedItem.ToString()
+                            select p.Numero;
+                if (!decks.Any()) //CHECK
+                {
+                    DeckNumberSpaceComboBox.SelectedIndex = -1;
+                }
+                DeckNumberSpaceComboBox.DataSource = decks;
+            }
+        }
+
+        private void SpaceTypeComboBox_Click(object sender, EventArgs e)
+        {
+            var types = from t in db.TIPOLOGIEs
+                        select t.Nome;
+            SpaceTypeComboBox.DataSource = types;
+        }
+
+        /// <summary>
+        /// Add a new space, cabin or room, depending on which InsertRoomCheckBox 
+        /// or InsertCabinCheckBox is checked.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void AddSpacesBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                string name = ShipNameSpaceComboBox.Text;
+                int deck = int.Parse(DeckNumberSpaceComboBox.Text);
+                int spacesNum = int.Parse(SpacesNumberTextBox.Text);
+                int capacity = int.Parse(SpaceCapacityTextBox.Text);
+
+                var i = (from c in db.CABINEs
+                         where c.NomeNave == name && c.NumeroPonte == deck
+                         select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
+
+                Console.WriteLine(name + " " + deck + " " + spacesNum + " " + capacity);
+
+                if (InsertCabinCheckBox.Enabled == true)
+                {
+                    for (var j = i + 1; j <= i + spacesNum; j++)
+                    {
+                        string position = SpacePositionComboBox.Text;
+                        string type = SpaceTypeComboBox.Text;
+                        CABINE cabina = new CABINE
+                        {
+                            NomeNave = name,
+                            NumeroPonte = deck,
+                            NumeroLocale = j,
+                            PostiLetto = capacity,
+                            Posizione = position,
+                            NomeTipologia = type
+                        };
+                        db.CABINEs.InsertOnSubmit(cabina);
+                    }
+                } else
+                {
+                    for (var j = i + 1; j <= i + spacesNum; j++)
+                    {
+                        SALE sala = new SALE
+                        {
+                            NomeNave = name,
+                            NumeroPonte = deck,
+                            NumeroLocale = j,
+                            Capienza = capacity,
+                        };
+                        db.SALEs.InsertOnSubmit(sala);
+                    }
+                }
+                
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll();
+        }
+
     }
 }
