@@ -16,11 +16,13 @@ namespace db_crociere
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
         private db_crociere.PRENOTAZIONI prenot; //obj used to keep datas before adding them in db
-        
+        private Dictionary<String,PASSEGGERI> passengersDict;
+
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
             db = dbDataContext;
             prenot = new PRENOTAZIONI();
+            passengersDict = new Dictionary<String, PASSEGGERI>();
             InitializeComponent();
         }
 
@@ -99,7 +101,7 @@ namespace db_crociere
                 foreach (var ps in path_sections)
                 {
                     DateTime imbDateTime = ps.imbDate + ps.imbTime;
-                    //TODO show correctly time
+                    
                     if (portDates.ContainsKey(ps.portName))
                     {
                         var updatedSet = portDates[ps.portName];
@@ -123,9 +125,95 @@ namespace db_crociere
         }
         private void updateDateTimeSelector(object sender, EventArgs e)
         {
+            //starting port selected
             prenot.CodPorto = portSelPren.SelectedItem.ToString();
             startDateSelPren.DataSource = portDates[prenot.CodPorto].ToList();
         }
 
+        private void startDateSelPren_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var dateTimeDeparture = startDateSelPren.SelectedItem.ToString();
+            prenot.DataOraImbarco = DateTime.Parse(dateTimeDeparture);
+
+            var selectedPeriod = navPeriodSelector.SelectedItem.ToString();
+            Console.WriteLine("Data prossima per sbarco in porto scelto");
+            String str = "" +prenot.DataOraImbarco + prenot.CodNavigazione + prenot.CodPorto;
+            Console.WriteLine(str);
+             var dateTimeSbarco = from est in db.ESECUZIONI_TRATTAs
+                                  from t in db.TRATTEs
+                                  //from port in db.PORTIs
+                                  where est.CodNavigazione == prenot.CodNavigazione
+                                  && t.CodTratta == est.CodTratta
+                                  && t.CodPortoArrivo == prenot.CodPorto
+                                  && est.Arrivo_Data > prenot.DataOraImbarco
+                                  orderby est.Arrivo_Data
+                                  select new
+                                  {
+                                      //portName = port.Città,
+                                      //portCode = port.CodPorto,
+                                      sbarcoDate = est.Arrivo_Data,
+                                      sbarcoTime = est.Arrivo_Ora
+                                  };
+            Console.WriteLine(dateTimeSbarco.Count() +  "trovati");
+            foreach (var elem in dateTimeSbarco) {
+                Console.WriteLine(" "+ elem.sbarcoDate + " " + elem .sbarcoTime);
+            }
+            //TODO CAPIRE PERCHè CON LA QUERY NON OTTENGO NULLA, CON SQL SERVER RESTITUISCE INVECE
+
+        }
+
+        private void AddPassengerBtn_Click(object sender, EventArgs e)
+        {
+            var CF = codFiscaletextBox.Text;
+            var name = nameBox.Text;
+            var surname = surnameBox.Text;
+            var country = countryBox.Text;
+            var passportId = passportIDBox.Text;
+
+            if (CF.Length != 0 && name.Length != 0 && surname.Length != 0
+                && country.Length != 0 && passportId.Length != 0)
+            {
+
+                /* Inserimento di un passeggero */
+                PASSEGGERI passeggero = new PASSEGGERI
+                {
+                    CodiceFiscale = CF,
+                    Nome = name,
+                    Cognome = surname,
+                    Nazionalità = country,
+                    Passaporto = passportId
+                };
+                passengersDict.Add(passeggero.CodiceFiscale, passeggero);
+                ClearPassengerFields();
+            }
+            else {
+                var msg = "Tutti is campi devono essere compilati!";
+                MessageBox.Show(msg, "ERRORE");
+            }
+            /*
+            db.PASSEGGERIs.InsertOnSubmit(passeggero);
+            db.SubmitChanges();
+            ClearPassengerFields();
+            */
+            passengerList.DataSource = passengersDict.Keys.ToList() ;
+        }
+
+        private void ClearPassengerFields()
+        {
+            codFiscaletextBox.Clear();
+            nameBox.Clear();
+            surnameBox.Clear();
+            countryBox.Clear();
+            passportIDBox.Clear();
+        }
+
+        private void delPassengerBtn_Click(object sender, EventArgs e)
+        {
+            var toDelete = passengerList.SelectedItem.ToString();
+            if (toDelete.Length > 0) {
+                passengersDict.Remove(toDelete);
+            }
+            passengerList.DataSource = passengersDict.Keys.ToList();
+        }
     }
 }
