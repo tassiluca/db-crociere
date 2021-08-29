@@ -14,12 +14,13 @@ namespace db_crociere
     {
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
-        private decimal navCodPathSelected;
+        private Dictionary<String, HashSet<DateTime>> portDates;
+        private db_crociere.PRENOTAZIONI prenot; //obj used to keep datas before adding them in db
         
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
             db = dbDataContext;
-            navDateMap = new Dictionary<string, DateRange>();
+            prenot = new PRENOTAZIONI();
             InitializeComponent();
         }
 
@@ -29,10 +30,13 @@ namespace db_crociere
                         select p.CodPercorso;
             pathSelPren.DataSource = path;
         }
-        private void pathSelPren_Click(object sender, EventArgs e)
+        private void updateNavigationListSelector(object sender, EventArgs e)
         {
-            this.navDateMap.Clear();
+            //path selected
+            navDateMap = new Dictionary<string,DateRange>();
             var pathCode = pathSelPren.SelectedItem.ToString();
+            Console.WriteLine("Percorso selezionato: " + pathCode);
+            //get all the avaiable navigation for the selected path
             var nav = from n in db.NAVIGAZIONIs
                       where n.CodPercorso == pathCode
                       orderby n.DataInizio
@@ -43,67 +47,84 @@ namespace db_crociere
                           endNavDate = n.DataFine
                       };
 
-            List<String> avaiableDateRanges = new List<String>();
-            
             if (nav.Count() > 0)
             {
                 foreach (var p in nav)
                 {
                     var rd = new DateRange(p.startNavDate, p.endNavDate);
+                    rd.NavCode = p.codNav;
                     navDateMap.Add(rd.ToStringDate(),rd);
-                    avaiableDateRanges.Add(rd.ToStringDate());
-                }
-                navCodPathSelected = nav.First().codNav;
+                }   
             }
             else {
                 navPeriodSelector.Text = "Nessuna Navigazione";
                 portSelPren.Text = "Nessuna Tratta";
+                startDateSelPren.Text = "Nessuna data disponibile";
                 portSelPren.DataSource = new List<String>();
-                //MessageBoxPrenot("Non risultano navigazioni per il percorso scelto","ERRORE");
+                startDateSelPren.DataSource = new List<String>();
             }
-           
-            navPeriodSelector.DataSource = avaiableDateRanges;
+
+            navPeriodSelector.DataSource = navDateMap.Keys.ToList();
         }
-        private void navPeriodSelector_SelectedIndexChanged(object sender, EventArgs e)
+        private void updatePortSelectorList(object sender, EventArgs e)
         {
-            List<String> avaiblePort = new List<String>();
+            //navigation selected
             String selectedPeriod = navPeriodSelector.SelectedItem.ToString();
+            //save selected navigation code 
+            prenot.CodNavigazione = navDateMap[selectedPeriod].NavCode;
+            Console.WriteLine("Navig. selezionata: " + selectedPeriod + " "+ prenot.CodNavigazione);
             var startDateNav = this.navDateMap[selectedPeriod].StartDate;
             var endDateNav = this.navDateMap[selectedPeriod].EndDate;
-            /*select all the esecuziioni_tratta that are part of navigation with id = navCodPathSelected
+            /*select all the esecuzioni_tratta that are part of navigation with id = navCodPathSelected
              * and are inside the period selected
             */
-             var path_sections = from t in db.ESECUZIONI_TRATTAs
-                                where t.CodNavigazione == navCodPathSelected
-                                && t.Partenza_Data >= startDateNav
-                                && t.Arrivo_Data <= endDateNav
-                                select t;
-            
+            var path_sections = from est in db.ESECUZIONI_TRATTAs
+                                from t in db.TRATTEs
+                                from port in db.PORTIs
+                                where est.CodNavigazione == prenot.CodNavigazione
+                                && t.CodTratta == est.CodTratta
+                                && port.CodPorto == t.CodPortoPartenza
+                                && est.Partenza_Data >= startDateNav
+                                && est.Arrivo_Data <= endDateNav
+                                select new {
+                                    portName = port.Città,
+                                    portCode = port.CodPorto,
+                                    imbDate = est.Partenza_Data,
+                                    imbTime = est.Partenza_Ora
+                                };
+            portDates = new Dictionary<String, HashSet<DateTime>>();
             if (path_sections.Count() > 0)
             {
+                //create list of avaiable imbarc date-time foreach port
                 foreach (var ps in path_sections)
-                { //TODO ora ho messo codTratta ma ci andrebbe il nome del porto di partenza
-                    avaiblePort.Add(ps.CodTratta.ToString());
-                    //navDateMap.Add(rd.ToStringDate(), rd);
+                {
+                    DateTime imbDateTime = ps.imbDate + ps.imbTime;
+                    //TODO show correctly time
+                    if (portDates.ContainsKey(ps.portName))
+                    {
+                        var updatedSet = portDates[ps.portName];
+                        updatedSet.Add(imbDateTime);
+                        portDates[ps.portName]=updatedSet;
+                    }
+                    else {
+                        var newSet = new HashSet<DateTime>();
+                        newSet.Add(imbDateTime);
+                        portDates.Add(ps.portName,newSet);
+                    }
                 }
             }
             else {
                 portSelPren.Text = "Nessuna Tratta";
-                Console.WriteLine(avaiblePort);
-                //MessageBoxPrenot("Non risultano tratte per il periodo scelto", "ERRORE");
+                Console.WriteLine("Nessun tratta trovata per la navigazione(periodo) "+ selectedPeriod);
             }
             
-            portSelPren.DataSource = avaiblePort;
+            portSelPren.DataSource = portDates.Keys.ToList();
 
         }
-        private void portSelPren_SelectedIndexChanged(object sender, EventArgs e)
+        private void updateDateTimeSelector(object sender, EventArgs e)
         {
-            
-           
-        }
-
-        private void MessageBoxPrenot(String msg, String msgType) {
-            MessageBox.Show(msg, msgType);
+            prenot.CodPorto = portSelPren.SelectedItem.ToString();
+            startDateSelPren.DataSource = portDates[prenot.CodPorto].ToList();
         }
 
     }

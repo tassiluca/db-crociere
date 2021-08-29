@@ -107,7 +107,7 @@ namespace db_crociere
             this.pathSelPren.Size = new System.Drawing.Size(146, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
-            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.pathSelPren_Click);
+            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.updateNavigationListSelector);
             // 
             // labelPren
             // 
@@ -128,7 +128,7 @@ namespace db_crociere
             this.navPeriodSelector.Size = new System.Drawing.Size(180, 21);
             this.navPeriodSelector.TabIndex = 1;
             this.navPeriodSelector.Text = "Navigazione";
-            this.navPeriodSelector.SelectedIndexChanged += new System.EventHandler(this.navPeriodSelector_SelectedIndexChanged);
+            this.navPeriodSelector.SelectedIndexChanged += new System.EventHandler(this.updatePortSelectorList);
             // 
             // portSelPren
             // 
@@ -138,7 +138,7 @@ namespace db_crociere
             this.portSelPren.Size = new System.Drawing.Size(135, 21);
             this.portSelPren.TabIndex = 4;
             this.portSelPren.Text = "Porto Partenza";
-            this.portSelPren.SelectedIndexChanged += new System.EventHandler(this.portSelPren_SelectedIndexChanged);
+            this.portSelPren.SelectedIndexChanged += new System.EventHandler(this.updateDateTimeSelector);
             // 
             // startDateSelPren
             // 
