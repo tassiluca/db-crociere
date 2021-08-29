@@ -15,8 +15,10 @@ namespace db_crociere
 
         public string ToStringDate() 
         {
-            var startDate = StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year;
-            var endDate = EndDate.Day + "/" + EndDate.Month + "/" + EndDate.Year;
+            //StartDate.Day + "/" + StartDate.Month + "/" + StartDate.Year;
+            var startDate = StartDate.ToString("dd/MM/yy");
+            var endDate = EndDate.ToString("dd/MM/yy");
+
             return startDate + SEPARATOR + endDate;
         }
 
