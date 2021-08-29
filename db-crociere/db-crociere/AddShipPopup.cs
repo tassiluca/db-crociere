@@ -333,6 +333,7 @@ namespace db_crociere
             FillHarborComboBox(ArrivalHarborComboBox);
         }
 
+
         /// <summary>
         /// Adds into the database a new section.
         /// </summary>
@@ -403,6 +404,11 @@ namespace db_crociere
         private void ShipNameSectionComboBox_Click(object sender, EventArgs e)
         {
             FillShipNameCombo(ShipNameSectionComboBox);
+        }
+
+        private void ShipNameDeckComboBox_Click(object sender, EventArgs e)
+        {
+            FillShipNameCombo(ShipNameDeckComboBox);
         }
 
         /// <summary>
@@ -645,5 +651,74 @@ namespace db_crociere
             ClearAll();
         }
 
+        /// <summary>
+        /// Insert a new cabin type.
+        /// [NOTE] NOT CONCLUDED -- PRICE
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void AddTypeBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                string name = NameTypeTextBox.Text;
+                int price = int.Parse(TypePriceTextBox.Text);
+                string description = TypeDescriptionTextBox.Text;
+
+                TIPOLOGIE tipologia = new TIPOLOGIE
+                {
+                    Nome = name,
+                    Prezzo = price,
+                    Descrizione = description
+                };
+
+                db.TIPOLOGIEs.InsertOnSubmit(tipologia);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll();
+        }
+
+        /// <summary>
+        /// Add a new deck inside the database.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void AddDeckBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                string name = ShipNameDeckComboBox.Text;
+                int numOfDecks = int.Parse(DecksNumTextBox.Text);
+
+                for (; numOfDecks > 0; numOfDecks--)
+                {
+                    PONTI ponto = new PONTI
+                    {
+                        NomeNave = name,
+                        Numero = numOfDecks
+                    };
+
+                    db.PONTIs.InsertOnSubmit(ponto);
+                }
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ClearAll();
+        }
     }
 }
