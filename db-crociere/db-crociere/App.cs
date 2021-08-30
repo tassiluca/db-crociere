@@ -231,5 +231,10 @@ namespace db_crociere
             }
         }
 
+        private void AddPathBtn_Click(object sender, EventArgs e)
+        {
+            AddNavigationPopup AddNavigationPopup_Window = new AddNavigationPopup(db);
+            AddNavigationPopup_Window.ShowDialog(this);
+        }
     }
 }

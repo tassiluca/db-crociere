@@ -81,6 +81,8 @@ namespace db_crociere
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.RankPathGridView = new System.Windows.Forms.DataGridView();
             this.TEST = new System.Windows.Forms.Button();
+            this.AddPathBtn = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -332,6 +334,8 @@ namespace db_crociere
             // 
             this.InfoPathBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoPathBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.InfoPathBox.Controls.Add(this.button2);
+            this.InfoPathBox.Controls.Add(this.AddPathBtn);
             this.InfoPathBox.Controls.Add(this.SectionsGridView);
             this.InfoPathBox.Controls.Add(this.tableLayoutPanel2);
             this.InfoPathBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -369,7 +373,7 @@ namespace db_crociere
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(501, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(366, 60);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // DurationLabel
@@ -379,7 +383,7 @@ namespace db_crociere
             this.DurationLabel.AutoSize = true;
             this.DurationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DurationLabel.ForeColor = System.Drawing.Color.Black;
-            this.DurationLabel.Location = new System.Drawing.Point(216, 30);
+            this.DurationLabel.Location = new System.Drawing.Point(158, 30);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(87, 30);
             this.DurationLabel.TabIndex = 9;
@@ -393,7 +397,7 @@ namespace db_crociere
             this.PathCodeLabel.AutoSize = true;
             this.PathCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PathCodeLabel.ForeColor = System.Drawing.Color.Black;
-            this.PathCodeLabel.Location = new System.Drawing.Point(216, 0);
+            this.PathCodeLabel.Location = new System.Drawing.Point(158, 0);
             this.PathCodeLabel.Name = "PathCodeLabel";
             this.PathCodeLabel.Size = new System.Drawing.Size(87, 30);
             this.PathCodeLabel.TabIndex = 8;
@@ -751,7 +755,7 @@ namespace db_crociere
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(508, 318);
+            this.chart1.Location = new System.Drawing.Point(512, 303);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -779,6 +783,37 @@ namespace db_crociere
             this.TEST.Text = "test";
             this.TEST.UseVisualStyleBackColor = true;
             this.TEST.Click += new System.EventHandler(this.RankingPath);
+            // 
+            // AddPathBtn
+            // 
+            this.AddPathBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddPathBtn.Location = new System.Drawing.Point(404, 19);
+            this.AddPathBtn.MinimumSize = new System.Drawing.Size(35, 28);
+            this.AddPathBtn.Name = "AddPathBtn";
+            this.AddPathBtn.Size = new System.Drawing.Size(103, 30);
+            this.AddPathBtn.TabIndex = 2;
+            this.AddPathBtn.Text = "AGGIUNGI";
+            this.AddPathBtn.UseVisualStyleBackColor = false;
+            this.AddPathBtn.Click += new System.EventHandler(this.AddPathBtn_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(404, 51);
+            this.button2.MinimumSize = new System.Drawing.Size(35, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "RIMUOVI";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // App
             // 
@@ -876,5 +911,7 @@ namespace db_crociere
         private System.Windows.Forms.DataGridView RankPathGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button TEST;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddPathBtn;
     }
 }
