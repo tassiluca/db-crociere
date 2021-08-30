@@ -81,5 +81,45 @@ namespace db_crociere
             }
             Utilities.ClearAll(this);
         }
+
+        /// <summary>
+        /// Inserts a new expense to the database.
+        /// </summary>
+        /// <param name="control">The control visual representation.</param>
+        /// <param name="type">The type of the control.</param>
+        private void AddExpenseBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                int badge = int.Parse(BadgeIdTextBox.Text);
+                var booking = (from b in db.BADGEs
+                               where b.CodBadge == badge
+                               select b.CodPrenotazione).First();
+                DateTime date = DateExpensePicker.Value.Date;
+                int amount = int.Parse(AmountExpenseTextBox.Text);
+                string infos = InfosTextBox.Text;
+
+                SPESE_EXTRA spesa = new SPESE_EXTRA
+                {
+                    CodBadge = badge,
+                    CodPrenotazione = booking,
+                    DataSpesa = date,
+                    Importo = amount,
+                    Descrizione = infos
+                };
+
+                db.SPESE_EXTRAs.InsertOnSubmit(spesa);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Utilities.ClearAll(this);
+        }
     }
 }

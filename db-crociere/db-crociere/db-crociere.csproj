@@ -64,6 +64,12 @@
     <Compile Include="AddShipPopup.Designer.cs">
       <DependentUpon>AddShipPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNavigationPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNavigationPopup.Designer.cs">
+      <DependentUpon>AddNavigationPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="DataClassesDBCrociere.designer.cs">
       <AutoGen>True</AutoGen>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddExpensesPopup.resx">
       <DependentUpon>AddExpensesPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNavigationPopup.resx">
+      <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPrenPopup.resx">
       <DependentUpon>AddPrenPopup.cs</DependentUpon>

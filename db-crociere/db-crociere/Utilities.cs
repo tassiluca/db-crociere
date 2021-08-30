@@ -35,6 +35,10 @@ namespace db_crociere
             {
                 elem.Clear();
             }
+            foreach (RichTextBox elem in GetAll(control, typeof(RichTextBox)))
+            {
+                elem.Clear();
+            }
             foreach (ComboBox elem in GetAll(control, typeof(ComboBox)))
             {
                 elem.SelectedIndex = -1;
