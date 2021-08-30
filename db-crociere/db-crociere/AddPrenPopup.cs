@@ -154,6 +154,7 @@ namespace db_crociere
                                       sbarcoDate = est.Arrivo_Data,
                                       sbarcoTime = est.Arrivo_Ora
                                   };
+            
             Console.WriteLine(dateTimeSbarco.Count() +  "trovati");
             foreach (var elem in dateTimeSbarco) {
                 Console.WriteLine(" "+ elem.sbarcoDate + " " + elem .sbarcoTime);
@@ -183,7 +184,15 @@ namespace db_crociere
                     Nazionalità = country,
                     Passaporto = passportId
                 };
-                passengersDict.Add(passeggero.CodiceFiscale, passeggero);
+
+                if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
+                {
+                    var msg = "Tutti is campi devono essere compilati!";
+                    MessageBox.Show(msg, "ERRORE");                    
+                }
+                else { 
+                    passengersDict.Add(passeggero.CodiceFiscale, passeggero);                
+                }
                 ClearPassengerFields();
             }
             else {
@@ -195,7 +204,29 @@ namespace db_crociere
             db.SubmitChanges();
             ClearPassengerFields();
             */
-            passengerList.DataSource = passengersDict.Keys.ToList() ;
+            updatePassgListBox();
+        }
+
+        private Boolean isPersonAlreadyInPren(String CFpers)
+        {
+            var pasngInPren = from prenPass in db.PRENOTAZIONI_PASSEGGERIs
+                              from pren in db.PRENOTAZIONIs
+                              where prenPass.CodiceFiscale == CFpers
+                              && pren.CodPrenotazione == prenPass.CodPrenotazione
+                              && pren.DataOraImbarco >= prenot.DataOraImbarco
+                              && pren.DataOraSbarco <= prenot.DataOraSbarco
+                              select new { 
+                                codFiscale = prenPass.CodiceFiscale,
+                                dataImbarco = pren.DataOraImbarco,
+                                dataSbarco = pren.DataOraSbarco,
+                              };
+            return pasngInPren.Count()>0;
+        }
+
+        private void updatePassgListBox()
+        {
+            numPassgInfo.Text = passengersDict.Keys.Count().ToString();
+            passengerList.DataSource = passengersDict.Keys.ToList();
         }
 
         private void ClearPassengerFields()
@@ -213,7 +244,9 @@ namespace db_crociere
             if (toDelete.Length > 0) {
                 passengersDict.Remove(toDelete);
             }
-            passengerList.DataSource = passengersDict.Keys.ToList();
+            updatePassgListBox();
+            
         }
+
     }
 }

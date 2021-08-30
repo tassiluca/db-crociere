@@ -42,8 +42,8 @@ namespace db_crociere
             this.labelDatePren = new System.Windows.Forms.Label();
             this.dateSbarcoBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.passengerFormLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.passengerList = new System.Windows.Forms.ListBox();
+            this.passengerFormLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.codFiscaletextBox = new System.Windows.Forms.TextBox();
@@ -61,6 +61,9 @@ namespace db_crociere
             this.passportIDBox = new System.Windows.Forms.TextBox();
             this.AddPassengerBtn = new System.Windows.Forms.Button();
             this.delPassengerBtn = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numPassgLabel = new System.Windows.Forms.Label();
+            this.numPassgInfo = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +79,7 @@ namespace db_crociere
             // 
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel3);
             this.flowLayoutPanel4.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel4.Controls.Add(this.groupBox2);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 12);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -90,7 +94,7 @@ namespace db_crociere
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
             this.tableLayoutPanel3.Controls.Add(this.sbarcoLabel, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.labelStartPortPren, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelNavPren, 2, 0);
@@ -113,7 +117,7 @@ namespace db_crociere
             // 
             this.sbarcoLabel.AutoSize = true;
             this.sbarcoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sbarcoLabel.Location = new System.Drawing.Point(235, 28);
+            this.sbarcoLabel.Location = new System.Drawing.Point(233, 28);
             this.sbarcoLabel.Name = "sbarcoLabel";
             this.sbarcoLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.sbarcoLabel.Size = new System.Drawing.Size(81, 20);
@@ -124,7 +128,7 @@ namespace db_crociere
             // 
             this.labelStartPortPren.AutoSize = true;
             this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStartPortPren.Location = new System.Drawing.Point(565, 0);
+            this.labelStartPortPren.Location = new System.Drawing.Point(563, 0);
             this.labelStartPortPren.Name = "labelStartPortPren";
             this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.labelStartPortPren.Size = new System.Drawing.Size(49, 28);
@@ -135,7 +139,7 @@ namespace db_crociere
             // 
             this.labelNavPren.AutoSize = true;
             this.labelNavPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNavPren.Location = new System.Drawing.Point(235, 0);
+            this.labelNavPren.Location = new System.Drawing.Point(233, 0);
             this.labelNavPren.Name = "labelNavPren";
             this.labelNavPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.labelNavPren.Size = new System.Drawing.Size(121, 20);
@@ -145,9 +149,9 @@ namespace db_crociere
             // pathSelPren
             // 
             this.pathSelPren.FormattingEnabled = true;
-            this.pathSelPren.Location = new System.Drawing.Point(84, 3);
+            this.pathSelPren.Location = new System.Drawing.Point(83, 3);
             this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(145, 21);
+            this.pathSelPren.Size = new System.Drawing.Size(144, 21);
             this.pathSelPren.TabIndex = 3;
             this.pathSelPren.Text = "Percorso";
             this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.updateNavigationListSelector);
@@ -166,7 +170,7 @@ namespace db_crociere
             // navPeriodSelector
             // 
             this.navPeriodSelector.FormattingEnabled = true;
-            this.navPeriodSelector.Location = new System.Drawing.Point(366, 3);
+            this.navPeriodSelector.Location = new System.Drawing.Point(364, 3);
             this.navPeriodSelector.Name = "navPeriodSelector";
             this.navPeriodSelector.Size = new System.Drawing.Size(180, 21);
             this.navPeriodSelector.TabIndex = 1;
@@ -176,7 +180,7 @@ namespace db_crociere
             // portSelPren
             // 
             this.portSelPren.FormattingEnabled = true;
-            this.portSelPren.Location = new System.Drawing.Point(626, 3);
+            this.portSelPren.Location = new System.Drawing.Point(624, 3);
             this.portSelPren.Name = "portSelPren";
             this.portSelPren.Size = new System.Drawing.Size(135, 21);
             this.portSelPren.TabIndex = 4;
@@ -186,7 +190,7 @@ namespace db_crociere
             // startDateSelPren
             // 
             this.startDateSelPren.FormattingEnabled = true;
-            this.startDateSelPren.Location = new System.Drawing.Point(84, 31);
+            this.startDateSelPren.Location = new System.Drawing.Point(83, 31);
             this.startDateSelPren.Name = "startDateSelPren";
             this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
             this.startDateSelPren.TabIndex = 5;
@@ -206,7 +210,7 @@ namespace db_crociere
             // 
             // dateSbarcoBox
             // 
-            this.dateSbarcoBox.Location = new System.Drawing.Point(366, 31);
+            this.dateSbarcoBox.Location = new System.Drawing.Point(364, 31);
             this.dateSbarcoBox.Name = "dateSbarcoBox";
             this.dateSbarcoBox.ReadOnly = true;
             this.dateSbarcoBox.Size = new System.Drawing.Size(112, 20);
@@ -214,14 +218,24 @@ namespace db_crociere
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numPassgInfo);
+            this.groupBox1.Controls.Add(this.numPassgLabel);
             this.groupBox1.Controls.Add(this.passengerList);
             this.groupBox1.Controls.Add(this.passengerFormLayout);
             this.groupBox1.Location = new System.Drawing.Point(3, 97);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(614, 329);
+            this.groupBox1.Size = new System.Drawing.Size(455, 329);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Passeggeri";
+            // 
+            // passengerList
+            // 
+            this.passengerList.FormattingEnabled = true;
+            this.passengerList.Location = new System.Drawing.Point(274, 20);
+            this.passengerList.Name = "passengerList";
+            this.passengerList.Size = new System.Drawing.Size(176, 264);
+            this.passengerList.TabIndex = 3;
             // 
             // passengerFormLayout
             // 
@@ -234,16 +248,8 @@ namespace db_crociere
             this.passengerFormLayout.Controls.Add(this.delPassengerBtn);
             this.passengerFormLayout.Location = new System.Drawing.Point(0, 19);
             this.passengerFormLayout.Name = "passengerFormLayout";
-            this.passengerFormLayout.Size = new System.Drawing.Size(291, 310);
+            this.passengerFormLayout.Size = new System.Drawing.Size(270, 310);
             this.passengerFormLayout.TabIndex = 0;
-            // 
-            // passengerList
-            // 
-            this.passengerList.FormattingEnabled = true;
-            this.passengerList.Location = new System.Drawing.Point(301, 21);
-            this.passengerList.Name = "passengerList";
-            this.passengerList.Size = new System.Drawing.Size(307, 303);
-            this.passengerList.TabIndex = 3;
             // 
             // flowLayoutPanel1
             // 
@@ -251,7 +257,7 @@ namespace db_crociere
             this.flowLayoutPanel1.Controls.Add(this.codFiscaletextBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(288, 24);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 24);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label1
@@ -279,7 +285,7 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.nameBox);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 33);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(288, 24);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(262, 24);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // label2
@@ -307,7 +313,7 @@ namespace db_crociere
             this.flowLayoutPanel3.Controls.Add(this.surnameBox);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 63);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(288, 24);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(262, 24);
             this.flowLayoutPanel3.TabIndex = 4;
             // 
             // label3
@@ -335,7 +341,7 @@ namespace db_crociere
             this.flowLayoutPanel5.Controls.Add(this.countryBox);
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 93);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(288, 24);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(262, 24);
             this.flowLayoutPanel5.TabIndex = 5;
             // 
             // label4
@@ -363,7 +369,7 @@ namespace db_crociere
             this.flowLayoutPanel6.Controls.Add(this.passportIDBox);
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 123);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(288, 24);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(262, 24);
             this.flowLayoutPanel6.TabIndex = 6;
             // 
             // label5
@@ -405,6 +411,33 @@ namespace db_crociere
             this.delPassengerBtn.UseVisualStyleBackColor = true;
             this.delPassengerBtn.Click += new System.EventHandler(this.delPassengerBtn_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(464, 97);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(324, 329);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Camere";
+            // 
+            // numPassgLabel
+            // 
+            this.numPassgLabel.AutoSize = true;
+            this.numPassgLabel.Location = new System.Drawing.Point(274, 291);
+            this.numPassgLabel.Name = "numPassgLabel";
+            this.numPassgLabel.Size = new System.Drawing.Size(79, 13);
+            this.numPassgLabel.TabIndex = 4;
+            this.numPassgLabel.Text = "No. Passeggeri";
+            // 
+            // numPassgInfo
+            // 
+            this.numPassgInfo.Location = new System.Drawing.Point(360, 291);
+            this.numPassgInfo.Name = "numPassgInfo";
+            this.numPassgInfo.ReadOnly = true;
+            this.numPassgInfo.Size = new System.Drawing.Size(66, 20);
+            this.numPassgInfo.TabIndex = 5;
+            this.numPassgInfo.TextChanged += new System.EventHandler(this.numPassgInfo_TextChanged);
+            // 
             // AddPrenPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +451,7 @@ namespace db_crociere
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.passengerFormLayout.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -467,5 +501,8 @@ namespace db_crociere
         private System.Windows.Forms.TextBox passportIDBox;
         private System.Windows.Forms.Button AddPassengerBtn;
         private System.Windows.Forms.Button delPassengerBtn;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox numPassgInfo;
+        private System.Windows.Forms.Label numPassgLabel;
     }
 }
