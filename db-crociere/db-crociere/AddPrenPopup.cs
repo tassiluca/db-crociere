@@ -31,6 +31,7 @@ namespace db_crociere
             var path = from p in db.PERCORSIs
                         select p.CodPercorso;
             pathSelPren.DataSource = path;
+            Console.WriteLine("Percorsi caricati");
         }
         private void updateNavigationListSelector(object sender, EventArgs e)
         {
@@ -102,16 +103,16 @@ namespace db_crociere
                 {
                     DateTime imbDateTime = ps.imbDate + ps.imbTime;
                     
-                    if (portDates.ContainsKey(ps.portName))
+                    if (portDates.ContainsKey(ps.portCode))
                     {
-                        var updatedSet = portDates[ps.portName];
+                        var updatedSet = portDates[ps.portCode];
                         updatedSet.Add(imbDateTime);
-                        portDates[ps.portName]=updatedSet;
+                        portDates[ps.portCode]=updatedSet;
                     }
                     else {
                         var newSet = new HashSet<DateTime>();
                         newSet.Add(imbDateTime);
-                        portDates.Add(ps.portName,newSet);
+                        portDates.Add(ps.portCode,newSet);
                     }
                 }
             }
@@ -132,14 +133,15 @@ namespace db_crociere
 
         private void startDateSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dateSbarcoBox.Text = "";
             var dateTimeDeparture = startDateSelPren.SelectedItem.ToString();
             prenot.DataOraImbarco = DateTime.Parse(dateTimeDeparture);
 
             var selectedPeriod = navPeriodSelector.SelectedItem.ToString();
             Console.WriteLine("Data prossima per sbarco in porto scelto");
-            String str = "" +prenot.DataOraImbarco + prenot.CodNavigazione + prenot.CodPorto;
+            String str = "Imbarco " +prenot.DataOraImbarco + prenot.CodNavigazione + prenot.CodPorto;
             Console.WriteLine(str);
-             var dateTimeSbarco = from est in db.ESECUZIONI_TRATTAs
+             var dateTimeSbar = from est in db.ESECUZIONI_TRATTAs
                                   from t in db.TRATTEs
                                   //from port in db.PORTIs
                                   where est.CodNavigazione == prenot.CodNavigazione
@@ -150,16 +152,23 @@ namespace db_crociere
                                   select new
                                   {
                                       //portName = port.Città,
-                                      //portCode = port.CodPorto,
+                                      //portCode = t.CodPortoArrivo,
                                       sbarcoDate = est.Arrivo_Data,
                                       sbarcoTime = est.Arrivo_Ora
                                   };
-            
-            Console.WriteLine(dateTimeSbarco.Count() +  "trovati");
-            foreach (var elem in dateTimeSbarco) {
+            if (dateTimeSbar.Count() > 0)
+            {
+                var sbarDateTime = dateTimeSbar.First().sbarcoDate + dateTimeSbar.First().sbarcoTime;
+                dateSbarcoBox.Text = sbarDateTime.ToString();
+                prenot.DataOraSbarco = sbarDateTime;
+            }
+            else {
+                dateSbarcoBox.Text = "Assente";
+            }
+            Console.WriteLine(dateTimeSbar.Count() +  "trovati");
+            foreach (var elem in dateTimeSbar) {
                 Console.WriteLine(" "+ elem.sbarcoDate + " " + elem .sbarcoTime);
             }
-            //TODO CAPIRE PERCHè CON LA QUERY NON OTTENGO NULLA, CON SQL SERVER RESTITUISCE INVECE
 
         }
 
@@ -187,7 +196,7 @@ namespace db_crociere
 
                 if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
                 {
-                    var msg = "Tutti is campi devono essere compilati!";
+                    var msg = "Passeggero già presente in una altra prenotazione in qiesto periodo";
                     MessageBox.Show(msg, "ERRORE");                    
                 }
                 else { 
@@ -209,6 +218,8 @@ namespace db_crociere
 
         private Boolean isPersonAlreadyInPren(String CFpers)
         {
+            //constraint 1 check: Non possono esserci due prenotazioni distinte inerenti
+            //allo stesso passeggero nello stesso periodo (incluse le date comprese)
             var pasngInPren = from prenPass in db.PRENOTAZIONI_PASSEGGERIs
                               from pren in db.PRENOTAZIONIs
                               where prenPass.CodiceFiscale == CFpers
@@ -248,5 +259,9 @@ namespace db_crociere
             
         }
 
+        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
