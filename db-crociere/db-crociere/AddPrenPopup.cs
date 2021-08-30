@@ -118,6 +118,8 @@ namespace db_crociere
             }
             else {
                 portSelPren.Text = "Nessuna Tratta";
+                startDateSelPren.Text = "Nessuna Data";
+                startDateSelPren.DataSource = new List<String>();
                 Console.WriteLine("Nessun tratta trovata per la navigazione(periodo) "+ selectedPeriod);
             }
             
