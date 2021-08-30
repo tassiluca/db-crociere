@@ -28,3 +28,10 @@ VALUES('MED01', 5, 1),
 
 INSERT INTO NAVIGAZIONI(NomeNave, DataInizio, DataFine, NumeroEsecuzioni, CodPercorso)
 VALUES('Bellissima', '17-07-2021', '23-08-2021', 25, 'MED01');
+
+INSERT INTO PAGAMENTI(DataPagamento, Importo)
+VALUES('28-08-2021', 1500);
+
+INSERT INTO PRENOTAZIONI(CodTransazione, DataEffettuazione, DataOraImbarco, DataOraSbarco, Trattamento, NumeroPasseggeri, CodNavigazione, CodPorto)
+VALUES(1, '28-08-2021', '30-08-2021 18:00', '15-09-2021 08:00', 'All-Inclusive', 5, 8, 'BAR');
+
