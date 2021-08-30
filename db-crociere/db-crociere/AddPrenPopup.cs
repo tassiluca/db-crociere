@@ -12,6 +12,7 @@ namespace db_crociere
 {
     public partial class AddPrenPopup : Form
     {
+        private static String ASSENT_DATETIME = "00/00/00";
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
@@ -22,10 +23,17 @@ namespace db_crociere
         {
             db = dbDataContext;
             prenot = new PRENOTAZIONI();
+            prenot.DataEffettuazione = DateTime.Now;
             passengersDict = new Dictionary<String, PASSEGGERI>();
             InitializeComponent();
+            updateRoomListBox();
         }
 
+        /// <summary>
+        /// Get all path from db and update ListBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPrenPopup_Load(object sender, EventArgs e)
         {
             var path = from p in db.PERCORSIs
@@ -33,6 +41,12 @@ namespace db_crociere
             pathSelPren.DataSource = path;
             Console.WriteLine("Percorsi caricati");
         }
+        /// <summary>
+        /// After path selection, update navigation's ListBox with avaiable navigation
+        /// for the path selected before
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateNavigationListSelector(object sender, EventArgs e)
         {
             //path selected
@@ -69,6 +83,14 @@ namespace db_crociere
 
             navPeriodSelector.DataSource = navDateMap.Keys.ToList();
         }
+
+        /// <summary>
+        /// Navigation selected. Update port ListBox with the avaiable port
+        /// in the selected navigation and path.
+        /// Port and relative dateTime departures are saved in portDates
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updatePortSelectorList(object sender, EventArgs e)
         {
             //navigation selected
@@ -126,6 +148,13 @@ namespace db_crociere
             portSelPren.DataSource = portDates.Keys.ToList();
 
         }
+
+        /// <summary>
+        /// Port selected. Update ListBox with avaiable dateTime for departure
+        /// in selected navigation and path
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateDateTimeSelector(object sender, EventArgs e)
         {
             //starting port selected
@@ -133,6 +162,13 @@ namespace db_crociere
             startDateSelPren.DataSource = portDates[prenot.CodPorto].ToList();
         }
 
+        /// <summary>
+        /// DateTime departure selected. This method calculate and update label tha show
+        /// date and time of the end of passenger trip.
+        /// The first date avaiable (in the same port of departure) after the departure date is selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startDateSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
             dateSbarcoBox.Text = "";
@@ -166,6 +202,7 @@ namespace db_crociere
             }
             else {
                 dateSbarcoBox.Text = "Assente";
+                prenot.DataOraSbarco = DateTime.Parse(ASSENT_DATETIME);
             }
             Console.WriteLine(dateTimeSbar.Count() +  "trovati");
             foreach (var elem in dateTimeSbar) {
@@ -174,6 +211,11 @@ namespace db_crociere
 
         }
 
+        /// <summary>
+        /// Get all the information of passenger for the period and dateTime selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddPassengerBtn_Click(object sender, EventArgs e)
         {
             var CF = codFiscaletextBox.Text;
@@ -185,8 +227,7 @@ namespace db_crociere
             if (CF.Length != 0 && name.Length != 0 && surname.Length != 0
                 && country.Length != 0 && passportId.Length != 0)
             {
-
-                /* Inserimento di un passeggero */
+                /* Passenegr insert */
                 PASSEGGERI passeggero = new PASSEGGERI
                 {
                     CodiceFiscale = CF,
@@ -195,10 +236,10 @@ namespace db_crociere
                     Nazionalità = country,
                     Passaporto = passportId
                 };
-
+                //check if passenger has already booked in the same period and path
                 if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
                 {
-                    var msg = "Passeggero già presente in una altra prenotazione in qiesto periodo";
+                    var msg = "Passeggero già presente in una altra prenotazione in questo periodo";
                     MessageBox.Show(msg, "ERRORE");                    
                 }
                 else { 
@@ -261,9 +302,23 @@ namespace db_crociere
             
         }
 
-        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        private void numRoomUpDownSel_ValueChanged(object sender, EventArgs e)
         {
+            var numRooms = numRoomUpDownSel.Value;
 
+        }
+
+        private void updateRoomListBox()
+        {
+            roomPositionSel.DataSource = (from room in db.CABINEs
+                                         select room.Posizione).Distinct();
+            roomTypeSelector.DataSource = (from room in db.CABINEs
+                                           select room.NomeTipologia).Distinct();
+        }
+
+        private void treatmentField_TextChanged(object sender, EventArgs e)
+        {
+            prenot.Trattamento = treatmentField.Text;
         }
     }
 }

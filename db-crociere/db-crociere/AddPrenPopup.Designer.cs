@@ -30,14 +30,28 @@ namespace db_crociere
         private void InitializeComponent()
         {
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.sbarcoLabel = new System.Windows.Forms.Label();
-            this.labelStartPortPren = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelPren = new System.Windows.Forms.Label();
+            this.pathSelPren = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelNavPren = new System.Windows.Forms.Label();
             this.navPeriodSelector = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelStartPortPren = new System.Windows.Forms.Label();
             this.portSelPren = new System.Windows.Forms.ComboBox();
-            this.startDateSelPren = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelDatePren = new System.Windows.Forms.Label();
+            this.startDateSelPren = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
+            this.sbarcoLabel = new System.Windows.Forms.Label();
             this.dateSbarcoBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.treatmentLabel = new System.Windows.Forms.Label();
+            this.treatmentField = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.numPassgInfo = new System.Windows.Forms.TextBox();
             this.numPassgLabel = new System.Windows.Forms.Label();
@@ -58,24 +72,37 @@ namespace db_crociere
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.passportIDBox = new System.Windows.Forms.TextBox();
-            this.AddPassengerBtn = new System.Windows.Forms.Button();
-            this.delPassengerBtn = new System.Windows.Forms.Button();
-            this.boxPathAndDate = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pathSelPren = new System.Windows.Forms.ComboBox();
-            this.labelPren = new System.Windows.Forms.Label();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
             this.payCardLabel = new System.Windows.Forms.Label();
             this.payCardField = new System.Windows.Forms.TextBox();
+            this.AddPassengerBtn = new System.Windows.Forms.Button();
+            this.delPassengerBtn = new System.Windows.Forms.Button();
+            this.boxPathAndDate = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutRooms = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
+            this.numRoomLabel = new System.Windows.Forms.Label();
+            this.numRoomUpDownSel = new System.Windows.Forms.NumericUpDown();
+            this.flowLayoutPanel17 = new System.Windows.Forms.FlowLayoutPanel();
+            this.roomTypeSelLabel = new System.Windows.Forms.Label();
+            this.roomTypeSelector = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
+            this.posRoomLabel = new System.Windows.Forms.Label();
+            this.roomPositionSel = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
+            this.roomListBox = new System.Windows.Forms.ListBox();
+            this.delRoomBtn = new System.Windows.Forms.Button();
+            this.addRoomBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.flowLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
+            this.flowLayoutPanel11.SuspendLayout();
+            this.flowLayoutPanel15.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.passengerFormLayout.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -83,15 +110,15 @@ namespace db_crociere
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
-            this.flowLayoutPanel11.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel13.SuspendLayout();
             this.flowLayoutPanel14.SuspendLayout();
+            this.boxPathAndDate.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutRooms.SuspendLayout();
+            this.flowLayoutPanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRoomUpDownSel)).BeginInit();
+            this.flowLayoutPanel17.SuspendLayout();
+            this.flowLayoutPanel18.SuspendLayout();
+            this.flowLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel4
@@ -104,29 +131,81 @@ namespace db_crociere
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.flowLayoutPanel4.Size = new System.Drawing.Size(824, 482);
             this.flowLayoutPanel4.TabIndex = 3;
-            this.flowLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel4_Paint);
             // 
-            // sbarcoLabel
+            // tableLayoutPanel1
             // 
-            this.sbarcoLabel.AutoSize = true;
-            this.sbarcoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sbarcoLabel.Location = new System.Drawing.Point(3, 0);
-            this.sbarcoLabel.Name = "sbarcoLabel";
-            this.sbarcoLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.sbarcoLabel.Size = new System.Drawing.Size(81, 20);
-            this.sbarcoLabel.TabIndex = 10;
-            this.sbarcoLabel.Text = "Data Sbarco: ";
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 8);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 97);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // labelStartPortPren
+            // groupBox4
             // 
-            this.labelStartPortPren.AutoSize = true;
-            this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStartPortPren.Location = new System.Drawing.Point(3, 0);
-            this.labelStartPortPren.Name = "labelStartPortPren";
-            this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.labelStartPortPren.Size = new System.Drawing.Size(88, 20);
-            this.labelStartPortPren.TabIndex = 8;
-            this.labelStartPortPren.Text = "Porto Partenza";
+            this.groupBox4.Controls.Add(this.flowLayoutPanel13);
+            this.groupBox4.Controls.Add(this.flowLayoutPanel12);
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(815, 91);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Percorso e data";
+            // 
+            // flowLayoutPanel13
+            // 
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel7);
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel8);
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel9);
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel10);
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel11);
+            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel15);
+            this.flowLayoutPanel13.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
+            this.flowLayoutPanel13.Size = new System.Drawing.Size(809, 66);
+            this.flowLayoutPanel13.TabIndex = 5;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.labelPren);
+            this.flowLayoutPanel7.Controls.Add(this.pathSelPren);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(215, 28);
+            this.flowLayoutPanel7.TabIndex = 0;
+            // 
+            // labelPren
+            // 
+            this.labelPren.AutoSize = true;
+            this.labelPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPren.Location = new System.Drawing.Point(3, 0);
+            this.labelPren.Name = "labelPren";
+            this.labelPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelPren.Size = new System.Drawing.Size(56, 20);
+            this.labelPren.TabIndex = 8;
+            this.labelPren.Text = "Percorso";
+            // 
+            // pathSelPren
+            // 
+            this.pathSelPren.FormattingEnabled = true;
+            this.pathSelPren.Location = new System.Drawing.Point(65, 3);
+            this.pathSelPren.Name = "pathSelPren";
+            this.pathSelPren.Size = new System.Drawing.Size(143, 21);
+            this.pathSelPren.TabIndex = 7;
+            this.pathSelPren.Text = "Percorso";
+            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.updateNavigationListSelector);
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.Controls.Add(this.labelNavPren);
+            this.flowLayoutPanel8.Controls.Add(this.navPeriodSelector);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(224, 3);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(318, 25);
+            this.flowLayoutPanel8.TabIndex = 1;
             // 
             // labelNavPren
             // 
@@ -149,6 +228,26 @@ namespace db_crociere
             this.navPeriodSelector.Text = "Navigazione";
             this.navPeriodSelector.SelectedIndexChanged += new System.EventHandler(this.updatePortSelectorList);
             // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.labelStartPortPren);
+            this.flowLayoutPanel9.Controls.Add(this.portSelPren);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(548, 3);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(249, 28);
+            this.flowLayoutPanel9.TabIndex = 2;
+            // 
+            // labelStartPortPren
+            // 
+            this.labelStartPortPren.AutoSize = true;
+            this.labelStartPortPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStartPortPren.Location = new System.Drawing.Point(3, 0);
+            this.labelStartPortPren.Name = "labelStartPortPren";
+            this.labelStartPortPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelStartPortPren.Size = new System.Drawing.Size(88, 20);
+            this.labelStartPortPren.TabIndex = 8;
+            this.labelStartPortPren.Text = "Porto Partenza";
+            // 
             // portSelPren
             // 
             this.portSelPren.FormattingEnabled = true;
@@ -159,15 +258,14 @@ namespace db_crociere
             this.portSelPren.Text = "Porto Partenza";
             this.portSelPren.SelectedIndexChanged += new System.EventHandler(this.updateDateTimeSelector);
             // 
-            // startDateSelPren
+            // flowLayoutPanel10
             // 
-            this.startDateSelPren.FormattingEnabled = true;
-            this.startDateSelPren.Location = new System.Drawing.Point(94, 3);
-            this.startDateSelPren.Name = "startDateSelPren";
-            this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
-            this.startDateSelPren.TabIndex = 5;
-            this.startDateSelPren.Text = "Data Partenza";
-            this.startDateSelPren.SelectedIndexChanged += new System.EventHandler(this.startDateSelPren_SelectedIndexChanged);
+            this.flowLayoutPanel10.Controls.Add(this.labelDatePren);
+            this.flowLayoutPanel10.Controls.Add(this.startDateSelPren);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 37);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(222, 26);
+            this.flowLayoutPanel10.TabIndex = 3;
             // 
             // labelDatePren
             // 
@@ -180,6 +278,36 @@ namespace db_crociere
             this.labelDatePren.TabIndex = 9;
             this.labelDatePren.Text = "Data Partenza";
             // 
+            // startDateSelPren
+            // 
+            this.startDateSelPren.FormattingEnabled = true;
+            this.startDateSelPren.Location = new System.Drawing.Point(94, 3);
+            this.startDateSelPren.Name = "startDateSelPren";
+            this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
+            this.startDateSelPren.TabIndex = 5;
+            this.startDateSelPren.Text = "Data Partenza";
+            this.startDateSelPren.SelectedIndexChanged += new System.EventHandler(this.startDateSelPren_SelectedIndexChanged);
+            // 
+            // flowLayoutPanel11
+            // 
+            this.flowLayoutPanel11.Controls.Add(this.sbarcoLabel);
+            this.flowLayoutPanel11.Controls.Add(this.dateSbarcoBox);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(231, 37);
+            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
+            this.flowLayoutPanel11.Size = new System.Drawing.Size(209, 24);
+            this.flowLayoutPanel11.TabIndex = 4;
+            // 
+            // sbarcoLabel
+            // 
+            this.sbarcoLabel.AutoSize = true;
+            this.sbarcoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sbarcoLabel.Location = new System.Drawing.Point(3, 0);
+            this.sbarcoLabel.Name = "sbarcoLabel";
+            this.sbarcoLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.sbarcoLabel.Size = new System.Drawing.Size(81, 20);
+            this.sbarcoLabel.TabIndex = 10;
+            this.sbarcoLabel.Text = "Data Sbarco: ";
+            // 
             // dateSbarcoBox
             // 
             this.dateSbarcoBox.Location = new System.Drawing.Point(90, 3);
@@ -187,6 +315,42 @@ namespace db_crociere
             this.dateSbarcoBox.ReadOnly = true;
             this.dateSbarcoBox.Size = new System.Drawing.Size(112, 20);
             this.dateSbarcoBox.TabIndex = 11;
+            // 
+            // flowLayoutPanel15
+            // 
+            this.flowLayoutPanel15.Controls.Add(this.treatmentLabel);
+            this.flowLayoutPanel15.Controls.Add(this.treatmentField);
+            this.flowLayoutPanel15.Location = new System.Drawing.Point(446, 37);
+            this.flowLayoutPanel15.Name = "flowLayoutPanel15";
+            this.flowLayoutPanel15.Size = new System.Drawing.Size(256, 26);
+            this.flowLayoutPanel15.TabIndex = 5;
+            // 
+            // treatmentLabel
+            // 
+            this.treatmentLabel.AutoSize = true;
+            this.treatmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treatmentLabel.Location = new System.Drawing.Point(3, 5);
+            this.treatmentLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.treatmentLabel.Name = "treatmentLabel";
+            this.treatmentLabel.Size = new System.Drawing.Size(73, 15);
+            this.treatmentLabel.TabIndex = 3;
+            this.treatmentLabel.Text = "Trattamento";
+            // 
+            // treatmentField
+            // 
+            this.treatmentField.Location = new System.Drawing.Point(82, 3);
+            this.treatmentField.MaxLength = 13;
+            this.treatmentField.Name = "treatmentField";
+            this.treatmentField.Size = new System.Drawing.Size(170, 20);
+            this.treatmentField.TabIndex = 4;
+            this.treatmentField.TextChanged += new System.EventHandler(this.treatmentField_TextChanged);
+            // 
+            // flowLayoutPanel12
+            // 
+            this.flowLayoutPanel12.Location = new System.Drawing.Point(333, 351);
+            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
+            this.flowLayoutPanel12.Size = new System.Drawing.Size(95, 92);
+            this.flowLayoutPanel12.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -196,7 +360,7 @@ namespace db_crociere
             this.groupBox1.Controls.Add(this.passengerFormLayout);
             this.groupBox1.Location = new System.Drawing.Point(3, 111);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 233);
+            this.groupBox1.Size = new System.Drawing.Size(419, 233);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Passeggeri";
@@ -206,7 +370,7 @@ namespace db_crociere
             this.numPassgInfo.Location = new System.Drawing.Point(361, 175);
             this.numPassgInfo.Name = "numPassgInfo";
             this.numPassgInfo.ReadOnly = true;
-            this.numPassgInfo.Size = new System.Drawing.Size(66, 20);
+            this.numPassgInfo.Size = new System.Drawing.Size(50, 20);
             this.numPassgInfo.TabIndex = 5;
             // 
             // numPassgLabel
@@ -223,7 +387,7 @@ namespace db_crociere
             this.passengerList.FormattingEnabled = true;
             this.passengerList.Location = new System.Drawing.Point(274, 20);
             this.passengerList.Name = "passengerList";
-            this.passengerList.Size = new System.Drawing.Size(157, 147);
+            this.passengerList.Size = new System.Drawing.Size(138, 147);
             this.passengerList.TabIndex = 3;
             // 
             // passengerFormLayout
@@ -381,143 +545,6 @@ namespace db_crociere
             this.passportIDBox.Size = new System.Drawing.Size(181, 20);
             this.passportIDBox.TabIndex = 3;
             // 
-            // AddPassengerBtn
-            // 
-            this.AddPassengerBtn.Location = new System.Drawing.Point(3, 183);
-            this.AddPassengerBtn.Name = "AddPassengerBtn";
-            this.AddPassengerBtn.Size = new System.Drawing.Size(75, 23);
-            this.AddPassengerBtn.TabIndex = 7;
-            this.AddPassengerBtn.Text = "Aggiungi";
-            this.AddPassengerBtn.UseVisualStyleBackColor = true;
-            this.AddPassengerBtn.Click += new System.EventHandler(this.AddPassengerBtn_Click);
-            // 
-            // delPassengerBtn
-            // 
-            this.delPassengerBtn.Location = new System.Drawing.Point(84, 183);
-            this.delPassengerBtn.Name = "delPassengerBtn";
-            this.delPassengerBtn.Size = new System.Drawing.Size(75, 23);
-            this.delPassengerBtn.TabIndex = 8;
-            this.delPassengerBtn.Text = "Rimuovi";
-            this.delPassengerBtn.UseVisualStyleBackColor = true;
-            this.delPassengerBtn.Click += new System.EventHandler(this.delPassengerBtn_Click);
-            // 
-            // boxPathAndDate
-            // 
-            this.boxPathAndDate.Location = new System.Drawing.Point(446, 111);
-            this.boxPathAndDate.Name = "boxPathAndDate";
-            this.boxPathAndDate.Size = new System.Drawing.Size(324, 329);
-            this.boxPathAndDate.TabIndex = 9;
-            this.boxPathAndDate.TabStop = false;
-            this.boxPathAndDate.Text = "Camere";
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Controls.Add(this.labelPren);
-            this.flowLayoutPanel7.Controls.Add(this.pathSelPren);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(215, 28);
-            this.flowLayoutPanel7.TabIndex = 0;
-            // 
-            // pathSelPren
-            // 
-            this.pathSelPren.FormattingEnabled = true;
-            this.pathSelPren.Location = new System.Drawing.Point(65, 3);
-            this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(143, 21);
-            this.pathSelPren.TabIndex = 7;
-            this.pathSelPren.Text = "Percorso";
-            this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.updateNavigationListSelector);
-            // 
-            // labelPren
-            // 
-            this.labelPren.AutoSize = true;
-            this.labelPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPren.Location = new System.Drawing.Point(3, 0);
-            this.labelPren.Name = "labelPren";
-            this.labelPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.labelPren.Size = new System.Drawing.Size(56, 20);
-            this.labelPren.TabIndex = 8;
-            this.labelPren.Text = "Percorso";
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Controls.Add(this.labelNavPren);
-            this.flowLayoutPanel8.Controls.Add(this.navPeriodSelector);
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(224, 3);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(318, 25);
-            this.flowLayoutPanel8.TabIndex = 1;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.labelStartPortPren);
-            this.flowLayoutPanel9.Controls.Add(this.portSelPren);
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(548, 3);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(249, 28);
-            this.flowLayoutPanel9.TabIndex = 2;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.labelDatePren);
-            this.flowLayoutPanel10.Controls.Add(this.startDateSelPren);
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 37);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(222, 26);
-            this.flowLayoutPanel10.TabIndex = 3;
-            // 
-            // flowLayoutPanel11
-            // 
-            this.flowLayoutPanel11.Controls.Add(this.sbarcoLabel);
-            this.flowLayoutPanel11.Controls.Add(this.dateSbarcoBox);
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(231, 37);
-            this.flowLayoutPanel11.Name = "flowLayoutPanel11";
-            this.flowLayoutPanel11.Size = new System.Drawing.Size(209, 24);
-            this.flowLayoutPanel11.TabIndex = 4;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.flowLayoutPanel13);
-            this.groupBox4.Controls.Add(this.flowLayoutPanel12);
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(815, 91);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Percorso e data";
-            // 
-            // flowLayoutPanel12
-            // 
-            this.flowLayoutPanel12.Location = new System.Drawing.Point(333, 351);
-            this.flowLayoutPanel12.Name = "flowLayoutPanel12";
-            this.flowLayoutPanel12.Size = new System.Drawing.Size(95, 92);
-            this.flowLayoutPanel12.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.groupBox4, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 8);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 97);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // flowLayoutPanel13
-            // 
-            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel8);
-            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel9);
-            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel10);
-            this.flowLayoutPanel13.Controls.Add(this.flowLayoutPanel11);
-            this.flowLayoutPanel13.Location = new System.Drawing.Point(6, 19);
-            this.flowLayoutPanel13.Name = "flowLayoutPanel13";
-            this.flowLayoutPanel13.Size = new System.Drawing.Size(809, 66);
-            this.flowLayoutPanel13.TabIndex = 5;
-            // 
             // flowLayoutPanel14
             // 
             this.flowLayoutPanel14.Controls.Add(this.payCardLabel);
@@ -546,6 +573,185 @@ namespace db_crociere
             this.payCardField.Size = new System.Drawing.Size(169, 20);
             this.payCardField.TabIndex = 3;
             // 
+            // AddPassengerBtn
+            // 
+            this.AddPassengerBtn.Location = new System.Drawing.Point(3, 183);
+            this.AddPassengerBtn.Name = "AddPassengerBtn";
+            this.AddPassengerBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddPassengerBtn.TabIndex = 7;
+            this.AddPassengerBtn.Text = "Aggiungi";
+            this.AddPassengerBtn.UseVisualStyleBackColor = true;
+            this.AddPassengerBtn.Click += new System.EventHandler(this.AddPassengerBtn_Click);
+            // 
+            // delPassengerBtn
+            // 
+            this.delPassengerBtn.Location = new System.Drawing.Point(84, 183);
+            this.delPassengerBtn.Name = "delPassengerBtn";
+            this.delPassengerBtn.Size = new System.Drawing.Size(75, 23);
+            this.delPassengerBtn.TabIndex = 8;
+            this.delPassengerBtn.Text = "Rimuovi";
+            this.delPassengerBtn.UseVisualStyleBackColor = true;
+            this.delPassengerBtn.Click += new System.EventHandler(this.delPassengerBtn_Click);
+            // 
+            // boxPathAndDate
+            // 
+            this.boxPathAndDate.Controls.Add(this.tableLayoutPanel2);
+            this.boxPathAndDate.Location = new System.Drawing.Point(428, 111);
+            this.boxPathAndDate.Name = "boxPathAndDate";
+            this.boxPathAndDate.Size = new System.Drawing.Size(392, 233);
+            this.boxPathAndDate.TabIndex = 9;
+            this.boxPathAndDate.TabStop = false;
+            this.boxPathAndDate.Text = "Camere";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutRooms, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel19, 0, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 19);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.64929F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.35071F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(392, 211);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // flowLayoutRooms
+            // 
+            this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel16);
+            this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel17);
+            this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel18);
+            this.flowLayoutRooms.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutRooms.Name = "flowLayoutRooms";
+            this.flowLayoutRooms.Size = new System.Drawing.Size(386, 64);
+            this.flowLayoutRooms.TabIndex = 1;
+            // 
+            // flowLayoutPanel16
+            // 
+            this.flowLayoutPanel16.Controls.Add(this.numRoomLabel);
+            this.flowLayoutPanel16.Controls.Add(this.numRoomUpDownSel);
+            this.flowLayoutPanel16.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel16.Name = "flowLayoutPanel16";
+            this.flowLayoutPanel16.Size = new System.Drawing.Size(143, 24);
+            this.flowLayoutPanel16.TabIndex = 0;
+            // 
+            // numRoomLabel
+            // 
+            this.numRoomLabel.AutoSize = true;
+            this.numRoomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numRoomLabel.Location = new System.Drawing.Point(3, 5);
+            this.numRoomLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.numRoomLabel.Name = "numRoomLabel";
+            this.numRoomLabel.Size = new System.Drawing.Size(73, 15);
+            this.numRoomLabel.TabIndex = 3;
+            this.numRoomLabel.Text = "No. Camere";
+            // 
+            // numRoomUpDownSel
+            // 
+            this.numRoomUpDownSel.Location = new System.Drawing.Point(82, 3);
+            this.numRoomUpDownSel.Name = "numRoomUpDownSel";
+            this.numRoomUpDownSel.Size = new System.Drawing.Size(54, 20);
+            this.numRoomUpDownSel.TabIndex = 0;
+            this.numRoomUpDownSel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numRoomUpDownSel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // flowLayoutPanel17
+            // 
+            this.flowLayoutPanel17.Controls.Add(this.roomTypeSelLabel);
+            this.flowLayoutPanel17.Controls.Add(this.roomTypeSelector);
+            this.flowLayoutPanel17.Location = new System.Drawing.Point(152, 3);
+            this.flowLayoutPanel17.Name = "flowLayoutPanel17";
+            this.flowLayoutPanel17.Size = new System.Drawing.Size(202, 26);
+            this.flowLayoutPanel17.TabIndex = 1;
+            // 
+            // roomTypeSelLabel
+            // 
+            this.roomTypeSelLabel.AutoSize = true;
+            this.roomTypeSelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomTypeSelLabel.Location = new System.Drawing.Point(3, 5);
+            this.roomTypeSelLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.roomTypeSelLabel.Name = "roomTypeSelLabel";
+            this.roomTypeSelLabel.Size = new System.Drawing.Size(58, 15);
+            this.roomTypeSelLabel.TabIndex = 3;
+            this.roomTypeSelLabel.Text = "Tipologia";
+            // 
+            // roomTypeSelector
+            // 
+            this.roomTypeSelector.FormattingEnabled = true;
+            this.roomTypeSelector.Location = new System.Drawing.Point(67, 3);
+            this.roomTypeSelector.Name = "roomTypeSelector";
+            this.roomTypeSelector.Size = new System.Drawing.Size(131, 21);
+            this.roomTypeSelector.TabIndex = 4;
+            // 
+            // flowLayoutPanel18
+            // 
+            this.flowLayoutPanel18.Controls.Add(this.posRoomLabel);
+            this.flowLayoutPanel18.Controls.Add(this.roomPositionSel);
+            this.flowLayoutPanel18.Location = new System.Drawing.Point(3, 35);
+            this.flowLayoutPanel18.Name = "flowLayoutPanel18";
+            this.flowLayoutPanel18.Size = new System.Drawing.Size(170, 25);
+            this.flowLayoutPanel18.TabIndex = 2;
+            // 
+            // posRoomLabel
+            // 
+            this.posRoomLabel.AutoSize = true;
+            this.posRoomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.posRoomLabel.Location = new System.Drawing.Point(3, 5);
+            this.posRoomLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.posRoomLabel.Name = "posRoomLabel";
+            this.posRoomLabel.Size = new System.Drawing.Size(61, 15);
+            this.posRoomLabel.TabIndex = 3;
+            this.posRoomLabel.Text = "Posizione";
+            // 
+            // roomPositionSel
+            // 
+            this.roomPositionSel.FormattingEnabled = true;
+            this.roomPositionSel.Location = new System.Drawing.Point(70, 3);
+            this.roomPositionSel.Name = "roomPositionSel";
+            this.roomPositionSel.Size = new System.Drawing.Size(96, 21);
+            this.roomPositionSel.TabIndex = 4;
+            // 
+            // flowLayoutPanel19
+            // 
+            this.flowLayoutPanel19.Controls.Add(this.roomListBox);
+            this.flowLayoutPanel19.Controls.Add(this.addRoomBtn);
+            this.flowLayoutPanel19.Controls.Add(this.delRoomBtn);
+            this.flowLayoutPanel19.Location = new System.Drawing.Point(3, 73);
+            this.flowLayoutPanel19.Name = "flowLayoutPanel19";
+            this.flowLayoutPanel19.Size = new System.Drawing.Size(386, 135);
+            this.flowLayoutPanel19.TabIndex = 2;
+            // 
+            // roomListBox
+            // 
+            this.roomListBox.FormattingEnabled = true;
+            this.roomListBox.Location = new System.Drawing.Point(3, 3);
+            this.roomListBox.Name = "roomListBox";
+            this.roomListBox.Size = new System.Drawing.Size(378, 95);
+            this.roomListBox.TabIndex = 0;
+            // 
+            // delRoomBtn
+            // 
+            this.delRoomBtn.Location = new System.Drawing.Point(84, 104);
+            this.delRoomBtn.Name = "delRoomBtn";
+            this.delRoomBtn.Size = new System.Drawing.Size(75, 24);
+            this.delRoomBtn.TabIndex = 1;
+            this.delRoomBtn.Text = "Rimuovi";
+            this.delRoomBtn.UseVisualStyleBackColor = true;
+            // 
+            // addRoomBtn
+            // 
+            this.addRoomBtn.Location = new System.Drawing.Point(3, 104);
+            this.addRoomBtn.Name = "addRoomBtn";
+            this.addRoomBtn.Size = new System.Drawing.Size(75, 23);
+            this.addRoomBtn.TabIndex = 2;
+            this.addRoomBtn.Text = "Aggiungi";
+            this.addRoomBtn.UseVisualStyleBackColor = true;
+            // 
             // AddPrenPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,6 +762,21 @@ namespace db_crociere
             this.Text = "Nuova Prenotazione";
             this.Load += new System.EventHandler(this.AddPrenPopup_Load);
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.flowLayoutPanel13.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
+            this.flowLayoutPanel10.PerformLayout();
+            this.flowLayoutPanel11.ResumeLayout(false);
+            this.flowLayoutPanel11.PerformLayout();
+            this.flowLayoutPanel15.ResumeLayout(false);
+            this.flowLayoutPanel15.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.passengerFormLayout.ResumeLayout(false);
@@ -569,21 +790,19 @@ namespace db_crociere
             this.flowLayoutPanel5.PerformLayout();
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
-            this.flowLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel7.PerformLayout();
-            this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel8.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
-            this.flowLayoutPanel11.ResumeLayout(false);
-            this.flowLayoutPanel11.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel13.ResumeLayout(false);
             this.flowLayoutPanel14.ResumeLayout(false);
             this.flowLayoutPanel14.PerformLayout();
+            this.boxPathAndDate.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutRooms.ResumeLayout(false);
+            this.flowLayoutPanel16.ResumeLayout(false);
+            this.flowLayoutPanel16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRoomUpDownSel)).EndInit();
+            this.flowLayoutPanel17.ResumeLayout(false);
+            this.flowLayoutPanel17.PerformLayout();
+            this.flowLayoutPanel18.ResumeLayout(false);
+            this.flowLayoutPanel18.PerformLayout();
+            this.flowLayoutPanel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -636,5 +855,23 @@ namespace db_crociere
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel14;
         private System.Windows.Forms.Label payCardLabel;
         private System.Windows.Forms.TextBox payCardField;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel15;
+        private System.Windows.Forms.Label treatmentLabel;
+        private System.Windows.Forms.TextBox treatmentField;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutRooms;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel16;
+        private System.Windows.Forms.Label numRoomLabel;
+        private System.Windows.Forms.NumericUpDown numRoomUpDownSel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel17;
+        private System.Windows.Forms.Label roomTypeSelLabel;
+        private System.Windows.Forms.ComboBox roomTypeSelector;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel18;
+        private System.Windows.Forms.Label posRoomLabel;
+        private System.Windows.Forms.ComboBox roomPositionSel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel19;
+        private System.Windows.Forms.ListBox roomListBox;
+        private System.Windows.Forms.Button delRoomBtn;
+        private System.Windows.Forms.Button addRoomBtn;
     }
 }
