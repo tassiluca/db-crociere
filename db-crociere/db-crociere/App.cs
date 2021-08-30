@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace db_crociere
 {
@@ -140,12 +141,6 @@ namespace db_crociere
             NavigationDropDownMenu_Click(sender, e);
         }
 
-        private void App_Load(object sender, EventArgs e)
-        {
-                       
-
-        }
-
         private void addPrenBtn_Click(object sender, EventArgs e)
         {
             AddPrenPopup AddPrenPopup_window = new AddPrenPopup(db);
@@ -193,5 +188,48 @@ namespace db_crociere
             AddExpensesPopup AddExpensesPopup_Window = new AddExpensesPopup(db);
             AddExpensesPopup_Window.ShowDialog(this);
         }
+
+        private void ShipNameComboBox_Click(object sender, EventArgs e)
+        {
+            var ships = from n in db.NAVIs
+                        select n.Nome;
+            ShipNameComboBox.DataSource = ships;
+        }
+
+        private void ShipNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var prices = from t in db.TARIFFARIs
+                         where t.NomeNave == ShipNameComboBox.Text
+                         select new
+                         {
+                             Tipologia = t.NomeTipologia,
+                             Data_Inizio = t.DataInizio,
+                             Data_Fine = t.DataFine,
+                             Prezzo = t.Prezzo
+                         };
+            PriceListGridView.DataSource = prices;
+        }
+
+        private void RankingPath(object sender, EventArgs e)
+        {
+            var rank = (from p in db.PRENOTAZIONIs
+                        from n in db.NAVIGAZIONIs
+                        where p.CodNavigazione == n.CodNavigazione &&
+                              p.DataEffettuazione.Year == DateTime.Now.Year
+                        group n by n.CodPercorso into paths
+                        select new
+                        {
+                            Percorso = paths.Key,
+                            Numero_Prenotazioni = paths.Count()
+                        }).OrderByDescending(p => p.Numero_Prenotazioni);
+            RankPathGridView.DataSource = rank;
+
+            foreach (var elem in rank)
+            {
+                Series series = this.chart1.Series.Add(elem.Percorso);
+                series.Points.Add(elem.Numero_Prenotazioni);
+            }
+        }
+
     }
 }
