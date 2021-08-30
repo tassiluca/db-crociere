@@ -187,5 +187,11 @@ namespace db_crociere
                 NavigationExecutionGridView.DataSource = exSecs;
             }
         }
+
+        private void AddExpensesBtn_Click(object sender, EventArgs e)
+        {
+            AddExpensesPopup AddExpensesPopup_Window = new AddExpensesPopup(db);
+            AddExpensesPopup_Window.ShowDialog(this);
+        }
     }
 }

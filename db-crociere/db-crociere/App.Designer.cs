@@ -69,6 +69,11 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.AddExpensesBtn = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,6 +96,9 @@ namespace db_crociere
             this.tableLayoutPanel2.SuspendLayout();
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -101,6 +109,8 @@ namespace db_crociere
             this.menuContainer.Controls.Add(this.bookingTab);
             this.menuContainer.Controls.Add(this.shipPage);
             this.menuContainer.Controls.Add(this.tabPage3);
+            this.menuContainer.Controls.Add(this.tabPage1);
+            this.menuContainer.Controls.Add(this.tabPage2);
             this.menuContainer.Location = new System.Drawing.Point(12, 12);
             this.menuContainer.Name = "menuContainer";
             this.menuContainer.SelectedIndex = 0;
@@ -651,13 +661,62 @@ namespace db_crociere
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.AddExpensesBtn);
+            this.tabPage3.Controls.Add(this.dataGridView2);
+            this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1079, 624);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tab3";
+            this.tabPage3.Text = "Spese";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1079, 624);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Personale";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1079, 624);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Attività";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 59);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(524, 245);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(536, 59);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(537, 245);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // AddExpensesBtn
+            // 
+            this.AddExpensesBtn.Location = new System.Drawing.Point(376, 380);
+            this.AddExpensesBtn.Name = "AddExpensesBtn";
+            this.AddExpensesBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddExpensesBtn.TabIndex = 2;
+            this.AddExpensesBtn.Text = "Aggiungi Spese / Tariffari";
+            this.AddExpensesBtn.UseVisualStyleBackColor = true;
+            this.AddExpensesBtn.Click += new System.EventHandler(this.AddExpensesBtn_Click);
             // 
             // App
             // 
@@ -696,6 +755,9 @@ namespace db_crociere
             this.InfoShipBox.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -742,5 +804,10 @@ namespace db_crociere
         private System.Windows.Forms.DataGridView prenViewTable;
         private System.Windows.Forms.FlowLayoutPanel editBtnFlow;
         private System.Windows.Forms.Button addPrenBtn;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button AddExpensesBtn;
     }
 }
