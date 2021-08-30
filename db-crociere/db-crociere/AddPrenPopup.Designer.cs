@@ -126,10 +126,10 @@ namespace db_crociere
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel4.Controls.Add(this.groupBox1);
             this.flowLayoutPanel4.Controls.Add(this.boxPathAndDate);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 12);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(824, 482);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(824, 491);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -141,7 +141,7 @@ namespace db_crociere
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 97);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 96);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox4
@@ -150,7 +150,7 @@ namespace db_crociere
             this.groupBox4.Controls.Add(this.flowLayoutPanel12);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(815, 91);
+            this.groupBox4.Size = new System.Drawing.Size(815, 90);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Percorso e data";
@@ -358,7 +358,7 @@ namespace db_crociere
             this.groupBox1.Controls.Add(this.numPassgLabel);
             this.groupBox1.Controls.Add(this.passengerList);
             this.groupBox1.Controls.Add(this.passengerFormLayout);
-            this.groupBox1.Location = new System.Drawing.Point(3, 111);
+            this.groupBox1.Location = new System.Drawing.Point(3, 110);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(419, 233);
             this.groupBox1.TabIndex = 8;
@@ -596,7 +596,7 @@ namespace db_crociere
             // boxPathAndDate
             // 
             this.boxPathAndDate.Controls.Add(this.tableLayoutPanel2);
-            this.boxPathAndDate.Location = new System.Drawing.Point(428, 111);
+            this.boxPathAndDate.Location = new System.Drawing.Point(428, 110);
             this.boxPathAndDate.Name = "boxPathAndDate";
             this.boxPathAndDate.Size = new System.Drawing.Size(392, 233);
             this.boxPathAndDate.TabIndex = 9;
@@ -751,6 +751,7 @@ namespace db_crociere
             this.addRoomBtn.TabIndex = 2;
             this.addRoomBtn.Text = "Aggiungi";
             this.addRoomBtn.UseVisualStyleBackColor = true;
+            this.addRoomBtn.Click += new System.EventHandler(this.addRoomBtn_Click);
             // 
             // AddPrenPopup
             // 
