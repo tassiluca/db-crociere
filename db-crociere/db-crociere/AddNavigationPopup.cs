@@ -81,6 +81,8 @@ namespace db_crociere
                 int duration = int.Parse(DurationTextBox.Text);
                 string shipName = ShipNameComboPath.SelectedItem.ToString();
 
+                Console.WriteLine(pathCode + " " + duration + " " + shipName);
+
                 if (!ChecksSections())
                 {
                     msg = "Il porto di arrivo di tratta deve coincidere con il" +
@@ -365,6 +367,8 @@ namespace db_crociere
                 DateTime endDate = EndNavigationDatePicker.Value.Date;
                 int executions = int.Parse(ExecutionsTextBox.Text);
                 string pathCode = PathCodeTextBox.Text;
+
+                Console.WriteLine(shipName + " " + startDate + " " + endDate + " " + executions + " " + pathCode);
 
                 if (!checksNavigation(shipName, startDate, endDate))
                 {

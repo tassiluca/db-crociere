@@ -445,9 +445,9 @@ namespace db_crociere
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(444, 52);
+            this.button5.Location = new System.Drawing.Point(444, 48);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(75, 27);
             this.button5.TabIndex = 3;
             this.button5.Text = "Pulisci";
             this.button5.UseVisualStyleBackColor = true;
@@ -520,7 +520,7 @@ namespace db_crociere
             // 
             this.AddSectionBtn.Location = new System.Drawing.Point(252, 19);
             this.AddSectionBtn.Name = "AddSectionBtn";
-            this.AddSectionBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddSectionBtn.Size = new System.Drawing.Size(75, 27);
             this.AddSectionBtn.TabIndex = 3;
             this.AddSectionBtn.Text = "Aggiungi";
             this.AddSectionBtn.UseVisualStyleBackColor = true;
@@ -528,9 +528,9 @@ namespace db_crociere
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(252, 45);
+            this.button4.Location = new System.Drawing.Point(252, 49);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(75, 27);
             this.button4.TabIndex = 3;
             this.button4.Text = "Pulisci";
             this.button4.UseVisualStyleBackColor = true;
@@ -679,9 +679,9 @@ namespace db_crociere
             // 
             this.InsertedSections.FormattingEnabled = true;
             this.InsertedSections.ItemHeight = 16;
-            this.InsertedSections.Location = new System.Drawing.Point(223, 19);
+            this.InsertedSections.Location = new System.Drawing.Point(237, 19);
             this.InsertedSections.Name = "InsertedSections";
-            this.InsertedSections.Size = new System.Drawing.Size(160, 116);
+            this.InsertedSections.Size = new System.Drawing.Size(174, 116);
             this.InsertedSections.TabIndex = 16;
             // 
             // SectionsListBox
@@ -690,23 +690,23 @@ namespace db_crociere
             this.SectionsListBox.ItemHeight = 16;
             this.SectionsListBox.Location = new System.Drawing.Point(9, 19);
             this.SectionsListBox.Name = "SectionsListBox";
-            this.SectionsListBox.Size = new System.Drawing.Size(170, 116);
+            this.SectionsListBox.Size = new System.Drawing.Size(184, 116);
             this.SectionsListBox.TabIndex = 15;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(470, 117);
+            this.button2.Location = new System.Drawing.Point(502, 105);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 29);
             this.button2.TabIndex = 3;
             this.button2.Text = "Pulisci";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // AddPathBtn
             // 
-            this.AddPathBtn.Location = new System.Drawing.Point(389, 117);
+            this.AddPathBtn.Location = new System.Drawing.Point(417, 105);
             this.AddPathBtn.Name = "AddPathBtn";
-            this.AddPathBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddPathBtn.Size = new System.Drawing.Size(75, 29);
             this.AddPathBtn.TabIndex = 3;
             this.AddPathBtn.Text = "Aggiungi";
             this.AddPathBtn.UseVisualStyleBackColor = true;
@@ -720,7 +720,7 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.DurationTextBox);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameInfo);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(389, 19);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(417, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(315, 80);
             this.flowLayoutPanel2.TabIndex = 14;
@@ -785,7 +785,7 @@ namespace db_crociere
             // 
             // InsertSectionPathBtn
             // 
-            this.InsertSectionPathBtn.Location = new System.Drawing.Point(185, 48);
+            this.InsertSectionPathBtn.Location = new System.Drawing.Point(199, 47);
             this.InsertSectionPathBtn.Name = "InsertSectionPathBtn";
             this.InsertSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.InsertSectionPathBtn.TabIndex = 18;
@@ -795,7 +795,7 @@ namespace db_crociere
             // 
             // DeleteSectionPathBtn
             // 
-            this.DeleteSectionPathBtn.Location = new System.Drawing.Point(185, 76);
+            this.DeleteSectionPathBtn.Location = new System.Drawing.Point(199, 76);
             this.DeleteSectionPathBtn.Name = "DeleteSectionPathBtn";
             this.DeleteSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.DeleteSectionPathBtn.TabIndex = 19;
