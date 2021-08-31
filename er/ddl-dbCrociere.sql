@@ -8,7 +8,7 @@
 -- Database Section
 -- ________________ 
 
-use dbCrociere;
+use newDbCrociere;
 
 
 -- DBSpace Section
@@ -87,7 +87,7 @@ create table NAVIGAZIONI (
      constraint IDNAVIGAZIONI primary key (CodNavigazione));
 
 create table PAGAMENTI (
-     CodTransazione numeric(5) identity(1,1) not null,
+     CodTransazione numeric(5) not null,
      DataPagamento date not null,
      Importo numeric(4) not null,
      NumeroRate numeric(2),
@@ -132,10 +132,11 @@ create table PORTI (
      Nazionalit‡ char(3) not null,
      Citt‡ varchar(30) not null,
      PrezzoAttracco numeric(4) not null,
-     constraint IDPORTO primary key (CodPorto));
+     constraint IDPORTO primary key (CodPorto),
+	 constraint IDPORTO_1 unique (Citt‡));
 
 create table PRENOTAZIONI (
-     CodPrenotazione numeric(5) identity(1,1) not null,
+     CodPrenotazione numeric(5) not null,
      CodTransazione numeric(5) not null,
      DataEffettuazione date not null,
      DataOraImbarco datetime not null,
@@ -175,7 +176,7 @@ create table RESPONSABILIT¿ (
      constraint IDRESPONSABILIT¿ primary key (CodNavigazione, CodRuolo));
 
 create table RIMBORSI (
-     CodRimborso numeric(2) identity(1,1) not null,
+     CodRimborso numeric(2) not null,
      Preavviso_Dal numeric(3) not null,
      Preavviso_Al numeric(3) not null,
      PercentualeRimborso numeric(3) not null,
@@ -196,13 +197,6 @@ create table SALE (
      Capienza numeric(4) not null,
      constraint IDSALA unique (NomeNave, NumeroPonte, NumeroLocale),
      constraint IDSALA_1 primary key (CodSala));
-
-create table SCIALUPPE (
-     CodScialuppa numeric(3) identity(1,1) not null,
-     DataRevisione date not null,
-     Capienza numeric(3) not null,
-     NomeNave varchar(30) not null,
-     constraint IDSCIALUPPA primary key (CodScialuppa));
 
 create table SEQUENZE_TRATTE (
      CodPercorso char(5) not null,
@@ -241,7 +235,6 @@ create table TARIFFARI_PRENOTAZIONI (
 
 create table TIPOLOGIE (
      Nome varchar(7) not null,
-     Prezzo numeric(4) not null,
      Descrizione varchar(100),
      constraint IDTIPOLOGIA primary key (Nome));
 
@@ -397,10 +390,6 @@ alter table RESPONSABILIT¿ add constraint FKResponsabilit‡Navigazione
 alter table SALE add constraint FKOrganizzazioneSala
      foreign key (NomeNave, NumeroPonte)
      references PONTI;
-
-alter table SCIALUPPE add constraint FKPredisposizione
-     foreign key (NomeNave)
-     references NAVI;
 
 alter table SEQUENZE_TRATTE add constraint FKSeq_TRA
      foreign key (CodTratta)
