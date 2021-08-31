@@ -16,8 +16,10 @@ namespace db_crociere
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
-        private db_crociere.PRENOTAZIONI prenot; //obj used to keep datas before adding them in db
+        //below obj used to keep datas before adding them in db
+        private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String,PASSEGGERI> passengersDict;
+        private List<decimal> addedRoomToPren;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -25,6 +27,7 @@ namespace db_crociere
             prenot = new PRENOTAZIONI();
             prenot.DataEffettuazione = DateTime.Now;
             passengersDict = new Dictionary<String, PASSEGGERI>();
+            addedRoomToPren = new List<decimal>();
             InitializeComponent();
             updateRoomListBox();
         }
@@ -325,18 +328,22 @@ namespace db_crociere
         private void addRoomBtn_Click(object sender, EventArgs e)
         {
             //voglio ricavare i codCabina che per quella navigazione in quel periodo non sono presenti in alloggi
+
+            //ricavo tutti i cod cabina attualmente impegnati nel periodo di dataoraImbarco-dataOraSbarco selezionato
+            //del tipo e posizione selezionati
             var cabineUsate = from p in db.PRENOTAZIONIs
                               from alloggi in db.ALLOGGIs
+                              from cab in db.CABINEs
                               where p.CodNavigazione == prenot.CodNavigazione
+                              //POSSIBILE PERICOLO DI PROBLEMI CON CON PRENOTAZIONE
                               && alloggi.CodPrenotazione == p.CodPrenotazione
+                              && cab.CodCabina == alloggi.CodCabina
                               && p.DataOraImbarco >= prenot.DataOraImbarco
                               && p.DataOraSbarco <= prenot.DataOraSbarco
-                              select alloggi;
+                              select cab.CodCabina;
 
             Console.WriteLine(cabineUsate.Count() + "cabine usate i questo periodo");
-            foreach (var cab in cabineUsate) {
-                Console.WriteLine(cab.CodPrenotazione + " "+ cab.CodCabina);
-            }
+
             //ricavo tutte le cabine presenti nella nave, avendo selezionato il percorso
             //ricavo il nome della nave partendo dal codice percorso
             var pathCode = pathSelPren.SelectedItem.ToString();
@@ -350,23 +357,49 @@ namespace db_crociere
             //prendo tutte le codCabine della nave (relativa al percorso scelto) di tipo e posizione selezionato
             var type = roomTypeSelector.SelectedItem.ToString();
             var position = roomPositionSel.SelectedItem.ToString();
-            var shipRooms = from c in db.CABINEs
-                            where c.NomeNave == shipName.First().Nome
-                            && c.NomeTipologia == type
-                            && c.Posizione == position
-                            select c.CodCabina;
+            var shipRooms = from cb in db.CABINEs
+                            where cb.NomeNave == shipName.First().Nome
+                            && cb.NomeTipologia == type
+                            && cb.Posizione == position
+                            select cb.CodCabina;
 
-            Console.WriteLine(shipRooms.Count() + "camere di tipo: " + type +" pos: "+ position);
-            foreach (var cab in shipRooms)
+            if (shipRooms.Count() <= 0)
             {
-                Console.WriteLine("Codice cabina: " + cab);
+                var msg = "Nessuna cabina " + type + " in posizione: " + position + " trovata.";
+                MessageBox.Show(msg, "ERROR");
+            }
+            else {
+                //estrazione delle cabine libere = tutti i codCabina-cabineUsate
+                var avaiableRoom = shipRooms.ToList().Except(cabineUsate.ToList());
+                var roomQuantity = ((int)numRoomUpDownSel.Value);
+                //aggiornamento lista cabine aggiunte alla prenotazione
+                addedRoomToPren = avaiableRoom.ToList().Take(roomQuantity).ToList();
+
+                Console.WriteLine("CodCabina disponibili selezionati");
+                foreach (var p in addedRoomToPren)
+                {
+                    Console.WriteLine(p);
+                }
+            }
+     
+            /*
+             * DEBUG E VERIFICA CHE LA SOTTRAZIONE AVVENISSE CORRETTAMENTE
+            Console.WriteLine("tutte Camere nave di tipo-posizione selezionato\n");
+            foreach(var p in shipRooms) {
+                Console.WriteLine(p);
+            }
+            
+            Console.WriteLine("Cabine già occupate di tipo-posizione selezionato\n");
+            foreach (var p in cabineUsate)
+            {
+                Console.WriteLine(p);
             }
 
-            if (shipRooms.Count() <= 0) {
-                var msg = "Nessuna cabina "+ type+ " in posizione: "+ position + " trovata.";
-                MessageBox.Show(msg,"ERROR");
-            }
-
+            Console.WriteLine("Camere nave rimanenti di tipo-posizione selezionato\n");
+            foreach (var p in avaiableRoom)
+            {
+                Console.WriteLine(p);
+            }*/
         }
     }
 }
