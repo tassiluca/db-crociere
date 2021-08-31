@@ -70,6 +70,12 @@
     <Compile Include="AddNavigationPopup.Designer.cs">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Staff\AddStaffPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\AddStaffPopup.Designer.cs">
+      <DependentUpon>AddStaffPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="DataClassesDBCrociere.designer.cs">
       <AutoGen>True</AutoGen>
@@ -119,6 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Staff\AddStaffPopup.resx">
+      <DependentUpon>AddStaffPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataClassesDBCrociere.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesDBCrociere.designer.cs</LastGenOutput>

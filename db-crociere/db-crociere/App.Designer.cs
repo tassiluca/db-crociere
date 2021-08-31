@@ -29,9 +29,12 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -49,6 +52,8 @@ namespace db_crociere
             this.NavigationExecutionGridView = new System.Windows.Forms.DataGridView();
             this.NavigationDropDownMenu = new System.Windows.Forms.ComboBox();
             this.InfoPathBox = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.AddPathBtn = new System.Windows.Forms.Button();
             this.SectionsGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.DurationLabel = new System.Windows.Forms.Label();
@@ -72,17 +77,22 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.ExpenseTrackerPage = new System.Windows.Forms.TabPage();
+            this.RankCostsGridView = new System.Windows.Forms.DataGridView();
+            this.AverageBookingsCostsBtn = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BookingIdComboBox = new System.Windows.Forms.ComboBox();
+            this.ExpensesGridView = new System.Windows.Forms.DataGridView();
+            this.RankingPathBtn = new System.Windows.Forms.Button();
+            this.RankPathGridView = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ShipNameComboBox = new System.Windows.Forms.ComboBox();
+            this.PriceListGridView = new System.Windows.Forms.DataGridView();
+            this.AddExpensesBtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.AddExpensesBtn = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.PriceListGridView = new System.Windows.Forms.DataGridView();
-            this.ShipNameComboBox = new System.Windows.Forms.ComboBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.RankPathGridView = new System.Windows.Forms.DataGridView();
-            this.TEST = new System.Windows.Forms.Button();
-            this.AddPathBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,10 +116,15 @@ namespace db_crociere
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ExpenseTrackerPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -332,7 +347,8 @@ namespace db_crociere
             // 
             // InfoPathBox
             // 
-            this.InfoPathBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoPathBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.InfoPathBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.InfoPathBox.Controls.Add(this.button2);
             this.InfoPathBox.Controls.Add(this.AddPathBtn);
@@ -347,8 +363,42 @@ namespace db_crociere
             this.InfoPathBox.TabStop = false;
             this.InfoPathBox.Text = "Percorso";
             // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(404, 51);
+            this.button2.MinimumSize = new System.Drawing.Size(35, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 28);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "RIMUOVI";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // AddPathBtn
+            // 
+            this.AddPathBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddPathBtn.Location = new System.Drawing.Point(404, 19);
+            this.AddPathBtn.MinimumSize = new System.Drawing.Size(35, 28);
+            this.AddPathBtn.Name = "AddPathBtn";
+            this.AddPathBtn.Size = new System.Drawing.Size(103, 30);
+            this.AddPathBtn.TabIndex = 2;
+            this.AddPathBtn.Text = "AGGIUNGI";
+            this.AddPathBtn.UseVisualStyleBackColor = false;
+            this.AddPathBtn.Click += new System.EventHandler(this.AddPathBtn_Click);
+            // 
             // SectionsGridView
             // 
+            this.SectionsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SectionsGridView.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.SectionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SectionsGridView.Location = new System.Drawing.Point(6, 85);
@@ -674,7 +724,11 @@ namespace db_crociere
             // 
             // ExpenseTrackerPage
             // 
-            this.ExpenseTrackerPage.Controls.Add(this.TEST);
+            this.ExpenseTrackerPage.Controls.Add(this.chart2);
+            this.ExpenseTrackerPage.Controls.Add(this.RankCostsGridView);
+            this.ExpenseTrackerPage.Controls.Add(this.AverageBookingsCostsBtn);
+            this.ExpenseTrackerPage.Controls.Add(this.groupBox3);
+            this.ExpenseTrackerPage.Controls.Add(this.RankingPathBtn);
             this.ExpenseTrackerPage.Controls.Add(this.RankPathGridView);
             this.ExpenseTrackerPage.Controls.Add(this.chart1);
             this.ExpenseTrackerPage.Controls.Add(this.groupBox2);
@@ -687,8 +741,136 @@ namespace db_crociere
             this.ExpenseTrackerPage.Text = "Spese";
             this.ExpenseTrackerPage.UseVisualStyleBackColor = true;
             // 
+            // RankCostsGridView
+            // 
+            this.RankCostsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankCostsGridView.Location = new System.Drawing.Point(485, 351);
+            this.RankCostsGridView.Name = "RankCostsGridView";
+            this.RankCostsGridView.Size = new System.Drawing.Size(224, 229);
+            this.RankCostsGridView.TabIndex = 7;
+            // 
+            // AverageBookingsCostsBtn
+            // 
+            this.AverageBookingsCostsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AverageBookingsCostsBtn.Location = new System.Drawing.Point(485, 302);
+            this.AverageBookingsCostsBtn.Name = "AverageBookingsCostsBtn";
+            this.AverageBookingsCostsBtn.Size = new System.Drawing.Size(224, 43);
+            this.AverageBookingsCostsBtn.TabIndex = 6;
+            this.AverageBookingsCostsBtn.Text = "Costo medio prenotazione per percorso";
+            this.AverageBookingsCostsBtn.UseVisualStyleBackColor = true;
+            this.AverageBookingsCostsBtn.Click += new System.EventHandler(this.AverageBookingsCostsBtn_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.BookingIdComboBox);
+            this.groupBox3.Controls.Add(this.ExpensesGridView);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(6, 289);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(473, 291);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tariffari";
+            // 
+            // BookingIdComboBox
+            // 
+            this.BookingIdComboBox.FormattingEnabled = true;
+            this.BookingIdComboBox.Location = new System.Drawing.Point(6, 21);
+            this.BookingIdComboBox.Name = "BookingIdComboBox";
+            this.BookingIdComboBox.Size = new System.Drawing.Size(461, 24);
+            this.BookingIdComboBox.TabIndex = 1;
+            this.BookingIdComboBox.Text = "Prenotazione";
+            this.BookingIdComboBox.SelectedIndexChanged += new System.EventHandler(this.BookingIdComboBox_SelectedIndexChanged);
+            this.BookingIdComboBox.Click += new System.EventHandler(this.BookingId_Click);
+            // 
+            // ExpensesGridView
+            // 
+            this.ExpensesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ExpensesGridView.Location = new System.Drawing.Point(6, 46);
+            this.ExpensesGridView.Name = "ExpensesGridView";
+            this.ExpensesGridView.Size = new System.Drawing.Size(461, 239);
+            this.ExpensesGridView.TabIndex = 0;
+            // 
+            // RankingPathBtn
+            // 
+            this.RankingPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RankingPathBtn.Location = new System.Drawing.Point(485, 15);
+            this.RankingPathBtn.Name = "RankingPathBtn";
+            this.RankingPathBtn.Size = new System.Drawing.Size(224, 32);
+            this.RankingPathBtn.TabIndex = 5;
+            this.RankingPathBtn.Text = "Percorsi più gettonati";
+            this.RankingPathBtn.UseVisualStyleBackColor = true;
+            this.RankingPathBtn.Click += new System.EventHandler(this.RankingPathBtn_Click);
+            // 
+            // RankPathGridView
+            // 
+            this.RankPathGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankPathGridView.Location = new System.Drawing.Point(485, 52);
+            this.RankPathGridView.Name = "RankPathGridView";
+            this.RankPathGridView.Size = new System.Drawing.Size(224, 222);
+            this.RankPathGridView.TabIndex = 2;
+            // 
+            // chart1
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(715, 15);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(346, 259);
+            this.chart1.TabIndex = 4;
+            this.chart1.Text = "Apprezzamento Crociere";
+            title3.Name = "Title1";
+            title3.Text = "Apprezzamento Percorsi Crociere";
+            this.chart1.Titles.Add(title3);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ShipNameComboBox);
+            this.groupBox2.Controls.Add(this.PriceListGridView);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(6, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(473, 277);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tariffari";
+            // 
+            // ShipNameComboBox
+            // 
+            this.ShipNameComboBox.FormattingEnabled = true;
+            this.ShipNameComboBox.Location = new System.Drawing.Point(6, 21);
+            this.ShipNameComboBox.Name = "ShipNameComboBox";
+            this.ShipNameComboBox.Size = new System.Drawing.Size(461, 24);
+            this.ShipNameComboBox.TabIndex = 1;
+            this.ShipNameComboBox.Text = "Nave";
+            this.ShipNameComboBox.SelectedIndexChanged += new System.EventHandler(this.ShipNameComboBox_SelectedIndexChanged);
+            this.ShipNameComboBox.Click += new System.EventHandler(this.ShipNameComboBox_Click);
+            // 
+            // PriceListGridView
+            // 
+            this.PriceListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PriceListGridView.Location = new System.Drawing.Point(6, 46);
+            this.PriceListGridView.Name = "PriceListGridView";
+            this.PriceListGridView.Size = new System.Drawing.Size(461, 222);
+            this.PriceListGridView.TabIndex = 0;
+            // 
+            // AddExpensesBtn
+            // 
+            this.AddExpensesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddExpensesBtn.Location = new System.Drawing.Point(307, 586);
+            this.AddExpensesBtn.Name = "AddExpensesBtn";
+            this.AddExpensesBtn.Size = new System.Drawing.Size(172, 32);
+            this.AddExpensesBtn.TabIndex = 2;
+            this.AddExpensesBtn.Text = "Aggiungi Spese / Tariffari";
+            this.AddExpensesBtn.UseVisualStyleBackColor = true;
+            this.AddExpensesBtn.Click += new System.EventHandler(this.AddExpensesBtn_Click);
+            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -707,113 +889,31 @@ namespace db_crociere
             this.tabPage2.Text = "Attività";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // AddExpensesBtn
+            // chart2
             // 
-            this.AddExpensesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddExpensesBtn.Location = new System.Drawing.Point(12, 325);
-            this.AddExpensesBtn.Name = "AddExpensesBtn";
-            this.AddExpensesBtn.Size = new System.Drawing.Size(172, 32);
-            this.AddExpensesBtn.TabIndex = 2;
-            this.AddExpensesBtn.Text = "Aggiungi Spese / Tariffari";
-            this.AddExpensesBtn.UseVisualStyleBackColor = true;
-            this.AddExpensesBtn.Click += new System.EventHandler(this.AddExpensesBtn_Click);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(715, 302);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(346, 278);
+            this.chart2.TabIndex = 8;
+            this.chart2.Text = "Costo Medio Crociere";
+            title4.Name = "Title1";
+            title4.Text = "Apprezzamento Percorsi Crociere";
+            this.chart2.Titles.Add(title4);
             // 
-            // groupBox2
+            // button1
             // 
-            this.groupBox2.Controls.Add(this.ShipNameComboBox);
-            this.groupBox2.Controls.Add(this.PriceListGridView);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(473, 313);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tariffari";
-            // 
-            // PriceListGridView
-            // 
-            this.PriceListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PriceListGridView.Location = new System.Drawing.Point(6, 46);
-            this.PriceListGridView.Name = "PriceListGridView";
-            this.PriceListGridView.Size = new System.Drawing.Size(461, 259);
-            this.PriceListGridView.TabIndex = 0;
-            // 
-            // ShipNameComboBox
-            // 
-            this.ShipNameComboBox.FormattingEnabled = true;
-            this.ShipNameComboBox.Location = new System.Drawing.Point(6, 21);
-            this.ShipNameComboBox.Name = "ShipNameComboBox";
-            this.ShipNameComboBox.Size = new System.Drawing.Size(461, 24);
-            this.ShipNameComboBox.TabIndex = 1;
-            this.ShipNameComboBox.Text = "Nave";
-            this.ShipNameComboBox.SelectedIndexChanged += new System.EventHandler(this.ShipNameComboBox_SelectedIndexChanged);
-            this.ShipNameComboBox.Click += new System.EventHandler(this.ShipNameComboBox_Click);
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(512, 303);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(539, 300);
-            this.chart1.TabIndex = 4;
-            this.chart1.Text = "chart1";
-            // 
-            // RankPathGridView
-            // 
-            this.RankPathGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RankPathGridView.Location = new System.Drawing.Point(550, 38);
-            this.RankPathGridView.Name = "RankPathGridView";
-            this.RankPathGridView.Size = new System.Drawing.Size(461, 259);
-            this.RankPathGridView.TabIndex = 2;
-            // 
-            // TEST
-            // 
-            this.TEST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TEST.Location = new System.Drawing.Point(1014, 38);
-            this.TEST.Name = "TEST";
-            this.TEST.Size = new System.Drawing.Size(47, 32);
-            this.TEST.TabIndex = 5;
-            this.TEST.Text = "test";
-            this.TEST.UseVisualStyleBackColor = true;
-            this.TEST.Click += new System.EventHandler(this.RankingPath);
-            // 
-            // AddPathBtn
-            // 
-            this.AddPathBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPathBtn.Location = new System.Drawing.Point(404, 19);
-            this.AddPathBtn.MinimumSize = new System.Drawing.Size(35, 28);
-            this.AddPathBtn.Name = "AddPathBtn";
-            this.AddPathBtn.Size = new System.Drawing.Size(103, 30);
-            this.AddPathBtn.TabIndex = 2;
-            this.AddPathBtn.Text = "AGGIUNGI";
-            this.AddPathBtn.UseVisualStyleBackColor = false;
-            this.AddPathBtn.Click += new System.EventHandler(this.AddPathBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(404, 51);
-            this.button2.MinimumSize = new System.Drawing.Size(35, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "RIMUOVI";
-            this.button2.UseVisualStyleBackColor = false;
+            this.button1.Location = new System.Drawing.Point(326, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // App
             // 
@@ -852,10 +952,15 @@ namespace db_crociere
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ExpenseTrackerPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -910,8 +1015,15 @@ namespace db_crociere
         private System.Windows.Forms.ComboBox ShipNameComboBox;
         private System.Windows.Forms.DataGridView RankPathGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button TEST;
+        private System.Windows.Forms.Button RankingPathBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddPathBtn;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox BookingIdComboBox;
+        private System.Windows.Forms.DataGridView ExpensesGridView;
+        private System.Windows.Forms.Button AverageBookingsCostsBtn;
+        private System.Windows.Forms.DataGridView RankCostsGridView;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Button button1;
     }
 }

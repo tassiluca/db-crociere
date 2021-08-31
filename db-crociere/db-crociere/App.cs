@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using db_crociere.Staff;
 
 namespace db_crociere
 {
@@ -180,6 +181,9 @@ namespace db_crociere
                                  Orario_Arrivo = et.Arrivo_Ora,
                              };
                 NavigationExecutionGridView.DataSource = exSecs;
+            } else
+            {
+                NavigationExecutionGridView.DataSource = null;
             }
         }
 
@@ -210,7 +214,35 @@ namespace db_crociere
             PriceListGridView.DataSource = prices;
         }
 
-        private void RankingPath(object sender, EventArgs e)
+        private void AddPathBtn_Click(object sender, EventArgs e)
+        {
+            AddNavigationPopup AddNavigationPopup_Window = new AddNavigationPopup(db);
+            AddNavigationPopup_Window.ShowDialog(this);
+        }
+
+        private void BookingId_Click(object sender, EventArgs e)
+        {
+            var bookings = from p in db.PRENOTAZIONIs
+                           select p.CodPrenotazione;
+            BookingIdComboBox.DataSource = bookings;
+        }
+
+        private void BookingIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var expenses = from se in db.SPESE_EXTRAs
+                           where se.CodPrenotazione == int.Parse(BookingIdComboBox.Text)
+                           select new
+                           {
+                               Codice_Spesa = se.CodiceSpesa,
+                               Badge = se.CodBadge,
+                               Data = se.DataSpesa,
+                               Importo = se.Importo,
+                               Descrizione = se.Descrizione
+                           };
+            ExpensesGridView.DataSource = expenses;
+        }
+
+        private void RankingPathBtn_Click(object sender, EventArgs e)
         {
             var rank = (from p in db.PRENOTAZIONIs
                         from n in db.NAVIGAZIONIs
@@ -220,21 +252,42 @@ namespace db_crociere
                         select new
                         {
                             Percorso = paths.Key,
-                            Numero_Prenotazioni = paths.Count()
-                        }).OrderByDescending(p => p.Numero_Prenotazioni);
+                            Prenotazioni = paths.Count()
+                        }).OrderByDescending(p => p.Prenotazioni);
             RankPathGridView.DataSource = rank;
 
             foreach (var elem in rank)
             {
                 Series series = this.chart1.Series.Add(elem.Percorso);
-                series.Points.Add(elem.Numero_Prenotazioni);
+                series.Points.Add(elem.Prenotazioni);
             }
         }
 
-        private void AddPathBtn_Click(object sender, EventArgs e)
+        private void AverageBookingsCostsBtn_Click(object sender, EventArgs e)
         {
-            AddNavigationPopup AddNavigationPopup_Window = new AddNavigationPopup(db);
-            AddNavigationPopup_Window.ShowDialog(this);
+            var rank = from n in db.NAVIGAZIONIs
+                       from pa in db.PAGAMENTIs
+                       from pr in db.PRENOTAZIONIs
+                       where pa.CodTransazione == pr.CodTransazione &&
+                             n.CodNavigazione == pr.CodNavigazione
+                       group pa by n.CodPercorso into paths
+                       select new
+                       {
+                           Percorso = paths.Key,
+                           Costo_Medio = paths.Average(p => p.Importo)
+                       };
+            RankCostsGridView.DataSource = rank;
+            foreach (var elem in rank)
+            {
+                Series series = this.chart2.Series.Add(elem.Percorso);
+                series.Points.Add(Decimal.ToDouble(elem.Costo_Medio));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddStaffPopup addStaffPopupWindow = new AddStaffPopup(db);
+            addStaffPopupWindow.ShowDialog(this);
         }
     }
 }
