@@ -89,10 +89,13 @@ namespace db_crociere
             this.flowLayoutPanel18 = new System.Windows.Forms.FlowLayoutPanel();
             this.posRoomLabel = new System.Windows.Forms.Label();
             this.roomPositionSel = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel20 = new System.Windows.Forms.FlowLayoutPanel();
+            this.postiLettoLabel = new System.Windows.Forms.Label();
+            this.roomSizeSel = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel19 = new System.Windows.Forms.FlowLayoutPanel();
             this.roomListBox = new System.Windows.Forms.ListBox();
-            this.delRoomBtn = new System.Windows.Forms.Button();
             this.addRoomBtn = new System.Windows.Forms.Button();
+            this.delRoomBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -118,6 +121,7 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.numRoomUpDownSel)).BeginInit();
             this.flowLayoutPanel17.SuspendLayout();
             this.flowLayoutPanel18.SuspendLayout();
+            this.flowLayoutPanel20.SuspendLayout();
             this.flowLayoutPanel19.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -622,6 +626,7 @@ namespace db_crociere
             this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel16);
             this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel17);
             this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel18);
+            this.flowLayoutRooms.Controls.Add(this.flowLayoutPanel20);
             this.flowLayoutRooms.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutRooms.Name = "flowLayoutRooms";
             this.flowLayoutRooms.Size = new System.Drawing.Size(386, 64);
@@ -687,6 +692,7 @@ namespace db_crociere
             this.roomTypeSelector.Name = "roomTypeSelector";
             this.roomTypeSelector.Size = new System.Drawing.Size(131, 21);
             this.roomTypeSelector.TabIndex = 4;
+            this.roomTypeSelector.SelectedIndexChanged += new System.EventHandler(this.updateRoomPosSelector);
             // 
             // flowLayoutPanel18
             // 
@@ -716,6 +722,34 @@ namespace db_crociere
             this.roomPositionSel.Size = new System.Drawing.Size(96, 21);
             this.roomPositionSel.TabIndex = 4;
             // 
+            // flowLayoutPanel20
+            // 
+            this.flowLayoutPanel20.Controls.Add(this.postiLettoLabel);
+            this.flowLayoutPanel20.Controls.Add(this.roomSizeSel);
+            this.flowLayoutPanel20.Location = new System.Drawing.Point(179, 35);
+            this.flowLayoutPanel20.Name = "flowLayoutPanel20";
+            this.flowLayoutPanel20.Size = new System.Drawing.Size(182, 25);
+            this.flowLayoutPanel20.TabIndex = 3;
+            // 
+            // postiLettoLabel
+            // 
+            this.postiLettoLabel.AutoSize = true;
+            this.postiLettoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.postiLettoLabel.Location = new System.Drawing.Point(3, 5);
+            this.postiLettoLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.postiLettoLabel.Name = "postiLettoLabel";
+            this.postiLettoLabel.Size = new System.Drawing.Size(64, 15);
+            this.postiLettoLabel.TabIndex = 3;
+            this.postiLettoLabel.Text = "Posti Letto";
+            // 
+            // roomSizeSel
+            // 
+            this.roomSizeSel.FormattingEnabled = true;
+            this.roomSizeSel.Location = new System.Drawing.Point(73, 3);
+            this.roomSizeSel.Name = "roomSizeSel";
+            this.roomSizeSel.Size = new System.Drawing.Size(96, 21);
+            this.roomSizeSel.TabIndex = 4;
+            // 
             // flowLayoutPanel19
             // 
             this.flowLayoutPanel19.Controls.Add(this.roomListBox);
@@ -734,15 +768,6 @@ namespace db_crociere
             this.roomListBox.Size = new System.Drawing.Size(378, 95);
             this.roomListBox.TabIndex = 0;
             // 
-            // delRoomBtn
-            // 
-            this.delRoomBtn.Location = new System.Drawing.Point(84, 104);
-            this.delRoomBtn.Name = "delRoomBtn";
-            this.delRoomBtn.Size = new System.Drawing.Size(75, 24);
-            this.delRoomBtn.TabIndex = 1;
-            this.delRoomBtn.Text = "Rimuovi";
-            this.delRoomBtn.UseVisualStyleBackColor = true;
-            // 
             // addRoomBtn
             // 
             this.addRoomBtn.Location = new System.Drawing.Point(3, 104);
@@ -752,6 +777,15 @@ namespace db_crociere
             this.addRoomBtn.Text = "Aggiungi";
             this.addRoomBtn.UseVisualStyleBackColor = true;
             this.addRoomBtn.Click += new System.EventHandler(this.addRoomBtn_Click);
+            // 
+            // delRoomBtn
+            // 
+            this.delRoomBtn.Location = new System.Drawing.Point(84, 104);
+            this.delRoomBtn.Name = "delRoomBtn";
+            this.delRoomBtn.Size = new System.Drawing.Size(75, 24);
+            this.delRoomBtn.TabIndex = 1;
+            this.delRoomBtn.Text = "Rimuovi";
+            this.delRoomBtn.UseVisualStyleBackColor = true;
             // 
             // AddPrenPopup
             // 
@@ -803,6 +837,8 @@ namespace db_crociere
             this.flowLayoutPanel17.PerformLayout();
             this.flowLayoutPanel18.ResumeLayout(false);
             this.flowLayoutPanel18.PerformLayout();
+            this.flowLayoutPanel20.ResumeLayout(false);
+            this.flowLayoutPanel20.PerformLayout();
             this.flowLayoutPanel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -874,5 +910,8 @@ namespace db_crociere
         private System.Windows.Forms.ListBox roomListBox;
         private System.Windows.Forms.Button delRoomBtn;
         private System.Windows.Forms.Button addRoomBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel20;
+        private System.Windows.Forms.Label postiLettoLabel;
+        private System.Windows.Forms.ComboBox roomSizeSel;
     }
 }
