@@ -19,10 +19,15 @@ namespace db_crociere
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
+        private IQueryable<CABINE> cabineLibere;
+        //cabine ceh rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
+        private IQueryable<CABINE> cabinePrenotabili;
+        private List<decimal> cabinePrenotabiliNonAggiunte;
+
         //below obj used to keep datas before adding them in db
         private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String,PASSEGGERI> passengersDict;
-        private List<decimal> addedRoomToPren;
+        private List<decimal> roomOfPrenot;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -31,7 +36,7 @@ namespace db_crociere
             prenot.DataOraImbarco = DateTime.Parse(MIN_DATE);
             prenot.DataOraSbarco = DateTime.Parse(MAX_DATE);
             passengersDict = new Dictionary<String, PASSEGGERI>();
-            addedRoomToPren = new List<decimal>();
+            roomOfPrenot = new List<decimal>();
             InitializeComponent();
         }
 
@@ -47,6 +52,12 @@ namespace db_crociere
             pathSelPren.DataSource = path;
             Console.WriteLine("Percorsi caricati");
         }
+
+        private void treatmentField_TextChanged(object sender, EventArgs e)
+        {
+            prenot.Trattamento = treatmentField.Text;
+        }
+
         /// <summary>
         /// After path selection, update navigation's ListBox with avaiable navigation
         /// for the path selected before
@@ -323,6 +334,7 @@ namespace db_crociere
             if (dateSbarcoBox.Text == ASSENT_INFO) {
                 roomTypeSelector.DataSource = new List<String>();
                 roomTypeSelector.Text = ASSENT_INFO;
+                roomTypeSelector.SelectedItem = ASSENT_INFO;
             }
             else
             {
@@ -350,10 +362,14 @@ namespace db_crociere
                                       where c.NomeNave == nomeNave
                                       select c;
 
-                var cabineLibere = tutteCabineNave.Except(cabineUsate);
-
+                //faccio sottrazione fra tutte cabine-cabine gia prenotate
+                cabineLibere = tutteCabineNave.Except(cabineUsate);
                 roomTypeSelector.DataSource = cabineLibere.Select(c => c.NomeTipologia).Distinct();
-                
+
+                if (cabineLibere.Count() <= 0)
+                {
+                    roomTypeSelector.Text = ASSENT_INFO;
+                }
             }
 
         }
@@ -361,18 +377,76 @@ namespace db_crociere
         //updated after selection of room type
         private void updateRoomPosSelector(object sender, EventArgs e)
         {
-
+            if (roomTypeSelector.Text == ASSENT_INFO)
+            {
+                roomPositionSel.DataSource = new List<String>();
+                roomPositionSel.Text = ASSENT_INFO;
+                roomPositionSel.SelectedItem = ASSENT_INFO;
+            }
+            else {
+                var tipoCab = roomTypeSelector.SelectedItem.ToString();
+                var cabDiTipoScelto = cabineLibere.Where(c => c.NomeTipologia == tipoCab);
+                roomPositionSel.DataSource = cabDiTipoScelto.Select(c => c.Posizione).Distinct();
+            }
         }
 
-
-        private void treatmentField_TextChanged(object sender, EventArgs e)
+        private void updateNumPeopleSel(object sender, EventArgs e)
         {
-            prenot.Trattamento = treatmentField.Text;
+            if (roomPositionSel.Text == ASSENT_INFO)
+            {
+                roomSizeSel.DataSource = new List<String>();
+                roomSizeSel.Text = "-";
+                roomSizeSel.SelectedItem =ASSENT_INFO;
+            }
+            else
+            {
+                var tipoCab = roomTypeSelector.SelectedItem.ToString();
+                var posCab = roomPositionSel.SelectedItem.ToString();
+                cabinePrenotabili = cabineLibere.Where(c => c.NomeTipologia == tipoCab && c.Posizione == posCab);
+                cabinePrenotabiliNonAggiunte = cabinePrenotabili.Select(c => c.CodCabina).ToList();
+                roomSizeSel.DataSource = cabinePrenotabili.Select(c => c.PostiLetto).Distinct();
+            }
+        }
+
+        private void updateMaxRoomQuantity(object sender, EventArgs e)
+        {
+            if (roomSizeSel.Text == "-")
+            {
+                numRoomUpDownSel.Maximum = 0;
+            }
+            else {
+                numRoomUpDownSel.Maximum = cabinePrenotabili.Count();
+                numRoomUpDownSel.Value = 1;
+            }
+
         }
 
         private void addRoomBtn_Click(object sender, EventArgs e)
         {
-            
+            var qty = (int)numRoomUpDownSel.Value;
+            var selectedRoom = cabinePrenotabiliNonAggiunte.Take(qty).ToList();
+            foreach (var sr in selectedRoom) {
+                if (!roomOfPrenot.Contains(sr)) {
+                    roomOfPrenot.Add(sr);
+                    cabinePrenotabiliNonAggiunte.Remove(sr);
+                    Console.WriteLine("Aggiunta cavina: "+ sr);
+                }
+            }
+            updateRoomListBox();
+        }
+
+        private void delRoomBtn_Click(object sender, EventArgs e)
+        {
+            var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
+            roomOfPrenot.Remove(cabToremove);
+            cabinePrenotabiliNonAggiunte.Add(cabToremove);
+            updateRoomListBox();
+            Console.WriteLine("Rimossa cavina: " + cabToremove);
+        }
+
+        private void updateRoomListBox() {
+            roomListBox.DataSource = roomOfPrenot.ToList();
+            numRoomUpDownSel.Maximum = cabinePrenotabiliNonAggiunte.Count();
         }
 
         //UTILITIES CABINE
@@ -386,6 +460,7 @@ namespace db_crociere
                                select n;
                 return shipName;
         }
-      
+
+    
     }
 }

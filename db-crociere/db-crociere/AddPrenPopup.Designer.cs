@@ -693,6 +693,8 @@ namespace db_crociere
             this.roomTypeSelector.Name = "roomTypeSelector";
             this.roomTypeSelector.Size = new System.Drawing.Size(131, 21);
             this.roomTypeSelector.TabIndex = 4;
+            this.roomTypeSelector.SelectedIndexChanged += new System.EventHandler(this.updateRoomPosSelector);
+            this.roomTypeSelector.TextChanged += new System.EventHandler(this.updateRoomPosSelector);
             // 
             // flowLayoutPanel18
             // 
@@ -721,6 +723,8 @@ namespace db_crociere
             this.roomPositionSel.Name = "roomPositionSel";
             this.roomPositionSel.Size = new System.Drawing.Size(96, 21);
             this.roomPositionSel.TabIndex = 4;
+            this.roomPositionSel.SelectedIndexChanged += new System.EventHandler(this.updateNumPeopleSel);
+            this.roomPositionSel.TextChanged += new System.EventHandler(this.updateNumPeopleSel);
             // 
             // flowLayoutPanel20
             // 
@@ -749,6 +753,8 @@ namespace db_crociere
             this.roomSizeSel.Name = "roomSizeSel";
             this.roomSizeSel.Size = new System.Drawing.Size(96, 21);
             this.roomSizeSel.TabIndex = 4;
+            this.roomSizeSel.SelectedIndexChanged += new System.EventHandler(this.updateMaxRoomQuantity);
+            this.roomSizeSel.TextChanged += new System.EventHandler(this.updateMaxRoomQuantity);
             // 
             // flowLayoutPanel19
             // 
@@ -786,6 +792,7 @@ namespace db_crociere
             this.delRoomBtn.TabIndex = 1;
             this.delRoomBtn.Text = "Rimuovi";
             this.delRoomBtn.UseVisualStyleBackColor = true;
+            this.delRoomBtn.Click += new System.EventHandler(this.delRoomBtn_Click);
             // 
             // AddPrenPopup
             // 
