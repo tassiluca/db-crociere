@@ -11,8 +11,11 @@ using System.Windows.Forms;
 namespace db_crociere
 {
     public partial class AddPrenPopup : Form
-    {
-        private static String ASSENT_DATETIME = "00/00/0000 00:00:00";
+    {   
+        //range min e max per i dati del database, si discostano dai range di c#
+        private const String MIN_DATE = "01/01/2000";
+        private const String MAX_DATE = "12/05/2079";
+        private const String ASSENT_INFO = "Assente";
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
@@ -25,7 +28,8 @@ namespace db_crociere
         {
             db = dbDataContext;
             prenot = new PRENOTAZIONI();
-            //prenot.DataEffettuazione = DateTime.Now;
+            prenot.DataOraImbarco = DateTime.Parse(MIN_DATE);
+            prenot.DataOraSbarco = DateTime.Parse(MAX_DATE);
             passengersDict = new Dictionary<String, PASSEGGERI>();
             addedRoomToPren = new List<decimal>();
             InitializeComponent();
@@ -79,7 +83,7 @@ namespace db_crociere
                 navPeriodSelector.Text = "Nessuna Navigazione";
                 portSelPren.Text = "Nessuna Tratta";
                 startDateSelPren.Text = "Nessuna data disponibile";
-                dateSbarcoBox.Text = "Assente";
+                dateSbarcoBox.Text = ASSENT_INFO;
                 portSelPren.DataSource = new List<String>();
                 startDateSelPren.DataSource = new List<String>();
             }
@@ -174,14 +178,14 @@ namespace db_crociere
         /// <param name="e"></param>
         private void startDateSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dateSbarcoBox.Text = "";
+            dateSbarcoBox.Text = " ";
             var dateTimeDeparture = startDateSelPren.SelectedItem.ToString();
             prenot.DataOraImbarco = DateTime.Parse(dateTimeDeparture);
 
-            var selectedPeriod = navPeriodSelector.SelectedItem.ToString();
             Console.WriteLine("Data prossima per sbarco in porto scelto");
-            String str = "Imbarco " +prenot.DataOraImbarco + prenot.CodNavigazione + prenot.CodPorto;
+            String str = "Imbarco " +prenot.DataOraImbarco +" "+ prenot.CodNavigazione + prenot.CodPorto;
             Console.WriteLine(str);
+
              var dateTimeSbar = from est in db.ESECUZIONI_TRATTAs
                                   from t in db.TRATTEs
                                   //from port in db.PORTIs
@@ -200,15 +204,14 @@ namespace db_crociere
             if (dateTimeSbar.Count() > 0)
             {
                 var sbarDateTime = dateTimeSbar.First().sbarcoDate + dateTimeSbar.First().sbarcoTime;
-                dateSbarcoBox.Text = sbarDateTime.ToString();
+
+                //!!MANTENERE QUESTO ORDINE DELLE RIGHE SOTTO, NON APPENA IL TESTO CAMBIA, VIENE AGGIORNATO L'ELENCO
+                //DELLE TIPOLOGIE DELLE CAMERE DOVE VIENE LETTO dataOraSbarco da prenot
                 prenot.DataOraSbarco = sbarDateTime;
-                updateTypeRoomSelector();
+                dateSbarcoBox.Text = sbarDateTime.ToString();
             }
             else {
-                dateSbarcoBox.Text = "Assente";
-                roomTypeSelector.Text = "Assente";
-                roomPositionSel.Text = "Assente";
-                //prenot.DataOraSbarco = DateTime.Parse(ASSENT_DATETIME);
+                dateSbarcoBox.Text = ASSENT_INFO;
             }
             Console.WriteLine(dateTimeSbar.Count() +  "trovati");
             foreach (var elem in dateTimeSbar) {
@@ -315,47 +318,51 @@ namespace db_crociere
             var numRooms = numRoomUpDownSel.Value;
         }
 
-        private void updateTypeRoomSelector()
+        private void updateTypeRoomSelector(object sender, EventArgs e)
         {
-            var nomeNave = getNomeNave().First().Nome;
-            //sarebbe da prendere le tipologie delle camere disponibili in quel periodo
-            //in quella nave ecc... 
-            var types = (from room in db.CABINEs
-                         where room.NomeNave == nomeNave
-                         select room.NomeTipologia).Distinct();
-            Console.WriteLine(types.Count() + " tipologie trovate per questa nave");
-            if (types.Count() <= 0) {
+            if (dateSbarcoBox.Text == ASSENT_INFO) {
                 roomTypeSelector.DataSource = new List<String>();
-                roomTypeSelector.Text = "Assente";
-                roomPositionSel.DataSource = new List<String>();
-                roomPositionSel.Text = "Assente";
-            }
-            else {
-                roomTypeSelector.DataSource = types.ToList();
-            }
-
-        }
-        //updated after selection of room type
-        private void updateRoomPosSelector(object sender, EventArgs e)
-        {
-            var nomeNave = getNomeNave().First().Nome;
-            var type = roomTypeSelector.SelectedItem.ToString() ;
-            var pos = (from room in db.CABINEs
-                         where room.NomeNave == nomeNave
-                         && room.NomeTipologia == type
-                         select room.NomeTipologia).Distinct();
-
-            if (pos.Count() <= 0)
-            {
-                roomPositionSel.DataSource = new List<String>();
-                roomPositionSel.Text = "Assente";
+                roomTypeSelector.Text = ASSENT_INFO;
             }
             else
             {
-                roomTypeSelector.DataSource = pos;
-            }
-        }
+                var nomeNave = getNomeNave().First().Nome;
+                //ricavo tutti i cod cabina attualmente impegnati nel periodo di dataoraImbarco-dataOraSbarco selezionato
+                //del tipo e posizione selezionati
+                //Console.WriteLine(prenot.CodNavigazione +" "+prenot.DataOraImbarco + " "+prenot.DataOraSbarco);
 
+                var erro = from p in db.PRENOTAZIONIs
+                           where p.DataOraImbarco >= prenot.DataOraImbarco
+                           select p;
+
+                var cabineUsate = from p in db.PRENOTAZIONIs
+                                  from alloggi in db.ALLOGGIs
+                                  from cab in db.CABINEs
+                                  where p.CodNavigazione == prenot.CodNavigazione
+                                  && p.DataOraImbarco >= prenot.DataOraImbarco
+                                  && p.DataOraSbarco <= prenot.DataOraSbarco
+                                  && alloggi.CodPrenotazione == p.CodPrenotazione
+                                  && cab.CodCabina == alloggi.CodCabina
+                                  && cab.NomeNave == nomeNave                                  
+                                  select cab;
+
+                var tutteCabineNave = from c in db.CABINEs
+                                      where c.NomeNave == nomeNave
+                                      select c;
+
+                var cabineLibere = tutteCabineNave.Except(cabineUsate);
+
+                roomTypeSelector.DataSource = cabineLibere.Select(c => c.NomeTipologia).Distinct();
+                
+            }
+
+        }
+ 
+        //updated after selection of room type
+        private void updateRoomPosSelector(object sender, EventArgs e)
+        {
+
+        }
 
 
         private void treatmentField_TextChanged(object sender, EventArgs e)
@@ -365,51 +372,10 @@ namespace db_crociere
 
         private void addRoomBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //ricavo tutte le cabine presenti nella nave, avendo selezionato il percorso
-                //ricavo il nome della nave partendo dal codice percorso
-                IQueryable<NAVI> shipName = getNomeNave();
-                Console.WriteLine("nome nave " + shipName.First().Nome);
-
-                //voglio ricavare i codCabina che per quella navigazione e nave in quel periodo non sono presenti in alloggi
-                IQueryable<CABINE> cabineUsate = getUsedRooms(shipName.First().Nome);
-
-                Console.WriteLine(cabineUsate.Count() + "cabine usate i questo periodo");
-                //prendo tutte le codCabine della nave (relativa al percorso scelto) di tipo e posizione selezionato
-                var type = roomTypeSelector.SelectedItem.ToString();
-                var position = roomPositionSel.SelectedItem.ToString();
-                var shipRooms = getshipRooms(shipName.First().Nome,type,position);
-
-                if (shipRooms.Count() <= 0)
-                {
-                    var msg = "Nessuna cabina " + type + " in posizione: " + position + " trovata.";
-                    MessageBox.Show(msg, "ERROR");
-                }
-                else
-                {
-                    //estrazione delle cabine libere = tutti i codCabina - cabineUsate
-                    var usedRoom = cabineUsate.Select(cb => cb.CodCabina);
-                    var avaiableRoom = shipRooms.Select(sr => sr.CodCabina).ToList().Except(usedRoom.ToList());
-                    var roomQuantity = ((int)numRoomUpDownSel.Value);
-
-                    //aggiornamento lista cabine aggiunte alla prenotazione
-                    addedRoomToPren = avaiableRoom.ToList().Take(roomQuantity).ToList();
-
-                    Console.WriteLine("CodCabina disponibili selezionati");
-                    foreach (var p in addedRoomToPren)
-                    {
-                        Console.WriteLine(p);
-                    }
-                }
-            }
-            catch (Exception exc) {
-                Console.WriteLine("Errore: impossbile ricavare nome nave senza percorso selezionato");
-            }
             
-
         }
 
+        //UTILITIES CABINE
         private IQueryable<NAVI> getNomeNave()
         {
                 var pathCode = pathSelPren.SelectedItem.ToString();
@@ -420,35 +386,6 @@ namespace db_crociere
                                select n;
                 return shipName;
         }
-
-        private IQueryable<CABINE> getshipRooms(String shipName, String type,String pos)
-        {
-            var shipRooms = from cb in db.CABINEs
-                        where cb.NomeNave == shipName
-                        && cb.NomeTipologia == type
-                        && cb.Posizione == pos
-                        select cb;
-            return shipRooms;
-        }
-
-        private IQueryable<CABINE> getUsedRooms(String nomeNave)
-        {
-            //ricavo tutti i cod cabina attualmente impegnati nel periodo di dataoraImbarco-dataOraSbarco selezionato
-            //del tipo e posizione selezionati
-                var cabineUsate = from p in db.PRENOTAZIONIs
-                                  from alloggi in db.ALLOGGIs
-                                  from cab in db.CABINEs
-                                  where p.CodNavigazione == prenot.CodNavigazione
-                                  && alloggi.CodPrenotazione == p.CodPrenotazione
-                                  && cab.CodCabina == alloggi.CodCabina
-                                  && cab.NomeNave == nomeNave
-                                  && p.DataOraImbarco >= prenot.DataOraImbarco
-                                  && p.DataOraSbarco <= prenot.DataOraSbarco
-                                  select cab;
-            Console.WriteLine(cabineUsate.Count()+"CABIBNE OCCUPATE TROVATE nave: " + nomeNave);
-                return cabineUsate;
-        }
-
-              
+      
     }
 }

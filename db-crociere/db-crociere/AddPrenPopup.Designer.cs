@@ -319,6 +319,7 @@ namespace db_crociere
             this.dateSbarcoBox.ReadOnly = true;
             this.dateSbarcoBox.Size = new System.Drawing.Size(112, 20);
             this.dateSbarcoBox.TabIndex = 11;
+            this.dateSbarcoBox.TextChanged += new System.EventHandler(this.updateTypeRoomSelector);
             // 
             // flowLayoutPanel15
             // 
@@ -692,7 +693,6 @@ namespace db_crociere
             this.roomTypeSelector.Name = "roomTypeSelector";
             this.roomTypeSelector.Size = new System.Drawing.Size(131, 21);
             this.roomTypeSelector.TabIndex = 4;
-            this.roomTypeSelector.SelectedIndexChanged += new System.EventHandler(this.updateRoomPosSelector);
             // 
             // flowLayoutPanel18
             // 
