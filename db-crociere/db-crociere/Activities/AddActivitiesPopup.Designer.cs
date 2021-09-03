@@ -198,12 +198,13 @@ namespace db_crociere.Activities
             // 
             // AddActivityExecutionBtn
             // 
-            this.AddActivityExecutionBtn.Location = new System.Drawing.Point(643, 52);
+            this.AddActivityExecutionBtn.Location = new System.Drawing.Point(643, 24);
             this.AddActivityExecutionBtn.Name = "AddActivityExecutionBtn";
             this.AddActivityExecutionBtn.Size = new System.Drawing.Size(75, 27);
             this.AddActivityExecutionBtn.TabIndex = 1;
             this.AddActivityExecutionBtn.Text = "Aggiungi";
             this.AddActivityExecutionBtn.UseVisualStyleBackColor = true;
+            this.AddActivityExecutionBtn.Click += new System.EventHandler(this.AddActivityExecutionBtn_Click);
             // 
             // AddActivitiesPopup
             // 
