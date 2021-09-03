@@ -45,11 +45,32 @@ namespace db_crociere
         }
 
         /// <summary>
+        /// Checks integrity. In details checks there are no price lists with overlapping
+        /// dates.
+        /// </summary>
+        /// <param name="shipName"></param>
+        /// <param name="type"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool CheckPrices(string shipName, string type, DateTime start, DateTime end)
+        {
+            var intersections = (from t in db.TARIFFARIs
+                                 where t.NomeNave == shipName && t.NomeTipologia == type &&
+                                       ((start >= t.DataInizio && start <= t.DataFine) ||
+                                        (end >= t.DataInizio && end <= t.DataFine) ||
+                                        (t.DataInizio >= start && t.DataFine <= end) ||
+                                        (t.DataFine >= start && t.DataFine <= end))
+                                 select t.CodTariffario).Count();
+            return intersections == 0;
+        }
+
+        /// <summary>
         /// Inserts new price list into the database.
         /// </summary>
         /// <param name="control">The control visual representation.</param>
         /// <param name="type">The type of the control.</param>
-        private void AddShipInfoBtn_Click(object sender, EventArgs e)
+        private void AddPriceBtn_Click(object sender, EventArgs e)
         {
             string msg;
             try
@@ -62,6 +83,12 @@ namespace db_crociere
 
                 Console.WriteLine(shipName +" "+ type + " " + start + " " + end + " " + price);
 
+                if (!CheckPrices(shipName, type, start, end))
+                {
+                    msg = "Intersezione date con un'altra tariffa già presente nel DB!";
+                    throw new ArgumentException(msg);
+                }
+
                 TARIFFARI tariffario = new TARIFFARI
                 {
                     NomeNave = shipName,
@@ -70,7 +97,10 @@ namespace db_crociere
                     DataFine = end,
                     Prezzo = price
                 };
-                
+
+                Console.WriteLine(tariffario.NomeNave + " " + tariffario.NomeTipologia + " " 
+                    + tariffario.DataInizio + " " + tariffario.DataFine + " " + tariffario.Prezzo);
+
                 db.TARIFFARIs.InsertOnSubmit(tariffario);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
@@ -79,7 +109,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -119,9 +150,11 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
+
     }
 }

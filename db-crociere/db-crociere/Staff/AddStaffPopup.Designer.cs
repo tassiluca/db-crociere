@@ -36,47 +36,65 @@ namespace db_crociere.Staff
             this.InsertCrewLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.FiscalCodeLabel = new System.Windows.Forms.Label();
             this.FiscalCodeTextBox = new System.Windows.Forms.TextBox();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.SurnameLabel = new System.Windows.Forms.Label();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NationalityLabel = new System.Windows.Forms.Label();
+            this.NationalityTextBox = new System.Windows.Forms.TextBox();
             this.PassportLabel = new System.Windows.Forms.Label();
-            this.PhoneNumLabel = new System.Windows.Forms.Label();
-            this.SalaryLabel = new System.Windows.Forms.Label();
-            this.SeniorityLabel = new System.Windows.Forms.Label();
-            this.RankLabel = new System.Windows.Forms.Label();
-            this.RoleLabel = new System.Windows.Forms.Label();
-            this.AddCrewBtn = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.PassPortTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneNumLabel = new System.Windows.Forms.Label();
             this.PhoneNumTextBox = new System.Windows.Forms.TextBox();
-            this.SalaryTextBox = new System.Windows.Forms.TextBox();
-            this.SeniortyTextBox = new System.Windows.Forms.TextBox();
-            this.RankTextBox = new System.Windows.Forms.TextBox();
+            this.RoleLabel = new System.Windows.Forms.Label();
             this.RoleComboBox = new System.Windows.Forms.ComboBox();
             this.RoleInfo = new System.Windows.Forms.TextBox();
-            this.NationalityTextBox = new System.Windows.Forms.TextBox();
+            this.SalaryLabel = new System.Windows.Forms.Label();
+            this.SalaryTextBox = new System.Windows.Forms.TextBox();
+            this.RankLabel = new System.Windows.Forms.Label();
+            this.RankTextBox = new System.Windows.Forms.TextBox();
+            this.SeniorityLabel = new System.Windows.Forms.Label();
+            this.SeniortyTextBox = new System.Windows.Forms.TextBox();
+            this.AddCrewBtn = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.RoleCodeLabel = new System.Windows.Forms.Label();
             this.RoleCodeTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.RoleDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.RoleNameTextBox = new System.Windows.Forms.TextBox();
             this.AddRoleBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.RoleDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.FiscalCodeLabel1 = new System.Windows.Forms.Label();
+            this.ShiftFiscalCodeComboBox = new System.Windows.Forms.ComboBox();
             this.StartDateLabel = new System.Windows.Forms.Label();
+            this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.EndDateLabel = new System.Windows.Forms.Label();
+            this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.AddShift = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.FiscalCodeComboBox = new System.Windows.Forms.ComboBox();
-            this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ServiceNavigationComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ServiceFiscalCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.AddServiceBtn = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ResponsabilityNavigationComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ResponsabilityFiscalCodeComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ResponsabilityRoleComboBox = new System.Windows.Forms.ComboBox();
+            this.AddResponsability = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
             this.InsertCrewLayoutPanel.SuspendLayout();
@@ -84,6 +102,10 @@ namespace db_crociere.Staff
             this.flowLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox6
@@ -93,7 +115,7 @@ namespace db_crociere.Staff
             this.groupBox6.Controls.Add(this.AddCrewBtn);
             this.groupBox6.Controls.Add(this.button8);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(6, 154);
+            this.groupBox6.Location = new System.Drawing.Point(6, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(761, 169);
             this.groupBox6.TabIndex = 25;
@@ -179,26 +201,6 @@ namespace db_crociere.Staff
             this.FiscalCodeTextBox.Size = new System.Drawing.Size(146, 22);
             this.FiscalCodeTextBox.TabIndex = 40;
             // 
-            // NameLabel
-            // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLabel.Location = new System.Drawing.Point(3, 31);
-            this.NameLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(45, 16);
-            this.NameLabel.TabIndex = 30;
-            this.NameLabel.Text = "Nome";
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Enabled = false;
-            this.NameTextBox.Location = new System.Drawing.Point(54, 31);
-            this.NameTextBox.MaxLength = 30;
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(161, 22);
-            this.NameTextBox.TabIndex = 41;
-            // 
             // SurnameLabel
             // 
             this.SurnameLabel.AutoSize = true;
@@ -219,6 +221,26 @@ namespace db_crociere.Staff
             this.SurnameTextBox.Size = new System.Drawing.Size(227, 22);
             this.SurnameTextBox.TabIndex = 33;
             // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLabel.Location = new System.Drawing.Point(3, 31);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(45, 16);
+            this.NameLabel.TabIndex = 30;
+            this.NameLabel.Text = "Nome";
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Enabled = false;
+            this.NameTextBox.Location = new System.Drawing.Point(54, 31);
+            this.NameTextBox.MaxLength = 30;
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(161, 22);
+            this.NameTextBox.TabIndex = 41;
+            // 
             // NationalityLabel
             // 
             this.NationalityLabel.AutoSize = true;
@@ -229,6 +251,14 @@ namespace db_crociere.Staff
             this.NationalityLabel.Size = new System.Drawing.Size(75, 16);
             this.NationalityLabel.TabIndex = 34;
             this.NationalityLabel.Text = "Nazionalità";
+            // 
+            // NationalityTextBox
+            // 
+            this.NationalityTextBox.Enabled = false;
+            this.NationalityTextBox.Location = new System.Drawing.Point(302, 31);
+            this.NationalityTextBox.Name = "NationalityTextBox";
+            this.NationalityTextBox.Size = new System.Drawing.Size(56, 22);
+            this.NationalityTextBox.TabIndex = 53;
             // 
             // PassportLabel
             // 
@@ -241,6 +271,15 @@ namespace db_crociere.Staff
             this.PassportLabel.TabIndex = 36;
             this.PassportLabel.Text = "Passaporto";
             // 
+            // PassPortTextBox
+            // 
+            this.PassPortTextBox.Enabled = false;
+            this.PassPortTextBox.Location = new System.Drawing.Point(448, 31);
+            this.PassPortTextBox.MaxLength = 9;
+            this.PassPortTextBox.Name = "PassPortTextBox";
+            this.PassPortTextBox.Size = new System.Drawing.Size(111, 22);
+            this.PassPortTextBox.TabIndex = 46;
+            // 
             // PhoneNumLabel
             // 
             this.PhoneNumLabel.AutoSize = true;
@@ -252,38 +291,14 @@ namespace db_crociere.Staff
             this.PhoneNumLabel.TabIndex = 38;
             this.PhoneNumLabel.Text = "Recapito";
             // 
-            // SalaryLabel
+            // PhoneNumTextBox
             // 
-            this.SalaryLabel.AutoSize = true;
-            this.SalaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalaryLabel.Location = new System.Drawing.Point(3, 87);
-            this.SalaryLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.SalaryLabel.Name = "SalaryLabel";
-            this.SalaryLabel.Size = new System.Drawing.Size(106, 16);
-            this.SalaryLabel.TabIndex = 42;
-            this.SalaryLabel.Text = "Stipendio Annuo";
-            // 
-            // SeniorityLabel
-            // 
-            this.SeniorityLabel.AutoSize = true;
-            this.SeniorityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SeniorityLabel.Location = new System.Drawing.Point(3, 115);
-            this.SeniorityLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.SeniorityLabel.Name = "SeniorityLabel";
-            this.SeniorityLabel.Size = new System.Drawing.Size(127, 16);
-            this.SeniorityLabel.TabIndex = 43;
-            this.SeniorityLabel.Text = "Anzianità di Servizio";
-            // 
-            // RankLabel
-            // 
-            this.RankLabel.AutoSize = true;
-            this.RankLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RankLabel.Location = new System.Drawing.Point(215, 87);
-            this.RankLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.RankLabel.Name = "RankLabel";
-            this.RankLabel.Size = new System.Drawing.Size(46, 16);
-            this.RankLabel.TabIndex = 44;
-            this.RankLabel.Text = "Grado";
+            this.PhoneNumTextBox.Enabled = false;
+            this.PhoneNumTextBox.Location = new System.Drawing.Point(72, 59);
+            this.PhoneNumTextBox.MaxLength = 14;
+            this.PhoneNumTextBox.Name = "PhoneNumTextBox";
+            this.PhoneNumTextBox.Size = new System.Drawing.Size(105, 22);
+            this.PhoneNumTextBox.TabIndex = 47;
             // 
             // RoleLabel
             // 
@@ -295,70 +310,6 @@ namespace db_crociere.Staff
             this.RoleLabel.Size = new System.Drawing.Size(44, 16);
             this.RoleLabel.TabIndex = 45;
             this.RoleLabel.Text = "Ruolo";
-            // 
-            // AddCrewBtn
-            // 
-            this.AddCrewBtn.Location = new System.Drawing.Point(680, 109);
-            this.AddCrewBtn.Name = "AddCrewBtn";
-            this.AddCrewBtn.Size = new System.Drawing.Size(75, 25);
-            this.AddCrewBtn.TabIndex = 3;
-            this.AddCrewBtn.Text = "Aggiungi";
-            this.AddCrewBtn.UseVisualStyleBackColor = true;
-            this.AddCrewBtn.Click += new System.EventHandler(this.AddCrewBtn_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(680, 140);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Pulisci";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // PassPortTextBox
-            // 
-            this.PassPortTextBox.Enabled = false;
-            this.PassPortTextBox.Location = new System.Drawing.Point(448, 31);
-            this.PassPortTextBox.MaxLength = 9;
-            this.PassPortTextBox.Name = "PassPortTextBox";
-            this.PassPortTextBox.Size = new System.Drawing.Size(111, 22);
-            this.PassPortTextBox.TabIndex = 46;
-            // 
-            // PhoneNumTextBox
-            // 
-            this.PhoneNumTextBox.Enabled = false;
-            this.PhoneNumTextBox.Location = new System.Drawing.Point(72, 59);
-            this.PhoneNumTextBox.MaxLength = 14;
-            this.PhoneNumTextBox.Name = "PhoneNumTextBox";
-            this.PhoneNumTextBox.Size = new System.Drawing.Size(105, 22);
-            this.PhoneNumTextBox.TabIndex = 47;
-            // 
-            // SalaryTextBox
-            // 
-            this.SalaryTextBox.Enabled = false;
-            this.SalaryTextBox.Location = new System.Drawing.Point(115, 87);
-            this.SalaryTextBox.MaxLength = 6;
-            this.SalaryTextBox.Name = "SalaryTextBox";
-            this.SalaryTextBox.Size = new System.Drawing.Size(94, 22);
-            this.SalaryTextBox.TabIndex = 48;
-            // 
-            // SeniortyTextBox
-            // 
-            this.SeniortyTextBox.Enabled = false;
-            this.SeniortyTextBox.Location = new System.Drawing.Point(136, 115);
-            this.SeniortyTextBox.MaxLength = 2;
-            this.SeniortyTextBox.Name = "SeniortyTextBox";
-            this.SeniortyTextBox.Size = new System.Drawing.Size(41, 22);
-            this.SeniortyTextBox.TabIndex = 49;
-            // 
-            // RankTextBox
-            // 
-            this.RankTextBox.Enabled = false;
-            this.RankTextBox.Location = new System.Drawing.Point(267, 87);
-            this.RankTextBox.MaxLength = 20;
-            this.RankTextBox.Name = "RankTextBox";
-            this.RankTextBox.Size = new System.Drawing.Size(242, 22);
-            this.RankTextBox.TabIndex = 50;
             // 
             // RoleComboBox
             // 
@@ -380,13 +331,84 @@ namespace db_crociere.Staff
             this.RoleInfo.Size = new System.Drawing.Size(257, 22);
             this.RoleInfo.TabIndex = 52;
             // 
-            // NationalityTextBox
+            // SalaryLabel
             // 
-            this.NationalityTextBox.Enabled = false;
-            this.NationalityTextBox.Location = new System.Drawing.Point(302, 31);
-            this.NationalityTextBox.Name = "NationalityTextBox";
-            this.NationalityTextBox.Size = new System.Drawing.Size(56, 22);
-            this.NationalityTextBox.TabIndex = 53;
+            this.SalaryLabel.AutoSize = true;
+            this.SalaryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalaryLabel.Location = new System.Drawing.Point(3, 89);
+            this.SalaryLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.SalaryLabel.Name = "SalaryLabel";
+            this.SalaryLabel.Size = new System.Drawing.Size(106, 16);
+            this.SalaryLabel.TabIndex = 42;
+            this.SalaryLabel.Text = "Stipendio Annuo";
+            // 
+            // SalaryTextBox
+            // 
+            this.SalaryTextBox.Enabled = false;
+            this.SalaryTextBox.Location = new System.Drawing.Point(115, 89);
+            this.SalaryTextBox.MaxLength = 6;
+            this.SalaryTextBox.Name = "SalaryTextBox";
+            this.SalaryTextBox.Size = new System.Drawing.Size(94, 22);
+            this.SalaryTextBox.TabIndex = 48;
+            // 
+            // RankLabel
+            // 
+            this.RankLabel.AutoSize = true;
+            this.RankLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RankLabel.Location = new System.Drawing.Point(215, 89);
+            this.RankLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.RankLabel.Name = "RankLabel";
+            this.RankLabel.Size = new System.Drawing.Size(46, 16);
+            this.RankLabel.TabIndex = 44;
+            this.RankLabel.Text = "Grado";
+            // 
+            // RankTextBox
+            // 
+            this.RankTextBox.Enabled = false;
+            this.RankTextBox.Location = new System.Drawing.Point(267, 89);
+            this.RankTextBox.MaxLength = 20;
+            this.RankTextBox.Name = "RankTextBox";
+            this.RankTextBox.Size = new System.Drawing.Size(242, 22);
+            this.RankTextBox.TabIndex = 50;
+            // 
+            // SeniorityLabel
+            // 
+            this.SeniorityLabel.AutoSize = true;
+            this.SeniorityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SeniorityLabel.Location = new System.Drawing.Point(3, 117);
+            this.SeniorityLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.SeniorityLabel.Name = "SeniorityLabel";
+            this.SeniorityLabel.Size = new System.Drawing.Size(127, 16);
+            this.SeniorityLabel.TabIndex = 43;
+            this.SeniorityLabel.Text = "Anzianità di Servizio";
+            // 
+            // SeniortyTextBox
+            // 
+            this.SeniortyTextBox.Enabled = false;
+            this.SeniortyTextBox.Location = new System.Drawing.Point(136, 117);
+            this.SeniortyTextBox.MaxLength = 2;
+            this.SeniortyTextBox.Name = "SeniortyTextBox";
+            this.SeniortyTextBox.Size = new System.Drawing.Size(41, 22);
+            this.SeniortyTextBox.TabIndex = 49;
+            // 
+            // AddCrewBtn
+            // 
+            this.AddCrewBtn.Location = new System.Drawing.Point(680, 109);
+            this.AddCrewBtn.Name = "AddCrewBtn";
+            this.AddCrewBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddCrewBtn.TabIndex = 3;
+            this.AddCrewBtn.Text = "Aggiungi";
+            this.AddCrewBtn.UseVisualStyleBackColor = true;
+            this.AddCrewBtn.Click += new System.EventHandler(this.AddCrewBtn_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(680, 140);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 3;
+            this.button8.Text = "Pulisci";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -394,7 +416,7 @@ namespace db_crociere.Staff
             this.groupBox1.Controls.Add(this.AddRoleBtn);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 12);
+            this.groupBox1.Location = new System.Drawing.Point(8, 187);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(404, 136);
             this.groupBox1.TabIndex = 26;
@@ -444,6 +466,15 @@ namespace db_crociere.Staff
             this.label2.TabIndex = 32;
             this.label2.Text = "Descrizione";
             // 
+            // RoleDescriptionTextBox
+            // 
+            this.RoleDescriptionTextBox.Location = new System.Drawing.Point(88, 31);
+            this.RoleDescriptionTextBox.MaxLength = 200;
+            this.RoleDescriptionTextBox.Name = "RoleDescriptionTextBox";
+            this.RoleDescriptionTextBox.Size = new System.Drawing.Size(213, 44);
+            this.RoleDescriptionTextBox.TabIndex = 43;
+            this.RoleDescriptionTextBox.Text = "";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -482,32 +513,23 @@ namespace db_crociere.Staff
             this.button2.Text = "Pulisci";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // RoleDescriptionTextBox
-            // 
-            this.RoleDescriptionTextBox.Location = new System.Drawing.Point(88, 31);
-            this.RoleDescriptionTextBox.MaxLength = 200;
-            this.RoleDescriptionTextBox.Name = "RoleDescriptionTextBox";
-            this.RoleDescriptionTextBox.Size = new System.Drawing.Size(213, 44);
-            this.RoleDescriptionTextBox.TabIndex = 43;
-            this.RoleDescriptionTextBox.Text = "";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel1);
             this.groupBox2.Controls.Add(this.AddShift);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(416, 12);
+            this.groupBox2.Location = new System.Drawing.Point(416, 187);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(351, 136);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Inserisci Ruolo";
+            this.groupBox2.Text = "Inserisci Turno Lavorativo";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.FiscalCodeLabel1);
-            this.flowLayoutPanel1.Controls.Add(this.FiscalCodeComboBox);
+            this.flowLayoutPanel1.Controls.Add(this.ShiftFiscalCodeComboBox);
             this.flowLayoutPanel1.Controls.Add(this.StartDateLabel);
             this.flowLayoutPanel1.Controls.Add(this.StartDatePicker);
             this.flowLayoutPanel1.Controls.Add(this.EndDateLabel);
@@ -528,6 +550,15 @@ namespace db_crociere.Staff
             this.FiscalCodeLabel1.TabIndex = 28;
             this.FiscalCodeLabel1.Text = "Codice Fiscale";
             // 
+            // ShiftFiscalCodeComboBox
+            // 
+            this.ShiftFiscalCodeComboBox.FormattingEnabled = true;
+            this.ShiftFiscalCodeComboBox.Location = new System.Drawing.Point(3, 25);
+            this.ShiftFiscalCodeComboBox.Name = "ShiftFiscalCodeComboBox";
+            this.ShiftFiscalCodeComboBox.Size = new System.Drawing.Size(248, 24);
+            this.ShiftFiscalCodeComboBox.TabIndex = 33;
+            this.ShiftFiscalCodeComboBox.Click += new System.EventHandler(this.FiscalCodeComboBox_Click);
+            // 
             // StartDateLabel
             // 
             this.StartDateLabel.AutoSize = true;
@@ -539,6 +570,15 @@ namespace db_crociere.Staff
             this.StartDateLabel.TabIndex = 32;
             this.StartDateLabel.Text = "Inizio";
             // 
+            // StartDatePicker
+            // 
+            this.StartDatePicker.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.StartDatePicker.Location = new System.Drawing.Point(47, 55);
+            this.StartDatePicker.Name = "StartDatePicker";
+            this.StartDatePicker.Size = new System.Drawing.Size(204, 22);
+            this.StartDatePicker.TabIndex = 35;
+            // 
             // EndDateLabel
             // 
             this.EndDateLabel.AutoSize = true;
@@ -549,6 +589,15 @@ namespace db_crociere.Staff
             this.EndDateLabel.Size = new System.Drawing.Size(34, 16);
             this.EndDateLabel.TabIndex = 30;
             this.EndDateLabel.Text = "Fine";
+            // 
+            // EndDatePicker
+            // 
+            this.EndDatePicker.CustomFormat = "dd/MM/yyyy hh:mm:ss";
+            this.EndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.EndDatePicker.Location = new System.Drawing.Point(43, 83);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(208, 22);
+            this.EndDatePicker.TabIndex = 36;
             // 
             // AddShift
             // 
@@ -569,38 +618,201 @@ namespace db_crociere.Staff
             this.button3.Text = "Pulisci";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // FiscalCodeComboBox
+            // groupBox3
             // 
-            this.FiscalCodeComboBox.FormattingEnabled = true;
-            this.FiscalCodeComboBox.Location = new System.Drawing.Point(3, 25);
-            this.FiscalCodeComboBox.Name = "FiscalCodeComboBox";
-            this.FiscalCodeComboBox.Size = new System.Drawing.Size(248, 24);
-            this.FiscalCodeComboBox.TabIndex = 33;
-            this.FiscalCodeComboBox.Click += new System.EventHandler(this.FiscalCodeComboBox_Click);
+            this.groupBox3.Controls.Add(this.flowLayoutPanel3);
+            this.groupBox3.Controls.Add(this.AddServiceBtn);
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(8, 329);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(404, 90);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Inserisci Servizio";
             // 
-            // StartDatePicker
+            // flowLayoutPanel3
             // 
-            this.StartDatePicker.CustomFormat = "dd/MM/yyyy hh:mm:ss";
-            this.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartDatePicker.Location = new System.Drawing.Point(47, 55);
-            this.StartDatePicker.Name = "StartDatePicker";
-            this.StartDatePicker.Size = new System.Drawing.Size(204, 22);
-            this.StartDatePicker.TabIndex = 35;
+            this.flowLayoutPanel3.Controls.Add(this.label1);
+            this.flowLayoutPanel3.Controls.Add(this.ServiceNavigationComboBox);
+            this.flowLayoutPanel3.Controls.Add(this.label4);
+            this.flowLayoutPanel3.Controls.Add(this.ServiceFiscalCodeComboBox);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(311, 60);
+            this.flowLayoutPanel3.TabIndex = 14;
             // 
-            // EndDatePicker
+            // label1
             // 
-            this.EndDatePicker.CustomFormat = "dd/MM/yyyy hh:mm:ss";
-            this.EndDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.EndDatePicker.Location = new System.Drawing.Point(43, 83);
-            this.EndDatePicker.Name = "EndDatePicker";
-            this.EndDatePicker.Size = new System.Drawing.Size(208, 22);
-            this.EndDatePicker.TabIndex = 36;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Codice Navigazione";
+            // 
+            // ServiceNavigationComboBox
+            // 
+            this.ServiceNavigationComboBox.FormattingEnabled = true;
+            this.ServiceNavigationComboBox.Location = new System.Drawing.Point(139, 3);
+            this.ServiceNavigationComboBox.Name = "ServiceNavigationComboBox";
+            this.ServiceNavigationComboBox.Size = new System.Drawing.Size(121, 24);
+            this.ServiceNavigationComboBox.TabIndex = 33;
+            this.ServiceNavigationComboBox.Click += new System.EventHandler(this.NavigationComboBox_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 33);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 16);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Codice Fiscale";
+            // 
+            // ServiceFiscalCodeComboBox
+            // 
+            this.ServiceFiscalCodeComboBox.FormattingEnabled = true;
+            this.ServiceFiscalCodeComboBox.Location = new System.Drawing.Point(107, 33);
+            this.ServiceFiscalCodeComboBox.Name = "ServiceFiscalCodeComboBox";
+            this.ServiceFiscalCodeComboBox.Size = new System.Drawing.Size(197, 24);
+            this.ServiceFiscalCodeComboBox.TabIndex = 34;
+            this.ServiceFiscalCodeComboBox.Click += new System.EventHandler(this.ServiceFiscalCodeComboBox_Click);
+            // 
+            // AddServiceBtn
+            // 
+            this.AddServiceBtn.Location = new System.Drawing.Point(323, 22);
+            this.AddServiceBtn.Name = "AddServiceBtn";
+            this.AddServiceBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddServiceBtn.TabIndex = 3;
+            this.AddServiceBtn.Text = "Aggiungi";
+            this.AddServiceBtn.UseVisualStyleBackColor = true;
+            this.AddServiceBtn.Click += new System.EventHandler(this.AddServiceBtn_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(323, 56);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Pulisci";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.flowLayoutPanel4);
+            this.groupBox4.Controls.Add(this.AddResponsability);
+            this.groupBox4.Controls.Add(this.button5);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(8, 425);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(404, 117);
+            this.groupBox4.TabIndex = 28;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Inserisci Responsabilità";
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label5);
+            this.flowLayoutPanel4.Controls.Add(this.ResponsabilityNavigationComboBox);
+            this.flowLayoutPanel4.Controls.Add(this.label6);
+            this.flowLayoutPanel4.Controls.Add(this.ResponsabilityFiscalCodeComboBox);
+            this.flowLayoutPanel4.Controls.Add(this.label7);
+            this.flowLayoutPanel4.Controls.Add(this.ResponsabilityRoleComboBox);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(6, 19);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(311, 92);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 16);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Codice Navigazione";
+            // 
+            // ResponsabilityNavigationComboBox
+            // 
+            this.ResponsabilityNavigationComboBox.FormattingEnabled = true;
+            this.ResponsabilityNavigationComboBox.Location = new System.Drawing.Point(139, 3);
+            this.ResponsabilityNavigationComboBox.Name = "ResponsabilityNavigationComboBox";
+            this.ResponsabilityNavigationComboBox.Size = new System.Drawing.Size(121, 24);
+            this.ResponsabilityNavigationComboBox.TabIndex = 33;
+            this.ResponsabilityNavigationComboBox.Click += new System.EventHandler(this.ResponsabilityNavigationComboBox_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 33);
+            this.label6.Margin = new System.Windows.Forms.Padding(3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(98, 16);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Codice Fiscale";
+            // 
+            // ResponsabilityFiscalCodeComboBox
+            // 
+            this.ResponsabilityFiscalCodeComboBox.FormattingEnabled = true;
+            this.ResponsabilityFiscalCodeComboBox.Location = new System.Drawing.Point(107, 33);
+            this.ResponsabilityFiscalCodeComboBox.Name = "ResponsabilityFiscalCodeComboBox";
+            this.ResponsabilityFiscalCodeComboBox.Size = new System.Drawing.Size(197, 24);
+            this.ResponsabilityFiscalCodeComboBox.TabIndex = 34;
+            this.ResponsabilityFiscalCodeComboBox.Click += new System.EventHandler(this.ResponsabilityFiscalCode_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 63);
+            this.label7.Margin = new System.Windows.Forms.Padding(3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "Ruolo";
+            // 
+            // ResponsabilityRoleComboBox
+            // 
+            this.ResponsabilityRoleComboBox.FormattingEnabled = true;
+            this.ResponsabilityRoleComboBox.Location = new System.Drawing.Point(53, 63);
+            this.ResponsabilityRoleComboBox.Name = "ResponsabilityRoleComboBox";
+            this.ResponsabilityRoleComboBox.Size = new System.Drawing.Size(63, 24);
+            this.ResponsabilityRoleComboBox.TabIndex = 55;
+            this.ResponsabilityRoleComboBox.Click += new System.EventHandler(this.ResponsabilityRoleComboBox_Click);
+            // 
+            // AddResponsability
+            // 
+            this.AddResponsability.Location = new System.Drawing.Point(323, 22);
+            this.AddResponsability.Name = "AddResponsability";
+            this.AddResponsability.Size = new System.Drawing.Size(75, 25);
+            this.AddResponsability.TabIndex = 3;
+            this.AddResponsability.Text = "Aggiungi";
+            this.AddResponsability.UseVisualStyleBackColor = true;
+            this.AddResponsability.Click += new System.EventHandler(this.AddResponsability_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(323, 56);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Pulisci";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // AddStaffPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 450);
+            this.ClientSize = new System.Drawing.Size(783, 563);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox6);
@@ -617,6 +829,12 @@ namespace db_crociere.Staff
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -664,12 +882,30 @@ namespace db_crociere.Staff
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label FiscalCodeLabel1;
-        private System.Windows.Forms.ComboBox FiscalCodeComboBox;
+        private System.Windows.Forms.ComboBox ShiftFiscalCodeComboBox;
         private System.Windows.Forms.Label StartDateLabel;
         private System.Windows.Forms.Label EndDateLabel;
         private System.Windows.Forms.Button AddShift;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker StartDatePicker;
         private System.Windows.Forms.DateTimePicker EndDatePicker;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox ServiceNavigationComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ServiceFiscalCodeComboBox;
+        private System.Windows.Forms.Button AddServiceBtn;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox ResponsabilityNavigationComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox ResponsabilityFiscalCodeComboBox;
+        private System.Windows.Forms.Button AddResponsability;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox ResponsabilityRoleComboBox;
     }
 }

@@ -30,16 +30,27 @@ namespace db_crociere.Staff
             RoleInfo.Text = roleName.FirstOrDefault();
         }
 
+
         /// <summary>
         /// Fills the roles combobox.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Contains the event data.</param>
-        private void RoleComboBox_Click(object sender, EventArgs e)
+        private void FillsRoles(ComboBox cb)
         {
             var roles = from r in db.RUOLIs
                         select r.CodRuolo;
-            RoleComboBox.DataSource = roles;
+            cb.DataSource = roles;
+        }
+
+        private void RoleComboBox_Click(object sender, EventArgs e)
+        {
+            FillsRoles(RoleComboBox);
+        }
+
+        private void ResponsabilityRoleComboBox_Click(object sender, EventArgs e)
+        {
+            FillsRoles(ResponsabilityRoleComboBox);
         }
 
         /// <summary>
@@ -168,7 +179,8 @@ namespace db_crociere.Staff
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -202,13 +214,34 @@ namespace db_crociere.Staff
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
 
         /// <summary>
-        /// 
+        /// Checks integrity on shifts. In details: a new shift can be accepted 
+        /// only if a service in that day is present.
+        /// </summary>
+        /// <param name="fiscalCode"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        private bool ChecksShifts(string fiscalCode, DateTime start, DateTime end)
+        {
+            var res = (from s in db.SERVIZIs
+                       from n in db.NAVIGAZIONIs
+                       where s.CodiceFiscale == fiscalCode &&
+                             s.CodNavigazione == n.CodNavigazione &&
+                             start.Date >= n.DataInizio && start.Date <= n.DataFine &&
+                             end.Date >= n.DataInizio && end.Date <= n.DataFine
+                       select n.CodNavigazione).Count();
+            return res == 1;
+        }
+
+        /// <summary>
+        /// Adds a shift in the database.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Contains the event data.</param> 
@@ -217,9 +250,16 @@ namespace db_crociere.Staff
             string msg;
             try
             {
-                string fiscalCode = FiscalCodeComboBox.Text;
+                string fiscalCode = ShiftFiscalCodeComboBox.Text;
                 DateTime startDate = StartDatePicker.Value;
                 DateTime endDate = EndDatePicker.Value;
+
+                if (!ChecksShifts(fiscalCode, startDate, endDate))
+                {
+                    msg = "Non puoi inserire un turno se in quella " +
+                        "data non è previsto un servizio!";
+                    throw new ArgumentException(msg);
+                }
 
                 TURNI_LAVORATIVI tl = new TURNI_LAVORATIVI
                 {
@@ -236,21 +276,176 @@ namespace db_crociere.Staff
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
 
         /// <summary>
-        /// Fills the fiscal code combobox.
+        /// Fills the fiscal code combobox passed in input.
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Contains the event data.</param> 
-        private void FiscalCodeComboBox_Click(object sender, EventArgs e)
+        private void FillsFiscalCodeComboBox(ComboBox cb)
         {
             var fc = from p in db.PERSONALEs
                      select p.CodiceFiscale;
-            FiscalCodeComboBox.DataSource = fc;
+            cb.DataSource = fc;
+        }
+
+
+        private void FiscalCodeComboBox_Click(object sender, EventArgs e)
+        {
+            FillsFiscalCodeComboBox(ShiftFiscalCodeComboBox);
+        }
+
+        private void ServiceFiscalCodeComboBox_Click(object sender, EventArgs e)
+        {
+            FillsFiscalCodeComboBox(ServiceFiscalCodeComboBox);
+        }
+
+        private void ResponsabilityFiscalCode_Click(object sender, EventArgs e)
+        {
+            FillsFiscalCodeComboBox(ResponsabilityFiscalCodeComboBox);
+        }
+
+        /// <summary>
+        /// Fills the fiscal code combobox passed in input.
+        /// </summary>
+        /// <param name="sender">Object that raised the event.</param>
+        /// <param name="e">Contains the event data.</param> 
+        private void FillsNavigationComboBox(ComboBox cb)
+        {
+            var fn = from n in db.NAVIGAZIONIs
+                     select n.CodNavigazione;
+            cb.DataSource = fn;
+        }
+
+        private void NavigationComboBox_Click(object sender, EventArgs e)
+        {
+            FillsNavigationComboBox(ServiceNavigationComboBox);
+        }
+
+        private void ResponsabilityNavigationComboBox_Click(object sender, EventArgs e)
+        {
+            FillsNavigationComboBox(ResponsabilityNavigationComboBox);
+        }
+
+        /// <summary>
+        /// Integrity checks: i cannot insert a new service if another service
+        /// in the same period have been already inserted.
+        /// </summary>
+        /// <returns></returns>
+        private bool ChecksServices(string fiscalCode, int navigation)
+        {
+            var navDates = (from n in db.NAVIGAZIONIs
+                            where n.CodNavigazione == navigation
+                            select new
+                            {
+                                start = n.DataInizio,
+                                end = n.DataFine
+                            }).First();
+
+            var intersections = (from s in db.SERVIZIs
+                                 from n in db.NAVIGAZIONIs
+                                 where s.CodNavigazione == n.CodNavigazione &&
+                                       s.CodiceFiscale == fiscalCode &&
+                                       ((navDates.start >= n.DataInizio && navDates.start <= n.DataFine) ||
+                                       (navDates.end >= n.DataInizio && navDates.end <= n.DataFine) ||
+                                       (n.DataInizio >= navDates.start && n.DataInizio <= navDates.end) ||
+                                       (n.DataFine >= navDates.end && n.DataFine <= navDates.end))
+                                 select n.CodNavigazione).Count();
+            return intersections == 0;
+        }
+
+        private void AddServiceBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                int navigation = int.Parse(ServiceNavigationComboBox.Text);
+                string fiscalCode = ServiceFiscalCodeComboBox.Text;
+
+                if (!ChecksServices(fiscalCode, navigation))
+                {
+                    msg = "Non puoi inserire un servizio se un'altro " +
+                        "nello stesso periodo è già stato inserito!";
+                    throw new ArgumentException(msg);
+                }
+
+                SERVIZI servizio = new SERVIZI
+                {
+                    CodNavigazione = navigation,
+                    CodiceFiscale = fiscalCode
+                };
+
+                db.SERVIZIs.InsertOnSubmit(servizio);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
+            }
+            Utilities.ClearAll(this);
+        }
+
+        /// <summary>
+        /// Integrity Checks Responsabilities.
+        /// </summary>
+        /// <returns></returns>
+        private bool ChecksResponsabilities(int navigation, string fiscalCode)
+        {
+            var res = (from s in db.SERVIZIs
+                       where s.CodiceFiscale == fiscalCode && s.CodNavigazione == navigation
+                       select s).Count();
+            return res == 1;
+        }
+
+        /// <summary>
+        /// Adds a new responsability into the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddResponsability_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                int navigation = int.Parse(ResponsabilityNavigationComboBox.Text);
+                string fiscalCode = ResponsabilityFiscalCodeComboBox.Text;
+                string role = ResponsabilityRoleComboBox.Text;
+
+                if (!ChecksResponsabilities(navigation, fiscalCode))
+                {
+                    msg = "Un personale non può essere responsabile all’interno di " +
+                        "una navigazione se non vi presta servizio ";
+                    throw new ArgumentException(msg);
+                }
+
+                RESPONSABILITÀ responsabilities = new RESPONSABILITÀ
+                {
+                    CodNavigazione = navigation,
+                    CodiceFiscale = fiscalCode,
+                    CodRuolo = role
+                };
+
+                db.RESPONSABILITÀs.InsertOnSubmit(responsabilities);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
+            }
+            Utilities.ClearAll(this);
         }
     }
 }

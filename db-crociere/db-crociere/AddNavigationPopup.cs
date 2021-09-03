@@ -31,16 +31,12 @@ namespace db_crociere
         private Dictionary<string, string> getHarborsOfSection(decimal codSection)
         {
             Dictionary<string, string> harborsDict = new Dictionary<string, string>();
-            var harbors = (from p1 in db.PORTIs
-                           from p2 in db.PORTIs
-                           from t in db.TRATTEs
-                           where t.CodTratta == codSection &&
-                                 t.CodPortoPartenza == p1.CodPorto &&
-                                 t.CodPortoArrivo == p2.CodPorto
+            var harbors = (from t in db.TRATTEs
+                           where t.CodTratta == codSection
                            select new
                            {
-                               START = p1.CodPorto,
-                               END = p2.CodPorto
+                               START = t.CodPortoPartenza,
+                               END = t.CodPortoArrivo
                            }).ToList();
 
             harborsDict.Add("START", harbors[0].START);
@@ -113,6 +109,7 @@ namespace db_crociere
                     db.SEQUENZE_TRATTEs.InsertOnSubmit(sqtratte);
 
                 }
+            
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -120,7 +117,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
             AddNavigationPopup_Load(sender, e);
@@ -198,7 +196,7 @@ namespace db_crociere
             else
             {
                 var msg = "Nessuna selezione!";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
             }
         }
 
@@ -233,7 +231,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -301,7 +300,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -339,15 +339,15 @@ namespace db_crociere
         /// <param name="shipName">The ship name.</param>
         /// <param name="start">The navigation start date.</param>
         /// <param name="end">The navigation end date.</param>
-        /// <returns></returns>
-        private bool checksNavigation(string shipName, DateTime start, DateTime end)
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool ChecksNavigation(string shipName, DateTime start, DateTime end)
         {
             var intersections = from n in db.NAVIGAZIONIs
                                 where n.NomeNave == shipName &&
                                       ((start >= n.DataInizio && start <= n.DataFine) ||
                                       (end >= n.DataInizio && end <= n.DataFine) ||
-                                      (n.DataInizio >= start && n.DataFine <= start) ||
-                                      (n.DataInizio >= end && n.DataFine <= end))
+                                      (n.DataInizio >= start && n.DataInizio <= end) ||
+                                      (n.DataFine >= start && n.DataFine <= end))
                                 select n.CodNavigazione;
             return intersections.Count() == 0;
         }
@@ -370,7 +370,7 @@ namespace db_crociere
 
                 Console.WriteLine(shipName + " " + startDate + " " + endDate + " " + executions + " " + pathCode);
 
-                if (!checksNavigation(shipName, startDate, endDate))
+                if (!ChecksNavigation(shipName, startDate, endDate))
                 {
                     msg = "Intersezione date con un'altra navigazione già presente nel DB!";
                     throw new ArgumentException(msg);
@@ -394,7 +394,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -505,7 +506,8 @@ namespace db_crociere
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Contains the event data.</param> 
-        private bool checksExecutionSection(int navigation, DateTime start, DateTime stop)
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool ChecksExecutionSection(int navigation, DateTime start, DateTime stop)
         {
             var intersections = from e in db.ESECUZIONI_TRATTAs
                                 where e.CodNavigazione == navigation &&
@@ -546,7 +548,7 @@ namespace db_crociere
                 TimeSpan endTime = new TimeSpan(EndTimeSection.Value.Hour,
                     EndTimeSection.Value.Minute, EndTimeSection.Value.Second);
 
-                if (!checksExecutionSection(navigation, startDate, endDate))
+                if (!ChecksExecutionSection(navigation, startDate, endDate))
                 {
                     msg = "La data di esecuzione tratta devono essere coerenti tra loro!";
                     throw new ArgumentException(msg);
@@ -571,7 +573,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
