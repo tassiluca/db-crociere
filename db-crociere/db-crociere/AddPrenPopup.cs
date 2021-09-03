@@ -28,6 +28,10 @@ namespace db_crociere
         private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String,PASSEGGERI> passengersDict;
         private Dictionary<decimal,CABINE> roomOfPrenot;
+        private Dictionary<String, List<TARIFFARI>> dictTar;
+        private int importoPrenot;
+        private int codicePrenotazione;
+        private int codicePagamento;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -38,6 +42,7 @@ namespace db_crociere
             passengersDict = new Dictionary<String, PASSEGGERI>();
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
             roomOfPrenot = new Dictionary<decimal,CABINE>();
+            codicePrenotazione = 0;
             InitializeComponent();
         }
 
@@ -336,6 +341,7 @@ namespace db_crociere
                 roomTypeSelector.DataSource = new List<String>();
                 roomTypeSelector.Text = ASSENT_INFO;
                 roomTypeSelector.SelectedItem = ASSENT_INFO;
+                roomOfPrenot = new Dictionary<decimal, CABINE>();
             }
             else
             {
@@ -455,7 +461,10 @@ namespace db_crociere
                 var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
                 if (roomOfPrenot.ContainsKey(cabToremove))
                 {
-                    cabinePrenotabiliNonAggiunte.Add(cabToremove, roomOfPrenot[cabToremove]);
+                    if (!cabinePrenotabiliNonAggiunte.ContainsKey(cabToremove))
+                    {
+                        cabinePrenotabiliNonAggiunte.Add(cabToremove, roomOfPrenot[cabToremove]);
+                    }
                     roomOfPrenot.Remove(cabToremove);
                     updateRoomListBox();
                     Console.WriteLine("Rimossa cabina: " + cabToremove);
@@ -485,18 +494,6 @@ namespace db_crociere
                 return shipName;
         }
 
-        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
-        private void confirmPrenotBtn_Click(object sender, EventArgs e)
-        {
-            if (isAllInfoSelected()) {
-
-
-            }
-            else { 
-                
-            }
-        }
-
         private void calcTotalPriceBtn_Click(object sender, EventArgs e)
         {
             /*OCCORRENTE: per calcolare ottenere i tariffari associati ed applictyi alla prenotazioe necessito delle informazioni seguenti:
@@ -504,24 +501,170 @@ namespace db_crociere
              NomeNave (che ricavo partendo dal percorso selezionato),
              Le date DataOraImbarco e DataOraSbarco devono essere comprese in DataInizio-DataFine (tariffario)*/
 
-            var nomeNave = getNomeNave().First().ToString(); //deve essere selezionato il codice Percorso
-            var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).ToList();
+            var nomeNave = getNomeNave().First().Nome; //deve essere selezionato il codice Percorso
+            var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
             var tariffari = from tar in db.TARIFFARIs
                             where tar.NomeNave == nomeNave
                            // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
                             select tar;
+            Console.WriteLine(tariffari.Count() + " tariffari trovati nave: " + nomeNave);
+            foreach (var ee in tariffari)
+            {
+                Console.WriteLine(ee.NomeNave + " " + ee.NomeTipologia);
 
-            foreach (var ee in tariffari) {
-                Console.WriteLine(ee.NomeNave +" "+ee.NomeTipologia);
+            }
+
+            //struttura dati che mi serve per cercare i tariffari applicati alle tipologie presenti nella prenotazione
+            dictTar = new Dictionary<String,List<TARIFFARI>>();
+            foreach (var tr in tariffari)
+            {
+                //se la tipologia del tariffario rientra in quelle delle cabine associate alla prenotazione
+                //inserisco nella dictionary
+                if (roomTypeOfPrenot.Contains(tr.NomeTipologia)) {
+
+                    if (dictTar.ContainsKey(tr.NomeTipologia))
+                    {
+                        var updatedSet = dictTar[tr.NomeTipologia];
+                        updatedSet.Add(tr);
+                        dictTar[tr.NomeTipologia] = updatedSet;
+                    }
+                    else
+                    {
+                        var newSet = new List<TARIFFARI>();
+                        newSet.Add(tr);
+                        dictTar.Add(tr.NomeTipologia, newSet);
+                    }
+                }
+                //se il nome della tipolgia non rientra fra quelle associate alla prenotazione
+                //non metto dentro il dictionary
+            }
+
+            //devo ordinare i tariffari in ordine crescente
+
+            var listTobeOrered = dictTar.Keys.ToList();
+            foreach (var tp in listTobeOrered) {
+                var listaOrdinata = dictTar[tp].OrderBy(a => a.DataInizio).ToList();
+                dictTar[tp] = listaOrdinata;
+                
+            }
+
+            /* ora per ciascuna tipologia presente nella dictionary lancio la funzione ricorsiva che mi calcola
+             * il prezzo totale per quella tipologia di cabina per il periodo DataOraImbarco-dataOraSbarco
+             */
+            if (roomTypeOfPrenot.Count()>0) {
+
+                var typeIdx = 0; //prima tipologia
+                var prezzoTot = 0;
+                try {
+                    //calcolo il costo per tutte le tipologie di camere che sono presenti nella prenotazione
+                    for (typeIdx = 0; typeIdx < roomTypeOfPrenot.Count(); typeIdx++)
+                    {
+                        var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
+                        var num = roomOfPrenot.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
+                        var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
+                        prezzoTot += costoTipo * num;
+                    }
+                    priceLabel.Text = prezzoTot.ToString();
+                    importoPrenot = prezzoTot;
+                }
+                catch (InvalidOperationException exc) {
+                    var msg = "Mancanza di tariffari e/o periodi non tariffati";
+                    MessageBox.Show(msg, "ERRORE");
+                    Console.WriteLine("ECCEZIONE: "+ exc);
+                    priceLabel.Text = " ";
+                    importoPrenot = 0;
+                }
+                
+            }
+            else {
+                var msg = "Prezzo non calcolabile";
+                priceLabel.Text = " ";
+                MessageBox.Show(msg,"Attenzione");
+            }
             
+        }
+
+        private int ricCalcCost(DateTime imbarco,DateTime sbarco, int idxTarTipoCab, String type) {
+            if (dictTar.ContainsKey(type) && idxTarTipoCab < dictTar[type].Count()) {
+                int prezzo = 0;
+                var tar = dictTar[type].ElementAt(idxTarTipoCab);
+                var dataFine = tar.DataFine;
+                var dataInizio = tar.DataInizio;
+
+                if (dataInizio <= imbarco && imbarco <= dataFine)
+                {
+                    if (sbarco <= dataFine)
+                    {
+                        //caso in cui ho un solo tariffario applicato a quel tipo di cabina in una nave
+                        int giorni = (int)(sbarco - imbarco).TotalDays;
+                        return giorni * (int)tar.Prezzo;
+                    }
+                    else
+                    {
+                        //memorizzo costo fino alla fine del tariffario corrente poi salto al successivo
+                        //il periodo della prenotazione inizia dentro il peridoo del tariffario corrente e finisce in uno di quelli seguenti
+                        int giorni = (int)(dataFine - imbarco).TotalDays;
+                        prezzo = giorni * (int)tar.Prezzo;
+                        
+                        if (idxTarTipoCab+1 < dictTar[type].Count()) {
+                            //se non vado fuori dalla lista,ci sono ancora tariffari da scorrere
+                            //verifico che il tariffario attuale sia contiguo al successivo
+
+                            var tarNext = dictTar[type].ElementAt(idxTarTipoCab+1);
+                            //verifico i due tariffari vicini siano contigui
+                            if ((tarNext.DataInizio - tar.DataFine).TotalDays <= 1)
+                            {
+                                //significa che sono contigui e non ci sono gap
+                                var dImb = tarNext.DataInizio;
+                                return prezzo + ricCalcCost(dImb,sbarco,idxTarTipoCab+1,type);
+                            }
+                            else {
+                                Console.WriteLine("I tariffari non sono contigui, ci sono buchi di tariffazione");
+                                //lancio eccezione
+                                throw new InvalidOperationException("Periodi Tariffari non contigui o assenti");
+                            }
+
+                        }
+                        Console.WriteLine("Sono arrivato in fondo, Tariffari finiti");
+                        throw new InvalidOperationException("Tariffari finiti, non è possibile andare oltre");
+                    }
+                }
+                else {
+                    Console.WriteLine("Salto al tariffario successivo, non inizia in questo periodo");
+                    return prezzo + ricCalcCost(imbarco, sbarco, idxTarTipoCab + 1, type);
+                }
+            }
+            else {
+                //stampa di errore , è presente un buco del tariffario, la tipologia corrente ha dei periodi
+                //mancanti dei tariffari
+                Console.WriteLine("Sono arrivato in fondo, Tariffari finiti");
+                throw new InvalidOperationException("Tariffari finiti, non è possibile andare oltre");
             }
         }
 
-        private bool isAllInfoSelected()
+        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
+        private void confirmPrenotBtn_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (isAllInfoSelected())
+            {
+
+
+            }
+            else
+            {
+
+            }
         }
 
-      
+        /// <summary>
+        /// Verifico che tutti gli attributi che mi occorrono per ole entità siano presenti e/o calcolati
+        /// </summary>
+        /// <returns></returns>
+        private bool isAllInfoSelected()
+        {
+
+            return true;
+        }
+
     }
 }
