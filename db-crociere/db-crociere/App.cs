@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using db_crociere.Staff;
+using db_crociere.Activities;
 
 namespace db_crociere
 {
@@ -288,6 +289,12 @@ namespace db_crociere
         {
             AddStaffPopup addStaffPopupWindow = new AddStaffPopup(db);
             addStaffPopupWindow.ShowDialog(this);
+        }
+
+        private void AddActivitiesBtn_Click(object sender, EventArgs e)
+        {
+            AddActivitiesPopup addActivitiesPopup = new AddActivitiesPopup(db);
+            addActivitiesPopup.ShowDialog(this);
         }
     }
 }
