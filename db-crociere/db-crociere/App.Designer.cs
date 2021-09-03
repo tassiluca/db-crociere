@@ -29,16 +29,15 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.editBtnFlow = new System.Windows.Forms.FlowLayoutPanel();
+            this.prenBox = new System.Windows.Forms.GroupBox();
             this.addPrenBtn = new System.Windows.Forms.Button();
             this.prenViewTable = new System.Windows.Forms.DataGridView();
             this.shipPage = new System.Windows.Forms.TabPage();
@@ -77,6 +76,7 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.ExpenseTrackerPage = new System.Windows.Forms.TabPage();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.RankCostsGridView = new System.Windows.Forms.DataGridView();
             this.AverageBookingsCostsBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -90,13 +90,14 @@ namespace db_crociere
             this.PriceListGridView = new System.Windows.Forms.DataGridView();
             this.AddExpensesBtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.addRefound = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.editBtnFlow.SuspendLayout();
+            this.prenBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).BeginInit();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -116,6 +117,7 @@ namespace db_crociere
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ExpenseTrackerPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).BeginInit();
@@ -124,7 +126,8 @@ namespace db_crociere
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -146,6 +149,7 @@ namespace db_crociere
             // bookingTab
             // 
             this.bookingTab.Controls.Add(this.groupBox1);
+            this.bookingTab.Controls.Add(this.prenBox);
             this.bookingTab.Location = new System.Drawing.Point(4, 22);
             this.bookingTab.Name = "bookingTab";
             this.bookingTab.Padding = new System.Windows.Forms.Padding(3);
@@ -154,30 +158,22 @@ namespace db_crociere
             this.bookingTab.Text = "Prenotazioni";
             this.bookingTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // prenBox
             // 
-            this.groupBox1.Controls.Add(this.editBtnFlow);
-            this.groupBox1.Controls.Add(this.prenViewTable);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(623, 488);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // editBtnFlow
-            // 
-            this.editBtnFlow.Controls.Add(this.addPrenBtn);
-            this.editBtnFlow.Location = new System.Drawing.Point(7, 284);
-            this.editBtnFlow.Name = "editBtnFlow";
-            this.editBtnFlow.Size = new System.Drawing.Size(100, 28);
-            this.editBtnFlow.TabIndex = 1;
+            this.prenBox.Controls.Add(this.addPrenBtn);
+            this.prenBox.Controls.Add(this.prenViewTable);
+            this.prenBox.Location = new System.Drawing.Point(6, 6);
+            this.prenBox.Name = "prenBox";
+            this.prenBox.Size = new System.Drawing.Size(623, 488);
+            this.prenBox.TabIndex = 1;
+            this.prenBox.TabStop = false;
+            this.prenBox.Text = "Prenotazioni";
             // 
             // addPrenBtn
             // 
-            this.addPrenBtn.Location = new System.Drawing.Point(3, 3);
+            this.addPrenBtn.Location = new System.Drawing.Point(7, 290);
             this.addPrenBtn.Name = "addPrenBtn";
-            this.addPrenBtn.Size = new System.Drawing.Size(75, 23);
+            this.addPrenBtn.Size = new System.Drawing.Size(75, 22);
             this.addPrenBtn.TabIndex = 0;
             this.addPrenBtn.Text = "Aggiungi";
             this.addPrenBtn.UseVisualStyleBackColor = true;
@@ -741,6 +737,22 @@ namespace db_crociere
             this.ExpenseTrackerPage.Text = "Spese";
             this.ExpenseTrackerPage.UseVisualStyleBackColor = true;
             // 
+            // chart2
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
+            this.chart2.Location = new System.Drawing.Point(715, 302);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(346, 278);
+            this.chart2.TabIndex = 8;
+            this.chart2.Text = "Costo Medio Crociere";
+            title1.Name = "Title1";
+            title1.Text = "Apprezzamento Percorsi Crociere";
+            this.chart2.Titles.Add(title1);
+            // 
             // RankCostsGridView
             // 
             this.RankCostsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -812,19 +824,19 @@ namespace db_crociere
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(715, 15);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(346, 259);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "Apprezzamento Crociere";
-            title3.Name = "Title1";
-            title3.Text = "Apprezzamento Percorsi Crociere";
-            this.chart1.Titles.Add(title3);
+            title2.Name = "Title1";
+            title2.Text = "Apprezzamento Percorsi Crociere";
+            this.chart1.Titles.Add(title2);
             // 
             // groupBox2
             // 
@@ -879,6 +891,16 @@ namespace db_crociere
             this.tabPage1.Text = "Personale";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(326, 276);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -889,31 +911,33 @@ namespace db_crociere
             this.tabPage2.Text = "Attività";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // chart2
+            // groupBox1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
-            this.chart2.Location = new System.Drawing.Point(715, 302);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(346, 278);
-            this.chart2.TabIndex = 8;
-            this.chart2.Text = "Costo Medio Crociere";
-            title4.Name = "Title1";
-            title4.Text = "Apprezzamento Percorsi Crociere";
-            this.chart2.Titles.Add(title4);
+            this.groupBox1.Controls.Add(this.addRefound);
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(636, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(437, 487);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Annullamenti/Rimborsi";
             // 
-            // button1
+            // dataGridView1
             // 
-            this.button1.Location = new System.Drawing.Point(326, 276);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 18);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(424, 258);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // addRefound
+            // 
+            this.addRefound.Location = new System.Drawing.Point(7, 289);
+            this.addRefound.Name = "addRefound";
+            this.addRefound.Size = new System.Drawing.Size(75, 23);
+            this.addRefound.TabIndex = 0;
+            this.addRefound.Text = "Aggiungi";
+            this.addRefound.UseVisualStyleBackColor = true;
             // 
             // App
             // 
@@ -927,8 +951,7 @@ namespace db_crociere
             this.Activated += new System.EventHandler(this.App_Activated);
             this.menuContainer.ResumeLayout(false);
             this.bookingTab.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.editBtnFlow.ResumeLayout(false);
+            this.prenBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).EndInit();
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -952,6 +975,7 @@ namespace db_crociere
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ExpenseTrackerPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).EndInit();
@@ -960,7 +984,8 @@ namespace db_crociere
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -977,7 +1002,7 @@ namespace db_crociere
         private System.Windows.Forms.ListBox shipListBox;
         private System.Windows.Forms.Button DeleteShipBtn;
         private System.Windows.Forms.Button AddShipBtn;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox prenBox;
         private System.Windows.Forms.GroupBox InfoShipBox;
         private System.Windows.Forms.GroupBox InfoPathBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -1005,7 +1030,6 @@ namespace db_crociere
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.Label CabinsNumLabel;
         private System.Windows.Forms.DataGridView prenViewTable;
-        private System.Windows.Forms.FlowLayoutPanel editBtnFlow;
         private System.Windows.Forms.Button addPrenBtn;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1025,5 +1049,8 @@ namespace db_crociere
         private System.Windows.Forms.DataGridView RankCostsGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button addRefound;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

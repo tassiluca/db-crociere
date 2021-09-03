@@ -423,16 +423,25 @@ namespace db_crociere
 
         private void addRoomBtn_Click(object sender, EventArgs e)
         {
-            var qty = (int)numRoomUpDownSel.Value;
-            var selectedRoom = cabinePrenotabiliNonAggiunte.Take(qty).ToList();
-            foreach (var sr in selectedRoom) {
-                if (!roomOfPrenot.Contains(sr)) {
-                    roomOfPrenot.Add(sr);
-                    cabinePrenotabiliNonAggiunte.Remove(sr);
-                    Console.WriteLine("Aggiunta cavina: "+ sr);
+            if (passengersDict.Count() > 0)
+            {
+                var qty = (int)numRoomUpDownSel.Value;
+                var selectedRoom = cabinePrenotabiliNonAggiunte.Take(qty).ToList();
+                foreach (var sr in selectedRoom)
+                {
+                    if (!roomOfPrenot.Contains(sr))
+                    {
+                        roomOfPrenot.Add(sr);
+                        cabinePrenotabiliNonAggiunte.Remove(sr);
+                        Console.WriteLine("Aggiunta cavina: " + sr);
+                    }
                 }
+                updateRoomListBox();
             }
-            updateRoomListBox();
+            else {
+                var msg = "Inserire almeno un passeggero.";
+                MessageBox.Show(msg,"ATTENZIONE");
+            }
         }
 
         private void delRoomBtn_Click(object sender, EventArgs e)
@@ -441,12 +450,23 @@ namespace db_crociere
             roomOfPrenot.Remove(cabToremove);
             cabinePrenotabiliNonAggiunte.Add(cabToremove);
             updateRoomListBox();
-            Console.WriteLine("Rimossa cavina: " + cabToremove);
+            Console.WriteLine("Rimossa cabina: " + cabToremove);
         }
 
         private void updateRoomListBox() {
             roomListBox.DataSource = roomOfPrenot.ToList();
             numRoomUpDownSel.Maximum = cabinePrenotabiliNonAggiunte.Count();
+        }
+        //AGGIUUNTA PRENOTAZIONE E QUWERY DI INSERIMENTO
+        private void confirmPrenotBtn_Click(object sender, EventArgs e)
+        {
+            if () {
+
+
+            }
+            else { 
+                
+            }
         }
 
         //UTILITIES CABINE
@@ -461,6 +481,5 @@ namespace db_crociere
                 return shipName;
         }
 
-    
     }
 }
