@@ -252,18 +252,17 @@ namespace db_crociere
                 int spacesNum = int.Parse(SpacesNumberTextBox.Text);
                 int capacity = int.Parse(SpaceCapacityTextBox.Text);
 
-                var i = (from c in db.CABINEs
-                         where c.NomeNave == name && c.NumeroPonte == deck
-                         select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
-
-                Console.WriteLine(name + " " + deck + " " + spacesNum + " " + capacity);
-
-                if (InsertCabinCheckBox.Enabled == true)
+                if (InsertCabinCheckBox.Checked == true)
                 {
+                    string position = SpacePositionComboBox.Text;
+                    string type = SpaceTypeComboBox.Text;
+
+                    var i = (from c in db.CABINEs
+                             where c.NomeNave == name && c.NumeroPonte == deck
+                             select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
+
                     for (var j = i + 1; j <= i + spacesNum; j++)
                     {
-                        string position = SpacePositionComboBox.Text;
-                        string type = SpaceTypeComboBox.Text;
                         CABINE cabina = new CABINE
                         {
                             NomeNave = name,
@@ -277,8 +276,14 @@ namespace db_crociere
                     }
                 } else
                 {
+                    var i = (from c in db.SALEs
+                             where c.NomeNave == name && c.NumeroPonte == deck
+                             select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
+
                     for (var j = i + 1; j <= i + spacesNum; j++)
                     {
+                        Console.WriteLine(j + " " + name + " " + deck + " " + spacesNum + " " + capacity);
+
                         SALE sala = new SALE
                         {
                             NomeNave = name,
@@ -289,7 +294,8 @@ namespace db_crociere
                         db.SALEs.InsertOnSubmit(sala);
                     }
                 }
-                
+
+                Console.WriteLine("Test");
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
