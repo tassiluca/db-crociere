@@ -29,6 +29,9 @@ namespace db_crociere
         private Dictionary<String,PASSEGGERI> passengersDict;
         private Dictionary<decimal,CABINE> roomOfPrenot;
         private Dictionary<String, List<TARIFFARI>> dictTar;
+        private int importoPrenot;
+        private int codicePrenotazione;
+        private int codicePagamento;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -39,6 +42,7 @@ namespace db_crociere
             passengersDict = new Dictionary<String, PASSEGGERI>();
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
             roomOfPrenot = new Dictionary<decimal,CABINE>();
+            codicePrenotazione = 0;
             InitializeComponent();
         }
 
@@ -490,18 +494,6 @@ namespace db_crociere
                 return shipName;
         }
 
-        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
-        private void confirmPrenotBtn_Click(object sender, EventArgs e)
-        {
-            if (isAllInfoSelected()) {
-
-
-            }
-            else { 
-                
-            }
-        }
-
         private void calcTotalPriceBtn_Click(object sender, EventArgs e)
         {
             /*OCCORRENTE: per calcolare ottenere i tariffari associati ed applictyi alla prenotazioe necessito delle informazioni seguenti:
@@ -563,17 +555,30 @@ namespace db_crociere
 
                 var typeIdx = 0; //prima tipologia
                 var prezzoTot = 0;
-                //calcolo il costo per tutte le tipologie di camere che sono presenti nella prenotazione
-                for (typeIdx=0; typeIdx< roomTypeOfPrenot.Count(); typeIdx++) {
-                    var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
-                    var num = roomOfPrenot.Values.Select(c => c.NomeTipologia == tipo).Count();
-                    var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
-                    prezzoTot += costoTipo * num;
+                try {
+                    //calcolo il costo per tutte le tipologie di camere che sono presenti nella prenotazione
+                    for (typeIdx = 0; typeIdx < roomTypeOfPrenot.Count(); typeIdx++)
+                    {
+                        var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
+                        var num = roomOfPrenot.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
+                        var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
+                        prezzoTot += costoTipo * num;
+                    }
+                    priceLabel.Text = prezzoTot.ToString();
+                    importoPrenot = prezzoTot;
                 }
-                priceLabel.Text = prezzoTot.ToString();
+                catch (InvalidOperationException exc) {
+                    var msg = "Mancanza di tariffari e/o periodi non tariffati";
+                    MessageBox.Show(msg, "ERRORE");
+                    Console.WriteLine("ECCEZIONE: "+ exc);
+                    priceLabel.Text = " ";
+                    importoPrenot = 0;
+                }
+                
             }
             else {
-                var msg = "prezzo non calcolabile";
+                var msg = "Prezzo non calcolabile";
+                priceLabel.Text = " ";
                 MessageBox.Show(msg,"Attenzione");
             }
             
@@ -615,12 +620,13 @@ namespace db_crociere
                             }
                             else {
                                 Console.WriteLine("I tariffari non sono contigui, ci sono buchi di tariffazione");
-                                return 0;
+                                //lancio eccezione
+                                throw new InvalidOperationException("Periodi Tariffari non contigui o assenti");
                             }
 
                         }
                         Console.WriteLine("Sono arrivato in fondo, Tariffari finiti");
-                        return 0;
+                        throw new InvalidOperationException("Tariffari finiti, non è possibile andare oltre");
                     }
                 }
                 else {
@@ -632,15 +638,33 @@ namespace db_crociere
                 //stampa di errore , è presente un buco del tariffario, la tipologia corrente ha dei periodi
                 //mancanti dei tariffari
                 Console.WriteLine("Sono arrivato in fondo, Tariffari finiti");
-                return 0;
+                throw new InvalidOperationException("Tariffari finiti, non è possibile andare oltre");
             }
         }
 
-        private bool isAllInfoSelected()
+        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
+        private void confirmPrenotBtn_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (isAllInfoSelected())
+            {
+
+
+            }
+            else
+            {
+
+            }
         }
 
-      
+        /// <summary>
+        /// Verifico che tutti gli attributi che mi occorrono per ole entità siano presenti e/o calcolati
+        /// </summary>
+        /// <returns></returns>
+        private bool isAllInfoSelected()
+        {
+
+            return true;
+        }
+
     }
 }
