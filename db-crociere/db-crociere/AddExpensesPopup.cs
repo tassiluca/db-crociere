@@ -60,6 +60,8 @@ namespace db_crociere
                 DateTime end = EndDatePicker.Value.Date;
                 int price = int.Parse(PriceTextBox.Text);
 
+                Console.WriteLine(shipName +" "+ type + " " + start + " " + end + " " + price);
+
                 TARIFFARI tariffario = new TARIFFARI
                 {
                     NomeNave = shipName,
@@ -68,7 +70,7 @@ namespace db_crociere
                     DataFine = end,
                     Prezzo = price
                 };
-
+                
                 db.TARIFFARIs.InsertOnSubmit(tariffario);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";

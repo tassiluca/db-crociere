@@ -22,12 +22,12 @@ namespace db_crociere
         private IQueryable<CABINE> cabineLibere;
         //cabine ceh rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
         private IQueryable<CABINE> cabinePrenotabili;
-        private List<decimal> cabinePrenotabiliNonAggiunte;
+        private Dictionary<decimal,CABINE> cabinePrenotabiliNonAggiunte;
 
         //below obj used to keep datas before adding them in db
         private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String,PASSEGGERI> passengersDict;
-        private List<decimal> roomOfPrenot;
+        private Dictionary<decimal,CABINE> roomOfPrenot;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -36,7 +36,8 @@ namespace db_crociere
             prenot.DataOraImbarco = DateTime.Parse(MIN_DATE);
             prenot.DataOraSbarco = DateTime.Parse(MAX_DATE);
             passengersDict = new Dictionary<String, PASSEGGERI>();
-            roomOfPrenot = new List<decimal>();
+            cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
+            roomOfPrenot = new Dictionary<decimal,CABINE>();
             InitializeComponent();
         }
 
@@ -403,7 +404,11 @@ namespace db_crociere
                 var tipoCab = roomTypeSelector.SelectedItem.ToString();
                 var posCab = roomPositionSel.SelectedItem.ToString();
                 cabinePrenotabili = cabineLibere.Where(c => c.NomeTipologia == tipoCab && c.Posizione == posCab);
-                cabinePrenotabiliNonAggiunte = cabinePrenotabili.Select(c => c.CodCabina).ToList();
+                //azzero le cabine prenotabili e ripopolo il dictionary aggiornato
+                cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
+                foreach (var cab in cabinePrenotabili) {
+                    cabinePrenotabiliNonAggiunte.Add(cab.CodCabina,cab);
+                }
                 roomSizeSel.DataSource = cabinePrenotabili.Select(c => c.PostiLetto).Distinct();
             }
         }
@@ -426,12 +431,12 @@ namespace db_crociere
             if (passengersDict.Count() > 0)
             {
                 var qty = (int)numRoomUpDownSel.Value;
-                var selectedRoom = cabinePrenotabiliNonAggiunte.Take(qty).ToList();
+                var selectedRoom = cabinePrenotabiliNonAggiunte.Keys.Take(qty).ToList();
                 foreach (var sr in selectedRoom)
                 {
-                    if (!roomOfPrenot.Contains(sr))
+                    if (!roomOfPrenot.ContainsKey(sr))
                     {
-                        roomOfPrenot.Add(sr);
+                        roomOfPrenot.Add(sr,cabinePrenotabiliNonAggiunte[sr]);
                         cabinePrenotabiliNonAggiunte.Remove(sr);
                         Console.WriteLine("Aggiunta cavina: " + sr);
                     }
@@ -446,29 +451,28 @@ namespace db_crociere
 
         private void delRoomBtn_Click(object sender, EventArgs e)
         {
-            var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
-            roomOfPrenot.Remove(cabToremove);
-            cabinePrenotabiliNonAggiunte.Add(cabToremove);
-            updateRoomListBox();
-            Console.WriteLine("Rimossa cabina: " + cabToremove);
+            if(roomListBox.SelectedItem != null){
+                var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
+                if (roomOfPrenot.ContainsKey(cabToremove))
+                {
+                    cabinePrenotabiliNonAggiunte.Add(cabToremove, roomOfPrenot[cabToremove]);
+                    roomOfPrenot.Remove(cabToremove);
+                    updateRoomListBox();
+                    Console.WriteLine("Rimossa cabina: " + cabToremove);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nessuna cabina da rimuovere dalla prenotazione");
+            }
         }
 
         private void updateRoomListBox() {
-            roomListBox.DataSource = roomOfPrenot.ToList();
+            roomListBox.DataSource = roomOfPrenot.Keys.ToList();
             numRoomUpDownSel.Maximum = cabinePrenotabiliNonAggiunte.Count();
+            textTotPostiLetto.Text = roomOfPrenot.Values.Select(c => c.PostiLetto).Sum().ToString();
         }
-        //AGGIUUNTA PRENOTAZIONE E QUWERY DI INSERIMENTO
-        private void confirmPrenotBtn_Click(object sender, EventArgs e)
-        {
-            if () {
-
-
-            }
-            else { 
-                
-            }
-        }
-
+        
         //UTILITIES CABINE
         private IQueryable<NAVI> getNomeNave()
         {
@@ -481,5 +485,43 @@ namespace db_crociere
                 return shipName;
         }
 
+        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
+        private void confirmPrenotBtn_Click(object sender, EventArgs e)
+        {
+            if (isAllInfoSelected()) {
+
+
+            }
+            else { 
+                
+            }
+        }
+
+        private void calcTotalPriceBtn_Click(object sender, EventArgs e)
+        {
+            /*OCCORRENTE: per calcolare ottenere i tariffari associati ed applictyi alla prenotazioe necessito delle informazioni seguenti:
+             NomeTipologia (cabina),
+             NomeNave (che ricavo partendo dal percorso selezionato),
+             Le date DataOraImbarco e DataOraSbarco devono essere comprese in DataInizio-DataFine (tariffario)*/
+
+            var nomeNave = getNomeNave().First().ToString(); //deve essere selezionato il codice Percorso
+            var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).ToList();
+            var tariffari = from tar in db.TARIFFARIs
+                            where tar.NomeNave == nomeNave
+                           // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
+                            select tar;
+
+            foreach (var ee in tariffari) {
+                Console.WriteLine(ee.NomeNave +" "+ee.NomeTipologia);
+            
+            }
+        }
+
+        private bool isAllInfoSelected()
+        {
+            throw new NotImplementedException();
+        }
+
+      
     }
 }
