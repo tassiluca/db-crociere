@@ -96,6 +96,7 @@ namespace db_crociere
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.AddActivitiesBtn = new System.Windows.Forms.Button();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -129,6 +130,7 @@ namespace db_crociere
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -934,6 +936,7 @@ namespace db_crociere
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.AddActivitiesBtn);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -951,6 +954,17 @@ namespace db_crociere
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Statistiche";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // AddActivitiesBtn
+            // 
+            this.AddActivitiesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddActivitiesBtn.Location = new System.Drawing.Point(988, 587);
+            this.AddActivitiesBtn.Name = "AddActivitiesBtn";
+            this.AddActivitiesBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddActivitiesBtn.TabIndex = 0;
+            this.AddActivitiesBtn.Text = "Aggiungi Attività";
+            this.AddActivitiesBtn.UseVisualStyleBackColor = true;
+            this.AddActivitiesBtn.Click += new System.EventHandler(this.AddActivitiesBtn_Click);
             // 
             // App
             // 
@@ -999,6 +1013,7 @@ namespace db_crociere
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1066,5 +1081,6 @@ namespace db_crociere
         private System.Windows.Forms.Button addRefound;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button AddActivitiesBtn;
     }
 }

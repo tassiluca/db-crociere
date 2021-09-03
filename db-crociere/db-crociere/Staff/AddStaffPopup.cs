@@ -137,7 +137,7 @@ namespace db_crociere.Staff
                 int salary = int.Parse(SalaryTextBox.Text);
                 string role = RoleComboBox.Text;
 
-                if (InsertOfficialCheckBox.Enabled == true)
+                if (InsertOfficialCheckBox.Checked == true)
                 {
                     string rank = RankTextBox.Text;
                     int seniority = int.Parse(SeniortyTextBox.Text);

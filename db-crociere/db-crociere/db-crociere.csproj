@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AddActivitiesPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\AddActivitiesPopup.Designer.cs">
+      <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPrenPopup.cs" />
     <Compile Include="AddPrenPopup.Designer.cs">
       <DependentUpon>AddPrenPopup.cs</DependentUpon>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Activities\AddActivitiesPopup.resx">
+      <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddExpensesPopup.resx">
       <DependentUpon>AddExpensesPopup.cs</DependentUpon>
     </EmbeddedResource>
