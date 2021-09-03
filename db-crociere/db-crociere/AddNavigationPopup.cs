@@ -31,16 +31,12 @@ namespace db_crociere
         private Dictionary<string, string> getHarborsOfSection(decimal codSection)
         {
             Dictionary<string, string> harborsDict = new Dictionary<string, string>();
-            var harbors = (from p1 in db.PORTIs
-                           from p2 in db.PORTIs
-                           from t in db.TRATTEs
-                           where t.CodTratta == codSection &&
-                                 t.CodPortoPartenza == p1.CodPorto &&
-                                 t.CodPortoArrivo == p2.CodPorto
+            var harbors = (from t in db.TRATTEs
+                           where t.CodTratta == codSection
                            select new
                            {
-                               START = p1.CodPorto,
-                               END = p2.CodPorto
+                               START = t.CodPortoPartenza,
+                               END = t.CodPortoArrivo
                            }).ToList();
 
             harborsDict.Add("START", harbors[0].START);
@@ -113,6 +109,7 @@ namespace db_crociere
                     db.SEQUENZE_TRATTEs.InsertOnSubmit(sqtratte);
 
                 }
+            
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -120,7 +117,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
             AddNavigationPopup_Load(sender, e);
@@ -198,7 +196,7 @@ namespace db_crociere
             else
             {
                 var msg = "Nessuna selezione!";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
             }
         }
 
@@ -233,7 +231,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -301,7 +300,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -346,8 +346,8 @@ namespace db_crociere
                                 where n.NomeNave == shipName &&
                                       ((start >= n.DataInizio && start <= n.DataFine) ||
                                       (end >= n.DataInizio && end <= n.DataFine) ||
-                                      (n.DataInizio >= start && n.DataFine <= start) ||
-                                      (n.DataInizio >= end && n.DataFine <= end))
+                                      (n.DataInizio >= start && n.DataInizio <= end) ||
+                                      (n.DataFine >= start && n.DataFine <= end))
                                 select n.CodNavigazione;
             return intersections.Count() == 0;
         }
@@ -394,7 +394,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -571,7 +572,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
