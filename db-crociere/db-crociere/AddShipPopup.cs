@@ -56,7 +56,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 var msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -112,7 +113,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this); 
         }
@@ -147,7 +149,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
@@ -294,7 +297,8 @@ namespace db_crociere
             catch (Exception exc)
             {
                 msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
             }
             Utilities.ClearAll(this);
         }
