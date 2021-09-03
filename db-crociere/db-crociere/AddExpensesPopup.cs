@@ -44,7 +44,16 @@ namespace db_crociere
             TypeComboBox.DataSource = types;
         }
 
-        private bool checkPrices(string shipName, string type, DateTime start, DateTime end)
+        /// <summary>
+        /// Checks integrity. In details checks there are no price lists with overlapping
+        /// dates.
+        /// </summary>
+        /// <param name="shipName"></param>
+        /// <param name="type"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool CheckPrices(string shipName, string type, DateTime start, DateTime end)
         {
             var intersections = (from t in db.TARIFFARIs
                                  where t.NomeNave == shipName && t.NomeTipologia == type &&
@@ -74,7 +83,7 @@ namespace db_crociere
 
                 Console.WriteLine(shipName +" "+ type + " " + start + " " + end + " " + price);
 
-                if (!checkPrices(shipName, type, start, end))
+                if (!CheckPrices(shipName, type, start, end))
                 {
                     msg = "Intersezione date con un'altra tariffa già presente nel DB!";
                     throw new ArgumentException(msg);

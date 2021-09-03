@@ -339,8 +339,8 @@ namespace db_crociere
         /// <param name="shipName">The ship name.</param>
         /// <param name="start">The navigation start date.</param>
         /// <param name="end">The navigation end date.</param>
-        /// <returns></returns>
-        private bool checksNavigation(string shipName, DateTime start, DateTime end)
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool ChecksNavigation(string shipName, DateTime start, DateTime end)
         {
             var intersections = from n in db.NAVIGAZIONIs
                                 where n.NomeNave == shipName &&
@@ -370,7 +370,7 @@ namespace db_crociere
 
                 Console.WriteLine(shipName + " " + startDate + " " + endDate + " " + executions + " " + pathCode);
 
-                if (!checksNavigation(shipName, startDate, endDate))
+                if (!ChecksNavigation(shipName, startDate, endDate))
                 {
                     msg = "Intersezione date con un'altra navigazione già presente nel DB!";
                     throw new ArgumentException(msg);
@@ -506,7 +506,8 @@ namespace db_crociere
         /// </summary>
         /// <param name="sender">Object that raised the event.</param>
         /// <param name="e">Contains the event data.</param> 
-        private bool checksExecutionSection(int navigation, DateTime start, DateTime stop)
+        /// <returns>False if one of the checks is violated. True otherwise.</returns>
+        private bool ChecksExecutionSection(int navigation, DateTime start, DateTime stop)
         {
             var intersections = from e in db.ESECUZIONI_TRATTAs
                                 where e.CodNavigazione == navigation &&
@@ -547,7 +548,7 @@ namespace db_crociere
                 TimeSpan endTime = new TimeSpan(EndTimeSection.Value.Hour,
                     EndTimeSection.Value.Minute, EndTimeSection.Value.Second);
 
-                if (!checksExecutionSection(navigation, startDate, endDate))
+                if (!ChecksExecutionSection(navigation, startDate, endDate))
                 {
                     msg = "La data di esecuzione tratta devono essere coerenti tra loro!";
                     throw new ArgumentException(msg);
