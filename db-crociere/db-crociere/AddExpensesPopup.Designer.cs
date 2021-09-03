@@ -29,9 +29,7 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            this.InsertShipInfoBox = new System.Windows.Forms.GroupBox();
-            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
-            this.AddShipInfoBtn = new System.Windows.Forms.Button();
+            this.InsertPricesGroupBox = new System.Windows.Forms.GroupBox();
             this.ShipNameInfo = new System.Windows.Forms.Label();
             this.ShipNameComboBox = new System.Windows.Forms.ComboBox();
             this.TypeInfo = new System.Windows.Forms.Label();
@@ -42,7 +40,12 @@ namespace db_crociere
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.HeightInfo = new System.Windows.Forms.Label();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
+            this.AddPriceBtn = new System.Windows.Forms.Button();
+            this.InsertExpensesGroupBox = new System.Windows.Forms.GroupBox();
+            this.BadgeIdTextBox = new System.Windows.Forms.TextBox();
+            this.InfosTextBox = new System.Windows.Forms.RichTextBox();
+            this.Infos = new System.Windows.Forms.Label();
             this.BadgeIdInfo = new System.Windows.Forms.Label();
             this.DateExpenseInfo = new System.Windows.Forms.Label();
             this.DateExpensePicker = new System.Windows.Forms.DateTimePicker();
@@ -50,57 +53,31 @@ namespace db_crociere
             this.AmountExpenseTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.AddExpenseBtn = new System.Windows.Forms.Button();
-            this.Infos = new System.Windows.Forms.Label();
-            this.InfosTextBox = new System.Windows.Forms.RichTextBox();
-            this.BadgeIdTextBox = new System.Windows.Forms.TextBox();
-            this.InsertShipInfoBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.InsertPricesGroupBox.SuspendLayout();
+            this.InsertExpensesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // InsertShipInfoBox
+            // InsertPricesGroupBox
             // 
-            this.InsertShipInfoBox.Controls.Add(this.ShipNameInfo);
-            this.InsertShipInfoBox.Controls.Add(this.ShipNameComboBox);
-            this.InsertShipInfoBox.Controls.Add(this.TypeInfo);
-            this.InsertShipInfoBox.Controls.Add(this.TypeComboBox);
-            this.InsertShipInfoBox.Controls.Add(this.StartDateInfo);
-            this.InsertShipInfoBox.Controls.Add(this.StartDatePicker);
-            this.InsertShipInfoBox.Controls.Add(this.EndDateInfo);
-            this.InsertShipInfoBox.Controls.Add(this.EndDatePicker);
-            this.InsertShipInfoBox.Controls.Add(this.HeightInfo);
-            this.InsertShipInfoBox.Controls.Add(this.PriceTextBox);
-            this.InsertShipInfoBox.Controls.Add(this.ClearShipInfoBtn);
-            this.InsertShipInfoBox.Controls.Add(this.AddShipInfoBtn);
-            this.InsertShipInfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsertShipInfoBox.Location = new System.Drawing.Point(359, 12);
-            this.InsertShipInfoBox.Name = "InsertShipInfoBox";
-            this.InsertShipInfoBox.Size = new System.Drawing.Size(317, 204);
-            this.InsertShipInfoBox.TabIndex = 1;
-            this.InsertShipInfoBox.TabStop = false;
-            this.InsertShipInfoBox.Text = "Inserisci nuovo tariffario";
-            // 
-            // ClearShipInfoBtn
-            // 
-            this.ClearShipInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClearShipInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ClearShipInfoBtn.Location = new System.Drawing.Point(9, 167);
-            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
-            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 31);
-            this.ClearShipInfoBtn.TabIndex = 2;
-            this.ClearShipInfoBtn.Text = "Pulisci";
-            this.ClearShipInfoBtn.UseVisualStyleBackColor = false;
-            // 
-            // AddShipInfoBtn
-            // 
-            this.AddShipInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.AddShipInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddShipInfoBtn.Location = new System.Drawing.Point(236, 167);
-            this.AddShipInfoBtn.Name = "AddShipInfoBtn";
-            this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 31);
-            this.AddShipInfoBtn.TabIndex = 1;
-            this.AddShipInfoBtn.Text = "Aggiungi";
-            this.AddShipInfoBtn.UseVisualStyleBackColor = false;
-            this.AddShipInfoBtn.Click += new System.EventHandler(this.AddShipInfoBtn_Click);
+            this.InsertPricesGroupBox.Controls.Add(this.ShipNameInfo);
+            this.InsertPricesGroupBox.Controls.Add(this.ShipNameComboBox);
+            this.InsertPricesGroupBox.Controls.Add(this.TypeInfo);
+            this.InsertPricesGroupBox.Controls.Add(this.TypeComboBox);
+            this.InsertPricesGroupBox.Controls.Add(this.StartDateInfo);
+            this.InsertPricesGroupBox.Controls.Add(this.StartDatePicker);
+            this.InsertPricesGroupBox.Controls.Add(this.EndDateInfo);
+            this.InsertPricesGroupBox.Controls.Add(this.EndDatePicker);
+            this.InsertPricesGroupBox.Controls.Add(this.HeightInfo);
+            this.InsertPricesGroupBox.Controls.Add(this.PriceTextBox);
+            this.InsertPricesGroupBox.Controls.Add(this.ClearShipInfoBtn);
+            this.InsertPricesGroupBox.Controls.Add(this.AddPriceBtn);
+            this.InsertPricesGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertPricesGroupBox.Location = new System.Drawing.Point(359, 12);
+            this.InsertPricesGroupBox.Name = "InsertPricesGroupBox";
+            this.InsertPricesGroupBox.Size = new System.Drawing.Size(317, 204);
+            this.InsertPricesGroupBox.TabIndex = 1;
+            this.InsertPricesGroupBox.TabStop = false;
+            this.InsertPricesGroupBox.Text = "Inserisci nuovo tariffario";
             // 
             // ShipNameInfo
             // 
@@ -197,25 +174,76 @@ namespace db_crociere
             this.PriceTextBox.Size = new System.Drawing.Size(61, 22);
             this.PriceTextBox.TabIndex = 23;
             // 
-            // groupBox1
+            // ClearShipInfoBtn
             // 
-            this.groupBox1.Controls.Add(this.BadgeIdTextBox);
-            this.groupBox1.Controls.Add(this.InfosTextBox);
-            this.groupBox1.Controls.Add(this.Infos);
-            this.groupBox1.Controls.Add(this.BadgeIdInfo);
-            this.groupBox1.Controls.Add(this.DateExpenseInfo);
-            this.groupBox1.Controls.Add(this.DateExpensePicker);
-            this.groupBox1.Controls.Add(this.AmountExpenseInfo);
-            this.groupBox1.Controls.Add(this.AmountExpenseTextBox);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.AddExpenseBtn);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 204);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Inserisci nuova spesa extra";
+            this.ClearShipInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ClearShipInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ClearShipInfoBtn.Location = new System.Drawing.Point(9, 167);
+            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
+            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 31);
+            this.ClearShipInfoBtn.TabIndex = 2;
+            this.ClearShipInfoBtn.Text = "Pulisci";
+            this.ClearShipInfoBtn.UseVisualStyleBackColor = false;
+            // 
+            // AddPriceBtn
+            // 
+            this.AddPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddPriceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddPriceBtn.Location = new System.Drawing.Point(236, 167);
+            this.AddPriceBtn.Name = "AddPriceBtn";
+            this.AddPriceBtn.Size = new System.Drawing.Size(75, 31);
+            this.AddPriceBtn.TabIndex = 1;
+            this.AddPriceBtn.Text = "Aggiungi";
+            this.AddPriceBtn.UseVisualStyleBackColor = false;
+            this.AddPriceBtn.Click += new System.EventHandler(this.AddPriceBtn_Click);
+            // 
+            // InsertExpensesGroupBox
+            // 
+            this.InsertExpensesGroupBox.Controls.Add(this.BadgeIdTextBox);
+            this.InsertExpensesGroupBox.Controls.Add(this.InfosTextBox);
+            this.InsertExpensesGroupBox.Controls.Add(this.Infos);
+            this.InsertExpensesGroupBox.Controls.Add(this.BadgeIdInfo);
+            this.InsertExpensesGroupBox.Controls.Add(this.DateExpenseInfo);
+            this.InsertExpensesGroupBox.Controls.Add(this.DateExpensePicker);
+            this.InsertExpensesGroupBox.Controls.Add(this.AmountExpenseInfo);
+            this.InsertExpensesGroupBox.Controls.Add(this.AmountExpenseTextBox);
+            this.InsertExpensesGroupBox.Controls.Add(this.button1);
+            this.InsertExpensesGroupBox.Controls.Add(this.AddExpenseBtn);
+            this.InsertExpensesGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertExpensesGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.InsertExpensesGroupBox.Name = "InsertExpensesGroupBox";
+            this.InsertExpensesGroupBox.Size = new System.Drawing.Size(329, 204);
+            this.InsertExpensesGroupBox.TabIndex = 2;
+            this.InsertExpensesGroupBox.TabStop = false;
+            this.InsertExpensesGroupBox.Text = "Inserisci nuova spesa extra";
+            // 
+            // BadgeIdTextBox
+            // 
+            this.BadgeIdTextBox.Location = new System.Drawing.Point(107, 18);
+            this.BadgeIdTextBox.MaxLength = 10;
+            this.BadgeIdTextBox.Name = "BadgeIdTextBox";
+            this.BadgeIdTextBox.Size = new System.Drawing.Size(216, 22);
+            this.BadgeIdTextBox.TabIndex = 31;
+            // 
+            // InfosTextBox
+            // 
+            this.InfosTextBox.Location = new System.Drawing.Point(107, 102);
+            this.InfosTextBox.MaxLength = 100;
+            this.InfosTextBox.Name = "InfosTextBox";
+            this.InfosTextBox.Size = new System.Drawing.Size(216, 32);
+            this.InfosTextBox.TabIndex = 30;
+            this.InfosTextBox.Text = "";
+            // 
+            // Infos
+            // 
+            this.Infos.AutoSize = true;
+            this.Infos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Infos.Location = new System.Drawing.Point(6, 103);
+            this.Infos.Margin = new System.Windows.Forms.Padding(3);
+            this.Infos.Name = "Infos";
+            this.Infos.Size = new System.Drawing.Size(79, 16);
+            this.Infos.TabIndex = 28;
+            this.Infos.Text = "Descrizione";
             // 
             // BadgeIdInfo
             // 
@@ -290,56 +318,28 @@ namespace db_crociere
             this.AddExpenseBtn.UseVisualStyleBackColor = false;
             this.AddExpenseBtn.Click += new System.EventHandler(this.AddExpenseBtn_Click);
             // 
-            // Infos
-            // 
-            this.Infos.AutoSize = true;
-            this.Infos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Infos.Location = new System.Drawing.Point(6, 103);
-            this.Infos.Margin = new System.Windows.Forms.Padding(3);
-            this.Infos.Name = "Infos";
-            this.Infos.Size = new System.Drawing.Size(79, 16);
-            this.Infos.TabIndex = 28;
-            this.Infos.Text = "Descrizione";
-            // 
-            // InfosTextBox
-            // 
-            this.InfosTextBox.Location = new System.Drawing.Point(107, 102);
-            this.InfosTextBox.MaxLength = 100;
-            this.InfosTextBox.Name = "InfosTextBox";
-            this.InfosTextBox.Size = new System.Drawing.Size(216, 32);
-            this.InfosTextBox.TabIndex = 30;
-            this.InfosTextBox.Text = "";
-            // 
-            // BadgeIdTextBox
-            // 
-            this.BadgeIdTextBox.Location = new System.Drawing.Point(107, 18);
-            this.BadgeIdTextBox.MaxLength = 10;
-            this.BadgeIdTextBox.Name = "BadgeIdTextBox";
-            this.BadgeIdTextBox.Size = new System.Drawing.Size(216, 22);
-            this.BadgeIdTextBox.TabIndex = 31;
-            // 
             // AddExpensesPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 230);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.InsertShipInfoBox);
+            this.Controls.Add(this.InsertExpensesGroupBox);
+            this.Controls.Add(this.InsertPricesGroupBox);
             this.Name = "AddExpensesPopup";
             this.Text = "Form1";
-            this.InsertShipInfoBox.ResumeLayout(false);
-            this.InsertShipInfoBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.InsertPricesGroupBox.ResumeLayout(false);
+            this.InsertPricesGroupBox.PerformLayout();
+            this.InsertExpensesGroupBox.ResumeLayout(false);
+            this.InsertExpensesGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox InsertShipInfoBox;
+        private System.Windows.Forms.GroupBox InsertPricesGroupBox;
         private System.Windows.Forms.Button ClearShipInfoBtn;
-        private System.Windows.Forms.Button AddShipInfoBtn;
+        private System.Windows.Forms.Button AddPriceBtn;
         private System.Windows.Forms.Label ShipNameInfo;
         private System.Windows.Forms.ComboBox ShipNameComboBox;
         private System.Windows.Forms.Label TypeInfo;
@@ -350,7 +350,7 @@ namespace db_crociere
         private System.Windows.Forms.DateTimePicker EndDatePicker;
         private System.Windows.Forms.Label HeightInfo;
         private System.Windows.Forms.TextBox PriceTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox InsertExpensesGroupBox;
         private System.Windows.Forms.RichTextBox InfosTextBox;
         private System.Windows.Forms.Label Infos;
         private System.Windows.Forms.Label BadgeIdInfo;
