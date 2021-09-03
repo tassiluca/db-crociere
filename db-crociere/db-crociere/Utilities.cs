@@ -52,5 +52,14 @@ namespace db_crociere
             }
         }
 
+        /// <summary>
+        /// Shows error message box.
+        /// </summary>
+        /// <param name="msg">The message to display.</param>
+        public static void ShowErrorMessage(string msg)
+        {
+            MessageBox.Show(msg, "ERRORE", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
     }
 }
