@@ -8,7 +8,7 @@
 -- Database Section
 -- ________________ 
 
-use newDbCrociere;
+use [dbCrociere2.0];
 
 
 -- DBSpace Section
@@ -81,7 +81,6 @@ create table NAVIGAZIONI (
      NomeNave varchar(30) not null,
      DataInizio date not null,
      DataFine date not null,
-     NumeroEsecuzioni numeric(2) not null,
      CodPercorso char(5) not null,
      constraint IDNAVIGAZIONE_1 unique (NomeNave, DataInizio),
      constraint IDNAVIGAZIONI primary key (CodNavigazione));
@@ -115,7 +114,7 @@ create table PERSONALE (
      Cognome varchar(40) not null,
      Nazionalit‡ char(3) not null,
      Passaporto char(9) not null,
-     Recapito numeric(14) not null,
+     Recapito varchar(14) not null,
      StipendioAnnuo numeric(6) not null,
      Anzianit‡Servizio numeric(2),
      Grado varchar(20),
@@ -142,7 +141,6 @@ create table PRENOTAZIONI (
      DataOraImbarco datetime not null,
      DataOraSbarco datetime not null,
      Trattamento varchar(13) not null,
-     NumeroPasseggeri numeric(2) not null,
      CodNavigazione numeric(3) not null,
      CodPorto char(4) not null,
      constraint IDPRENOTAZIONE_ID primary key (CodPrenotazione),
@@ -187,7 +185,8 @@ create table RUOLI (
      CodRuolo char(5) not null,
      Descrizione varchar(200),
      Nome varchar(30) not null,
-     constraint IDRUOLO primary key (CodRuolo));
+     constraint IDRUOLO primary key (CodRuolo),
+	 constraint IDRUOLO_1 unique (Nome));
 
 create table SALE (
      CodSala numeric(3) identity(1,1) not null,
@@ -214,7 +213,6 @@ create table SPESE_EXTRA (
      DataSpesa date not null,
      Importo numeric(3) not null,
      Descrizione varchar(100) not null,
-     CodPrenotazione numeric(5) not null,
      CodBadge numeric(10) not null,
      constraint IDSPESE_EXTRA primary key (CodiceSpesa));
 
@@ -406,10 +404,6 @@ alter table SERVIZI add constraint FKSer_PER
 alter table SERVIZI add constraint FKSer_NAV
      foreign key (CodNavigazione)
      references NAVIGAZIONI;
-
-alter table SPESE_EXTRA add constraint FKInclusa
-     foreign key (CodPrenotazione)
-     references PRENOTAZIONI;
 
 alter table SPESE_EXTRA add constraint FKFattura
      foreign key (CodBadge)
