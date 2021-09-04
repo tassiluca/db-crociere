@@ -39,7 +39,7 @@ namespace db_crociere
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addRefound = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rimbView = new System.Windows.Forms.DataGridView();
             this.prenBox = new System.Windows.Forms.GroupBox();
             this.addPrenBtn = new System.Windows.Forms.Button();
             this.prenViewTable = new System.Windows.Forms.DataGridView();
@@ -100,7 +100,7 @@ namespace db_crociere
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rimbView)).BeginInit();
             this.prenBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).BeginInit();
             this.shipPage.SuspendLayout();
@@ -166,31 +166,31 @@ namespace db_crociere
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.addRefound);
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(636, 7);
+            this.groupBox1.Controls.Add(this.rimbView);
+            this.groupBox1.Location = new System.Drawing.Point(3, 360);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 487);
+            this.groupBox1.Size = new System.Drawing.Size(499, 258);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Annullamenti/Rimborsi";
             // 
             // addRefound
             // 
-            this.addRefound.Location = new System.Drawing.Point(7, 289);
+            this.addRefound.Location = new System.Drawing.Point(6, 233);
             this.addRefound.Name = "addRefound";
-            this.addRefound.Size = new System.Drawing.Size(75, 23);
+            this.addRefound.Size = new System.Drawing.Size(104, 23);
             this.addRefound.TabIndex = 0;
-            this.addRefound.Text = "Aggiungi";
+            this.addRefound.Text = "Nuovo Rimborso";
             this.addRefound.UseVisualStyleBackColor = true;
             this.addRefound.Click += new System.EventHandler(this.addRefound_Click);
             // 
-            // dataGridView1
+            // rimbView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 18);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(424, 258);
-            this.dataGridView1.TabIndex = 0;
+            this.rimbView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rimbView.Location = new System.Drawing.Point(6, 19);
+            this.rimbView.Name = "rimbView";
+            this.rimbView.Size = new System.Drawing.Size(489, 208);
+            this.rimbView.TabIndex = 0;
             // 
             // prenBox
             // 
@@ -198,14 +198,14 @@ namespace db_crociere
             this.prenBox.Controls.Add(this.prenViewTable);
             this.prenBox.Location = new System.Drawing.Point(6, 6);
             this.prenBox.Name = "prenBox";
-            this.prenBox.Size = new System.Drawing.Size(623, 488);
+            this.prenBox.Size = new System.Drawing.Size(1067, 348);
             this.prenBox.TabIndex = 1;
             this.prenBox.TabStop = false;
             this.prenBox.Text = "Prenotazioni";
             // 
             // addPrenBtn
             // 
-            this.addPrenBtn.Location = new System.Drawing.Point(7, 290);
+            this.addPrenBtn.Location = new System.Drawing.Point(6, 301);
             this.addPrenBtn.Name = "addPrenBtn";
             this.addPrenBtn.Size = new System.Drawing.Size(75, 22);
             this.addPrenBtn.TabIndex = 0;
@@ -221,7 +221,7 @@ namespace db_crociere
             this.prenViewTable.Location = new System.Drawing.Point(6, 19);
             this.prenViewTable.Name = "prenViewTable";
             this.prenViewTable.ReadOnly = true;
-            this.prenViewTable.Size = new System.Drawing.Size(611, 258);
+            this.prenViewTable.Size = new System.Drawing.Size(1055, 258);
             this.prenViewTable.TabIndex = 0;
             // 
             // shipPage
@@ -983,7 +983,7 @@ namespace db_crociere
             this.menuContainer.ResumeLayout(false);
             this.bookingTab.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rimbView)).EndInit();
             this.prenBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).EndInit();
             this.shipPage.ResumeLayout(false);
@@ -1078,7 +1078,7 @@ namespace db_crociere
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button addRefound;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView rimbView;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button AddActivitiesBtn;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;

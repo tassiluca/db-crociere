@@ -133,6 +133,18 @@ namespace db_crociere
         {
             Console.WriteLine("FOCUS");
             updateShipList(sender, e);
+            updatePrenRimbTable();
+        }
+
+        private void updatePrenRimbTable()
+        {
+            var pren = from p in db.PRENOTAZIONI
+                        select p;
+            prenViewTable.DataSource = pren;
+
+            var rimb = from r in db.RIMBORSI
+                       select r;
+            rimbView.DataSource = rimb;
         }
 
         private void shipListBox_Click(object sender, EventArgs e)
@@ -303,5 +315,6 @@ namespace db_crociere
             RefundsPopup refundsPopupWindows = new RefundsPopup(db);
             refundsPopupWindows.ShowDialog(this);
         }
+
     }
 }

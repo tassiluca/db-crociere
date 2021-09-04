@@ -16,6 +16,8 @@ namespace db_crociere
         private const String MIN_DATE = "01/01/2000";
         private const String MAX_DATE = "12/05/2079";
         private const String ASSENT_INFO = "Assente";
+        private const String ASSENT_SHIP_NAME = "Nave Assente";
+        private const Double PERC_ANTICIPO = 0.3;
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
@@ -61,6 +63,7 @@ namespace db_crociere
                         select p.CodPercorso;
             pathSelPren.DataSource = path;
             Console.WriteLine("Percorsi caricati");
+            checkBoxRateizzato_CheckedChanged(sender,e);
         }
 
         private void treatmentField_TextChanged(object sender, EventArgs e)
@@ -257,7 +260,7 @@ namespace db_crociere
             var creditCard = payCardField.Text;
 
             if (CF.Length != 0 && name.Length != 0 && surname.Length != 0
-                && country.Length != 0 && passportId.Length != 0)
+                && country.Length != 0 && passportId.Length != 0 && creditCard.Length != 0)
             {
                 /* Passenegr insert */
                 PASSEGGERI passeggero = new PASSEGGERI
@@ -336,12 +339,15 @@ namespace db_crociere
 
         private void delPassengerBtn_Click(object sender, EventArgs e)
         {
-            var toDelete = passengerList.SelectedItem.ToString();
-            if (toDelete.Length > 0) {
-                passengersDict.Remove(toDelete);
-                passngerCard.Remove(toDelete);
+            if (passengerList.SelectedItem != null) {
+                var toDelete = passengerList.SelectedItem.ToString();
+                if (toDelete.Length > 0)
+                {
+                    passengersDict.Remove(toDelete);
+                    passngerCard.Remove(toDelete);
+                }
+                updatePassgListBox();
             }
-            updatePassgListBox();
             
         }
 
@@ -361,7 +367,7 @@ namespace db_crociere
             }
             else
             {
-                var nomeNave = getNomeNave().First().Nome;
+                var nomeNave = getNomeNave();
                 //ricavo tutti i cod cabina attualmente impegnati nel periodo di dataoraImbarco-dataOraSbarco selezionato
                 //del tipo e posizione selezionati
                 //Console.WriteLine(prenot.CodNavigazione +" "+prenot.DataOraImbarco + " "+prenot.DataOraSbarco);
@@ -499,15 +505,25 @@ namespace db_crociere
         }
         
         //UTILITIES CABINE
-        private IQueryable<NAVI> getNomeNave()
+        private String getNomeNave()
         {
+            if (pathSelPren.SelectedItem != null)
+            {
                 var pathCode = pathSelPren.SelectedItem.ToString();
                 var shipName = from p in db.PERCORSI
                                from n in db.NAVI
                                where p.CodPercorso == pathCode
                                && p.NomeNave == n.Nome
                                select n;
-                return shipName;
+                return shipName.First().Nome;
+
+            }
+            else {
+                var msg = "Prima selezionare il percorso";
+                MessageBox.Show(msg,"ERRORE");
+                return ASSENT_SHIP_NAME;
+            }
+            
         }
 
         private void calcTotalPriceBtn_Click(object sender, EventArgs e)
@@ -517,86 +533,104 @@ namespace db_crociere
              NomeNave (che ricavo partendo dal percorso selezionato),
              Le date DataOraImbarco e DataOraSbarco devono essere comprese in DataInizio-DataFine (tariffario)*/
 
-            var nomeNave = getNomeNave().First().Nome; //deve essere selezionato il codice Percorso
-            var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
-            var tariffari = from tar in db.TARIFFARI
-                            where tar.NomeNave == nomeNave
-                           // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
-                            select tar;
-            Console.WriteLine(tariffari.Count() + " tariffari trovati nave: " + nomeNave);
-            foreach (var ee in tariffari)
+            var nomeNave = getNomeNave(); //deve essere selezionato il codice Percorso
+            if (nomeNave != ASSENT_SHIP_NAME)
             {
-                Console.WriteLine(ee.NomeNave + " " + ee.NomeTipologia);
+                var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
+                var tariffari = from tar in db.TARIFFARI
+                                where tar.NomeNave == nomeNave
+                                // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
+                                select tar;
+                Console.WriteLine(tariffari.Count() + " tariffari trovati nave: " + nomeNave);
+                foreach (var ee in tariffari)
+                {
+                    Console.WriteLine(ee.NomeNave + " " + ee.NomeTipologia);
 
-            }
+                }
+                foreach (var ee in roomTypeOfPrenot)
+                {
+                    Console.WriteLine(ee + "Tipo cabina prenotazione" );
 
-            //struttura dati che mi serve per cercare i tariffari applicati alle tipologie presenti nella prenotazione
-            dictTar = new Dictionary<String,List<TARIFFARI>>();
-            foreach (var tr in tariffari)
-            {
-                //se la tipologia del tariffario rientra in quelle delle cabine associate alla prenotazione
-                //inserisco nella dictionary
-                if (roomTypeOfPrenot.Contains(tr.NomeTipologia)) {
+                }
 
-                    if (dictTar.ContainsKey(tr.NomeTipologia))
+                //struttura dati che mi serve per cercare i tariffari applicati alle tipologie presenti nella prenotazione
+                dictTar = new Dictionary<String, List<TARIFFARI>>();
+                foreach (var tr in tariffari)
+                {
+                    //se la tipologia del tariffario rientra in quelle delle cabine associate alla prenotazione
+                    //inserisco nella dictionary
+                    if (roomTypeOfPrenot.Contains(tr.NomeTipologia))
                     {
-                        var updatedSet = dictTar[tr.NomeTipologia];
-                        updatedSet.Add(tr);
-                        dictTar[tr.NomeTipologia] = updatedSet;
+
+                        if (dictTar.ContainsKey(tr.NomeTipologia))
+                        {
+                            var updatedSet = dictTar[tr.NomeTipologia];
+                            updatedSet.Add(tr);
+                            dictTar[tr.NomeTipologia] = updatedSet;
+                        }
+                        else
+                        {
+                            var newSet = new List<TARIFFARI>();
+                            newSet.Add(tr);
+                            dictTar.Add(tr.NomeTipologia, newSet);
+                        }
                     }
-                    else
+                    //se il nome della tipolgia non rientra fra quelle associate alla prenotazione
+                    //non metto dentro il dictionary
+                }
+
+                //devo ordinare i tariffari in ordine crescente
+
+                var listTobeOrered = dictTar.Keys.ToList();
+                foreach (var tp in listTobeOrered)
+                {
+                    var listaOrdinata = dictTar[tp].OrderBy(a => a.DataInizio).ToList();
+                    dictTar[tp] = listaOrdinata;
+
+                }
+
+                /* ora per ciascuna tipologia presente nella dictionary lancio la funzione ricorsiva che mi calcola
+                 * il prezzo totale per quella tipologia di cabina per il periodo DataOraImbarco-dataOraSbarco
+                 */
+                if (roomTypeOfPrenot.Count() > 0)
+                {
+
+                    var typeIdx = 0; //prima tipologia
+                    var prezzoTot = 0;
+                    try
                     {
-                        var newSet = new List<TARIFFARI>();
-                        newSet.Add(tr);
-                        dictTar.Add(tr.NomeTipologia, newSet);
+                        //calcolo il costo per tutte le tipologie di camere che sono presenti nella prenotazione
+                        for (typeIdx = 0; typeIdx < roomTypeOfPrenot.Count(); typeIdx++)
+                        {
+                            var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
+                            var num = roomOfPrenot.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
+                            var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
+                            prezzoTot += costoTipo * num;
+                        }
+                        priceLabel.Text = prezzoTot.ToString();
+                        importoPrenot = prezzoTot;
+                    }
+                    catch (InvalidOperationException exc)
+                    {
+                        var msg = "Mancanza di tariffari e/o periodi non tariffati";
+                        MessageBox.Show(msg, "ERRORE");
+                        Console.WriteLine("ECCEZIONE: " + exc);
+                        priceLabel.Text = " ";
+                        importoPrenot = 0;
+                        codTariffari = new List<decimal>();
                     }
                 }
-                //se il nome della tipolgia non rientra fra quelle associate alla prenotazione
-                //non metto dentro il dictionary
-            }
-
-            //devo ordinare i tariffari in ordine crescente
-
-            var listTobeOrered = dictTar.Keys.ToList();
-            foreach (var tp in listTobeOrered) {
-                var listaOrdinata = dictTar[tp].OrderBy(a => a.DataInizio).ToList();
-                dictTar[tp] = listaOrdinata;
-                
-            }
-
-            /* ora per ciascuna tipologia presente nella dictionary lancio la funzione ricorsiva che mi calcola
-             * il prezzo totale per quella tipologia di cabina per il periodo DataOraImbarco-dataOraSbarco
-             */
-            if (roomTypeOfPrenot.Count()>0) {
-
-                var typeIdx = 0; //prima tipologia
-                var prezzoTot = 0;
-                try {
-                    //calcolo il costo per tutte le tipologie di camere che sono presenti nella prenotazione
-                    for (typeIdx = 0; typeIdx < roomTypeOfPrenot.Count(); typeIdx++)
-                    {
-                        var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
-                        var num = roomOfPrenot.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
-                        var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
-                        prezzoTot += costoTipo * num;
-                    }
-                    priceLabel.Text = prezzoTot.ToString();
-                    importoPrenot = prezzoTot;
-                }
-                catch (InvalidOperationException exc) {
-                    var msg = "Mancanza di tariffari e/o periodi non tariffati";
-                    MessageBox.Show(msg, "ERRORE");
-                    Console.WriteLine("ECCEZIONE: "+ exc);
+                else {
+                    var msg = "Prezzo non calcolabile: selezionare almeno una camera";
                     priceLabel.Text = " ";
-                    importoPrenot = 0;
-                    codTariffari = new List<decimal>();
+                    MessageBox.Show(msg, "Attenzione");
                 }
-                
             }
-            else {
-                var msg = "Prezzo non calcolabile";
+            else
+            {
+                var msg = "Prezzo non calcolabile: selezionare percorso e date Imbarco-Sbarco";
                 priceLabel.Text = " ";
-                MessageBox.Show(msg,"Attenzione");
+                MessageBox.Show(msg, "Attenzione");
             }
             
         }
@@ -671,10 +705,15 @@ namespace db_crociere
         //AGGIUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
         private void confirmPrenotBtn_Click(object sender, EventArgs e)
         {
+            //verifica della presenza di tutti i dati necessari per l'inserimento
+            //la mancanza di una sola informazione non permette l'inserimento e la conferma della prenotazione
+            if (/*checkPay() && checkPren() && checkPasng() && checkBadge()
+                && checkAlloggi() && checkTarif()*/ false)
+            {
 
-            /*
-            insertPagamento(codicePagamento,  da passare flag se unico il pagamento); //TODO
-            /*insertPrenotazione(codicePrenotazione, codicePagamento);
+                /*
+            insertPagamento(codicePagamento, checkBoxRateizzato.Checked);
+            insertPrenotazione(codicePrenotazione, codicePagamento);
             insertPasseggeri();
             insertPrenot_Passeggeri(codicePrenotazione);
             insertBadge(codicePrenotazione);
@@ -682,37 +721,59 @@ namespace db_crociere
 
             insertTariffari_Prenot(codicePrenotazione);
             codicePagamento++;
-            codicePrenotazione++;
-            */
+            codicePrenotazione++;*/
+
+            }
+            else {
+                var msg = "Non posso inserire la prenotazione: mancano dei dati, assicurati" +
+                    "di aver compilato tutti i campi";
+                MessageBox.Show(msg,"ERRORE");
+            }
 
         }
-        /*
-                private void insertBadge(decimal codicePrenotazione)
-                {
-                    foreach (var psngKey in passengersDict.Keys)
-                    {
-                        var badge = new BADGE
-                        {
-                            CodPrenotazione = codicePrenotazione,
-                            CodiceFiscale = psngKey,
-                            CartaCredito = passngerCard[psngKey]
-                        };
-                        db.BADGEs.InsertOnSubmit(badge);
-                    }
-                }
 
-                private void insertPagamento(decimal codTransaz, Boolean isUnico)
+        private void insertBadge(decimal codicePrenotazione)
+        {
+            foreach (var psngKey in passengersDict.Keys)
+            {
+                var badge = new BADGE
                 {
-                    var payment = new PAGAMENTI
-                    {
-                        CodTransazione = codTransaz,
-                        DataPagamento = ,//TODO inserire valore preso nel form da fare
-                        Importo = importoPrenot,
-                    };
-                    db.PAGAMENTIs.InsertOnSubmit(payment);
-                }
+                CodPrenotazione = codicePrenotazione,
+                CodiceFiscale = psngKey,
+                CartaCredito = passngerCard[psngKey]
+                };
+                db.BADGE.InsertOnSubmit(badge);
+            }
+        }
 
-                private void insertPrenotazione(decimal codicePrenotazione, decimal codicePagamento)
+        private void insertPagamento(decimal codTransaz, Boolean isUnico)
+        {
+            if (isUnico)
+            {
+                var payment = new PAGAMENTI
+                {
+                    CodTransazione = codTransaz,
+                    DataPagamento = DateTime.Now,
+                    Importo = importoPrenot,
+                };
+                db.PAGAMENTI.InsertOnSubmit(payment);
+            }
+            else {
+                var payment = new PAGAMENTI
+                {
+                    CodTransazione = codTransaz,
+                    DataPagamento = DateTime.Now,
+                    Importo = importoPrenot,
+                    NumeroRate = numRateField.Value,
+                    Anticipo = Convert.ToDecimal(fieldAnticipo.Text),
+                };
+                db.PAGAMENTI.InsertOnSubmit(payment);
+
+            }
+                    
+        }
+
+        private void insertPrenotazione(decimal codicePrenotazione, decimal codicePagamento)
                 {
                     var pren = new PRENOTAZIONI
                     {
@@ -722,19 +783,18 @@ namespace db_crociere
                        DataOraImbarco = prenot.DataOraImbarco,
                        DataOraSbarco = prenot.DataOraSbarco,
                        Trattamento = treatmentField.Text,
-                       NumeroPasseggeri = //forse stasera lo togliamo, //TODO
                        CodNavigazione = prenot.CodNavigazione,
                        CodPorto = prenot.CodPorto
 
                     };
-                    db.PRENOTAZIONIs.InsertOnSubmit(pren);
+                    db.PRENOTAZIONI.InsertOnSubmit(pren);
                 }
 
-                private void insertPasseggeri()
+        private void insertPasseggeri()
                 {
                     foreach (var psng in passengersDict.Values)
                     {
-                        var psngrIn = (from p in db.PASSEGGERIs
+                        var psngrIn = (from p in db.PASSEGGERI
                                       select p).ToList();
                         if (!psngrIn.Contains(psng)) {
                             var pass = new PASSEGGERI
@@ -745,12 +805,12 @@ namespace db_crociere
                                 Nazionalità = psng.Nazionalità,
                                 Passaporto = psng.Passaporto
                             };
-                            db.PASSEGGERIs.InsertOnSubmit(pass);
+                            db.PASSEGGERI.InsertOnSubmit(pass);
                         }
                     }
                 }
 
-                private void insertPrenot_Passeggeri(decimal codPren)
+        private void insertPrenot_Passeggeri(decimal codPren)
                 {
                     foreach (var psng in passengersDict.Values)
                     {
@@ -759,11 +819,11 @@ namespace db_crociere
                             CodiceFiscale = psng.CodiceFiscale,
                             CodPrenotazione = codPren
                         };
-                        db.PRENOTAZIONI_PASSEGGERIs.InsertOnSubmit(pren_pass);
+                        db.PRENOTAZIONI_PASSEGGERI.InsertOnSubmit(pren_pass);
                     }
                 }
 
-                private void insertAlloggi(decimal codPren)
+        private void insertAlloggi(decimal codPren)
                 {
                     foreach (var codCabina in roomOfPrenot.Keys )
                     {
@@ -772,11 +832,11 @@ namespace db_crociere
                             CodCabina = codCabina,
                             CodPrenotazione = codPren
                         };
-                        db.ALLOGGIs.InsertOnSubmit(alloggio);
+                        db.ALLOGGI.InsertOnSubmit(alloggio);
                     }
                 }
 
-                private void insertTariffari_Prenot(decimal codPren)
+        private void insertTariffari_Prenot(decimal codPren)
                 {
                     foreach (var t in codTariffari) {
                         var tariffari_prenotazioni = new TARIFFARI_PRENOTAZIONI
@@ -784,10 +844,44 @@ namespace db_crociere
                             CodTariffario = t,
                             CodPrenotazione = codPren
                         };
-                        db.TARIFFARI_PRENOTAZIONIs.InsertOnSubmit(tariffari_prenotazioni);
+                        db.TARIFFARI_PRENOTAZIONI.InsertOnSubmit(tariffari_prenotazioni);
                     }
                 }
-                */
 
+        private void checkBoxRateizzato_CheckedChanged(object sender, EventArgs e)
+        {
+            var state = checkBoxRateizzato.Checked;
+            fieldAnticipo.Enabled = state;
+            numRateField.Enabled = state;
+            
+            fieldAnticipo.Text = ((int)(importoPrenot * PERC_ANTICIPO)).ToString();
+        }
+
+        private void calcRataBtn_Click(object sender, EventArgs e)
+        {
+            if (fieldAnticipo.Text.Length > 0)
+            {
+                var anticipo = Decimal.Parse(fieldAnticipo.Text);
+                if (anticipo >= importoPrenot)
+                {
+                    var msg = "Anticipo troppo alto";
+                    MessageBox.Show(msg, "Error");
+                    var ant = (int)(importoPrenot * PERC_ANTICIPO);
+                    fieldAnticipo.Text = ant.ToString();
+                    rataCalcolata.Text = ((importoPrenot - ant) / numRateField.Value).ToString();
+                }
+                else if (anticipo == 0)
+                {
+                    //disattivo rateizzato
+                    checkBoxRateizzato.Checked = false;
+                    fieldAnticipo.Text = "";
+                    rataCalcolata.Text = "";
+                }
+                else
+                {
+                    rataCalcolata.Text = ((int)((importoPrenot - anticipo) / numRateField.Value)).ToString();
+                }
+            }
+        }
     }
 }
