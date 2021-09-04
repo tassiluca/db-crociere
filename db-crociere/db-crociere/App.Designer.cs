@@ -79,15 +79,9 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.ExpenseTrackerPage = new System.Windows.Forms.TabPage();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.RankCostsGridView = new System.Windows.Forms.DataGridView();
-            this.AverageBookingsCostsBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BadgeIdComboBox = new System.Windows.Forms.ComboBox();
             this.ExpensesGridView = new System.Windows.Forms.DataGridView();
-            this.RankingPathBtn = new System.Windows.Forms.Button();
-            this.RankPathGridView = new System.Windows.Forms.DataGridView();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ShipNameComboBox = new System.Windows.Forms.ComboBox();
             this.PriceListGridView = new System.Windows.Forms.DataGridView();
@@ -97,6 +91,12 @@ namespace db_crociere
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.AddActivitiesBtn = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.RankCostsGridView = new System.Windows.Forms.DataGridView();
+            this.AverageBookingsCostsBtn = new System.Windows.Forms.Button();
+            this.RankingPathBtn = new System.Windows.Forms.Button();
+            this.RankPathGridView = new System.Windows.Forms.DataGridView();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -121,16 +121,17 @@ namespace db_crociere
             this.InfoShipBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ExpenseTrackerPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -753,13 +754,7 @@ namespace db_crociere
             // 
             // ExpenseTrackerPage
             // 
-            this.ExpenseTrackerPage.Controls.Add(this.chart2);
-            this.ExpenseTrackerPage.Controls.Add(this.RankCostsGridView);
-            this.ExpenseTrackerPage.Controls.Add(this.AverageBookingsCostsBtn);
             this.ExpenseTrackerPage.Controls.Add(this.groupBox3);
-            this.ExpenseTrackerPage.Controls.Add(this.RankingPathBtn);
-            this.ExpenseTrackerPage.Controls.Add(this.RankPathGridView);
-            this.ExpenseTrackerPage.Controls.Add(this.chart1);
             this.ExpenseTrackerPage.Controls.Add(this.groupBox2);
             this.ExpenseTrackerPage.Controls.Add(this.AddExpensesBtn);
             this.ExpenseTrackerPage.Location = new System.Drawing.Point(4, 22);
@@ -769,41 +764,6 @@ namespace db_crociere
             this.ExpenseTrackerPage.TabIndex = 2;
             this.ExpenseTrackerPage.Text = "Spese";
             this.ExpenseTrackerPage.UseVisualStyleBackColor = true;
-            // 
-            // chart2
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(715, 302);
-            this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(346, 278);
-            this.chart2.TabIndex = 8;
-            this.chart2.Text = "Costo Medio Crociere";
-            title1.Name = "Title1";
-            title1.Text = "Apprezzamento Percorsi Crociere";
-            this.chart2.Titles.Add(title1);
-            // 
-            // RankCostsGridView
-            // 
-            this.RankCostsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RankCostsGridView.Location = new System.Drawing.Point(485, 351);
-            this.RankCostsGridView.Name = "RankCostsGridView";
-            this.RankCostsGridView.Size = new System.Drawing.Size(224, 229);
-            this.RankCostsGridView.TabIndex = 7;
-            // 
-            // AverageBookingsCostsBtn
-            // 
-            this.AverageBookingsCostsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AverageBookingsCostsBtn.Location = new System.Drawing.Point(485, 302);
-            this.AverageBookingsCostsBtn.Name = "AverageBookingsCostsBtn";
-            this.AverageBookingsCostsBtn.Size = new System.Drawing.Size(224, 43);
-            this.AverageBookingsCostsBtn.TabIndex = 6;
-            this.AverageBookingsCostsBtn.Text = "Costo medio prenotazione per percorso";
-            this.AverageBookingsCostsBtn.UseVisualStyleBackColor = true;
-            this.AverageBookingsCostsBtn.Click += new System.EventHandler(this.AverageBookingsCostsBtn_Click);
             // 
             // groupBox3
             // 
@@ -835,41 +795,6 @@ namespace db_crociere
             this.ExpensesGridView.Name = "ExpensesGridView";
             this.ExpensesGridView.Size = new System.Drawing.Size(461, 239);
             this.ExpensesGridView.TabIndex = 0;
-            // 
-            // RankingPathBtn
-            // 
-            this.RankingPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RankingPathBtn.Location = new System.Drawing.Point(485, 15);
-            this.RankingPathBtn.Name = "RankingPathBtn";
-            this.RankingPathBtn.Size = new System.Drawing.Size(224, 32);
-            this.RankingPathBtn.TabIndex = 5;
-            this.RankingPathBtn.Text = "Percorsi più gettonati";
-            this.RankingPathBtn.UseVisualStyleBackColor = true;
-            this.RankingPathBtn.Click += new System.EventHandler(this.RankingPathBtn_Click);
-            // 
-            // RankPathGridView
-            // 
-            this.RankPathGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RankPathGridView.Location = new System.Drawing.Point(485, 52);
-            this.RankPathGridView.Name = "RankPathGridView";
-            this.RankPathGridView.Size = new System.Drawing.Size(224, 222);
-            this.RankPathGridView.TabIndex = 2;
-            // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(715, 15);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(346, 259);
-            this.chart1.TabIndex = 4;
-            this.chart1.Text = "Apprezzamento Crociere";
-            title2.Name = "Title1";
-            title2.Text = "Apprezzamento Percorsi Crociere";
-            this.chart1.Titles.Add(title2);
             // 
             // groupBox2
             // 
@@ -959,6 +884,12 @@ namespace db_crociere
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chart2);
+            this.tabPage3.Controls.Add(this.RankCostsGridView);
+            this.tabPage3.Controls.Add(this.AverageBookingsCostsBtn);
+            this.tabPage3.Controls.Add(this.RankingPathBtn);
+            this.tabPage3.Controls.Add(this.RankPathGridView);
+            this.tabPage3.Controls.Add(this.chart1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -966,6 +897,78 @@ namespace db_crociere
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Statistiche";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chart2
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
+            this.chart2.Location = new System.Drawing.Point(236, 320);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(346, 298);
+            this.chart2.TabIndex = 14;
+            this.chart2.Text = "Costo Medio Crociere";
+            title1.Name = "Title1";
+            title1.Text = "Apprezzamento Percorsi Crociere";
+            this.chart2.Titles.Add(title1);
+            // 
+            // RankCostsGridView
+            // 
+            this.RankCostsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankCostsGridView.Location = new System.Drawing.Point(6, 369);
+            this.RankCostsGridView.Name = "RankCostsGridView";
+            this.RankCostsGridView.Size = new System.Drawing.Size(224, 249);
+            this.RankCostsGridView.TabIndex = 13;
+            // 
+            // AverageBookingsCostsBtn
+            // 
+            this.AverageBookingsCostsBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.AverageBookingsCostsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AverageBookingsCostsBtn.Location = new System.Drawing.Point(6, 320);
+            this.AverageBookingsCostsBtn.Name = "AverageBookingsCostsBtn";
+            this.AverageBookingsCostsBtn.Size = new System.Drawing.Size(224, 43);
+            this.AverageBookingsCostsBtn.TabIndex = 12;
+            this.AverageBookingsCostsBtn.Text = "Costo medio prenotazione per percorso";
+            this.AverageBookingsCostsBtn.UseVisualStyleBackColor = false;
+            this.AverageBookingsCostsBtn.Click += new System.EventHandler(this.AverageBookingsCostsBtn_Click);
+            // 
+            // RankingPathBtn
+            // 
+            this.RankingPathBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.RankingPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RankingPathBtn.Location = new System.Drawing.Point(6, 7);
+            this.RankingPathBtn.Name = "RankingPathBtn";
+            this.RankingPathBtn.Size = new System.Drawing.Size(224, 43);
+            this.RankingPathBtn.TabIndex = 11;
+            this.RankingPathBtn.Text = "Percorsi più gettonati";
+            this.RankingPathBtn.UseVisualStyleBackColor = false;
+            this.RankingPathBtn.Click += new System.EventHandler(this.RankingPathBtn_Click);
+            // 
+            // RankPathGridView
+            // 
+            this.RankPathGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankPathGridView.Location = new System.Drawing.Point(6, 56);
+            this.RankPathGridView.Name = "RankPathGridView";
+            this.RankPathGridView.Size = new System.Drawing.Size(224, 247);
+            this.RankPathGridView.TabIndex = 9;
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(236, 7);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(346, 296);
+            this.chart1.TabIndex = 10;
+            this.chart1.Text = "Apprezzamento Crociere";
+            title2.Name = "Title1";
+            title2.Text = "Apprezzamento Percorsi Crociere";
+            this.chart1.Titles.Add(title2);
             // 
             // App
             // 
@@ -1005,16 +1008,17 @@ namespace db_crociere
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ExpenseTrackerPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpensesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1066,22 +1070,22 @@ namespace db_crociere
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView PriceListGridView;
         private System.Windows.Forms.ComboBox ShipNameComboBox;
-        private System.Windows.Forms.DataGridView RankPathGridView;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button RankingPathBtn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddPathBtn;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox BadgeIdComboBox;
         private System.Windows.Forms.DataGridView ExpensesGridView;
-        private System.Windows.Forms.Button AverageBookingsCostsBtn;
-        private System.Windows.Forms.DataGridView RankCostsGridView;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button addRefound;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button AddActivitiesBtn;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataGridView RankCostsGridView;
+        private System.Windows.Forms.Button AverageBookingsCostsBtn;
+        private System.Windows.Forms.Button RankingPathBtn;
+        private System.Windows.Forms.DataGridView RankPathGridView;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
