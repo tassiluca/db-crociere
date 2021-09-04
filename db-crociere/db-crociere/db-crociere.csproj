@@ -54,9 +54,7 @@
     <Compile Include="Activities\AddActivitiesPopup.Designer.cs">
       <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPrenPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AddPrenPopup.cs" />
     <Compile Include="AddPrenPopup.Designer.cs">
       <DependentUpon>AddPrenPopup.cs</DependentUpon>
     </Compile>
@@ -66,15 +64,11 @@
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddShipPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AddShipPopup.cs" />
     <Compile Include="AddShipPopup.Designer.cs">
       <DependentUpon>AddShipPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNavigationPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AddNavigationPopup.cs" />
     <Compile Include="AddNavigationPopup.Designer.cs">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </Compile>
@@ -83,23 +77,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Staff\AddStaffPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Staff\AddStaffPopup.cs" />
     <Compile Include="Staff\AddStaffPopup.Designer.cs">
       <DependentUpon>AddStaffPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="DateRange.cs" />
-    <Compile Include="AddExpensesPopup.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="AddExpensesPopup.cs" />
     <Compile Include="AddExpensesPopup.Designer.cs">
       <DependentUpon>AddExpensesPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SplashScreen.cs" />
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
