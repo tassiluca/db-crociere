@@ -29,12 +29,12 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -97,6 +97,10 @@ namespace db_crociere
             this.RankingPathBtn = new System.Windows.Forms.Button();
             this.RankPathGridView = new System.Windows.Forms.DataGridView();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.GrossBoxOfficeBtn = new System.Windows.Forms.Button();
+            this.GrossBoxOfficeLabel = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.RankHarborBooking = new System.Windows.Forms.DataGridView();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -132,6 +136,7 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankHarborBooking)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -884,6 +889,10 @@ namespace db_crociere
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.RankHarborBooking);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.GrossBoxOfficeLabel);
+            this.tabPage3.Controls.Add(this.GrossBoxOfficeBtn);
             this.tabPage3.Controls.Add(this.chart2);
             this.tabPage3.Controls.Add(this.RankCostsGridView);
             this.tabPage3.Controls.Add(this.AverageBookingsCostsBtn);
@@ -900,19 +909,19 @@ namespace db_crociere
             // 
             // chart2
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.chart2.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.chart2.Legends.Add(legend3);
             this.chart2.Location = new System.Drawing.Point(236, 320);
             this.chart2.Name = "chart2";
             this.chart2.Size = new System.Drawing.Size(346, 298);
             this.chart2.TabIndex = 14;
             this.chart2.Text = "Costo Medio Crociere";
-            title1.Name = "Title1";
-            title1.Text = "Apprezzamento Percorsi Crociere";
-            this.chart2.Titles.Add(title1);
+            title3.Name = "Title1";
+            title3.Text = "Apprezzamento Percorsi Crociere";
+            this.chart2.Titles.Add(title3);
             // 
             // RankCostsGridView
             // 
@@ -925,6 +934,7 @@ namespace db_crociere
             // AverageBookingsCostsBtn
             // 
             this.AverageBookingsCostsBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.AverageBookingsCostsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AverageBookingsCostsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AverageBookingsCostsBtn.Location = new System.Drawing.Point(6, 320);
             this.AverageBookingsCostsBtn.Name = "AverageBookingsCostsBtn";
@@ -937,6 +947,7 @@ namespace db_crociere
             // RankingPathBtn
             // 
             this.RankingPathBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.RankingPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RankingPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RankingPathBtn.Location = new System.Drawing.Point(6, 7);
             this.RankingPathBtn.Name = "RankingPathBtn";
@@ -956,19 +967,61 @@ namespace db_crociere
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(236, 7);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(346, 296);
             this.chart1.TabIndex = 10;
             this.chart1.Text = "Apprezzamento Crociere";
-            title2.Name = "Title1";
-            title2.Text = "Apprezzamento Percorsi Crociere";
-            this.chart1.Titles.Add(title2);
+            title4.Name = "Title1";
+            title4.Text = "Apprezzamento Percorsi Crociere";
+            this.chart1.Titles.Add(title4);
+            // 
+            // GrossBoxOfficeBtn
+            // 
+            this.GrossBoxOfficeBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.GrossBoxOfficeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GrossBoxOfficeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeBtn.Location = new System.Drawing.Point(588, 320);
+            this.GrossBoxOfficeBtn.Name = "GrossBoxOfficeBtn";
+            this.GrossBoxOfficeBtn.Size = new System.Drawing.Size(224, 43);
+            this.GrossBoxOfficeBtn.TabIndex = 15;
+            this.GrossBoxOfficeBtn.Text = "Incassi Lordi ultimo anno";
+            this.GrossBoxOfficeBtn.UseVisualStyleBackColor = false;
+            // 
+            // GrossBoxOfficeLabel
+            // 
+            this.GrossBoxOfficeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeLabel.Location = new System.Drawing.Point(818, 320);
+            this.GrossBoxOfficeLabel.Name = "GrossBoxOfficeLabel";
+            this.GrossBoxOfficeLabel.Size = new System.Drawing.Size(255, 43);
+            this.GrossBoxOfficeLabel.TabIndex = 16;
+            this.GrossBoxOfficeLabel.Text = "label1";
+            this.GrossBoxOfficeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(588, 7);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(224, 43);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "Porti con più imbarchi";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // RankHarborBooking
+            // 
+            this.RankHarborBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankHarborBooking.Location = new System.Drawing.Point(588, 56);
+            this.RankHarborBooking.Name = "RankHarborBooking";
+            this.RankHarborBooking.Size = new System.Drawing.Size(224, 247);
+            this.RankHarborBooking.TabIndex = 18;
             // 
             // App
             // 
@@ -1019,6 +1072,7 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankHarborBooking)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1087,5 +1141,9 @@ namespace db_crociere
         private System.Windows.Forms.Button RankingPathBtn;
         private System.Windows.Forms.DataGridView RankPathGridView;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataGridView RankHarborBooking;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label GrossBoxOfficeLabel;
+        private System.Windows.Forms.Button GrossBoxOfficeBtn;
     }
 }
