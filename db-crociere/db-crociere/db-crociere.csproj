@@ -72,6 +72,11 @@
     <Compile Include="Bookings\RefundsPopup.Designer.cs">
       <DependentUpon>RefundsPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClassesDBCrociere.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Ships\AddShipPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,11 +88,6 @@
     </Compile>
     <Compile Include="Ships\AddNavigationPopup.Designer.cs">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataClassesDBCrociere.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
     </Compile>
     <Compile Include="Staff\AddStaffPopup.cs">
       <SubType>Form</SubType>
