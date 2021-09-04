@@ -29,12 +29,12 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -181,6 +181,7 @@ namespace db_crociere
             this.addRefound.TabIndex = 0;
             this.addRefound.Text = "Aggiungi";
             this.addRefound.UseVisualStyleBackColor = true;
+            this.addRefound.Click += new System.EventHandler(this.addRefound_Click);
             // 
             // dataGridView1
             // 
@@ -771,19 +772,19 @@ namespace db_crociere
             // 
             // chart2
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Name = "Legend1";
-            this.chart2.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
             this.chart2.Location = new System.Drawing.Point(715, 302);
             this.chart2.Name = "chart2";
             this.chart2.Size = new System.Drawing.Size(346, 278);
             this.chart2.TabIndex = 8;
             this.chart2.Text = "Costo Medio Crociere";
-            title3.Name = "Title1";
-            title3.Text = "Apprezzamento Percorsi Crociere";
-            this.chart2.Titles.Add(title3);
+            title1.Name = "Title1";
+            title1.Text = "Apprezzamento Percorsi Crociere";
+            this.chart2.Titles.Add(title1);
             // 
             // RankCostsGridView
             // 
@@ -856,19 +857,19 @@ namespace db_crociere
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(715, 15);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(346, 259);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "Apprezzamento Crociere";
-            title4.Name = "Title1";
-            title4.Text = "Apprezzamento Percorsi Crociere";
-            this.chart1.Titles.Add(title4);
+            title2.Name = "Title1";
+            title2.Text = "Apprezzamento Percorsi Crociere";
+            this.chart1.Titles.Add(title2);
             // 
             // groupBox2
             // 

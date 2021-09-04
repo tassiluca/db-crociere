@@ -35,4 +35,4 @@ VALUES('26-10-2021', 2500);
 
 INSERT INTO PRENOTAZIONI(CodTransazione, DataEffettuazione, DataOraImbarco, DataOraSbarco, Trattamento, NumeroPasseggeri, CodNavigazione, CodPorto)
 VALUES(1, '28-08-2021', '30-08-2021 18:00', '15-09-2021 08:00', 'All-Inclusive', 5, 8, 'BAR'),
-VALUES(4, '26-10-2021', '29-11-2021 18:00', '15-12-2021 08:00', 'All-Inclusive', 5, 8, 'BAR');
+(4, '26-10-2021', '29-11-2021 18:00', '15-12-2021 08:00', 'All-Inclusive', 5, 8, 'BAR');

@@ -66,16 +66,22 @@
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddShipPopup.cs">
+    <Compile Include="Bookings\RefundsPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddShipPopup.Designer.cs">
+    <Compile Include="Bookings\RefundsPopup.Designer.cs">
+      <DependentUpon>RefundsPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ships\AddShipPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ships\AddShipPopup.Designer.cs">
       <DependentUpon>AddShipPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNavigationPopup.cs">
+    <Compile Include="Ships\AddNavigationPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNavigationPopup.Designer.cs">
+    <Compile Include="Ships\AddNavigationPopup.Designer.cs">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="DataClassesDBCrociere.designer.cs">
@@ -91,10 +97,10 @@
     </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="DateRange.cs" />
-    <Compile Include="AddExpensesPopup.cs">
+    <Compile Include="Bookings\AddExpensesPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddExpensesPopup.Designer.cs">
+    <Compile Include="Bookings\AddExpensesPopup.Designer.cs">
       <DependentUpon>AddExpensesPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
@@ -108,16 +114,19 @@
     <EmbeddedResource Include="Activities\AddActivitiesPopup.resx">
       <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddExpensesPopup.resx">
+    <EmbeddedResource Include="Bookings\AddExpensesPopup.resx">
       <DependentUpon>AddExpensesPopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNavigationPopup.resx">
+    <EmbeddedResource Include="Bookings\RefundsPopup.resx">
+      <DependentUpon>RefundsPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ships\AddNavigationPopup.resx">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddPrenPopup.resx">
       <DependentUpon>AddPrenPopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddShipPopup.resx">
+    <EmbeddedResource Include="Ships\AddShipPopup.resx">
       <DependentUpon>AddShipPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App.resx">
@@ -166,5 +175,6 @@
   <ItemGroup>
     <None Include="Resources\splash-screen.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

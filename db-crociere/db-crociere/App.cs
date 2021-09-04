@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using db_crociere.Staff;
 using db_crociere.Activities;
+using db_crociere.Bookings;
 
 namespace db_crociere
 {
@@ -297,6 +298,10 @@ namespace db_crociere
             addActivitiesPopup.ShowDialog(this);
         }
 
-
+        private void addRefound_Click(object sender, EventArgs e)
+        {
+            RefundsPopup refundsPopupWindows = new RefundsPopup(db);
+            refundsPopupWindows.ShowDialog(this);
+        }
     }
 }
