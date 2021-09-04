@@ -60,46 +60,91 @@ namespace db_crociere.Activities
         private void ActivityComboBox_Click(object sender, EventArgs e)
         {
             var activities = from a in db.ATTIVITÀ
-                             select a.CodAttività;
+                             select a.Nome;
             ActivityComboBox.DataSource = activities;
         }
-        /*
-private void AddActivityExecutionBtn_Click(object sender, EventArgs e)
-{
-   try
-   {
-       DateTime startDate = StartDatePicker.Value;
-       TimeSpan startTime = new TimeSpan(StartTimePicker.Value.Hour,
-           StartTimePicker.Value.Minute, StartTimePicker.Value.Second);
-       int room =
 
-       PERSONALE cabina = new PERSONALE
-       {
-           CodiceFiscale = fiscalCode,
-           Nome = name,
-           Cognome = surname,
-           Nazionalità = nationality,
-           Passaporto = passport,
-           Recapito = phoneNumber,
-           StipendioAnnuo = salary,
-           CodRuolo = role,
-           AnzianitàServizio = seniority,
-           Grado = rank
-       };
-       db.PERSONALEs.InsertOnSubmit(cabina);
+        private void AddActivityBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                string name = ActivityNameTextBox.Text;
+                string description = ActivityDescriptionTextBox.Text;
 
-       db.SubmitChanges();
-       msg = "Inserimento avvenuto con SUCCESSO";
-       MessageBox.Show(msg, "SUCCESSO");
-   }
-   catch (Exception exc)
-   {
-       msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-       Utilities.ShowErrorMessage(msg);
-       db = new DataClassesDBCrociereDataContext();
-   }
-   Utilities.ClearAll(this);
-}
-*/
+                ATTIVITÀ attività = new ATTIVITÀ
+                {
+                    Nome = name,
+                    Descrizione = description
+                };
+
+                db.ATTIVITÀ.InsertOnSubmit(attività);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
+            }
+            Utilities.ClearAll(this);
+        }
+
+        private bool checksExecution(DateTime start, int navigation)
+        {
+            var navInfos = (from n in db.NAVIGAZIONI
+                            where n.CodNavigazione == navigation
+                            select n).First();
+            return start >= navInfos.DataInizio && start <= navInfos.DataFine;
+        }
+
+        private void AddActivityExecutionBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                DateTime startDate = StartDatePicker.Value;
+                TimeSpan startTime = new TimeSpan(StartTimePicker.Value.Hour,
+                    StartTimePicker.Value.Minute, StartTimePicker.Value.Second);
+                int room = int.Parse(RoomComboBox.Text);
+                string activityName = ActivityComboBox.Text;
+                int activityCode = (int)(from a in db.ATTIVITÀ
+                                    where a.Nome == activityName
+                                    select a).First().CodAttività;
+                int navigation = int.Parse(NavigationCodeComboBox.Text);
+                int duration = int.Parse(DurationTextBox.Text);
+
+                if (!checksExecution(startDate, navigation))
+                {
+                    msg = "La data deve essere coerente con la navigaziione";
+                    throw new ArgumentException(msg);
+                }
+
+                PROGRAMMAZIONI programmazione = new PROGRAMMAZIONI
+                {
+                    InizioData = startDate,
+                    InizioOra = startTime,
+                    CodSala = room,
+                    CodAttività = activityCode,
+                    CodNavigazione = navigation,
+                    Durata = duration
+                };
+                db.PROGRAMMAZIONI.InsertOnSubmit(programmazione);
+
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
+            }
+            Utilities.ClearAll(this);
+        }
+
     }
 }

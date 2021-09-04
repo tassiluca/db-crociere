@@ -36,7 +36,7 @@ namespace db_crociere.Activities
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.StartTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DurationLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DurationTextBox = new System.Windows.Forms.TextBox();
             this.NavigationLabel = new System.Windows.Forms.Label();
             this.NavigationCodeComboBox = new System.Windows.Forms.ComboBox();
             this.NavigationTextBox = new System.Windows.Forms.TextBox();
@@ -45,10 +45,16 @@ namespace db_crociere.Activities
             this.ActivityLabel = new System.Windows.Forms.Label();
             this.ActivityComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AddActivityBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ActivityNameLabel = new System.Windows.Forms.Label();
+            this.ActivityNameTextBox = new System.Windows.Forms.TextBox();
+            this.ActivityDescriptionLabel = new System.Windows.Forms.Label();
+            this.ActivityDescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,6 +77,7 @@ namespace db_crociere.Activities
             this.AddActivityExecutionBtn.TabIndex = 1;
             this.AddActivityExecutionBtn.Text = "Aggiungi";
             this.AddActivityExecutionBtn.UseVisualStyleBackColor = true;
+            this.AddActivityExecutionBtn.Click += new System.EventHandler(this.AddActivityExecutionBtn_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -78,7 +85,7 @@ namespace db_crociere.Activities
             this.flowLayoutPanel1.Controls.Add(this.StartDatePicker);
             this.flowLayoutPanel1.Controls.Add(this.StartTimePicker);
             this.flowLayoutPanel1.Controls.Add(this.DurationLabel);
-            this.flowLayoutPanel1.Controls.Add(this.textBox1);
+            this.flowLayoutPanel1.Controls.Add(this.DurationTextBox);
             this.flowLayoutPanel1.Controls.Add(this.NavigationLabel);
             this.flowLayoutPanel1.Controls.Add(this.NavigationCodeComboBox);
             this.flowLayoutPanel1.Controls.Add(this.NavigationTextBox);
@@ -133,13 +140,13 @@ namespace db_crociere.Activities
             this.DurationLabel.TabIndex = 35;
             this.DurationLabel.Text = "Durata";
             // 
-            // textBox1
+            // DurationTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(273, 3);
-            this.textBox1.MaxLength = 3;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(66, 22);
-            this.textBox1.TabIndex = 36;
+            this.DurationTextBox.Location = new System.Drawing.Point(273, 3);
+            this.DurationTextBox.MaxLength = 3;
+            this.DurationTextBox.Name = "DurationTextBox";
+            this.DurationTextBox.Size = new System.Drawing.Size(66, 22);
+            this.DurationTextBox.TabIndex = 36;
             // 
             // NavigationLabel
             // 
@@ -205,12 +212,13 @@ namespace db_crociere.Activities
             this.ActivityComboBox.FormattingEnabled = true;
             this.ActivityComboBox.Location = new System.Drawing.Point(183, 33);
             this.ActivityComboBox.Name = "ActivityComboBox";
-            this.ActivityComboBox.Size = new System.Drawing.Size(79, 24);
+            this.ActivityComboBox.Size = new System.Drawing.Size(156, 24);
             this.ActivityComboBox.TabIndex = 38;
             this.ActivityComboBox.Click += new System.EventHandler(this.ActivityComboBox_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.AddActivityBtn);
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 104);
@@ -220,12 +228,61 @@ namespace db_crociere.Activities
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Aggiungi una nuova Attività";
             // 
+            // AddActivityBtn
+            // 
+            this.AddActivityBtn.Location = new System.Drawing.Point(354, 21);
+            this.AddActivityBtn.Name = "AddActivityBtn";
+            this.AddActivityBtn.Size = new System.Drawing.Size(75, 27);
+            this.AddActivityBtn.TabIndex = 2;
+            this.AddActivityBtn.Text = "Aggiungi";
+            this.AddActivityBtn.UseVisualStyleBackColor = true;
+            this.AddActivityBtn.Click += new System.EventHandler(this.AddActivityBtn_Click);
+            // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.Controls.Add(this.ActivityNameLabel);
+            this.flowLayoutPanel2.Controls.Add(this.ActivityNameTextBox);
+            this.flowLayoutPanel2.Controls.Add(this.ActivityDescriptionLabel);
+            this.flowLayoutPanel2.Controls.Add(this.ActivityDescriptionTextBox);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(6, 21);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(631, 73);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(339, 79);
             this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // ActivityNameLabel
+            // 
+            this.ActivityNameLabel.AutoSize = true;
+            this.ActivityNameLabel.Location = new System.Drawing.Point(3, 0);
+            this.ActivityNameLabel.Name = "ActivityNameLabel";
+            this.ActivityNameLabel.Size = new System.Drawing.Size(45, 16);
+            this.ActivityNameLabel.TabIndex = 0;
+            this.ActivityNameLabel.Text = "Nome";
+            // 
+            // ActivityNameTextBox
+            // 
+            this.ActivityNameTextBox.Location = new System.Drawing.Point(54, 3);
+            this.ActivityNameTextBox.MaxLength = 20;
+            this.ActivityNameTextBox.Name = "ActivityNameTextBox";
+            this.ActivityNameTextBox.Size = new System.Drawing.Size(270, 22);
+            this.ActivityNameTextBox.TabIndex = 2;
+            // 
+            // ActivityDescriptionLabel
+            // 
+            this.ActivityDescriptionLabel.AutoSize = true;
+            this.ActivityDescriptionLabel.Location = new System.Drawing.Point(3, 28);
+            this.ActivityDescriptionLabel.Name = "ActivityDescriptionLabel";
+            this.ActivityDescriptionLabel.Size = new System.Drawing.Size(79, 16);
+            this.ActivityDescriptionLabel.TabIndex = 1;
+            this.ActivityDescriptionLabel.Text = "Descrizione";
+            // 
+            // ActivityDescriptionTextBox
+            // 
+            this.ActivityDescriptionTextBox.Location = new System.Drawing.Point(88, 31);
+            this.ActivityDescriptionTextBox.MaxLength = 150;
+            this.ActivityDescriptionTextBox.Name = "ActivityDescriptionTextBox";
+            this.ActivityDescriptionTextBox.Size = new System.Drawing.Size(236, 42);
+            this.ActivityDescriptionTextBox.TabIndex = 3;
+            this.ActivityDescriptionTextBox.Text = "";
             // 
             // AddActivitiesPopup
             // 
@@ -240,6 +297,8 @@ namespace db_crociere.Activities
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +312,7 @@ namespace db_crociere.Activities
         private System.Windows.Forms.DateTimePicker StartDatePicker;
         private System.Windows.Forms.DateTimePicker StartTimePicker;
         private System.Windows.Forms.Label DurationLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox DurationTextBox;
         private System.Windows.Forms.Label NavigationLabel;
         private System.Windows.Forms.ComboBox NavigationCodeComboBox;
         private System.Windows.Forms.TextBox NavigationTextBox;
@@ -263,5 +322,10 @@ namespace db_crociere.Activities
         private System.Windows.Forms.ComboBox ActivityComboBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label ActivityNameLabel;
+        private System.Windows.Forms.TextBox ActivityNameTextBox;
+        private System.Windows.Forms.Label ActivityDescriptionLabel;
+        private System.Windows.Forms.RichTextBox ActivityDescriptionTextBox;
+        private System.Windows.Forms.Button AddActivityBtn;
     }
 }

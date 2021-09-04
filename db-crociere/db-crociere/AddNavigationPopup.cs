@@ -303,6 +303,7 @@ namespace db_crociere
                 Utilities.ShowErrorMessage(msg);
                 db = new DataClassesDBCrociereDataContext();
             }
+            AddNavigationPopup_Load(sender, e);
             Utilities.ClearAll(this);
         }
 
