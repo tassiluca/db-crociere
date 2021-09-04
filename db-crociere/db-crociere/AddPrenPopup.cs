@@ -11,31 +11,32 @@ using System.Windows.Forms;
 namespace db_crociere
 {
     public partial class AddPrenPopup : Form
-    {   
+    {
         //range min e max per i dati del database, si discostano dai range di c#
         private const String MIN_DATE = "01/01/2000";
         private const String MAX_DATE = "12/05/2079";
         private const String ASSENT_INFO = "Assente";
         private const String ASSENT_SHIP_NAME = "Nave Assente";
         private const Double PERC_ANTICIPO = 0.3;
+        private const decimal ASSENT_CODE_VALUE = -1;
+        private const decimal PAY_CARD_LEN = 16;
+
         private DataClassesDBCrociereDataContext db;
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
         private IQueryable<CABINE> cabineLibere;
         //cabine ceh rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
         private IQueryable<CABINE> cabinePrenotabili;
-        private Dictionary<decimal,CABINE> cabinePrenotabiliNonAggiunte;
+        private Dictionary<decimal, CABINE> cabinePrenotabiliNonAggiunte;
         private Dictionary<String, List<TARIFFARI>> dictTar;
 
         //below obj used to keep datas before adding them in db
         private db_crociere.PRENOTAZIONI prenot;
-        private Dictionary<String,PASSEGGERI> passengersDict;
-        private Dictionary<decimal,CABINE> roomOfPrenot;
+        private Dictionary<String, PASSEGGERI> passengersDict;
+        private Dictionary<decimal, CABINE> roomOfPrenot;
         private Dictionary<String, String> passngerCard;
-        private List<decimal> codTariffari;        
+        private List<decimal> codTariffari;
         private int importoPrenot;
-        private decimal codicePrenotazione;
-        private decimal codicePagamento;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -46,9 +47,8 @@ namespace db_crociere
             passengersDict = new Dictionary<String, PASSEGGERI>();
             passngerCard = new Dictionary<String, String>();
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
-            roomOfPrenot = new Dictionary<decimal,CABINE>();
+            roomOfPrenot = new Dictionary<decimal, CABINE>();
             codTariffari = new List<decimal>();
-            codicePrenotazione = 0;
             InitializeComponent();
         }
 
@@ -60,10 +60,10 @@ namespace db_crociere
         private void AddPrenPopup_Load(object sender, EventArgs e)
         {
             var path = from p in db.PERCORSI
-                        select p.CodPercorso;
+                       select p.CodPercorso;
             pathSelPren.DataSource = path;
             Console.WriteLine("Percorsi caricati");
-            checkBoxRateizzato_CheckedChanged(sender,e);
+            checkBoxRateizzato_CheckedChanged(sender, e);
         }
 
         private void treatmentField_TextChanged(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace db_crociere
         private void updateNavigationListSelector(object sender, EventArgs e)
         {
             //path selected
-            navDateMap = new Dictionary<string,DateRange>();
+            navDateMap = new Dictionary<string, DateRange>();
             var pathCode = pathSelPren.SelectedItem.ToString();
             Console.WriteLine("Percorso selezionato: " + pathCode);
             //get all the avaiable navigation for the selected path
@@ -100,8 +100,8 @@ namespace db_crociere
                 {
                     var rd = new DateRange(p.startNavDate, p.endNavDate);
                     rd.NavCode = p.codNav;
-                    navDateMap.Add(rd.ToStringDate(),rd);
-                }   
+                    navDateMap.Add(rd.ToStringDate(), rd);
+                }
             }
             else {
                 navPeriodSelector.Text = "Nessuna Navigazione";
@@ -128,7 +128,7 @@ namespace db_crociere
             String selectedPeriod = navPeriodSelector.SelectedItem.ToString();
             //save selected navigation code 
             prenot.CodNavigazione = navDateMap[selectedPeriod].NavCode;
-            Console.WriteLine("Navig. selezionata: " + selectedPeriod + " "+ prenot.CodNavigazione);
+            Console.WriteLine("Navig. selezionata: " + selectedPeriod + " " + prenot.CodNavigazione);
             var startDateNav = this.navDateMap[selectedPeriod].StartDate;
             var endDateNav = this.navDateMap[selectedPeriod].EndDate;
             /*select all the esecuzioni_tratta that are part of navigation with id = navCodPathSelected
@@ -155,17 +155,17 @@ namespace db_crociere
                 foreach (var ps in path_sections)
                 {
                     DateTime imbDateTime = ps.imbDate + ps.imbTime;
-                    
+
                     if (portDates.ContainsKey(ps.portCode))
                     {
                         var updatedSet = portDates[ps.portCode];
                         updatedSet.Add(imbDateTime);
-                        portDates[ps.portCode]=updatedSet;
+                        portDates[ps.portCode] = updatedSet;
                     }
                     else {
                         var newSet = new HashSet<DateTime>();
                         newSet.Add(imbDateTime);
-                        portDates.Add(ps.portCode,newSet);
+                        portDates.Add(ps.portCode, newSet);
                     }
                 }
             }
@@ -173,9 +173,9 @@ namespace db_crociere
                 portSelPren.Text = "Nessuna Tratta";
                 startDateSelPren.Text = "Nessuna Data";
                 startDateSelPren.DataSource = new List<String>();
-                Console.WriteLine("Nessun tratta trovata per la navigazione(periodo) "+ selectedPeriod);
+                Console.WriteLine("Nessun tratta trovata per la navigazione(periodo) " + selectedPeriod);
             }
-            
+
             portSelPren.DataSource = portDates.Keys.ToList();
 
         }
@@ -207,24 +207,24 @@ namespace db_crociere
             prenot.DataOraImbarco = DateTime.Parse(dateTimeDeparture);
 
             Console.WriteLine("Data prossima per sbarco in porto scelto");
-            String str = "Imbarco " +prenot.DataOraImbarco +" "+ prenot.CodNavigazione + prenot.CodPorto;
+            String str = "Imbarco " + prenot.DataOraImbarco + " " + prenot.CodNavigazione + prenot.CodPorto;
             Console.WriteLine(str);
 
-             var dateTimeSbar = from est in db.ESECUZIONI_TRATTA
-                                  from t in db.TRATTE
-                                  //from port in db.PORTIs
-                                  where est.CodNavigazione == prenot.CodNavigazione
-                                  && t.CodTratta == est.CodTratta
-                                  && t.CodPortoArrivo == prenot.CodPorto
-                                  && est.Arrivo_Data > prenot.DataOraImbarco
-                                  orderby est.Arrivo_Data
-                                  select new
-                                  {
-                                      //portName = port.Città,
-                                      //portCode = t.CodPortoArrivo,
-                                      sbarcoDate = est.Arrivo_Data,
-                                      sbarcoTime = est.Arrivo_Ora
-                                  };
+            var dateTimeSbar = from est in db.ESECUZIONI_TRATTA
+                               from t in db.TRATTE
+                                   //from port in db.PORTIs
+                               where est.CodNavigazione == prenot.CodNavigazione
+                               && t.CodTratta == est.CodTratta
+                               && t.CodPortoArrivo == prenot.CodPorto
+                               && est.Arrivo_Data > prenot.DataOraImbarco
+                               orderby est.Arrivo_Data
+                               select new
+                               {
+                                   //portName = port.Città,
+                                   //portCode = t.CodPortoArrivo,
+                                   sbarcoDate = est.Arrivo_Data,
+                                   sbarcoTime = est.Arrivo_Ora
+                               };
             if (dateTimeSbar.Count() > 0)
             {
                 var sbarDateTime = dateTimeSbar.First().sbarcoDate + dateTimeSbar.First().sbarcoTime;
@@ -237,9 +237,9 @@ namespace db_crociere
             else {
                 dateSbarcoBox.Text = ASSENT_INFO;
             }
-            Console.WriteLine(dateTimeSbar.Count() +  "trovati");
+            Console.WriteLine(dateTimeSbar.Count() + "trovati");
             foreach (var elem in dateTimeSbar) {
-                Console.WriteLine(" "+ elem.sbarcoDate + " " + elem .sbarcoTime);
+                Console.WriteLine(" " + elem.sbarcoDate + " " + elem.sbarcoTime);
             }
 
         }
@@ -275,7 +275,7 @@ namespace db_crociere
                 if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
                 {
                     var msg = "Passeggero già presente in una altra prenotazione in questo periodo";
-                    MessageBox.Show(msg, "ERRORE");                    
+                    MessageBox.Show(msg, "ERRORE");
                 }
                 else {
                     if (!passengersDict.ContainsKey(passeggero.CodiceFiscale))
@@ -285,9 +285,9 @@ namespace db_crociere
                     }
                     else {
                         var msg = "Passeggero già inserito";
-                        MessageBox.Show(msg,"ERROR");
+                        MessageBox.Show(msg, "ERROR");
                     }
-                    
+
                 }
                 ClearPassengerFields();
             }
@@ -313,12 +313,12 @@ namespace db_crociere
                               && pren.CodPrenotazione == prenPass.CodPrenotazione
                               && pren.DataOraImbarco >= prenot.DataOraImbarco
                               && pren.DataOraSbarco <= prenot.DataOraSbarco
-                              select new { 
-                                codFiscale = prenPass.CodiceFiscale,
-                                dataImbarco = pren.DataOraImbarco,
-                                dataSbarco = pren.DataOraSbarco,
+                              select new {
+                                  codFiscale = prenPass.CodiceFiscale,
+                                  dataImbarco = pren.DataOraImbarco,
+                                  dataSbarco = pren.DataOraSbarco,
                               };
-            return pasngInPren.Count()>0;
+            return pasngInPren.Count() > 0;
         }
 
         private void updatePassgListBox()
@@ -348,10 +348,10 @@ namespace db_crociere
                 }
                 updatePassgListBox();
             }
-            
+
         }
 
-    //CABINE-CAMERE
+        //CABINE-CAMERE
         private void numRoomUpDownSel_ValueChanged(object sender, EventArgs e)
         {
             var numRooms = numRoomUpDownSel.Value;
@@ -384,7 +384,7 @@ namespace db_crociere
                                   && p.DataOraSbarco <= prenot.DataOraSbarco
                                   && alloggi.CodPrenotazione == p.CodPrenotazione
                                   && cab.CodCabina == alloggi.CodCabina
-                                  && cab.NomeNave == nomeNave                                  
+                                  && cab.NomeNave == nomeNave
                                   select cab;
 
                 var tutteCabineNave = from c in db.CABINE
@@ -402,7 +402,7 @@ namespace db_crociere
             }
 
         }
- 
+
         //updated after selection of room type
         private void updateRoomPosSelector(object sender, EventArgs e)
         {
@@ -425,7 +425,7 @@ namespace db_crociere
             {
                 roomSizeSel.DataSource = new List<String>();
                 roomSizeSel.Text = "-";
-                roomSizeSel.SelectedItem =ASSENT_INFO;
+                roomSizeSel.SelectedItem = ASSENT_INFO;
             }
             else
             {
@@ -435,7 +435,7 @@ namespace db_crociere
                 //azzero le cabine prenotabili e ripopolo il dictionary aggiornato
                 cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
                 foreach (var cab in cabinePrenotabili) {
-                    cabinePrenotabiliNonAggiunte.Add(cab.CodCabina,cab);
+                    cabinePrenotabiliNonAggiunte.Add(cab.CodCabina, cab);
                 }
                 roomSizeSel.DataSource = cabinePrenotabili.Select(c => c.PostiLetto).Distinct();
             }
@@ -464,7 +464,7 @@ namespace db_crociere
                 {
                     if (!roomOfPrenot.ContainsKey(sr))
                     {
-                        roomOfPrenot.Add(sr,cabinePrenotabiliNonAggiunte[sr]);
+                        roomOfPrenot.Add(sr, cabinePrenotabiliNonAggiunte[sr]);
                         cabinePrenotabiliNonAggiunte.Remove(sr);
                         Console.WriteLine("Aggiunta cavina: " + sr);
                     }
@@ -473,13 +473,13 @@ namespace db_crociere
             }
             else {
                 var msg = "Inserire almeno un passeggero.";
-                MessageBox.Show(msg,"ATTENZIONE");
+                MessageBox.Show(msg, "ATTENZIONE");
             }
         }
 
         private void delRoomBtn_Click(object sender, EventArgs e)
         {
-            if(roomListBox.SelectedItem != null){
+            if (roomListBox.SelectedItem != null) {
                 var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
                 if (roomOfPrenot.ContainsKey(cabToremove))
                 {
@@ -503,7 +503,7 @@ namespace db_crociere
             numRoomUpDownSel.Maximum = cabinePrenotabiliNonAggiunte.Count();
             textTotPostiLetto.Text = roomOfPrenot.Values.Select(c => c.PostiLetto).Sum().ToString();
         }
-        
+
         //UTILITIES CABINE
         private String getNomeNave()
         {
@@ -520,10 +520,10 @@ namespace db_crociere
             }
             else {
                 var msg = "Prima selezionare il percorso";
-                MessageBox.Show(msg,"ERRORE");
+                MessageBox.Show(msg, "ERRORE");
                 return ASSENT_SHIP_NAME;
             }
-            
+
         }
 
         private void calcTotalPriceBtn_Click(object sender, EventArgs e)
@@ -532,7 +532,7 @@ namespace db_crociere
              NomeTipologia (cabina),
              NomeNave (che ricavo partendo dal percorso selezionato),
              Le date DataOraImbarco e DataOraSbarco devono essere comprese in DataInizio-DataFine (tariffario)*/
-
+            importoPrenot = (int)ASSENT_CODE_VALUE;
             var nomeNave = getNomeNave(); //deve essere selezionato il codice Percorso
             if (nomeNave != ASSENT_SHIP_NAME)
             {
@@ -549,7 +549,7 @@ namespace db_crociere
                 }
                 foreach (var ee in roomTypeOfPrenot)
                 {
-                    Console.WriteLine(ee + "Tipo cabina prenotazione" );
+                    Console.WriteLine(ee + "Tipo cabina prenotazione");
 
                 }
 
@@ -616,13 +616,14 @@ namespace db_crociere
                         MessageBox.Show(msg, "ERRORE");
                         Console.WriteLine("ECCEZIONE: " + exc);
                         priceLabel.Text = " ";
-                        importoPrenot = 0;
+                        importoPrenot = (int)ASSENT_CODE_VALUE;
                         codTariffari = new List<decimal>();
                     }
                 }
                 else {
                     var msg = "Prezzo non calcolabile: selezionare almeno una camera";
                     priceLabel.Text = " ";
+                    importoPrenot = (int)ASSENT_CODE_VALUE;
                     MessageBox.Show(msg, "Attenzione");
                 }
             }
@@ -630,19 +631,20 @@ namespace db_crociere
             {
                 var msg = "Prezzo non calcolabile: selezionare percorso e date Imbarco-Sbarco";
                 priceLabel.Text = " ";
+                importoPrenot = (int)ASSENT_CODE_VALUE;
                 MessageBox.Show(msg, "Attenzione");
             }
-            
+
         }
 
         private void addTariff_Prenot(decimal codTarif) {
             if (!codTariffari.Contains(codTarif)) {
                 codTariffari.Add(codTarif);
             }
-            Console.WriteLine("Tarifarrio memorizzato: "+ codTarif);
+            Console.WriteLine("Tarifarrio memorizzato: " + codTarif);
         }
 
-        private int ricCalcCost(DateTime imbarco,DateTime sbarco, int idxTarTipoCab, String type) {
+        private int ricCalcCost(DateTime imbarco, DateTime sbarco, int idxTarTipoCab, String type) {
             if (dictTar.ContainsKey(type) && idxTarTipoCab < dictTar[type].Count()) {
                 int prezzo = 0;
                 var tar = dictTar[type].ElementAt(idxTarTipoCab);
@@ -666,17 +668,17 @@ namespace db_crociere
                         prezzo = giorni * (int)tar.Prezzo;
                         addTariff_Prenot(tar.CodTariffario);
 
-                        if (idxTarTipoCab+1 < dictTar[type].Count()) {
+                        if (idxTarTipoCab + 1 < dictTar[type].Count()) {
                             //se non vado fuori dalla lista,ci sono ancora tariffari da scorrere
                             //verifico che il tariffario attuale sia contiguo al successivo
 
-                            var tarNext = dictTar[type].ElementAt(idxTarTipoCab+1);
+                            var tarNext = dictTar[type].ElementAt(idxTarTipoCab + 1);
                             //verifico i due tariffari vicini siano contigui
                             if ((tarNext.DataInizio - tar.DataFine).TotalDays <= 1)
                             {
                                 //significa che sono contigui e non ci sono gap
                                 var dImb = tarNext.DataInizio;
-                                return prezzo + ricCalcCost(dImb,sbarco,idxTarTipoCab+1,type);
+                                return prezzo + ricCalcCost(dImb, sbarco, idxTarTipoCab + 1, type);
                             }
                             else {
                                 Console.WriteLine("I tariffari non sono contigui, ci sono buchi di tariffazione");
@@ -707,29 +709,133 @@ namespace db_crociere
         {
             //verifica della presenza di tutti i dati necessari per l'inserimento
             //la mancanza di una sola informazione non permette l'inserimento e la conferma della prenotazione
-            if (/*checkPay() && checkPren() && checkPasng() && checkBadge()
-                && checkAlloggi() && checkTarif()*/ false)
+
+            calcRataBtn_Click(sender,e);
+            if (!checkPay())
             {
-
-                /*
-            insertPagamento(codicePagamento, checkBoxRateizzato.Checked);
-            insertPrenotazione(codicePrenotazione, codicePagamento);
-            insertPasseggeri();
-            insertPrenot_Passeggeri(codicePrenotazione);
-            insertBadge(codicePrenotazione);
-            insertAlloggi(codicePrenotazione);
-
-            insertTariffari_Prenot(codicePrenotazione);
-            codicePagamento++;
-            codicePrenotazione++;*/
-
+                printDataGap("prezzo non valido");
+            }
+            else if (!checkPren())
+            {
+                printDataGap("prenotazione e/o non ammessi");
+            }
+            else if (!checkPasng())
+            {
+                printDataGap("passeggeri, inserirne almeno uno");
+            }
+            else if (!checkBadge())
+            {
+                printDataGap("numero carta di credito incompleto");
+            }
+            else if (!checkAlloggi())
+            {
+                printDataGap("posti letto insufficenti o nessuna cabina inserita");
+            }
+            else if (!checkTarif())
+            {
+                printDataGap("nessun tariffario trovato");
             }
             else {
-                var msg = "Non posso inserire la prenotazione: mancano dei dati, assicurati" +
-                    "di aver compilato tutti i campi";
-                MessageBox.Show(msg,"ERRORE");
-            }
+                decimal codicePrenotazione = calculatePrenId();
+                decimal codicePagamento = calculateTransId();
+                Console.WriteLine("CodPrenot: "+ codicePrenotazione+ " codTrans: " + codicePagamento);
+                insertPagamento(codicePagamento, checkBoxRateizzato.Checked);
+                insertPrenotazione(codicePrenotazione, codicePagamento);
+                insertPasseggeri();
+                insertPrenot_Passeggeri(codicePrenotazione);
+                insertBadge(codicePrenotazione);
+                insertAlloggi(codicePrenotazione);
 
+                insertTariffari_Prenot(codicePrenotazione);
+                db.SubmitChanges();
+                MessageBox.Show("Prenotazione confermata!","SUCCESS");
+            
+            }
+        }
+
+        private decimal calculateTransId()
+        {
+            var lastCode = (from pay in db.PAGAMENTI
+                           select pay.CodTransazione )
+                           .OrderByDescending(e => e)
+                           .First();
+            return lastCode+1;
+        }
+
+        private decimal calculatePrenId()
+        {
+            var lastCode = (from pre in db.PRENOTAZIONI
+                            select pre.CodPrenotazione)
+                          .OrderByDescending(e => e)
+                          .First();
+            return lastCode + 1;
+        }
+
+        private void printDataGap(String msg){
+            MessageBox.Show("Dati mancanti: " + msg, "Errore");
+        }
+
+        private bool checkTarif()
+        {
+            //i controlli che il tariffario sia relativo ad una nave
+            //e alla tipologia della cabine/e presente nella prenotazione viene controllato in fase
+            //di elaborazione dei tariffari
+            return codTariffari.Count() > 0;
+        }
+
+        private bool checkAlloggi()
+        {
+            //verifico che ci siano abbastanza posti letto per contenere i passeggeri
+            return roomOfPrenot.Count() > 0 && checkPasng() && 
+                    passengersDict.Count() <= roomOfPrenot.Values.Select(c => c.PostiLetto).Sum();
+        }
+
+        private bool checkBadge()
+        {
+            //contrololo che per ciascun passeggero ci sia la carta di credito inserita
+            if (passngerCard.Count() == passengersDict.Count() && checkPasng()) {
+                foreach (var psng in passengersDict.Keys) {
+                    if (passngerCard[psng].Length < PAY_CARD_LEN)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+
+        private bool checkPasng()
+        {
+            return passengersDict.Count() > 0;
+        }
+
+        private bool checkPren()
+        {
+            return prenot.DataOraImbarco != null &&
+                    prenot.DataOraSbarco != null &&
+                    prenot.DataOraImbarco <= DateTime.Parse(MAX_DATE) &&
+                    prenot.DataOraImbarco >= DateTime.Parse(MIN_DATE) &&
+                    prenot.DataOraSbarco <= DateTime.Parse(MAX_DATE) &&
+                    prenot.DataOraSbarco >= DateTime.Parse(MIN_DATE) &&
+                    prenot.Trattamento != null &&
+                    prenot.Trattamento.Length > 0 &&
+                    prenot.CodNavigazione != ASSENT_CODE_VALUE &&
+                    prenot.CodPorto != null && 
+                    prenot.CodPorto.Length > 0;
+        }
+
+        private bool checkPay()
+        {
+            var state = checkBoxRateizzato.Checked;
+            if (state)
+            {
+                return numRateField.Value >= 2 && fieldAnticipo.Text.Length > 0;
+            }
+            else {
+                return importoPrenot > 0 && importoPrenot != ASSENT_CODE_VALUE;
+            }
+            
         }
 
         private void insertBadge(decimal codicePrenotazione)
@@ -744,6 +850,7 @@ namespace db_crociere
                 };
                 db.BADGE.InsertOnSubmit(badge);
             }
+            Console.WriteLine("Badge inseriti");
         }
 
         private void insertPagamento(decimal codTransaz, Boolean isUnico)
@@ -770,28 +877,28 @@ namespace db_crociere
                 db.PAGAMENTI.InsertOnSubmit(payment);
 
             }
-                    
+            Console.WriteLine("Pagamento inseriti");
         }
 
         private void insertPrenotazione(decimal codicePrenotazione, decimal codicePagamento)
+        {
+            var pren = new PRENOTAZIONI
                 {
-                    var pren = new PRENOTAZIONI
-                    {
-                       CodPrenotazione = codicePrenotazione,
-                       CodTransazione = codicePagamento,
-                       DataEffettuazione = DateTime.Now,
-                       DataOraImbarco = prenot.DataOraImbarco,
-                       DataOraSbarco = prenot.DataOraSbarco,
-                       Trattamento = treatmentField.Text,
-                       CodNavigazione = prenot.CodNavigazione,
-                       CodPorto = prenot.CodPorto
-
-                    };
-                    db.PRENOTAZIONI.InsertOnSubmit(pren);
-                }
+                    CodPrenotazione = codicePrenotazione,
+                    CodTransazione = codicePagamento,
+                    DataEffettuazione = DateTime.Now,
+                    DataOraImbarco = prenot.DataOraImbarco,
+                    DataOraSbarco = prenot.DataOraSbarco,
+                    Trattamento = treatmentField.Text,
+                CodNavigazione = prenot.CodNavigazione,
+                CodPorto = prenot.CodPorto
+            };
+            db.PRENOTAZIONI.InsertOnSubmit(pren);
+            Console.WriteLine("Badge inseriti");
+        }
 
         private void insertPasseggeri()
-                {
+        {
                     foreach (var psng in passengersDict.Values)
                     {
                         var psngrIn = (from p in db.PASSEGGERI
@@ -808,7 +915,8 @@ namespace db_crociere
                             db.PASSEGGERI.InsertOnSubmit(pass);
                         }
                     }
-                }
+            Console.WriteLine("Passeggeri inseriti");
+        }
 
         private void insertPrenot_Passeggeri(decimal codPren)
                 {
@@ -821,7 +929,8 @@ namespace db_crociere
                         };
                         db.PRENOTAZIONI_PASSEGGERI.InsertOnSubmit(pren_pass);
                     }
-                }
+            Console.WriteLine("Prenot_passggeri inseriti");
+        }
 
         private void insertAlloggi(decimal codPren)
                 {
@@ -834,7 +943,8 @@ namespace db_crociere
                         };
                         db.ALLOGGI.InsertOnSubmit(alloggio);
                     }
-                }
+            Console.WriteLine("Alloggi inseriti");
+        }
 
         private void insertTariffari_Prenot(decimal codPren)
                 {
@@ -846,7 +956,8 @@ namespace db_crociere
                         };
                         db.TARIFFARI_PRENOTAZIONI.InsertOnSubmit(tariffari_prenotazioni);
                     }
-                }
+            Console.WriteLine("Tariff_Prenot inseriti");
+        }
 
         private void checkBoxRateizzato_CheckedChanged(object sender, EventArgs e)
         {
