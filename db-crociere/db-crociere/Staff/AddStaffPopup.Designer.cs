@@ -56,7 +56,6 @@ namespace db_crociere.Staff
             this.SeniorityLabel = new System.Windows.Forms.Label();
             this.SeniortyTextBox = new System.Windows.Forms.TextBox();
             this.AddCrewBtn = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.RoleCodeLabel = new System.Windows.Forms.Label();
@@ -66,7 +65,6 @@ namespace db_crociere.Staff
             this.label3 = new System.Windows.Forms.Label();
             this.RoleNameTextBox = new System.Windows.Forms.TextBox();
             this.AddRoleBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.FiscalCodeLabel1 = new System.Windows.Forms.Label();
@@ -76,7 +74,6 @@ namespace db_crociere.Staff
             this.EndDateLabel = new System.Windows.Forms.Label();
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.AddShift = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,7 +81,6 @@ namespace db_crociere.Staff
             this.label4 = new System.Windows.Forms.Label();
             this.ServiceFiscalCodeComboBox = new System.Windows.Forms.ComboBox();
             this.AddServiceBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -94,7 +90,6 @@ namespace db_crociere.Staff
             this.label7 = new System.Windows.Forms.Label();
             this.ResponsabilityRoleComboBox = new System.Windows.Forms.ComboBox();
             this.AddResponsability = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
             this.InsertCrewLayoutPanel.SuspendLayout();
@@ -113,7 +108,6 @@ namespace db_crociere.Staff
             this.groupBox6.Controls.Add(this.flowLayoutPanel10);
             this.groupBox6.Controls.Add(this.InsertCrewLayoutPanel);
             this.groupBox6.Controls.Add(this.AddCrewBtn);
-            this.groupBox6.Controls.Add(this.button8);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(6, 12);
             this.groupBox6.Name = "groupBox6";
@@ -393,28 +387,20 @@ namespace db_crociere.Staff
             // 
             // AddCrewBtn
             // 
-            this.AddCrewBtn.Location = new System.Drawing.Point(680, 109);
+            this.AddCrewBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddCrewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCrewBtn.Location = new System.Drawing.Point(680, 136);
             this.AddCrewBtn.Name = "AddCrewBtn";
-            this.AddCrewBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddCrewBtn.Size = new System.Drawing.Size(75, 27);
             this.AddCrewBtn.TabIndex = 3;
             this.AddCrewBtn.Text = "Aggiungi";
-            this.AddCrewBtn.UseVisualStyleBackColor = true;
+            this.AddCrewBtn.UseVisualStyleBackColor = false;
             this.AddCrewBtn.Click += new System.EventHandler(this.AddCrewBtn_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(680, 140);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Pulisci";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
             this.groupBox1.Controls.Add(this.AddRoleBtn);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 187);
             this.groupBox1.Name = "groupBox1";
@@ -496,28 +482,20 @@ namespace db_crociere.Staff
             // 
             // AddRoleBtn
             // 
-            this.AddRoleBtn.Location = new System.Drawing.Point(323, 76);
+            this.AddRoleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddRoleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddRoleBtn.Location = new System.Drawing.Point(323, 100);
             this.AddRoleBtn.Name = "AddRoleBtn";
-            this.AddRoleBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddRoleBtn.Size = new System.Drawing.Size(75, 30);
             this.AddRoleBtn.TabIndex = 3;
             this.AddRoleBtn.Text = "Aggiungi";
-            this.AddRoleBtn.UseVisualStyleBackColor = true;
+            this.AddRoleBtn.UseVisualStyleBackColor = false;
             this.AddRoleBtn.Click += new System.EventHandler(this.AddRoleBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(323, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Pulisci";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel1);
             this.groupBox2.Controls.Add(this.AddShift);
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(416, 187);
             this.groupBox2.Name = "groupBox2";
@@ -601,28 +579,20 @@ namespace db_crociere.Staff
             // 
             // AddShift
             // 
-            this.AddShift.Location = new System.Drawing.Point(270, 76);
+            this.AddShift.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddShift.Location = new System.Drawing.Point(270, 100);
             this.AddShift.Name = "AddShift";
-            this.AddShift.Size = new System.Drawing.Size(75, 25);
+            this.AddShift.Size = new System.Drawing.Size(75, 30);
             this.AddShift.TabIndex = 3;
             this.AddShift.Text = "Aggiungi";
-            this.AddShift.UseVisualStyleBackColor = true;
+            this.AddShift.UseVisualStyleBackColor = false;
             this.AddShift.Click += new System.EventHandler(this.AddShift_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(270, 107);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Pulisci";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel3);
             this.groupBox3.Controls.Add(this.AddServiceBtn);
-            this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(8, 329);
             this.groupBox3.Name = "groupBox3";
@@ -684,28 +654,20 @@ namespace db_crociere.Staff
             // 
             // AddServiceBtn
             // 
-            this.AddServiceBtn.Location = new System.Drawing.Point(323, 22);
+            this.AddServiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddServiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddServiceBtn.Location = new System.Drawing.Point(323, 52);
             this.AddServiceBtn.Name = "AddServiceBtn";
-            this.AddServiceBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddServiceBtn.Size = new System.Drawing.Size(75, 27);
             this.AddServiceBtn.TabIndex = 3;
             this.AddServiceBtn.Text = "Aggiungi";
-            this.AddServiceBtn.UseVisualStyleBackColor = true;
+            this.AddServiceBtn.UseVisualStyleBackColor = false;
             this.AddServiceBtn.Click += new System.EventHandler(this.AddServiceBtn_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(323, 56);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Pulisci";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.flowLayoutPanel4);
             this.groupBox4.Controls.Add(this.AddResponsability);
-            this.groupBox4.Controls.Add(this.button5);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(8, 425);
             this.groupBox4.Name = "groupBox4";
@@ -789,22 +751,15 @@ namespace db_crociere.Staff
             // 
             // AddResponsability
             // 
-            this.AddResponsability.Location = new System.Drawing.Point(323, 22);
+            this.AddResponsability.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddResponsability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddResponsability.Location = new System.Drawing.Point(323, 82);
             this.AddResponsability.Name = "AddResponsability";
-            this.AddResponsability.Size = new System.Drawing.Size(75, 25);
+            this.AddResponsability.Size = new System.Drawing.Size(75, 29);
             this.AddResponsability.TabIndex = 3;
             this.AddResponsability.Text = "Aggiungi";
-            this.AddResponsability.UseVisualStyleBackColor = true;
+            this.AddResponsability.UseVisualStyleBackColor = false;
             this.AddResponsability.Click += new System.EventHandler(this.AddResponsability_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(323, 56);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Pulisci";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // AddStaffPopup
             // 
@@ -854,7 +809,6 @@ namespace db_crociere.Staff
         private System.Windows.Forms.Label PassportLabel;
         private System.Windows.Forms.Label PhoneNumLabel;
         private System.Windows.Forms.Button AddCrewBtn;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox FiscalCodeTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label SalaryLabel;
@@ -877,7 +831,6 @@ namespace db_crociere.Staff
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox RoleNameTextBox;
         private System.Windows.Forms.Button AddRoleBtn;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RichTextBox RoleDescriptionTextBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -886,7 +839,6 @@ namespace db_crociere.Staff
         private System.Windows.Forms.Label StartDateLabel;
         private System.Windows.Forms.Label EndDateLabel;
         private System.Windows.Forms.Button AddShift;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker StartDatePicker;
         private System.Windows.Forms.DateTimePicker EndDatePicker;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -896,7 +848,6 @@ namespace db_crociere.Staff
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox ServiceFiscalCodeComboBox;
         private System.Windows.Forms.Button AddServiceBtn;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label5;
@@ -904,7 +855,6 @@ namespace db_crociere.Staff
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ResponsabilityFiscalCodeComboBox;
         private System.Windows.Forms.Button AddResponsability;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox ResponsabilityRoleComboBox;
     }

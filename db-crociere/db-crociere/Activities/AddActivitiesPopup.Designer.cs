@@ -64,19 +64,21 @@ namespace db_crociere.Activities
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 85);
+            this.groupBox1.Size = new System.Drawing.Size(724, 85);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Aggiungi una Programmazione";
             // 
             // AddActivityExecutionBtn
             // 
+            this.AddActivityExecutionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddActivityExecutionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddActivityExecutionBtn.Location = new System.Drawing.Point(643, 19);
             this.AddActivityExecutionBtn.Name = "AddActivityExecutionBtn";
             this.AddActivityExecutionBtn.Size = new System.Drawing.Size(75, 27);
             this.AddActivityExecutionBtn.TabIndex = 1;
             this.AddActivityExecutionBtn.Text = "Aggiungi";
-            this.AddActivityExecutionBtn.UseVisualStyleBackColor = true;
+            this.AddActivityExecutionBtn.UseVisualStyleBackColor = false;
             this.AddActivityExecutionBtn.Click += new System.EventHandler(this.AddActivityExecutionBtn_Click);
             // 
             // flowLayoutPanel1
@@ -223,19 +225,21 @@ namespace db_crociere.Activities
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 104);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(776, 100);
+            this.groupBox2.Size = new System.Drawing.Size(724, 100);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Aggiungi una nuova Attività";
             // 
             // AddActivityBtn
             // 
+            this.AddActivityBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddActivityBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddActivityBtn.Location = new System.Drawing.Point(354, 21);
             this.AddActivityBtn.Name = "AddActivityBtn";
             this.AddActivityBtn.Size = new System.Drawing.Size(75, 27);
             this.AddActivityBtn.TabIndex = 2;
             this.AddActivityBtn.Text = "Aggiungi";
-            this.AddActivityBtn.UseVisualStyleBackColor = true;
+            this.AddActivityBtn.UseVisualStyleBackColor = false;
             this.AddActivityBtn.Click += new System.EventHandler(this.AddActivityBtn_Click);
             // 
             // flowLayoutPanel2
@@ -288,7 +292,7 @@ namespace db_crociere.Activities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 222);
+            this.ClientSize = new System.Drawing.Size(749, 222);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddActivitiesPopup";

@@ -40,7 +40,6 @@ namespace db_crociere
             this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
             this.HeightInfo = new System.Windows.Forms.Label();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
-            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
             this.AddPriceBtn = new System.Windows.Forms.Button();
             this.InsertExpensesGroupBox = new System.Windows.Forms.GroupBox();
             this.BadgeIdTextBox = new System.Windows.Forms.TextBox();
@@ -51,7 +50,6 @@ namespace db_crociere
             this.DateExpensePicker = new System.Windows.Forms.DateTimePicker();
             this.AmountExpenseInfo = new System.Windows.Forms.Label();
             this.AmountExpenseTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.AddExpenseBtn = new System.Windows.Forms.Button();
             this.InsertPricesGroupBox.SuspendLayout();
             this.InsertExpensesGroupBox.SuspendLayout();
@@ -69,7 +67,6 @@ namespace db_crociere
             this.InsertPricesGroupBox.Controls.Add(this.EndDatePicker);
             this.InsertPricesGroupBox.Controls.Add(this.HeightInfo);
             this.InsertPricesGroupBox.Controls.Add(this.PriceTextBox);
-            this.InsertPricesGroupBox.Controls.Add(this.ClearShipInfoBtn);
             this.InsertPricesGroupBox.Controls.Add(this.AddPriceBtn);
             this.InsertPricesGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertPricesGroupBox.Location = new System.Drawing.Point(359, 12);
@@ -174,17 +171,6 @@ namespace db_crociere
             this.PriceTextBox.Size = new System.Drawing.Size(61, 22);
             this.PriceTextBox.TabIndex = 23;
             // 
-            // ClearShipInfoBtn
-            // 
-            this.ClearShipInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClearShipInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ClearShipInfoBtn.Location = new System.Drawing.Point(9, 167);
-            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
-            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 31);
-            this.ClearShipInfoBtn.TabIndex = 2;
-            this.ClearShipInfoBtn.Text = "Pulisci";
-            this.ClearShipInfoBtn.UseVisualStyleBackColor = false;
-            // 
             // AddPriceBtn
             // 
             this.AddPriceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -207,7 +193,6 @@ namespace db_crociere
             this.InsertExpensesGroupBox.Controls.Add(this.DateExpensePicker);
             this.InsertExpensesGroupBox.Controls.Add(this.AmountExpenseInfo);
             this.InsertExpensesGroupBox.Controls.Add(this.AmountExpenseTextBox);
-            this.InsertExpensesGroupBox.Controls.Add(this.button1);
             this.InsertExpensesGroupBox.Controls.Add(this.AddExpenseBtn);
             this.InsertExpensesGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertExpensesGroupBox.Location = new System.Drawing.Point(12, 12);
@@ -293,17 +278,6 @@ namespace db_crociere
             this.AmountExpenseTextBox.Size = new System.Drawing.Size(61, 22);
             this.AmountExpenseTextBox.TabIndex = 23;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(6, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Pulisci";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // AddExpenseBtn
             // 
             this.AddExpenseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -338,7 +312,6 @@ namespace db_crociere
         #endregion
 
         private System.Windows.Forms.GroupBox InsertPricesGroupBox;
-        private System.Windows.Forms.Button ClearShipInfoBtn;
         private System.Windows.Forms.Button AddPriceBtn;
         private System.Windows.Forms.Label ShipNameInfo;
         private System.Windows.Forms.ComboBox ShipNameComboBox;
@@ -358,7 +331,6 @@ namespace db_crociere
         private System.Windows.Forms.DateTimePicker DateExpensePicker;
         private System.Windows.Forms.Label AmountExpenseInfo;
         private System.Windows.Forms.TextBox AmountExpenseTextBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AddExpenseBtn;
         private System.Windows.Forms.TextBox BadgeIdTextBox;
     }
