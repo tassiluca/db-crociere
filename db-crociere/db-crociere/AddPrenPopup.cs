@@ -202,6 +202,11 @@ namespace db_crociere
         /// <param name="e"></param>
         private void startDateSelPren_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //reset elenco passeggeri
+            passengersDict = new Dictionary<string, PASSEGGERI>();
+            passngerCard = new Dictionary<string, string>();
+            passengerList.DataSource = new List<String>();
+
             dateSbarcoBox.Text = " ";
             var dateTimeDeparture = startDateSelPren.SelectedItem.ToString();
             prenot.DataOraImbarco = DateTime.Parse(dateTimeDeparture);
@@ -260,36 +265,47 @@ namespace db_crociere
             var creditCard = payCardField.Text;
 
             if (CF.Length != 0 && name.Length != 0 && surname.Length != 0
-                && country.Length != 0 && passportId.Length != 0 && creditCard.Length != 0)
+                && country.Length != 0 && passportId.Length != 0)
             {
-                /* Passenegr insert */
-                PASSEGGERI passeggero = new PASSEGGERI
+                if (creditCard.Length == PAY_CARD_LEN)
                 {
-                    CodiceFiscale = CF,
-                    Nome = name,
-                    Cognome = surname,
-                    Nazionalità = country,
-                    Passaporto = passportId
-                };
-                //check if passenger has already booked in the same period and path
-                if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
-                {
-                    var msg = "Passeggero già presente in una altra prenotazione in questo periodo";
-                    MessageBox.Show(msg, "ERRORE");
-                }
-                else {
-                    if (!passengersDict.ContainsKey(passeggero.CodiceFiscale))
+                    /* Passenegr insert */
+                    PASSEGGERI passeggero = new PASSEGGERI
                     {
-                        passengersDict.Add(passeggero.CodiceFiscale, passeggero);
-                        passngerCard.Add(passeggero.CodiceFiscale, creditCard);
+                        CodiceFiscale = CF,
+                        Nome = name,
+                        Cognome = surname,
+                        Nazionalità = country,
+                        Passaporto = passportId
+                    };
+                    //check if passenger has already booked in the same period and path
+                    if (isPersonAlreadyInPren(passeggero.CodiceFiscale))
+                    {
+                        var msg = "Passeggero già presente in una altra prenotazione in questo periodo";
+                        MessageBox.Show(msg, "ERRORE");
+                        ClearPassengerFields();
                     }
-                    else {
-                        var msg = "Passeggero già inserito";
-                        MessageBox.Show(msg, "ERROR");
-                    }
+                    else
+                    {
+                        if (!passengersDict.ContainsKey(passeggero.CodiceFiscale))
+                        {
+                            passengersDict.Add(passeggero.CodiceFiscale, passeggero);
+                            passngerCard.Add(passeggero.CodiceFiscale, creditCard);
+                        }
+                        else
+                        {
+                            var msg1 = "Passeggero già inserito";
+                            MessageBox.Show(msg1, "ERROR");
+                            ClearPassengerFields();
+                        }
 
+                    }
+                    
                 }
-                ClearPassengerFields();
+                else { 
+                    var msg2 = "Numero di carta inserito incompleto";
+                    MessageBox.Show(msg2, "ERROR");
+                }
             }
             else {
                 var msg = "Tutti is campi devono essere compilati!";
@@ -311,8 +327,13 @@ namespace db_crociere
                               from pren in db.PRENOTAZIONI
                               where prenPass.CodiceFiscale == CFpers
                               && pren.CodPrenotazione == prenPass.CodPrenotazione
-                              && pren.DataOraImbarco >= prenot.DataOraImbarco
-                              && pren.DataOraSbarco <= prenot.DataOraSbarco
+                              &&(
+                              ( pren.DataOraImbarco <= prenot.DataOraImbarco && 
+                                pren.DataOraSbarco >= prenot.DataOraImbarco) ||
+                                (pren.DataOraImbarco <= prenot.DataOraSbarco && 
+                                    pren.DataOraSbarco >= prenot.DataOraSbarco)
+                               )
+
                               select new {
                                   codFiscale = prenPass.CodiceFiscale,
                                   dataImbarco = pren.DataOraImbarco,
@@ -966,13 +987,13 @@ namespace db_crociere
             var state = checkBoxRateizzato.Checked;
             fieldAnticipo.Enabled = state;
             numRateField.Enabled = state;
-            
             fieldAnticipo.Text = ((int)(importoPrenot * PERC_ANTICIPO)).ToString();
+            calcRataBtn_Click(sender,e);
         }
 
         private void calcRataBtn_Click(object sender, EventArgs e)
         {
-            if (fieldAnticipo.Text.Length > 0)
+            if (fieldAnticipo.Text.Length > 0 && importoPrenot > 0)
             {
                 var anticipo = Decimal.Parse(fieldAnticipo.Text);
                 if (anticipo >= importoPrenot)

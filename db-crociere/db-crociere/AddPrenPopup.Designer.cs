@@ -112,7 +112,6 @@ namespace db_crociere
             this.numRateField = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.rataCalcolata = new System.Windows.Forms.TextBox();
-            this.calcRataBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -903,7 +902,6 @@ namespace db_crociere
             this.flowLayoutPanel24.Controls.Add(this.numRateField);
             this.flowLayoutPanel24.Controls.Add(this.label6);
             this.flowLayoutPanel24.Controls.Add(this.rataCalcolata);
-            this.flowLayoutPanel24.Controls.Add(this.calcRataBtn);
             this.flowLayoutPanel24.Location = new System.Drawing.Point(3, 52);
             this.flowLayoutPanel24.Name = "flowLayoutPanel24";
             this.flowLayoutPanel24.Size = new System.Drawing.Size(615, 31);
@@ -933,10 +931,12 @@ namespace db_crociere
             // 
             // fieldAnticipo
             // 
+            this.fieldAnticipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fieldAnticipo.Location = new System.Drawing.Point(141, 3);
             this.fieldAnticipo.Name = "fieldAnticipo";
-            this.fieldAnticipo.Size = new System.Drawing.Size(104, 20);
+            this.fieldAnticipo.Size = new System.Drawing.Size(104, 21);
             this.fieldAnticipo.TabIndex = 4;
+            this.fieldAnticipo.Enter += new System.EventHandler(this.calcRataBtn_Click);
             // 
             // rateLabel
             // 
@@ -966,6 +966,7 @@ namespace db_crociere
             0,
             0,
             0});
+            this.numRateField.ValueChanged += new System.EventHandler(this.calcRataBtn_Click);
             // 
             // label6
             // 
@@ -980,21 +981,12 @@ namespace db_crociere
             // 
             // rataCalcolata
             // 
+            this.rataCalcolata.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rataCalcolata.Location = new System.Drawing.Point(418, 3);
             this.rataCalcolata.Name = "rataCalcolata";
             this.rataCalcolata.ReadOnly = true;
-            this.rataCalcolata.Size = new System.Drawing.Size(99, 20);
+            this.rataCalcolata.Size = new System.Drawing.Size(99, 21);
             this.rataCalcolata.TabIndex = 7;
-            // 
-            // calcRataBtn
-            // 
-            this.calcRataBtn.Location = new System.Drawing.Point(523, 3);
-            this.calcRataBtn.Name = "calcRataBtn";
-            this.calcRataBtn.Size = new System.Drawing.Size(75, 23);
-            this.calcRataBtn.TabIndex = 9;
-            this.calcRataBtn.Text = "Calcola rata";
-            this.calcRataBtn.UseVisualStyleBackColor = true;
-            this.calcRataBtn.Click += new System.EventHandler(this.calcRataBtn_Click);
             // 
             // AddPrenPopup
             // 
@@ -1147,6 +1139,5 @@ namespace db_crociere
         private System.Windows.Forms.NumericUpDown numRateField;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox rataCalcolata;
-        private System.Windows.Forms.Button calcRataBtn;
     }
 }
