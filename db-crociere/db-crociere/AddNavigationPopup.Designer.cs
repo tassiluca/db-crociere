@@ -53,8 +53,6 @@ namespace db_crociere
             this.ShipNameNavigationComboBox = new System.Windows.Forms.ComboBox();
             this.PathInfo = new System.Windows.Forms.Label();
             this.PathCodeTextBox = new System.Windows.Forms.TextBox();
-            this.ExecutionsInfo = new System.Windows.Forms.Label();
-            this.ExecutionsTextBox = new System.Windows.Forms.TextBox();
             this.StartNavigationDateInfo = new System.Windows.Forms.Label();
             this.StartNavigationDatePicker = new System.Windows.Forms.DateTimePicker();
             this.EndNavigationDateInfo = new System.Windows.Forms.Label();
@@ -320,8 +318,6 @@ namespace db_crociere
             this.flowLayoutPanel5.Controls.Add(this.ShipNameNavigationComboBox);
             this.flowLayoutPanel5.Controls.Add(this.PathInfo);
             this.flowLayoutPanel5.Controls.Add(this.PathCodeTextBox);
-            this.flowLayoutPanel5.Controls.Add(this.ExecutionsInfo);
-            this.flowLayoutPanel5.Controls.Add(this.ExecutionsTextBox);
             this.flowLayoutPanel5.Controls.Add(this.StartNavigationDateInfo);
             this.flowLayoutPanel5.Controls.Add(this.StartNavigationDatePicker);
             this.flowLayoutPanel5.Controls.Add(this.EndNavigationDateInfo);
@@ -372,30 +368,11 @@ namespace db_crociere
             this.PathCodeTextBox.Size = new System.Drawing.Size(72, 22);
             this.PathCodeTextBox.TabIndex = 14;
             // 
-            // ExecutionsInfo
-            // 
-            this.ExecutionsInfo.AutoSize = true;
-            this.ExecutionsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExecutionsInfo.Location = new System.Drawing.Point(3, 33);
-            this.ExecutionsInfo.Margin = new System.Windows.Forms.Padding(3);
-            this.ExecutionsInfo.Name = "ExecutionsInfo";
-            this.ExecutionsInfo.Size = new System.Drawing.Size(73, 16);
-            this.ExecutionsInfo.TabIndex = 21;
-            this.ExecutionsInfo.Text = "Esecuzioni";
-            // 
-            // ExecutionsTextBox
-            // 
-            this.ExecutionsTextBox.Location = new System.Drawing.Point(82, 33);
-            this.ExecutionsTextBox.MaxLength = 2;
-            this.ExecutionsTextBox.Name = "ExecutionsTextBox";
-            this.ExecutionsTextBox.Size = new System.Drawing.Size(30, 22);
-            this.ExecutionsTextBox.TabIndex = 22;
-            // 
             // StartNavigationDateInfo
             // 
             this.StartNavigationDateInfo.AutoSize = true;
             this.StartNavigationDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartNavigationDateInfo.Location = new System.Drawing.Point(118, 33);
+            this.StartNavigationDateInfo.Location = new System.Drawing.Point(3, 33);
             this.StartNavigationDateInfo.Margin = new System.Windows.Forms.Padding(3);
             this.StartNavigationDateInfo.Name = "StartNavigationDateInfo";
             this.StartNavigationDateInfo.Size = new System.Drawing.Size(38, 16);
@@ -406,7 +383,7 @@ namespace db_crociere
             // 
             this.StartNavigationDatePicker.CustomFormat = "dd-MM-yyyy";
             this.StartNavigationDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartNavigationDatePicker.Location = new System.Drawing.Point(162, 33);
+            this.StartNavigationDatePicker.Location = new System.Drawing.Point(47, 33);
             this.StartNavigationDatePicker.Name = "StartNavigationDatePicker";
             this.StartNavigationDatePicker.Size = new System.Drawing.Size(100, 22);
             this.StartNavigationDatePicker.TabIndex = 17;
@@ -416,7 +393,7 @@ namespace db_crociere
             // 
             this.EndNavigationDateInfo.AutoSize = true;
             this.EndNavigationDateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EndNavigationDateInfo.Location = new System.Drawing.Point(268, 33);
+            this.EndNavigationDateInfo.Location = new System.Drawing.Point(153, 33);
             this.EndNavigationDateInfo.Margin = new System.Windows.Forms.Padding(3);
             this.EndNavigationDateInfo.Name = "EndNavigationDateInfo";
             this.EndNavigationDateInfo.Size = new System.Drawing.Size(34, 16);
@@ -427,7 +404,7 @@ namespace db_crociere
             // 
             this.EndNavigationDatePicker.CustomFormat = "dd-MM-yyyy";
             this.EndNavigationDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.EndNavigationDatePicker.Location = new System.Drawing.Point(308, 33);
+            this.EndNavigationDatePicker.Location = new System.Drawing.Point(193, 33);
             this.EndNavigationDatePicker.Name = "EndNavigationDatePicker";
             this.EndNavigationDatePicker.Size = new System.Drawing.Size(103, 22);
             this.EndNavigationDatePicker.TabIndex = 20;
@@ -861,8 +838,6 @@ namespace db_crociere
         private System.Windows.Forms.ComboBox ShipNameNavigationComboBox;
         private System.Windows.Forms.Label PathInfo;
         private System.Windows.Forms.TextBox PathCodeTextBox;
-        private System.Windows.Forms.Label ExecutionsInfo;
-        private System.Windows.Forms.TextBox ExecutionsTextBox;
         private System.Windows.Forms.Label StartNavigationDateInfo;
         private System.Windows.Forms.DateTimePicker StartNavigationDatePicker;
         private System.Windows.Forms.Label EndNavigationDateInfo;

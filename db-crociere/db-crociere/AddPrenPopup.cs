@@ -53,7 +53,7 @@ namespace db_crociere
         /// <param name="e"></param>
         private void AddPrenPopup_Load(object sender, EventArgs e)
         {
-            var path = from p in db.PERCORSIs
+            var path = from p in db.PERCORSI
                         select p.CodPercorso;
             pathSelPren.DataSource = path;
             Console.WriteLine("Percorsi caricati");
@@ -77,7 +77,7 @@ namespace db_crociere
             var pathCode = pathSelPren.SelectedItem.ToString();
             Console.WriteLine("Percorso selezionato: " + pathCode);
             //get all the avaiable navigation for the selected path
-            var nav = from n in db.NAVIGAZIONIs
+            var nav = from n in db.NAVIGAZIONI
                       where n.CodPercorso == pathCode
                       orderby n.DataInizio
                       select new
@@ -127,9 +127,9 @@ namespace db_crociere
             /*select all the esecuzioni_tratta that are part of navigation with id = navCodPathSelected
              * and are inside the period selected
             */
-            var path_sections = from est in db.ESECUZIONI_TRATTAs
-                                from t in db.TRATTEs
-                                from port in db.PORTIs
+            var path_sections = from est in db.ESECUZIONI_TRATTA
+                                from t in db.TRATTE
+                                from port in db.PORTI
                                 where est.CodNavigazione == prenot.CodNavigazione
                                 && t.CodTratta == est.CodTratta
                                 && port.CodPorto == t.CodPortoPartenza
@@ -203,8 +203,8 @@ namespace db_crociere
             String str = "Imbarco " +prenot.DataOraImbarco +" "+ prenot.CodNavigazione + prenot.CodPorto;
             Console.WriteLine(str);
 
-             var dateTimeSbar = from est in db.ESECUZIONI_TRATTAs
-                                  from t in db.TRATTEs
+             var dateTimeSbar = from est in db.ESECUZIONI_TRATTA
+                                  from t in db.TRATTE
                                   //from port in db.PORTIs
                                   where est.CodNavigazione == prenot.CodNavigazione
                                   && t.CodTratta == est.CodTratta
@@ -290,8 +290,8 @@ namespace db_crociere
         {
             //constraint 1 check: Non possono esserci due prenotazioni distinte inerenti
             //allo stesso passeggero nello stesso periodo (incluse le date comprese)
-            var pasngInPren = from prenPass in db.PRENOTAZIONI_PASSEGGERIs
-                              from pren in db.PRENOTAZIONIs
+            var pasngInPren = from prenPass in db.PRENOTAZIONI_PASSEGGERI
+                              from pren in db.PRENOTAZIONI
                               where prenPass.CodiceFiscale == CFpers
                               && pren.CodPrenotazione == prenPass.CodPrenotazione
                               && pren.DataOraImbarco >= prenot.DataOraImbarco
@@ -350,13 +350,13 @@ namespace db_crociere
                 //del tipo e posizione selezionati
                 //Console.WriteLine(prenot.CodNavigazione +" "+prenot.DataOraImbarco + " "+prenot.DataOraSbarco);
 
-                var erro = from p in db.PRENOTAZIONIs
+                var erro = from p in db.PRENOTAZIONI
                            where p.DataOraImbarco >= prenot.DataOraImbarco
                            select p;
 
-                var cabineUsate = from p in db.PRENOTAZIONIs
-                                  from alloggi in db.ALLOGGIs
-                                  from cab in db.CABINEs
+                var cabineUsate = from p in db.PRENOTAZIONI
+                                  from alloggi in db.ALLOGGI
+                                  from cab in db.CABINE
                                   where p.CodNavigazione == prenot.CodNavigazione
                                   && p.DataOraImbarco >= prenot.DataOraImbarco
                                   && p.DataOraSbarco <= prenot.DataOraSbarco
@@ -365,7 +365,7 @@ namespace db_crociere
                                   && cab.NomeNave == nomeNave                                  
                                   select cab;
 
-                var tutteCabineNave = from c in db.CABINEs
+                var tutteCabineNave = from c in db.CABINE
                                       where c.NomeNave == nomeNave
                                       select c;
 
@@ -486,8 +486,8 @@ namespace db_crociere
         private IQueryable<NAVI> getNomeNave()
         {
                 var pathCode = pathSelPren.SelectedItem.ToString();
-                var shipName = from p in db.PERCORSIs
-                               from n in db.NAVIs
+                var shipName = from p in db.PERCORSI
+                               from n in db.NAVI
                                where p.CodPercorso == pathCode
                                && p.NomeNave == n.Nome
                                select n;
@@ -503,7 +503,7 @@ namespace db_crociere
 
             var nomeNave = getNomeNave().First().Nome; //deve essere selezionato il codice Percorso
             var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
-            var tariffari = from tar in db.TARIFFARIs
+            var tariffari = from tar in db.TARIFFARI
                             where tar.NomeNave == nomeNave
                            // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
                             select tar;

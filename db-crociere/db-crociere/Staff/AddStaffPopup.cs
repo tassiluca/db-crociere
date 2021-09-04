@@ -24,7 +24,7 @@ namespace db_crociere.Staff
 
         private void RoleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var roleName = from r in db.RUOLIs
+            var roleName = from r in db.RUOLI
                            where r.CodRuolo == RoleComboBox.Text
                            select r.Nome;
             RoleInfo.Text = roleName.FirstOrDefault();
@@ -38,7 +38,7 @@ namespace db_crociere.Staff
         /// <param name="e">Contains the event data.</param>
         private void FillsRoles(ComboBox cb)
         {
-            var roles = from r in db.RUOLIs
+            var roles = from r in db.RUOLI
                         select r.CodRuolo;
             cb.DataSource = roles;
         }
@@ -132,8 +132,7 @@ namespace db_crociere.Staff
                 string surname = SurnameTextBox.Text;
                 string nationality = NationalityTextBox.Text;
                 string passport = PassPortTextBox.Text;
-                // TODO: to change int phoneNumber --> string
-                int phoneNumber = int.Parse(PhoneNumTextBox.Text);
+                string phoneNumber = PhoneNumTextBox.Text;
                 int salary = int.Parse(SalaryTextBox.Text);
                 string role = RoleComboBox.Text;
 
@@ -154,7 +153,7 @@ namespace db_crociere.Staff
                         AnzianitàServizio = seniority,
                         Grado = rank
                     };
-                    db.PERSONALEs.InsertOnSubmit(cabina);
+                    db.PERSONALE.InsertOnSubmit(cabina);
                 }
                 else
                 {
@@ -169,7 +168,7 @@ namespace db_crociere.Staff
                         StipendioAnnuo = salary,
                         CodRuolo = role
                     };
-                    db.PERSONALEs.InsertOnSubmit(cabina);
+                    db.PERSONALE.InsertOnSubmit(cabina);
                 }
 
                 db.SubmitChanges();
@@ -206,7 +205,7 @@ namespace db_crociere.Staff
                     Nome = name
                 };
 
-                db.RUOLIs.InsertOnSubmit(ruolo);
+                db.RUOLI.InsertOnSubmit(ruolo);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -230,8 +229,8 @@ namespace db_crociere.Staff
         /// <returns></returns>
         private bool ChecksShifts(string fiscalCode, DateTime start, DateTime end)
         {
-            var res = (from s in db.SERVIZIs
-                       from n in db.NAVIGAZIONIs
+            var res = (from s in db.SERVIZI
+                       from n in db.NAVIGAZIONI
                        where s.CodiceFiscale == fiscalCode &&
                              s.CodNavigazione == n.CodNavigazione &&
                              start.Date >= n.DataInizio && start.Date <= n.DataFine &&
@@ -268,7 +267,7 @@ namespace db_crociere.Staff
                     DataOraFine = endDate
                 };
 
-                db.TURNI_LAVORATIVIs.InsertOnSubmit(tl);
+                db.TURNI_LAVORATIVI.InsertOnSubmit(tl);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -289,7 +288,7 @@ namespace db_crociere.Staff
         /// <param name="e">Contains the event data.</param> 
         private void FillsFiscalCodeComboBox(ComboBox cb)
         {
-            var fc = from p in db.PERSONALEs
+            var fc = from p in db.PERSONALE
                      select p.CodiceFiscale;
             cb.DataSource = fc;
         }
@@ -317,7 +316,7 @@ namespace db_crociere.Staff
         /// <param name="e">Contains the event data.</param> 
         private void FillsNavigationComboBox(ComboBox cb)
         {
-            var fn = from n in db.NAVIGAZIONIs
+            var fn = from n in db.NAVIGAZIONI
                      select n.CodNavigazione;
             cb.DataSource = fn;
         }
@@ -339,7 +338,7 @@ namespace db_crociere.Staff
         /// <returns></returns>
         private bool ChecksServices(string fiscalCode, int navigation)
         {
-            var navDates = (from n in db.NAVIGAZIONIs
+            var navDates = (from n in db.NAVIGAZIONI
                             where n.CodNavigazione == navigation
                             select new
                             {
@@ -347,8 +346,8 @@ namespace db_crociere.Staff
                                 end = n.DataFine
                             }).First();
 
-            var intersections = (from s in db.SERVIZIs
-                                 from n in db.NAVIGAZIONIs
+            var intersections = (from s in db.SERVIZI
+                                 from n in db.NAVIGAZIONI
                                  where s.CodNavigazione == n.CodNavigazione &&
                                        s.CodiceFiscale == fiscalCode &&
                                        ((navDates.start >= n.DataInizio && navDates.start <= n.DataFine) ||
@@ -380,7 +379,7 @@ namespace db_crociere.Staff
                     CodiceFiscale = fiscalCode
                 };
 
-                db.SERVIZIs.InsertOnSubmit(servizio);
+                db.SERVIZI.InsertOnSubmit(servizio);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -400,7 +399,7 @@ namespace db_crociere.Staff
         /// <returns></returns>
         private bool ChecksResponsabilities(int navigation, string fiscalCode)
         {
-            var res = (from s in db.SERVIZIs
+            var res = (from s in db.SERVIZI
                        where s.CodiceFiscale == fiscalCode && s.CodNavigazione == navigation
                        select s).Count();
             return res == 1;
@@ -434,7 +433,7 @@ namespace db_crociere.Staff
                     CodRuolo = role
                 };
 
-                db.RESPONSABILITÀs.InsertOnSubmit(responsabilities);
+                db.RESPONSABILITÀ.InsertOnSubmit(responsabilities);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");

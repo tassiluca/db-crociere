@@ -54,7 +54,9 @@
     <Compile Include="Activities\AddActivitiesPopup.Designer.cs">
       <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPrenPopup.cs" />
+    <Compile Include="AddPrenPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AddPrenPopup.Designer.cs">
       <DependentUpon>AddPrenPopup.cs</DependentUpon>
     </Compile>
@@ -76,6 +78,11 @@
     <Compile Include="AddNavigationPopup.Designer.cs">
       <DependentUpon>AddNavigationPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClassesDBCrociere.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Staff\AddStaffPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,11 +90,6 @@
       <DependentUpon>AddStaffPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
-    <Compile Include="DataClassesDBCrociere.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
-    </Compile>
     <Compile Include="DateRange.cs" />
     <Compile Include="AddExpensesPopup.cs">
       <SubType>Form</SubType>

@@ -204,7 +204,7 @@ namespace db_crociere.Activities
             this.AddActivityExecutionBtn.TabIndex = 1;
             this.AddActivityExecutionBtn.Text = "Aggiungi";
             this.AddActivityExecutionBtn.UseVisualStyleBackColor = true;
-            this.AddActivityExecutionBtn.Click += new System.EventHandler(this.AddActivityExecutionBtn_Click);
+            //this.AddActivityExecutionBtn.Click += new System.EventHandler(this.AddActivityExecutionBtn_Click);
             // 
             // AddActivitiesPopup
             // 

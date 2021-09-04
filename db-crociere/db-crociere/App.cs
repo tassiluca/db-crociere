@@ -27,32 +27,32 @@ namespace db_crociere
             
             shipInfos.Add(ShipNameLabel, shipName);
 
-            var code = from navi in db.NAVIs
+            var code = from navi in db.NAVI
                         where String.Equals(navi.Nome, shipName) == true
                         select navi.CodNave;
             shipInfos.Add(ShipCodeLabel, code.First().ToString());
 
-            var width = from navi in db.NAVIs
+            var width = from navi in db.NAVI
                         where navi.Nome == shipName
                         select navi.Larghezza;
             shipInfos.Add(WidthLabel, width.First().ToString());
 
-            var length = from navi in db.NAVIs
+            var length = from navi in db.NAVI
                          where navi.Nome == shipName
                          select navi.Lunghezza;
             shipInfos.Add(LengthLabel, length.First().ToString());
 
-            var weight = from navi in db.NAVIs
+            var weight = from navi in db.NAVI
                          where navi.Nome == shipName
                          select navi.Peso;
             shipInfos.Add(WeightLabel, weight.First().ToString());
 
-            var height = from navi in db.NAVIs
+            var height = from navi in db.NAVI
                          where navi.Nome == shipName
                          select navi.Altezza;
             shipInfos.Add(HeightLabel, height.First().ToString());
 
-            var cabins = from navi in db.NAVIs
+            var cabins = from navi in db.NAVI
                          where navi.Nome == shipName
                          select navi.NumeroCabine;
             shipInfos.Add(CabinsNumLabel, cabins.First().ToString());
@@ -71,7 +71,7 @@ namespace db_crociere
 
         private void fillPathInfo(String shipName)
         {
-            var path = from p in db.PERCORSIs
+            var path = from p in db.PERCORSI
                        where p.NomeNave == shipName
                        select new
                        {
@@ -85,10 +85,10 @@ namespace db_crociere
 
             if (path.Count() > 0)
             {
-                var sections = from sq in db.SEQUENZE_TRATTEs
-                               from t in db.TRATTEs
-                               from p1 in db.PORTIs
-                               from p2 in db.PORTIs
+                var sections = from sq in db.SEQUENZE_TRATTE
+                               from t in db.TRATTE
+                               from p1 in db.PORTI
+                               from p2 in db.PORTI
                                where sq.CodPercorso == path.First().COD_PATH &&
                                      sq.CodTratta == t.CodTratta &&
                                      p1.CodPorto == t.CodPortoPartenza &&
@@ -112,7 +112,7 @@ namespace db_crociere
 
         private void updateShipList(object sender, EventArgs e)
         {
-            var ships = from navi in db.NAVIs
+            var ships = from navi in db.NAVI
                         select navi.Nome;
             shipListBox.DataSource = ships;
             if (ships.Count() > 0)
@@ -151,7 +151,7 @@ namespace db_crociere
 
         private void NavigationDropDownMenu_Click(object sender, EventArgs e)
         {
-            var nav = from n in db.NAVIGAZIONIs
+            var nav = from n in db.NAVIGAZIONI
                       where n.NomeNave == ShipNameLabel.Text
                       select n.CodNavigazione;
 
@@ -166,8 +166,8 @@ namespace db_crociere
         {
             if (NavigationDropDownMenu.SelectedIndex != -1)
             {
-                var exSecs = from et in db.ESECUZIONI_TRATTAs
-                             from t in db.TRATTEs
+                var exSecs = from et in db.ESECUZIONI_TRATTA
+                             from t in db.TRATTE
                              where et.CodNavigazione == int.Parse(NavigationDropDownMenu.SelectedItem.ToString()) &&
                                    et.CodTratta == t.CodTratta
                              select new
@@ -196,14 +196,14 @@ namespace db_crociere
 
         private void ShipNameComboBox_Click(object sender, EventArgs e)
         {
-            var ships = from n in db.NAVIs
+            var ships = from n in db.NAVI
                         select n.Nome;
             ShipNameComboBox.DataSource = ships;
         }
 
         private void ShipNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var prices = from t in db.TARIFFARIs
+            var prices = from t in db.TARIFFARI
                          where t.NomeNave == ShipNameComboBox.Text
                          select new
                          {
@@ -221,17 +221,17 @@ namespace db_crociere
             AddNavigationPopup_Window.ShowDialog(this);
         }
 
-        private void BookingId_Click(object sender, EventArgs e)
+        private void BadgeIdComboBox_Click(object sender, EventArgs e)
         {
-            var bookings = from p in db.PRENOTAZIONIs
-                           select p.CodPrenotazione;
-            BookingIdComboBox.DataSource = bookings;
+            var badges = from b in db.BADGE
+                         select b.CodBadge;
+            BadgeIdComboBox.DataSource = badges;
         }
 
-        private void BookingIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void BadgeIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var expenses = from se in db.SPESE_EXTRAs
-                           where se.CodPrenotazione == int.Parse(BookingIdComboBox.Text)
+            var expenses = from se in db.SPESE_EXTRA
+                           where se.CodBadge == int.Parse(BadgeIdComboBox.Text)
                            select new
                            {
                                Codice_Spesa = se.CodiceSpesa,
@@ -245,8 +245,8 @@ namespace db_crociere
 
         private void RankingPathBtn_Click(object sender, EventArgs e)
         {
-            var rank = (from p in db.PRENOTAZIONIs
-                        from n in db.NAVIGAZIONIs
+            var rank = (from p in db.PRENOTAZIONI
+                        from n in db.NAVIGAZIONI
                         where p.CodNavigazione == n.CodNavigazione &&
                               p.DataEffettuazione.Year == DateTime.Now.Year
                         group n by n.CodPercorso into paths
@@ -266,9 +266,9 @@ namespace db_crociere
 
         private void AverageBookingsCostsBtn_Click(object sender, EventArgs e)
         {
-            var rank = from n in db.NAVIGAZIONIs
-                       from pa in db.PAGAMENTIs
-                       from pr in db.PRENOTAZIONIs
+            var rank = from n in db.NAVIGAZIONI
+                       from pa in db.PAGAMENTI
+                       from pr in db.PRENOTAZIONI
                        where pa.CodTransazione == pr.CodTransazione &&
                              n.CodNavigazione == pr.CodNavigazione
                        group pa by n.CodPercorso into paths
@@ -296,5 +296,7 @@ namespace db_crociere
             AddActivitiesPopup addActivitiesPopup = new AddActivitiesPopup(db);
             addActivitiesPopup.ShowDialog(this);
         }
+
+
     }
 }

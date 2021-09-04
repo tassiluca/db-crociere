@@ -27,7 +27,7 @@ namespace db_crociere
         /// <param name="type">The type of the control.</param>
         private void ShipNameComboBox_Click(object sender, EventArgs e)
         {
-            var ships = from n in db.NAVIs
+            var ships = from n in db.NAVI
                         select n.Nome;
             ShipNameComboBox.DataSource = ships;
         }
@@ -39,7 +39,7 @@ namespace db_crociere
         /// <param name="type">The type of the control.</param>
         private void TypeComboBox_Click(object sender, EventArgs e)
         {
-            var types = from t in db.TIPOLOGIEs
+            var types = from t in db.TIPOLOGIE
                         select t.Nome;
             TypeComboBox.DataSource = types;
         }
@@ -55,7 +55,7 @@ namespace db_crociere
         /// <returns>False if one of the checks is violated. True otherwise.</returns>
         private bool CheckPrices(string shipName, string type, DateTime start, DateTime end)
         {
-            var intersections = (from t in db.TARIFFARIs
+            var intersections = (from t in db.TARIFFARI
                                  where t.NomeNave == shipName && t.NomeTipologia == type &&
                                        ((start >= t.DataInizio && start <= t.DataFine) ||
                                         (end >= t.DataInizio && end <= t.DataFine) ||
@@ -101,7 +101,7 @@ namespace db_crociere
                 Console.WriteLine(tariffario.NomeNave + " " + tariffario.NomeTipologia + " " 
                     + tariffario.DataInizio + " " + tariffario.DataFine + " " + tariffario.Prezzo);
 
-                db.TARIFFARIs.InsertOnSubmit(tariffario);
+                db.TARIFFARI.InsertOnSubmit(tariffario);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -126,9 +126,6 @@ namespace db_crociere
             try
             {
                 int badge = int.Parse(BadgeIdTextBox.Text);
-                var booking = (from b in db.BADGEs
-                               where b.CodBadge == badge
-                               select b.CodPrenotazione).First();
                 DateTime date = DateExpensePicker.Value.Date;
                 int amount = int.Parse(AmountExpenseTextBox.Text);
                 string infos = InfosTextBox.Text;
@@ -136,13 +133,12 @@ namespace db_crociere
                 SPESE_EXTRA spesa = new SPESE_EXTRA
                 {
                     CodBadge = badge,
-                    CodPrenotazione = booking,
                     DataSpesa = date,
                     Importo = amount,
                     Descrizione = infos
                 };
 
-                db.SPESE_EXTRAs.InsertOnSubmit(spesa);
+                db.SPESE_EXTRA.InsertOnSubmit(spesa);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");

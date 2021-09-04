@@ -31,7 +31,7 @@ namespace db_crociere
         private Dictionary<string, string> getHarborsOfSection(decimal codSection)
         {
             Dictionary<string, string> harborsDict = new Dictionary<string, string>();
-            var harbors = (from t in db.TRATTEs
+            var harbors = (from t in db.TRATTE
                            where t.CodTratta == codSection
                            select new
                            {
@@ -93,7 +93,7 @@ namespace db_crociere
                     NomeNave = shipName,
                     GiorniDurata = duration
                 };
-                db.PERCORSIs.InsertOnSubmit(percorso);
+                db.PERCORSI.InsertOnSubmit(percorso);
 
                 /* Inserts the sections sequences. */
                 int i = 0;
@@ -106,7 +106,7 @@ namespace db_crociere
                         CodTratta = codSequence,
                         Ordine = i
                     };
-                    db.SEQUENZE_TRATTEs.InsertOnSubmit(sqtratte);
+                    db.SEQUENZE_TRATTE.InsertOnSubmit(sqtratte);
 
                 }
             
@@ -131,9 +131,9 @@ namespace db_crociere
         /// <param name="e">Contains the event data.</param>
         private void AddNavigationPopup_Load(object sender, EventArgs e)
         {
-            var sections = (from t in db.TRATTEs
-                            from p1 in db.PORTIs
-                            from p2 in db.PORTIs
+            var sections = (from t in db.TRATTE
+                            from p1 in db.PORTI
+                            from p2 in db.PORTI
                             where p1.CodPorto == t.CodPortoPartenza &&
                                   p2.CodPorto == t.CodPortoArrivo
                             select new
@@ -223,7 +223,7 @@ namespace db_crociere
                     PrezzoAttracco = dockingPrice
                 };
 
-                db.PORTIs.InsertOnSubmit(porto);
+                db.PORTI.InsertOnSubmit(porto);
                 db.SubmitChanges();
                 var msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -243,7 +243,7 @@ namespace db_crociere
         /// <param name="cb">the combobox into which inserts data.</param>
         private void FillHarborComboBox(ComboBox cb)
         {
-            var harbors = from porto in db.PORTIs
+            var harbors = from porto in db.PORTI
                           select porto.Città;
             cb.DataSource = harbors;
         }
@@ -272,10 +272,10 @@ namespace db_crociere
                 string departureHarbor = DepartureHarborComboBox.Text;
                 string arrivalHarbor = ArrivalHarborComboBox.Text;
 
-                string departureHarborCode = (from p in db.PORTIs
+                string departureHarborCode = (from p in db.PORTI
                                               where p.Città == departureHarbor
                                               select p.CodPorto).First();
-                string arrivalHarborCode = (from p in db.PORTIs
+                string arrivalHarborCode = (from p in db.PORTI
                                             where p.Città == arrivalHarbor
                                             select p.CodPorto).First();
 
@@ -292,7 +292,7 @@ namespace db_crociere
                     CodPortoArrivo = arrivalHarborCode
                 };
 
-                db.TRATTEs.InsertOnSubmit(tratta);
+                db.TRATTE.InsertOnSubmit(tratta);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -312,7 +312,7 @@ namespace db_crociere
         /// <param name="cb">The combobox into which inserts data.</param>
         private void FillShipNameCombo(ComboBox cb)
         {
-            var ships = from navi in db.NAVIs
+            var ships = from navi in db.NAVI
                         select navi.Nome;
             cb.DataSource = ships;
         }
@@ -342,7 +342,7 @@ namespace db_crociere
         /// <returns>False if one of the checks is violated. True otherwise.</returns>
         private bool ChecksNavigation(string shipName, DateTime start, DateTime end)
         {
-            var intersections = from n in db.NAVIGAZIONIs
+            var intersections = from n in db.NAVIGAZIONI
                                 where n.NomeNave == shipName &&
                                       ((start >= n.DataInizio && start <= n.DataFine) ||
                                       (end >= n.DataInizio && end <= n.DataFine) ||
@@ -365,10 +365,9 @@ namespace db_crociere
                 string shipName = ShipNameNavigationComboBox.Text;
                 DateTime startDate = StartNavigationDatePicker.Value.Date;
                 DateTime endDate = EndNavigationDatePicker.Value.Date;
-                int executions = int.Parse(ExecutionsTextBox.Text);
                 string pathCode = PathCodeTextBox.Text;
 
-                Console.WriteLine(shipName + " " + startDate + " " + endDate + " " + executions + " " + pathCode);
+                Console.WriteLine(shipName + " " + startDate + " " + endDate + " " + " " + pathCode);
 
                 if (!ChecksNavigation(shipName, startDate, endDate))
                 {
@@ -382,11 +381,10 @@ namespace db_crociere
                     NomeNave = shipName,
                     DataInizio = startDate,
                     DataFine = endDate,
-                    NumeroEsecuzioni = executions,
                     CodPercorso = pathCode
                 };
 
-                db.NAVIGAZIONIs.InsertOnSubmit(navigazione);
+                db.NAVIGAZIONI.InsertOnSubmit(navigazione);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -407,7 +405,7 @@ namespace db_crociere
         /// <param name="e">Contains the event data.</param>   
         private void ShipNameNavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var res = from p in db.PERCORSIs
+            var res = from p in db.PERCORSI
                       where p.NomeNave == (String)ShipNameNavigationComboBox.SelectedItem
                       select p.CodPercorso;
             //PathCodeTextBox.Text = res.FirstOrDefault();
@@ -423,7 +421,7 @@ namespace db_crociere
         {
             if (ShipNameSectionComboBox.SelectedIndex != -1)
             {
-                var nav = from n in db.NAVIGAZIONIs
+                var nav = from n in db.NAVIGAZIONI
                           where n.NomeNave == ShipNameSectionComboBox.SelectedItem.ToString()
                           select n.CodNavigazione;
                 if (nav.Count() == 0)
@@ -445,7 +443,7 @@ namespace db_crociere
         {
             if (NavigationSectionsComboBox.SelectedIndex != -1)
             {
-                var infoNav = from n in db.NAVIGAZIONIs
+                var infoNav = from n in db.NAVIGAZIONI
                               where n.CodNavigazione == int.Parse(NavigationSectionsComboBox.SelectedItem.ToString())
                               select new
                               {
@@ -460,8 +458,8 @@ namespace db_crociere
                 /* NOTES that if the navigation is present into the database also the path is present.*/
 
                 var pathCode = infoNav.First().pathCode;
-                var secs = from s in db.SEQUENZE_TRATTEs
-                           from t in db.TRATTEs
+                var secs = from s in db.SEQUENZE_TRATTE
+                           from t in db.TRATTE
                            where s.CodPercorso == pathCode &&
                                  s.CodTratta == t.CodTratta
                            select s.CodTratta;
@@ -483,7 +481,7 @@ namespace db_crociere
         {
             if (SectionsComboBox.SelectedIndex != -1)
             {
-                var harbors = from t in db.TRATTEs
+                var harbors = from t in db.TRATTE
                               where t.CodTratta == int.Parse(SectionsComboBox.SelectedItem.ToString())
                               select new
                               {
@@ -509,7 +507,7 @@ namespace db_crociere
         /// <returns>False if one of the checks is violated. True otherwise.</returns>
         private bool ChecksExecutionSection(int navigation, DateTime start, DateTime stop)
         {
-            var intersections = from e in db.ESECUZIONI_TRATTAs
+            var intersections = from e in db.ESECUZIONI_TRATTA
                                 where e.CodNavigazione == navigation &&
                                       ((start > e.Partenza_Data && start < e.Arrivo_Data) ||
                                       (stop > e.Partenza_Data && stop < e.Arrivo_Data))
@@ -565,7 +563,7 @@ namespace db_crociere
                     Arrivo_Ora = endTime
                 };
 
-                db.ESECUZIONI_TRATTAs.InsertOnSubmit(estratta);
+                db.ESECUZIONI_TRATTA.InsertOnSubmit(estratta);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");

@@ -49,8 +49,6 @@ namespace db_crociere
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.NameTypeInfo = new System.Windows.Forms.Label();
             this.NameTypeTextBox = new System.Windows.Forms.TextBox();
-            this.TypePriceInfo = new System.Windows.Forms.Label();
-            this.TypePriceTextBox = new System.Windows.Forms.TextBox();
             this.TypeDescriptionInfo = new System.Windows.Forms.Label();
             this.TypeDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.AddTypeBtn = new System.Windows.Forms.Button();
@@ -276,8 +274,6 @@ namespace db_crociere
             // 
             this.flowLayoutPanel7.Controls.Add(this.NameTypeInfo);
             this.flowLayoutPanel7.Controls.Add(this.NameTypeTextBox);
-            this.flowLayoutPanel7.Controls.Add(this.TypePriceInfo);
-            this.flowLayoutPanel7.Controls.Add(this.TypePriceTextBox);
             this.flowLayoutPanel7.Controls.Add(this.TypeDescriptionInfo);
             this.flowLayoutPanel7.Controls.Add(this.TypeDescriptionTextBox);
             this.flowLayoutPanel7.Location = new System.Drawing.Point(0, 19);
@@ -301,27 +297,8 @@ namespace db_crociere
             this.NameTypeTextBox.Location = new System.Drawing.Point(54, 3);
             this.NameTypeTextBox.MaxLength = 7;
             this.NameTypeTextBox.Name = "NameTypeTextBox";
-            this.NameTypeTextBox.Size = new System.Drawing.Size(149, 22);
+            this.NameTypeTextBox.Size = new System.Drawing.Size(263, 22);
             this.NameTypeTextBox.TabIndex = 14;
-            // 
-            // TypePriceInfo
-            // 
-            this.TypePriceInfo.AutoSize = true;
-            this.TypePriceInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypePriceInfo.Location = new System.Drawing.Point(209, 3);
-            this.TypePriceInfo.Margin = new System.Windows.Forms.Padding(3);
-            this.TypePriceInfo.Name = "TypePriceInfo";
-            this.TypePriceInfo.Size = new System.Drawing.Size(49, 16);
-            this.TypePriceInfo.TabIndex = 23;
-            this.TypePriceInfo.Text = "Prezzo";
-            // 
-            // TypePriceTextBox
-            // 
-            this.TypePriceTextBox.Location = new System.Drawing.Point(264, 3);
-            this.TypePriceTextBox.MaxLength = 4;
-            this.TypePriceTextBox.Name = "TypePriceTextBox";
-            this.TypePriceTextBox.Size = new System.Drawing.Size(53, 22);
-            this.TypePriceTextBox.TabIndex = 26;
             // 
             // TypeDescriptionInfo
             // 
@@ -711,8 +688,6 @@ namespace db_crociere
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.Label NameTypeInfo;
         private System.Windows.Forms.TextBox NameTypeTextBox;
-        private System.Windows.Forms.Label TypePriceInfo;
-        private System.Windows.Forms.TextBox TypePriceTextBox;
         private System.Windows.Forms.Label TypeDescriptionInfo;
         private System.Windows.Forms.TextBox TypeDescriptionTextBox;
         private System.Windows.Forms.Button AddTypeBtn;

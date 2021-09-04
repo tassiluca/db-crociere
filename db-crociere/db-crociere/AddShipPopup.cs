@@ -48,7 +48,7 @@ namespace db_crociere
                     NumeroCabine = cabinsNum
                 };
 
-                db.NAVIs.InsertOnSubmit(nave);
+                db.NAVI.InsertOnSubmit(nave);
                 db.SubmitChanges();
                 var msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -68,7 +68,7 @@ namespace db_crociere
         /// <param name="cb">The combobox into which inserts data.</param>
         private void FillShipNameCombo(ComboBox cb)
         {
-            var ships = from navi in db.NAVIs
+            var ships = from navi in db.NAVI
                         select navi.Nome;
             cb.DataSource = ships;
         }
@@ -95,17 +95,15 @@ namespace db_crociere
             try
             {
                 string name = NameTypeTextBox.Text;
-                int price = int.Parse(TypePriceTextBox.Text);
                 string description = TypeDescriptionTextBox.Text;
 
                 TIPOLOGIE tipologia = new TIPOLOGIE
                 {
                     Nome = name,
-                    Prezzo = price,
                     Descrizione = description
                 };
 
-                db.TIPOLOGIEs.InsertOnSubmit(tipologia);
+                db.TIPOLOGIE.InsertOnSubmit(tipologia);
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
                 MessageBox.Show(msg, "SUCCESSO");
@@ -140,7 +138,7 @@ namespace db_crociere
                         Numero = numOfDecks
                     };
 
-                    db.PONTIs.InsertOnSubmit(ponto);
+                    db.PONTI.InsertOnSubmit(ponto);
                 }
                 db.SubmitChanges();
                 msg = "Inserimento avvenuto con SUCCESSO";
@@ -218,7 +216,7 @@ namespace db_crociere
         {
             if (ShipNameSpaceComboBox.SelectedIndex != -1)
             {
-                var decks = from p in db.PONTIs
+                var decks = from p in db.PONTI
                             where p.NomeNave == ShipNameSpaceComboBox.SelectedItem.ToString()
                             select p.Numero;
                 if (!decks.Any()) //CHECK
@@ -231,7 +229,7 @@ namespace db_crociere
 
         private void SpaceTypeComboBox_Click(object sender, EventArgs e)
         {
-            var types = from t in db.TIPOLOGIEs
+            var types = from t in db.TIPOLOGIE
                         select t.Nome;
             SpaceTypeComboBox.DataSource = types;
         }
@@ -257,7 +255,7 @@ namespace db_crociere
                     string position = SpacePositionComboBox.Text;
                     string type = SpaceTypeComboBox.Text;
 
-                    var i = (from c in db.CABINEs
+                    var i = (from c in db.CABINE
                              where c.NomeNave == name && c.NumeroPonte == deck
                              select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
 
@@ -272,11 +270,11 @@ namespace db_crociere
                             Posizione = position,
                             NomeTipologia = type
                         };
-                        db.CABINEs.InsertOnSubmit(cabina);
+                        db.CABINE.InsertOnSubmit(cabina);
                     }
                 } else
                 {
-                    var i = (from c in db.SALEs
+                    var i = (from c in db.SALE
                              where c.NomeNave == name && c.NumeroPonte == deck
                              select c.NumeroLocale).OrderByDescending(x => x).FirstOrDefault();
 
@@ -291,7 +289,7 @@ namespace db_crociere
                             NumeroLocale = j,
                             Capienza = capacity,
                         };
-                        db.SALEs.InsertOnSubmit(sala);
+                        db.SALE.InsertOnSubmit(sala);
                     }
                 }
 

@@ -22,7 +22,7 @@ namespace db_crociere.Activities
 
         private void NavigationCodeComboBox_Click(object sender, EventArgs e)
         {
-            var navigations = from n in db.NAVIGAZIONIs
+            var navigations = from n in db.NAVIGAZIONI
                               select n.CodNavigazione;
             NavigationCodeComboBox.DataSource = navigations;
         }
@@ -31,7 +31,7 @@ namespace db_crociere.Activities
         {
             if (NavigationCodeComboBox.SelectedIndex != -1)
             {
-                var navInfos = (from n in db.NAVIGAZIONIs
+                var navInfos = (from n in db.NAVIGAZIONI
                                 where n.CodNavigazione == int.Parse(NavigationCodeComboBox.Text)
                                 select new
                                 {
@@ -40,7 +40,7 @@ namespace db_crociere.Activities
                                     shipName = n.NomeNave
                                 }).First();
                 NavigationTextBox.Text = navInfos.start + " " + navInfos.end;
-                var rooms = from s in db.SALEs
+                var rooms = from s in db.SALE
                             where s.NomeNave == navInfos.shipName
                             select s.CodSala;
                 if (!rooms.Any())
