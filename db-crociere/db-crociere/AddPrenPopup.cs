@@ -738,6 +738,7 @@ namespace db_crociere
             else {
                 decimal codicePrenotazione = calculatePrenId();
                 decimal codicePagamento = calculateTransId();
+
                 Console.WriteLine("CodPrenot: "+ codicePrenotazione+ " codTrans: " + codicePagamento);
                 insertPagamento(codicePagamento, checkBoxRateizzato.Checked);
                 insertPrenotazione(codicePrenotazione, codicePagamento);
@@ -855,7 +856,7 @@ namespace db_crociere
 
         private void insertPagamento(decimal codTransaz, Boolean isUnico)
         {
-            if (isUnico)
+            if (!isUnico)
             {
                 var payment = new PAGAMENTI
                 {
@@ -866,6 +867,7 @@ namespace db_crociere
                 db.PAGAMENTI.InsertOnSubmit(payment);
             }
             else {
+                Console.WriteLine("Inserimento pagamento a rate");
                 var payment = new PAGAMENTI
                 {
                     CodTransazione = codTransaz,
@@ -902,8 +904,8 @@ namespace db_crociere
                     foreach (var psng in passengersDict.Values)
                     {
                         var psngrIn = (from p in db.PASSEGGERI
-                                      select p).ToList();
-                        if (!psngrIn.Contains(psng)) {
+                                      select p.CodiceFiscale).ToList();
+                        if (!psngrIn.Contains(psng.CodiceFiscale)) {
                             var pass = new PASSEGGERI
                             {
                                 CodiceFiscale = psng.CodiceFiscale,
