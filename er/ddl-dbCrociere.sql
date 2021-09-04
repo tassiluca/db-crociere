@@ -33,7 +33,8 @@ create table ATTIVITÀ (
      CodAttività numeric(5) identity(1,1) not null,
      Nome varchar(20) not null,
      Descrizione varchar(150),
-     constraint IDATTIVITÀ primary key (CodAttività));
+     constraint IDATTIVITÀ primary key (CodAttività),
+	 constraint IDATTIVITÀ_1 unique (Nome));
 
 create table BADGE (
      CodBadge numeric(10) identity(1,1) not null,
