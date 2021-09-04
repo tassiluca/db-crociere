@@ -270,9 +270,10 @@ namespace db_crociere
                         }).OrderByDescending(p => p.Prenotazioni);
             RankPathGridView.DataSource = rank;
 
+            this.RankingPathChart.Series.Clear();
             foreach (var elem in rank)
             {
-                Series series = this.chart1.Series.Add(elem.Percorso);
+                Series series = this.RankingPathChart.Series.Add(elem.Percorso);
                 series.Points.Add(elem.Prenotazioni);
             }
         }
@@ -291,14 +292,15 @@ namespace db_crociere
                            Costo_Medio = paths.Average(p => p.Importo)
                        };
             RankCostsGridView.DataSource = rank;
+            this.AverageCostsChart.Series.Clear();
             foreach (var elem in rank)
             {
-                Series series = this.chart2.Series.Add(elem.Percorso);
+                Series series = this.AverageCostsChart.Series.Add(elem.Percorso);
                 series.Points.Add(Decimal.ToDouble(elem.Costo_Medio));
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddPersonal_Click(object sender, EventArgs e)
         {
             AddStaffPopup addStaffPopupWindow = new AddStaffPopup(db);
             addStaffPopupWindow.ShowDialog(this);
@@ -316,5 +318,160 @@ namespace db_crociere
             refundsPopupWindows.ShowDialog(this);
         }
 
+        private void fillsNavigationComboBox(ComboBox cb)
+        {
+            var nav = from n in db.NAVIGAZIONI
+                      select n.CodNavigazione;
+            cb.DataSource = nav;
+        }
+
+        private void ResponsabilitiesNavigationComboBox_Click(object sender, EventArgs e)
+        {
+            fillsNavigationComboBox(ResponsabilitiesNavigationComboBox);
+        }
+
+        private void ResponsabilitiesNavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ResponsabilitiesNavigationComboBox.SelectedIndex != -1)
+            {
+                var res = from r in db.RESPONSABILITÀ
+                          where r.CodNavigazione == int.Parse(ResponsabilitiesNavigationComboBox.Text)
+                          select new
+                          {
+                              Navigazione = r.CodNavigazione,
+                              Ruolo = r.CodRuolo,
+                              Codice_Fiscale = r.CodiceFiscale
+                          };
+                ResponsabilitiesGridView.DataSource = res;
+            }
+            else
+            {
+                ResponsabilitiesGridView.DataSource = null;
+            }
+        }
+
+        private void NavigationComboBox_Click(object sender, EventArgs e)
+        {
+            var nav = from n in db.SERVIZI
+                      where n.CodiceFiscale == ShiftFCComboBox.Text
+                      select n.CodNavigazione;
+            NavigationComboBox.DataSource = nav;
+        }
+
+        private void ShiftFCComboBox_Click(object sender, EventArgs e)
+        {
+            var fc = from p in db.PERSONALE
+                     select p.CodiceFiscale;
+            ShiftFCComboBox.DataSource = fc;
+        }
+
+        private void NavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var nav = from n in db.NAVIGAZIONI
+                      where n.CodNavigazione == int.Parse(NavigationComboBox.Text)
+                      select new
+                      {
+                          start = n.DataInizio,
+                          end = n.DataFine
+                      };
+
+            var shifts = from t in db.TURNI_LAVORATIVI
+                         where t.DataOraInizio >= nav.First().start &&
+                               t.DataOraFine <= nav.First().end
+                         select new
+                         {
+                             Inizio = t.DataOraInizio,
+                             Fine = t.DataOraFine
+                         };
+            ShiftsGridView.DataSource = shifts;
+        }
+
+        private void GrossBoxOfficeBtn_Click(object sender, EventArgs e)
+        {
+            decimal total = 0;
+            var bookingsIncomes = (from p in db.PAGAMENTI
+                                   where p.DataPagamento.Year == DateTime.Now.Year
+                                   select p.Importo);
+            var extraIncomes = (from s in db.SPESE_EXTRA
+                                where s.DataSpesa.Year == DateTime.Now.Year
+                                select s.Importo);
+            if (bookingsIncomes.Any())
+            {
+                total += (int)bookingsIncomes.Sum();
+            }
+            if (extraIncomes.Any())
+            {
+                total += (int)extraIncomes.Sum();
+            }
+            GrossBoxOfficeLabel.Text = total.ToString();
+        }
+
+        private void RankHarborsBtn_Click(object sender, EventArgs e)
+        {
+            var harborsRank = from p in db.PORTI
+                              from pren in db.PRENOTAZIONI
+                              where p.CodPorto == pren.CodPorto
+                              group p by p.Città into harbors
+                              select new
+                              {
+                                  Porto = harbors.Key,
+                                  Numero_Imbarchi = harbors.Count()
+                              };
+            RankHarborBooking.DataSource = harborsRank;
+
+            this.RankHarborsChart.Series.Clear();
+            foreach (var elem in harborsRank)
+            {
+                Series series = this.RankHarborsChart.Series.Add(elem.Porto);
+                series.Points.Add(Decimal.ToDouble(elem.Numero_Imbarchi));
+            }
+        }
+
+        private void ActivityNavigationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ActivityNavigationComboBox.SelectedIndex != -1)
+            {
+                var activities = from p in db.PROGRAMMAZIONI
+                                 from a in db.ATTIVITÀ
+                                 where p.CodNavigazione == int.Parse(ActivityNavigationComboBox.Text) &&
+                                       p.CodAttività == a.CodAttività
+                                 select new
+                                 {
+                                     Inizio_Data = p.InizioData,
+                                     Inizio_ora = p.InizioOra,
+                                     Sala = p.CodSala,
+                                     Attività = a.Nome,
+                                     Durata = p.Durata
+                                 };
+                ActivitiesGridView.DataSource = activities;
+            } else
+            {
+                ActivitiesGridView.DataSource = null;
+            }
+        }
+
+        private void ActivityNavigationComboBox_Click(object sender, EventArgs e)
+        {
+            fillsNavigationComboBox(ActivityNavigationComboBox);
+        }
+
+        private void RankResponsabilitiesBtn_Click(object sender, EventArgs e)
+        {
+            var rank = from r in db.RESPONSABILITÀ
+                       group r by r.CodiceFiscale into crew
+                       select new
+                       {
+                           Codice_Fiscale = crew.Key,
+                           Numero_Responsabilità = crew.Count()
+                       };
+            RankResponsabilitiesGridView.DataSource = rank;
+
+            this.RankResponsabilitiesChart.Series.Clear();
+            foreach (var elem in rank)
+            {
+                Series series = this.RankResponsabilitiesChart.Series.Add(elem.Codice_Fiscale);
+                series.Points.Add(Decimal.ToDouble(elem.Numero_Responsabilità));
+            }
+        }
     }
 }

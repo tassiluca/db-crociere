@@ -29,7 +29,7 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.InsertexEcutionGroupBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.ShipNameSectionInfo = new System.Windows.Forms.Label();
             this.ShipNameSectionComboBox = new System.Windows.Forms.ComboBox();
@@ -46,7 +46,6 @@ namespace db_crociere
             this.EndDateSection = new System.Windows.Forms.DateTimePicker();
             this.EndTimeSection = new System.Windows.Forms.DateTimePicker();
             this.AddExecutionSection = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.ShipNameNavigationInfo = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@ namespace db_crociere
             this.EndNavigationDateInfo = new System.Windows.Forms.Label();
             this.EndNavigationDatePicker = new System.Windows.Forms.DateTimePicker();
             this.AddNavigationBtn = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +64,6 @@ namespace db_crociere
             this.label3 = new System.Windows.Forms.Label();
             this.ArrivalHarborComboBox = new System.Windows.Forms.ComboBox();
             this.AddSectionBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.InsertHarborInfoBox = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.HarborCodeInfo = new System.Windows.Forms.Label();
@@ -78,11 +75,9 @@ namespace db_crociere
             this.DockingPriceInfo = new System.Windows.Forms.Label();
             this.DockingPriceTextBox = new System.Windows.Forms.TextBox();
             this.AddHarbour = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.InsertPathInfoBox = new System.Windows.Forms.GroupBox();
             this.InsertedSections = new System.Windows.Forms.ListBox();
             this.SectionsListBox = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.AddPathBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.CodPathInfo = new System.Windows.Forms.Label();
@@ -93,7 +88,7 @@ namespace db_crociere
             this.ShipNameComboPath = new System.Windows.Forms.ComboBox();
             this.InsertSectionPathBtn = new System.Windows.Forms.Button();
             this.DeleteSectionPathBtn = new System.Windows.Forms.Button();
-            this.groupBox3.SuspendLayout();
+            this.InsertexEcutionGroupBox.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -105,18 +100,17 @@ namespace db_crociere
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox3
+            // InsertexEcutionGroupBox
             // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel6);
-            this.groupBox3.Controls.Add(this.AddExecutionSection);
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(10, 366);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(740, 83);
-            this.groupBox3.TabIndex = 27;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Inserisci Eecuzione Tratta";
+            this.InsertexEcutionGroupBox.Controls.Add(this.flowLayoutPanel6);
+            this.InsertexEcutionGroupBox.Controls.Add(this.AddExecutionSection);
+            this.InsertexEcutionGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertexEcutionGroupBox.Location = new System.Drawing.Point(10, 366);
+            this.InsertexEcutionGroupBox.Name = "InsertexEcutionGroupBox";
+            this.InsertexEcutionGroupBox.Size = new System.Drawing.Size(754, 89);
+            this.InsertexEcutionGroupBox.TabIndex = 27;
+            this.InsertexEcutionGroupBox.TabStop = false;
+            this.InsertexEcutionGroupBox.Text = "Inserisci Eecuzione Tratta";
             // 
             // flowLayoutPanel6
             // 
@@ -282,32 +276,24 @@ namespace db_crociere
             // 
             // AddExecutionSection
             // 
-            this.AddExecutionSection.Location = new System.Drawing.Point(668, 19);
+            this.AddExecutionSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddExecutionSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddExecutionSection.Location = new System.Drawing.Point(666, 56);
             this.AddExecutionSection.Name = "AddExecutionSection";
-            this.AddExecutionSection.Size = new System.Drawing.Size(70, 27);
+            this.AddExecutionSection.Size = new System.Drawing.Size(79, 27);
             this.AddExecutionSection.TabIndex = 3;
             this.AddExecutionSection.Text = "Aggiungi";
-            this.AddExecutionSection.UseVisualStyleBackColor = true;
+            this.AddExecutionSection.UseVisualStyleBackColor = false;
             this.AddExecutionSection.Click += new System.EventHandler(this.AddExecutionSection_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(668, 53);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(67, 25);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Pulisci";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel5);
             this.groupBox2.Controls.Add(this.AddNavigationBtn);
-            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(10, 281);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(738, 79);
+            this.groupBox2.Size = new System.Drawing.Size(754, 79);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inserisci Navigazione";
@@ -412,32 +398,24 @@ namespace db_crociere
             // 
             // AddNavigationBtn
             // 
-            this.AddNavigationBtn.Location = new System.Drawing.Point(444, 19);
+            this.AddNavigationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddNavigationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNavigationBtn.Location = new System.Drawing.Point(666, 46);
             this.AddNavigationBtn.Name = "AddNavigationBtn";
-            this.AddNavigationBtn.Size = new System.Drawing.Size(75, 27);
+            this.AddNavigationBtn.Size = new System.Drawing.Size(79, 27);
             this.AddNavigationBtn.TabIndex = 3;
             this.AddNavigationBtn.Text = "Aggiungi";
-            this.AddNavigationBtn.UseVisualStyleBackColor = true;
+            this.AddNavigationBtn.UseVisualStyleBackColor = false;
             this.AddNavigationBtn.Click += new System.EventHandler(this.AddNavigationBtn_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(444, 48);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 27);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Pulisci";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.flowLayoutPanel4);
             this.groupBox1.Controls.Add(this.AddSectionBtn);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(407, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(341, 105);
+            this.groupBox1.Size = new System.Drawing.Size(357, 105);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserisci Tratta";
@@ -495,28 +473,20 @@ namespace db_crociere
             // 
             // AddSectionBtn
             // 
-            this.AddSectionBtn.Location = new System.Drawing.Point(252, 19);
+            this.AddSectionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddSectionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddSectionBtn.Location = new System.Drawing.Point(269, 17);
             this.AddSectionBtn.Name = "AddSectionBtn";
-            this.AddSectionBtn.Size = new System.Drawing.Size(75, 27);
+            this.AddSectionBtn.Size = new System.Drawing.Size(79, 27);
             this.AddSectionBtn.TabIndex = 3;
             this.AddSectionBtn.Text = "Aggiungi";
-            this.AddSectionBtn.UseVisualStyleBackColor = true;
+            this.AddSectionBtn.UseVisualStyleBackColor = false;
             this.AddSectionBtn.Click += new System.EventHandler(this.AddSectionBtn_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(252, 49);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 27);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Pulisci";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // InsertHarborInfoBox
             // 
             this.InsertHarborInfoBox.Controls.Add(this.flowLayoutPanel3);
             this.InsertHarborInfoBox.Controls.Add(this.AddHarbour);
-            this.InsertHarborInfoBox.Controls.Add(this.button1);
             this.InsertHarborInfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertHarborInfoBox.Location = new System.Drawing.Point(10, 12);
             this.InsertHarborInfoBox.Name = "InsertHarborInfoBox";
@@ -537,7 +507,7 @@ namespace db_crociere
             this.flowLayoutPanel3.Controls.Add(this.DockingPriceTextBox);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 19);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(283, 80);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(283, 86);
             this.flowLayoutPanel3.TabIndex = 14;
             // 
             // HarborCodeInfo
@@ -618,28 +588,20 @@ namespace db_crociere
             // 
             // AddHarbour
             // 
+            this.AddHarbour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddHarbour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddHarbour.Location = new System.Drawing.Point(289, 19);
             this.AddHarbour.Name = "AddHarbour";
-            this.AddHarbour.Size = new System.Drawing.Size(75, 23);
+            this.AddHarbour.Size = new System.Drawing.Size(75, 27);
             this.AddHarbour.TabIndex = 3;
             this.AddHarbour.Text = "Aggiungi";
-            this.AddHarbour.UseVisualStyleBackColor = true;
+            this.AddHarbour.UseVisualStyleBackColor = false;
             this.AddHarbour.Click += new System.EventHandler(this.AddHarbor_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(289, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Pulisci";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // InsertPathInfoBox
             // 
             this.InsertPathInfoBox.Controls.Add(this.InsertedSections);
             this.InsertPathInfoBox.Controls.Add(this.SectionsListBox);
-            this.InsertPathInfoBox.Controls.Add(this.button2);
             this.InsertPathInfoBox.Controls.Add(this.AddPathBtn);
             this.InsertPathInfoBox.Controls.Add(this.flowLayoutPanel2);
             this.InsertPathInfoBox.Controls.Add(this.InsertSectionPathBtn);
@@ -647,7 +609,7 @@ namespace db_crociere
             this.InsertPathInfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertPathInfoBox.Location = new System.Drawing.Point(10, 123);
             this.InsertPathInfoBox.Name = "InsertPathInfoBox";
-            this.InsertPathInfoBox.Size = new System.Drawing.Size(738, 152);
+            this.InsertPathInfoBox.Size = new System.Drawing.Size(754, 152);
             this.InsertPathInfoBox.TabIndex = 23;
             this.InsertPathInfoBox.TabStop = false;
             this.InsertPathInfoBox.Text = "Inserisci Percorso";
@@ -670,23 +632,16 @@ namespace db_crociere
             this.SectionsListBox.Size = new System.Drawing.Size(184, 116);
             this.SectionsListBox.TabIndex = 15;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(502, 105);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Pulisci";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // AddPathBtn
             // 
-            this.AddPathBtn.Location = new System.Drawing.Point(417, 105);
+            this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPathBtn.Location = new System.Drawing.Point(666, 105);
             this.AddPathBtn.Name = "AddPathBtn";
-            this.AddPathBtn.Size = new System.Drawing.Size(75, 29);
+            this.AddPathBtn.Size = new System.Drawing.Size(79, 29);
             this.AddPathBtn.TabIndex = 3;
             this.AddPathBtn.Text = "Aggiungi";
-            this.AddPathBtn.UseVisualStyleBackColor = true;
+            this.AddPathBtn.UseVisualStyleBackColor = false;
             this.AddPathBtn.Click += new System.EventHandler(this.AddPathBtn_Click);
             // 
             // flowLayoutPanel2
@@ -699,7 +654,7 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(417, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(315, 80);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(331, 80);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // CodPathInfo
@@ -718,14 +673,14 @@ namespace db_crociere
             this.CodPathTextBox.Location = new System.Drawing.Point(118, 3);
             this.CodPathTextBox.MaxLength = 5;
             this.CodPathTextBox.Name = "CodPathTextBox";
-            this.CodPathTextBox.Size = new System.Drawing.Size(52, 22);
+            this.CodPathTextBox.Size = new System.Drawing.Size(67, 22);
             this.CodPathTextBox.TabIndex = 1;
             // 
             // DurationInfo
             // 
             this.DurationInfo.AutoSize = true;
             this.DurationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DurationInfo.Location = new System.Drawing.Point(176, 3);
+            this.DurationInfo.Location = new System.Drawing.Point(191, 3);
             this.DurationInfo.Margin = new System.Windows.Forms.Padding(3);
             this.DurationInfo.Name = "DurationInfo";
             this.DurationInfo.Size = new System.Drawing.Size(86, 16);
@@ -734,10 +689,10 @@ namespace db_crociere
             // 
             // DurationTextBox
             // 
-            this.DurationTextBox.Location = new System.Drawing.Point(268, 3);
+            this.DurationTextBox.Location = new System.Drawing.Point(283, 3);
             this.DurationTextBox.MaxLength = 2;
             this.DurationTextBox.Name = "DurationTextBox";
-            this.DurationTextBox.Size = new System.Drawing.Size(42, 22);
+            this.DurationTextBox.Size = new System.Drawing.Size(45, 22);
             this.DurationTextBox.TabIndex = 5;
             // 
             // ShipNameInfo
@@ -756,7 +711,7 @@ namespace db_crociere
             this.ShipNameComboPath.FormattingEnabled = true;
             this.ShipNameComboPath.Location = new System.Drawing.Point(3, 53);
             this.ShipNameComboPath.Name = "ShipNameComboPath";
-            this.ShipNameComboPath.Size = new System.Drawing.Size(307, 24);
+            this.ShipNameComboPath.Size = new System.Drawing.Size(325, 24);
             this.ShipNameComboPath.TabIndex = 2;
             this.ShipNameComboPath.Click += new System.EventHandler(this.ShipNameComboPath_Click);
             // 
@@ -784,8 +739,8 @@ namespace db_crociere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 467);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(767, 467);
+            this.Controls.Add(this.InsertexEcutionGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.InsertHarborInfoBox);
@@ -793,7 +748,7 @@ namespace db_crociere
             this.Name = "AddNavigationPopup";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AddNavigationPopup_Load);
-            this.groupBox3.ResumeLayout(false);
+            this.InsertexEcutionGroupBox.ResumeLayout(false);
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -814,7 +769,7 @@ namespace db_crociere
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox InsertexEcutionGroupBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
         private System.Windows.Forms.Label ShipNameSectionInfo;
         private System.Windows.Forms.ComboBox ShipNameSectionComboBox;
@@ -831,7 +786,6 @@ namespace db_crociere
         private System.Windows.Forms.DateTimePicker EndDateSection;
         private System.Windows.Forms.DateTimePicker EndTimeSection;
         private System.Windows.Forms.Button AddExecutionSection;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label ShipNameNavigationInfo;
@@ -843,7 +797,6 @@ namespace db_crociere
         private System.Windows.Forms.Label EndNavigationDateInfo;
         private System.Windows.Forms.DateTimePicker EndNavigationDatePicker;
         private System.Windows.Forms.Button AddNavigationBtn;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label2;
@@ -851,7 +804,6 @@ namespace db_crociere
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ArrivalHarborComboBox;
         private System.Windows.Forms.Button AddSectionBtn;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox InsertHarborInfoBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label HarborCodeInfo;
@@ -863,11 +815,9 @@ namespace db_crociere
         private System.Windows.Forms.Label DockingPriceInfo;
         private System.Windows.Forms.TextBox DockingPriceTextBox;
         private System.Windows.Forms.Button AddHarbour;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox InsertPathInfoBox;
         private System.Windows.Forms.ListBox InsertedSections;
         private System.Windows.Forms.ListBox SectionsListBox;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddPathBtn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label CodPathInfo;

@@ -30,7 +30,6 @@ namespace db_crociere
         private void InitializeComponent()
         {
             this.InsertShipInfoBox = new System.Windows.Forms.GroupBox();
-            this.ClearShipInfoBtn = new System.Windows.Forms.Button();
             this.AddShipInfoBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.NameInfo = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@ namespace db_crociere
             this.label4 = new System.Windows.Forms.Label();
             this.DecksNumTextBox = new System.Windows.Forms.TextBox();
             this.AddDeckBtn = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.InsertCabinCheckBox = new System.Windows.Forms.CheckBox();
@@ -79,7 +77,6 @@ namespace db_crociere
             this.CabinTypeInfo = new System.Windows.Forms.Label();
             this.SpaceTypeComboBox = new System.Windows.Forms.ComboBox();
             this.AddSpacesBtn = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.InsertShipInfoBox.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -93,7 +90,6 @@ namespace db_crociere
             // 
             // InsertShipInfoBox
             // 
-            this.InsertShipInfoBox.Controls.Add(this.ClearShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.AddShipInfoBtn);
             this.InsertShipInfoBox.Controls.Add(this.flowLayoutPanel1);
             this.InsertShipInfoBox.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,15 +100,6 @@ namespace db_crociere
             this.InsertShipInfoBox.TabIndex = 0;
             this.InsertShipInfoBox.TabStop = false;
             this.InsertShipInfoBox.Text = "Inserisci nuova Nave";
-            // 
-            // ClearShipInfoBtn
-            // 
-            this.ClearShipInfoBtn.Location = new System.Drawing.Point(664, 51);
-            this.ClearShipInfoBtn.Name = "ClearShipInfoBtn";
-            this.ClearShipInfoBtn.Size = new System.Drawing.Size(75, 24);
-            this.ClearShipInfoBtn.TabIndex = 2;
-            this.ClearShipInfoBtn.Text = "Pulisci";
-            this.ClearShipInfoBtn.UseVisualStyleBackColor = true;
             // 
             // AddShipInfoBtn
             // 
@@ -343,7 +330,6 @@ namespace db_crociere
             // 
             this.groupBox5.Controls.Add(this.flowLayoutPanel8);
             this.groupBox5.Controls.Add(this.AddDeckBtn);
-            this.groupBox5.Controls.Add(this.button9);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(435, 168);
             this.groupBox5.Name = "groupBox5";
@@ -412,21 +398,11 @@ namespace db_crociere
             this.AddDeckBtn.UseVisualStyleBackColor = true;
             this.AddDeckBtn.Click += new System.EventHandler(this.AddDeckBtn_Click);
             // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(229, 52);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "Pulisci";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.flowLayoutPanel10);
             this.groupBox6.Controls.Add(this.flowLayoutPanel9);
             this.groupBox6.Controls.Add(this.AddSpacesBtn);
-            this.groupBox6.Controls.Add(this.button8);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(0, 80);
             this.groupBox6.Name = "groupBox6";
@@ -619,15 +595,6 @@ namespace db_crociere
             this.AddSpacesBtn.UseVisualStyleBackColor = true;
             this.AddSpacesBtn.Click += new System.EventHandler(this.AddSpacesBtn_Click);
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(664, 57);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Pulisci";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // AddShipPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,7 +642,6 @@ namespace db_crociere
         private System.Windows.Forms.Label CabinsNumInfo;
         private System.Windows.Forms.TextBox CabinsNumTextBox;
         private System.Windows.Forms.Button AddShipInfoBtn;
-        private System.Windows.Forms.Button ClearShipInfoBtn;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.Label label1;
@@ -683,7 +649,6 @@ namespace db_crociere
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox DecksNumTextBox;
         private System.Windows.Forms.Button AddDeckBtn;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private System.Windows.Forms.Label NameTypeInfo;
@@ -700,7 +665,6 @@ namespace db_crociere
         private System.Windows.Forms.Label ShipNameRoomsInfo;
         private System.Windows.Forms.ComboBox ShipNameSpaceComboBox;
         private System.Windows.Forms.Button AddSpacesBtn;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label DeckNumberSpaceInfo;
         private System.Windows.Forms.ComboBox DeckNumberSpaceComboBox;
         private System.Windows.Forms.Label SpacesNumberInfo;

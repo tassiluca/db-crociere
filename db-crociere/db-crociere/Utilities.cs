@@ -25,6 +25,14 @@ namespace db_crociere
                                       .Where(c => c.GetType() == type);
         }
 
+        public static void ClearSection(Control control)
+        {
+            control.Controls
+                    .OfType<TextBox>()
+                    .ToList()
+                    .ForEach(tb => tb.Clear());
+        }
+
         /// <summary>
         /// Clears all the visual components of the form or set them to their
         /// actual value (i.e. for DateTimePicker).
