@@ -103,6 +103,15 @@ namespace db_crociere
             this.calcTotalPriceBtn = new System.Windows.Forms.Button();
             this.priceLabel = new System.Windows.Forms.TextBox();
             this.euroLabel = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel24 = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBoxRateizzato = new System.Windows.Forms.CheckBox();
+            this.anticipoLabel = new System.Windows.Forms.Label();
+            this.fieldAnticipo = new System.Windows.Forms.TextBox();
+            this.rateLabel = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -131,6 +140,9 @@ namespace db_crociere
             this.flowLayoutPanel22.SuspendLayout();
             this.flowLayoutPanel21.SuspendLayout();
             this.flowLayoutPanel23.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.flowLayoutPanel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel4
@@ -813,17 +825,17 @@ namespace db_crociere
             // flowLayoutPanel21
             // 
             this.flowLayoutPanel21.Controls.Add(this.confirmPrenotBtn);
-            this.flowLayoutPanel21.Location = new System.Drawing.Point(431, 353);
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(435, 413);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel21.Size = new System.Drawing.Size(396, 31);
+            this.flowLayoutPanel21.Size = new System.Drawing.Size(396, 44);
             this.flowLayoutPanel21.TabIndex = 4;
             // 
             // confirmPrenotBtn
             // 
             this.confirmPrenotBtn.Location = new System.Drawing.Point(229, 3);
             this.confirmPrenotBtn.Name = "confirmPrenotBtn";
-            this.confirmPrenotBtn.Size = new System.Drawing.Size(164, 23);
+            this.confirmPrenotBtn.Size = new System.Drawing.Size(164, 39);
             this.confirmPrenotBtn.TabIndex = 0;
             this.confirmPrenotBtn.Text = "Conferma Prenotazione";
             this.confirmPrenotBtn.UseVisualStyleBackColor = true;
@@ -834,9 +846,9 @@ namespace db_crociere
             this.flowLayoutPanel23.Controls.Add(this.calcTotalPriceBtn);
             this.flowLayoutPanel23.Controls.Add(this.priceLabel);
             this.flowLayoutPanel23.Controls.Add(this.euroLabel);
-            this.flowLayoutPanel23.Location = new System.Drawing.Point(3, 353);
+            this.flowLayoutPanel23.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel23.Name = "flowLayoutPanel23";
-            this.flowLayoutPanel23.Size = new System.Drawing.Size(422, 31);
+            this.flowLayoutPanel23.Size = new System.Drawing.Size(292, 31);
             this.flowLayoutPanel23.TabIndex = 5;
             // 
             // calcTotalPriceBtn
@@ -869,14 +881,110 @@ namespace db_crociere
             this.euroLabel.Text = "€";
             this.euroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.flowLayoutPanel24);
+            this.groupBox2.Controls.Add(this.flowLayoutPanel23);
+            this.groupBox2.Location = new System.Drawing.Point(3, 352);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(824, 55);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pagamento";
+            // 
+            // flowLayoutPanel24
+            // 
+            this.flowLayoutPanel24.Controls.Add(this.checkBoxRateizzato);
+            this.flowLayoutPanel24.Controls.Add(this.anticipoLabel);
+            this.flowLayoutPanel24.Controls.Add(this.fieldAnticipo);
+            this.flowLayoutPanel24.Controls.Add(this.rateLabel);
+            this.flowLayoutPanel24.Controls.Add(this.numericUpDown1);
+            this.flowLayoutPanel24.Controls.Add(this.label6);
+            this.flowLayoutPanel24.Controls.Add(this.textBox1);
+            this.flowLayoutPanel24.Location = new System.Drawing.Point(301, 19);
+            this.flowLayoutPanel24.Name = "flowLayoutPanel24";
+            this.flowLayoutPanel24.Size = new System.Drawing.Size(520, 31);
+            this.flowLayoutPanel24.TabIndex = 6;
+            // 
+            // checkBoxRateizzato
+            // 
+            this.checkBoxRateizzato.AutoSize = true;
+            this.checkBoxRateizzato.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxRateizzato.Name = "checkBoxRateizzato";
+            this.checkBoxRateizzato.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxRateizzato.TabIndex = 0;
+            this.checkBoxRateizzato.Text = "Rateizzato";
+            this.checkBoxRateizzato.UseVisualStyleBackColor = true;
+            // 
+            // anticipoLabel
+            // 
+            this.anticipoLabel.AutoSize = true;
+            this.anticipoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.anticipoLabel.Location = new System.Drawing.Point(85, 5);
+            this.anticipoLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.anticipoLabel.Name = "anticipoLabel";
+            this.anticipoLabel.Size = new System.Drawing.Size(50, 15);
+            this.anticipoLabel.TabIndex = 3;
+            this.anticipoLabel.Text = "Anticipo";
+            // 
+            // fieldAnticipo
+            // 
+            this.fieldAnticipo.Location = new System.Drawing.Point(141, 3);
+            this.fieldAnticipo.Name = "fieldAnticipo";
+            this.fieldAnticipo.Size = new System.Drawing.Size(104, 20);
+            this.fieldAnticipo.TabIndex = 4;
+            // 
+            // rateLabel
+            // 
+            this.rateLabel.AutoSize = true;
+            this.rateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateLabel.Location = new System.Drawing.Point(251, 5);
+            this.rateLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.rateLabel.Name = "rateLabel";
+            this.rateLabel.Size = new System.Drawing.Size(33, 15);
+            this.rateLabel.TabIndex = 3;
+            this.rateLabel.Text = "Rate";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(290, 3);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(418, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(99, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(339, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 15);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Importo rata";
+            // 
             // AddPrenPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 385);
-            this.Controls.Add(this.flowLayoutPanel23);
-            this.Controls.Add(this.flowLayoutPanel21);
+            this.ClientSize = new System.Drawing.Size(828, 467);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel4);
+            this.Controls.Add(this.flowLayoutPanel21);
             this.Name = "AddPrenPopup";
             this.Text = "Nuova Prenotazione";
             this.Load += new System.EventHandler(this.AddPrenPopup_Load);
@@ -927,6 +1035,10 @@ namespace db_crociere
             this.flowLayoutPanel21.ResumeLayout(false);
             this.flowLayoutPanel23.ResumeLayout(false);
             this.flowLayoutPanel23.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.flowLayoutPanel24.ResumeLayout(false);
+            this.flowLayoutPanel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1007,5 +1119,14 @@ namespace db_crociere
         private System.Windows.Forms.Button calcTotalPriceBtn;
         private System.Windows.Forms.TextBox priceLabel;
         private System.Windows.Forms.Label euroLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel24;
+        private System.Windows.Forms.CheckBox checkBoxRateizzato;
+        private System.Windows.Forms.Label anticipoLabel;
+        private System.Windows.Forms.TextBox fieldAnticipo;
+        private System.Windows.Forms.Label rateLabel;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

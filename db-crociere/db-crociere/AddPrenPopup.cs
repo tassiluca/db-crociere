@@ -23,15 +23,17 @@ namespace db_crociere
         //cabine ceh rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
         private IQueryable<CABINE> cabinePrenotabili;
         private Dictionary<decimal,CABINE> cabinePrenotabiliNonAggiunte;
+        private Dictionary<String, List<TARIFFARI>> dictTar;
 
         //below obj used to keep datas before adding them in db
         private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String,PASSEGGERI> passengersDict;
         private Dictionary<decimal,CABINE> roomOfPrenot;
-        private Dictionary<String, List<TARIFFARI>> dictTar;
+        private Dictionary<String, String> passngerCard;
+        private List<decimal> codTariffari;        
         private int importoPrenot;
-        private int codicePrenotazione;
-        private int codicePagamento;
+        private decimal codicePrenotazione;
+        private decimal codicePagamento;
 
         public AddPrenPopup(DataClassesDBCrociereDataContext dbDataContext)
         {
@@ -40,8 +42,10 @@ namespace db_crociere
             prenot.DataOraImbarco = DateTime.Parse(MIN_DATE);
             prenot.DataOraSbarco = DateTime.Parse(MAX_DATE);
             passengersDict = new Dictionary<String, PASSEGGERI>();
+            passngerCard = new Dictionary<String, String>();
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
             roomOfPrenot = new Dictionary<decimal,CABINE>();
+            codTariffari = new List<decimal>();
             codicePrenotazione = 0;
             InitializeComponent();
         }
@@ -250,6 +254,7 @@ namespace db_crociere
             var surname = surnameBox.Text;
             var country = countryBox.Text;
             var passportId = passportIDBox.Text;
+            var creditCard = payCardField.Text;
 
             if (CF.Length != 0 && name.Length != 0 && surname.Length != 0
                 && country.Length != 0 && passportId.Length != 0)
@@ -269,8 +274,17 @@ namespace db_crociere
                     var msg = "Passeggero già presente in una altra prenotazione in questo periodo";
                     MessageBox.Show(msg, "ERRORE");                    
                 }
-                else { 
-                    passengersDict.Add(passeggero.CodiceFiscale, passeggero);                
+                else {
+                    if (!passengersDict.ContainsKey(passeggero.CodiceFiscale))
+                    {
+                        passengersDict.Add(passeggero.CodiceFiscale, passeggero);
+                        passngerCard.Add(passeggero.CodiceFiscale, creditCard);
+                    }
+                    else {
+                        var msg = "Passeggero già inserito";
+                        MessageBox.Show(msg,"ERROR");
+                    }
+                    
                 }
                 ClearPassengerFields();
             }
@@ -317,6 +331,7 @@ namespace db_crociere
             surnameBox.Clear();
             countryBox.Clear();
             passportIDBox.Clear();
+            payCardField.Clear();
         }
 
         private void delPassengerBtn_Click(object sender, EventArgs e)
@@ -324,6 +339,7 @@ namespace db_crociere
             var toDelete = passengerList.SelectedItem.ToString();
             if (toDelete.Length > 0) {
                 passengersDict.Remove(toDelete);
+                passngerCard.Remove(toDelete);
             }
             updatePassgListBox();
             
@@ -573,6 +589,7 @@ namespace db_crociere
                     Console.WriteLine("ECCEZIONE: "+ exc);
                     priceLabel.Text = " ";
                     importoPrenot = 0;
+                    codTariffari = new List<decimal>();
                 }
                 
             }
@@ -582,6 +599,13 @@ namespace db_crociere
                 MessageBox.Show(msg,"Attenzione");
             }
             
+        }
+
+        private void addTariff_Prenot(decimal codTarif) {
+            if (!codTariffari.Contains(codTarif)) {
+                codTariffari.Add(codTarif);
+            }
+            Console.WriteLine("Tarifarrio memorizzato: "+ codTarif);
         }
 
         private int ricCalcCost(DateTime imbarco,DateTime sbarco, int idxTarTipoCab, String type) {
@@ -596,6 +620,7 @@ namespace db_crociere
                     if (sbarco <= dataFine)
                     {
                         //caso in cui ho un solo tariffario applicato a quel tipo di cabina in una nave
+                        addTariff_Prenot(tar.CodTariffario);
                         int giorni = (int)(sbarco - imbarco).TotalDays;
                         return giorni * (int)tar.Prezzo;
                     }
@@ -605,7 +630,8 @@ namespace db_crociere
                         //il periodo della prenotazione inizia dentro il peridoo del tariffario corrente e finisce in uno di quelli seguenti
                         int giorni = (int)(dataFine - imbarco).TotalDays;
                         prezzo = giorni * (int)tar.Prezzo;
-                        
+                        addTariff_Prenot(tar.CodTariffario);
+
                         if (idxTarTipoCab+1 < dictTar[type].Count()) {
                             //se non vado fuori dalla lista,ci sono ancora tariffari da scorrere
                             //verifico che il tariffario attuale sia contiguo al successivo
@@ -642,29 +668,126 @@ namespace db_crociere
             }
         }
 
-        //AGGIUUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
+        //AGGIUNTA PRENOTAZIONE E QUERY DI INSERIMENTO
         private void confirmPrenotBtn_Click(object sender, EventArgs e)
         {
-            if (isAllInfoSelected())
-            {
 
+            /*
+            insertPagamento(codicePagamento,  da passare flag se unico il pagamento); //TODO
+            /*insertPrenotazione(codicePrenotazione, codicePagamento);
+            insertPasseggeri();
+            insertPrenot_Passeggeri(codicePrenotazione);
+            insertBadge(codicePrenotazione);
+            insertAlloggi(codicePrenotazione);
 
-            }
-            else
-            {
+            insertTariffari_Prenot(codicePrenotazione);
+            codicePagamento++;
+            codicePrenotazione++;
+            */
 
-            }
         }
+        /*
+                private void insertBadge(decimal codicePrenotazione)
+                {
+                    foreach (var psngKey in passengersDict.Keys)
+                    {
+                        var badge = new BADGE
+                        {
+                            CodPrenotazione = codicePrenotazione,
+                            CodiceFiscale = psngKey,
+                            CartaCredito = passngerCard[psngKey]
+                        };
+                        db.BADGEs.InsertOnSubmit(badge);
+                    }
+                }
 
-        /// <summary>
-        /// Verifico che tutti gli attributi che mi occorrono per ole entità siano presenti e/o calcolati
-        /// </summary>
-        /// <returns></returns>
-        private bool isAllInfoSelected()
-        {
+                private void insertPagamento(decimal codTransaz, Boolean isUnico)
+                {
+                    var payment = new PAGAMENTI
+                    {
+                        CodTransazione = codTransaz,
+                        DataPagamento = ,//TODO inserire valore preso nel form da fare
+                        Importo = importoPrenot,
+                    };
+                    db.PAGAMENTIs.InsertOnSubmit(payment);
+                }
 
-            return true;
-        }
+                private void insertPrenotazione(decimal codicePrenotazione, decimal codicePagamento)
+                {
+                    var pren = new PRENOTAZIONI
+                    {
+                       CodPrenotazione = codicePrenotazione,
+                       CodTransazione = codicePagamento,
+                       DataEffettuazione = DateTime.Now,
+                       DataOraImbarco = prenot.DataOraImbarco,
+                       DataOraSbarco = prenot.DataOraSbarco,
+                       Trattamento = treatmentField.Text,
+                       NumeroPasseggeri = //forse stasera lo togliamo, //TODO
+                       CodNavigazione = prenot.CodNavigazione,
+                       CodPorto = prenot.CodPorto
+
+                    };
+                    db.PRENOTAZIONIs.InsertOnSubmit(pren);
+                }
+
+                private void insertPasseggeri()
+                {
+                    foreach (var psng in passengersDict.Values)
+                    {
+                        var psngrIn = (from p in db.PASSEGGERIs
+                                      select p).ToList();
+                        if (!psngrIn.Contains(psng)) {
+                            var pass = new PASSEGGERI
+                            {
+                                CodiceFiscale = psng.CodiceFiscale,
+                                Nome = psng.Nome,
+                                Cognome = psng.Cognome,
+                                Nazionalità = psng.Nazionalità,
+                                Passaporto = psng.Passaporto
+                            };
+                            db.PASSEGGERIs.InsertOnSubmit(pass);
+                        }
+                    }
+                }
+
+                private void insertPrenot_Passeggeri(decimal codPren)
+                {
+                    foreach (var psng in passengersDict.Values)
+                    {
+                        var pren_pass = new PRENOTAZIONI_PASSEGGERI
+                        {
+                            CodiceFiscale = psng.CodiceFiscale,
+                            CodPrenotazione = codPren
+                        };
+                        db.PRENOTAZIONI_PASSEGGERIs.InsertOnSubmit(pren_pass);
+                    }
+                }
+
+                private void insertAlloggi(decimal codPren)
+                {
+                    foreach (var codCabina in roomOfPrenot.Keys )
+                    {
+                        var alloggio = new ALLOGGI
+                        {
+                            CodCabina = codCabina,
+                            CodPrenotazione = codPren
+                        };
+                        db.ALLOGGIs.InsertOnSubmit(alloggio);
+                    }
+                }
+
+                private void insertTariffari_Prenot(decimal codPren)
+                {
+                    foreach (var t in codTariffari) {
+                        var tariffari_prenotazioni = new TARIFFARI_PRENOTAZIONI
+                        {
+                            CodTariffario = t,
+                            CodPrenotazione = codPren
+                        };
+                        db.TARIFFARI_PRENOTAZIONIs.InsertOnSubmit(tariffari_prenotazioni);
+                    }
+                }
+                */
 
     }
 }
