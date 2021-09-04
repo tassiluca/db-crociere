@@ -56,43 +56,50 @@ namespace db_crociere.Activities
                 RoomComboBox.SelectedIndex = -1;
             }
         }
-        /*
-        private void AddActivityExecutionBtn_Click(object sender, EventArgs e)
+
+        private void ActivityComboBox_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DateTime startDate = StartDatePicker.Value;
-                TimeSpan startTime = new TimeSpan(StartTimePicker.Value.Hour,
-                    StartTimePicker.Value.Minute, StartTimePicker.Value.Second);
-                int room =
-
-                PERSONALE cabina = new PERSONALE
-                {
-                    CodiceFiscale = fiscalCode,
-                    Nome = name,
-                    Cognome = surname,
-                    Nazionalità = nationality,
-                    Passaporto = passport,
-                    Recapito = phoneNumber,
-                    StipendioAnnuo = salary,
-                    CodRuolo = role,
-                    AnzianitàServizio = seniority,
-                    Grado = rank
-                };
-                db.PERSONALEs.InsertOnSubmit(cabina);
-
-                db.SubmitChanges();
-                msg = "Inserimento avvenuto con SUCCESSO";
-                MessageBox.Show(msg, "SUCCESSO");
-            }
-            catch (Exception exc)
-            {
-                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
-                Utilities.ShowErrorMessage(msg);
-                db = new DataClassesDBCrociereDataContext();
-            }
-            Utilities.ClearAll(this);
+            var activities = from a in db.ATTIVITÀ
+                             select a.CodAttività;
+            ActivityComboBox.DataSource = activities;
         }
-        */
+        /*
+private void AddActivityExecutionBtn_Click(object sender, EventArgs e)
+{
+   try
+   {
+       DateTime startDate = StartDatePicker.Value;
+       TimeSpan startTime = new TimeSpan(StartTimePicker.Value.Hour,
+           StartTimePicker.Value.Minute, StartTimePicker.Value.Second);
+       int room =
+
+       PERSONALE cabina = new PERSONALE
+       {
+           CodiceFiscale = fiscalCode,
+           Nome = name,
+           Cognome = surname,
+           Nazionalità = nationality,
+           Passaporto = passport,
+           Recapito = phoneNumber,
+           StipendioAnnuo = salary,
+           CodRuolo = role,
+           AnzianitàServizio = seniority,
+           Grado = rank
+       };
+       db.PERSONALEs.InsertOnSubmit(cabina);
+
+       db.SubmitChanges();
+       msg = "Inserimento avvenuto con SUCCESSO";
+       MessageBox.Show(msg, "SUCCESSO");
+   }
+   catch (Exception exc)
+   {
+       msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+       Utilities.ShowErrorMessage(msg);
+       db = new DataClassesDBCrociereDataContext();
+   }
+   Utilities.ClearAll(this);
+}
+*/
     }
 }
