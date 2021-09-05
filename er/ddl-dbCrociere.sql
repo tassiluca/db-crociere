@@ -166,7 +166,7 @@ create table RATE (
      DataPagamento date not null,
      Importo numeric(4) not null,
      CodTransazione numeric(5) not null,
-     constraint IDRATA primary key (DataPagamento));
+     constraint IDRATA primary key (DataPagamento, CodTransazione));
 
 create table RESPONSABILITÀ (
      CodNavigazione numeric(3) not null,
