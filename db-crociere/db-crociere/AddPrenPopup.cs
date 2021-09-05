@@ -81,7 +81,7 @@ namespace db_crociere
         {
             //path selected
             navDateMap = new Dictionary<string, DateRange>();
-            var pathCode = pathSelPren.SelectedItem.ToString();
+            var pathCode = pathSelPren.Text;
             Console.WriteLine("Percorso selezionato: " + pathCode);
             //get all the avaiable navigation for the selected path
             var nav = from n in db.NAVIGAZIONI
@@ -769,9 +769,16 @@ namespace db_crociere
                 insertAlloggi(codicePrenotazione);
 
                 insertTariffari_Prenot(codicePrenotazione);
-                db.SubmitChanges();
-                MessageBox.Show("Prenotazione confermata!","SUCCESS");
-            
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("Prenotazione confermata!", "SUCCESS");
+                    Utilities.ClearAll(this);
+                }
+                catch(Exception exc)
+                {
+                    Utilities.ShowErrorMessage("Errore: " + exc.Message);
+                }
             }
         }
 
@@ -780,7 +787,7 @@ namespace db_crociere
             var lastCode = (from pay in db.PAGAMENTI
                            select pay.CodTransazione )
                            .OrderByDescending(e => e)
-                           .First();
+                           .FirstOrDefault();
             return lastCode+1;
         }
 
@@ -789,7 +796,7 @@ namespace db_crociere
             var lastCode = (from pre in db.PRENOTAZIONI
                             select pre.CodPrenotazione)
                           .OrderByDescending(e => e)
-                          .First();
+                          .FirstOrDefault();
             return lastCode + 1;
         }
 
