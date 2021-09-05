@@ -162,12 +162,17 @@ namespace db_crociere
             string msg;
             try
             {
+                var code = (from r in db.RIMBORSI
+                            select r.CodRimborso)
+                            .OrderByDescending(x => x)
+                            .FirstOrDefault() + 1;
                 int from = int.Parse(FromNoticeTextBox.Text);
                 int to = int.Parse(ToNoticeTextBox.Text);
                 int refund = int.Parse(RefundTextBox.Text);
 
                 RIMBORSI rimborso = new RIMBORSI
                 {
+                    CodRimborso = code,
                     Preavviso_Dal = from,
                     Preavviso_Al = to,
                     PercentualeRimborso = refund

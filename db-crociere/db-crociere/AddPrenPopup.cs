@@ -773,6 +773,7 @@ namespace db_crociere
                 catch(Exception exc)
                 {
                     Utilities.ShowErrorMessage("Errore: " + exc.Message);
+                    db = new DataClassesDBCrociereDataContext();
                 }
             }
         }

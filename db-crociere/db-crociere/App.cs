@@ -221,7 +221,14 @@ namespace db_crociere
                 Importo = rataCost
             };
             db.RATE.InsertOnSubmit(rata);
-            db.SubmitChanges();
+            try
+            {
+                db.SubmitChanges();
+            } catch (Exception exc)
+            {
+                Utilities.ShowErrorMessage("ERRORE: " + exc.Message);
+                db = new DataClassesDBCrociereDataContext();
+            }
             refreshPaymentInf(sender, e);
         }
 
