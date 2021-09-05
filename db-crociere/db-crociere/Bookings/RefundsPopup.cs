@@ -47,7 +47,7 @@ namespace db_crociere.Bookings
             if (BookingComboBox.SelectedIndex != -1)
             {
                 var booking = (from p in db.PRENOTAZIONI
-                               where p.CodNavigazione == int.Parse(BookingComboBox.Text)
+                               where p.CodPrenotazione == int.Parse(BookingComboBox.Text)
                                select p).First();
                 cancellationDate = DateTime.Now;
                 noticePeriod = booking.DataOraImbarco.Subtract(cancellationDate).Days;
