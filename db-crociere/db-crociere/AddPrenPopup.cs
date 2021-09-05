@@ -25,7 +25,7 @@ namespace db_crociere
         private Dictionary<String, DateRange> navDateMap;
         private Dictionary<String, HashSet<DateTime>> portDates;
         private IQueryable<CABINE> cabineLibere;
-        //cabine ceh rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
+        //cabine che rispecchiano le richieste dell'utente, candidate alla aggiunta nella prenotazione
         private IQueryable<CABINE> cabinePrenotabili;
         private Dictionary<decimal, CABINE> cabinePrenotabiliNonAggiunte;
         private Dictionary<String, List<TARIFFARI>> dictTar;
@@ -217,7 +217,6 @@ namespace db_crociere
 
             var dateTimeSbar = from est in db.ESECUZIONI_TRATTA
                                from t in db.TRATTE
-                                   //from port in db.PORTIs
                                where est.CodNavigazione == prenot.CodNavigazione
                                && t.CodTratta == est.CodTratta
                                && t.CodPortoArrivo == prenot.CodPorto
@@ -225,8 +224,6 @@ namespace db_crociere
                                orderby est.Arrivo_Data
                                select new
                                {
-                                   //portName = port.Città,
-                                   //portCode = t.CodPortoArrivo,
                                    sbarcoDate = est.Arrivo_Data,
                                    sbarcoTime = est.Arrivo_Ora
                                };
@@ -291,6 +288,7 @@ namespace db_crociere
                         {
                             passengersDict.Add(passeggero.CodiceFiscale, passeggero);
                             passngerCard.Add(passeggero.CodiceFiscale, creditCard);
+                            ClearPassengerFields();
                         }
                         else
                         {
@@ -311,17 +309,12 @@ namespace db_crociere
                 var msg = "Tutti is campi devono essere compilati!";
                 MessageBox.Show(msg, "ERRORE");
             }
-            /*
-            db.PASSEGGERIs.InsertOnSubmit(passeggero);
-            db.SubmitChanges();
-            ClearPassengerFields();
-            */
             updatePassgListBox();
         }
 
         private Boolean isPersonAlreadyInPren(String CFpers)
         {
-            //constraint 1 check: Non possono esserci due prenotazioni distinte inerenti
+            //constraint check: Non possono esserci due prenotazioni distinte inerenti
             //allo stesso passeggero nello stesso periodo (incluse le date comprese)
             var pasngInPren = from prenPass in db.PRENOTAZIONI_PASSEGGERI
                               from pren in db.PRENOTAZIONI
@@ -549,7 +542,7 @@ namespace db_crociere
 
         private void calcTotalPriceBtn_Click(object sender, EventArgs e)
         {
-            /*OCCORRENTE: per calcolare ottenere i tariffari associati ed applictyi alla prenotazioe necessito delle informazioni seguenti:
+            /*OCCORRENTE: per calcolare ottenere i tariffari associati ed applicati alla prenotazioe necessito delle informazioni seguenti:
              NomeTipologia (cabina),
              NomeNave (che ricavo partendo dal percorso selezionato),
              Le date DataOraImbarco e DataOraSbarco devono essere comprese in DataInizio-DataFine (tariffario)*/
@@ -560,7 +553,6 @@ namespace db_crociere
                 var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
                 var tariffari = from tar in db.TARIFFARI
                                 where tar.NomeNave == nomeNave
-                                // && roomTypeOfPrenot.All(c1 => tar.NomeTipologia == c1)
                                 select tar;
                 Console.WriteLine(tariffari.Count() + " tariffari trovati nave: " + nomeNave);
                 foreach (var ee in tariffari)

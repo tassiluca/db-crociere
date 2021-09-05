@@ -29,21 +29,22 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.paymentsLayout = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.labelPren = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@ namespace db_crociere
             this.totalCostPrenLabel = new System.Windows.Forms.Label();
             this.pricePrenField = new System.Windows.Forms.TextBox();
             this.euroLabel = new System.Windows.Forms.Label();
+            this.annullataLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.rataCostField = new System.Windows.Forms.TextBox();
@@ -59,12 +61,16 @@ namespace db_crociere
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.rateToPayField = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.payRataBtn = new System.Windows.Forms.Button();
+            this.pagarataLabel = new System.Windows.Forms.Label();
             this.dataGridRate = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.addRefound = new System.Windows.Forms.Button();
             this.rimbView = new System.Windows.Forms.DataGridView();
             this.prenBox = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.cancelledPrenview = new System.Windows.Forms.DataGridView();
+            this.addRefound = new System.Windows.Forms.Button();
             this.addPrenBtn = new System.Windows.Forms.Button();
             this.prenViewTable = new System.Windows.Forms.DataGridView();
             this.shipPage = new System.Windows.Forms.TabPage();
@@ -136,12 +142,6 @@ namespace db_crociere
             this.RankingPathBtn = new System.Windows.Forms.Button();
             this.RankPathGridView = new System.Windows.Forms.DataGridView();
             this.RankingPathChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pagarataLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.annullataLabel = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.cancelledPrenview = new System.Windows.Forms.DataGridView();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
             this.paymentsLayout.SuspendLayout();
@@ -150,10 +150,13 @@ namespace db_crociere
             this.flowLayoutPanel23.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRate)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rimbView)).BeginInit();
             this.prenBox.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).BeginInit();
             this.shipPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -193,9 +196,6 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankingPathChart)).BeginInit();
-            this.flowLayoutPanel4.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -239,6 +239,18 @@ namespace db_crociere
             this.paymentsLayout.TabIndex = 3;
             this.paymentsLayout.TabStop = false;
             this.paymentsLayout.Text = "Pagamenti/Rate";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(293, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.label4.Size = new System.Drawing.Size(134, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Rate Pagate";
             // 
             // flowLayoutPanel1
             // 
@@ -327,6 +339,17 @@ namespace db_crociere
             this.euroLabel.Text = "€";
             this.euroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // annullataLabel
+            // 
+            this.annullataLabel.AutoSize = true;
+            this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.annullataLabel.ForeColor = System.Drawing.Color.Red;
+            this.annullataLabel.Location = new System.Drawing.Point(164, 21);
+            this.annullataLabel.Name = "annullataLabel";
+            this.annullataLabel.Size = new System.Drawing.Size(72, 16);
+            this.annullataLabel.TabIndex = 10;
+            this.annullataLabel.Text = "Annullata";
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label1);
@@ -403,6 +426,15 @@ namespace db_crociere
             this.rateToPayField.TabIndex = 1;
             this.rateToPayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.payRataBtn);
+            this.flowLayoutPanel4.Controls.Add(this.pagarataLabel);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 159);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(269, 74);
+            this.flowLayoutPanel4.TabIndex = 11;
+            // 
             // payRataBtn
             // 
             this.payRataBtn.Location = new System.Drawing.Point(3, 3);
@@ -412,6 +444,18 @@ namespace db_crociere
             this.payRataBtn.Text = "Paga Rata";
             this.payRataBtn.UseVisualStyleBackColor = true;
             this.payRataBtn.Click += new System.EventHandler(this.addPayRata);
+            // 
+            // pagarataLabel
+            // 
+            this.pagarataLabel.AutoSize = true;
+            this.pagarataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagarataLabel.Location = new System.Drawing.Point(104, 5);
+            this.pagarataLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.pagarataLabel.Name = "pagarataLabel";
+            this.pagarataLabel.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.pagarataLabel.Size = new System.Drawing.Size(136, 13);
+            this.pagarataLabel.TabIndex = 10;
+            this.pagarataLabel.Text = "Data inserimento";
             // 
             // dataGridRate
             // 
@@ -434,17 +478,6 @@ namespace db_crociere
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tariffe Rimborso";
-            // 
-            // addRefound
-            // 
-            this.addRefound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.addRefound.Location = new System.Drawing.Point(98, 295);
-            this.addRefound.Name = "addRefound";
-            this.addRefound.Size = new System.Drawing.Size(138, 29);
-            this.addRefound.TabIndex = 0;
-            this.addRefound.Text = "Annulla Prenotazione";
-            this.addRefound.UseVisualStyleBackColor = false;
-            this.addRefound.Click += new System.EventHandler(this.addRefound_Click);
             // 
             // rimbView
             // 
@@ -470,6 +503,39 @@ namespace db_crociere
             this.prenBox.TabIndex = 1;
             this.prenBox.TabStop = false;
             this.prenBox.Text = "Prenotazioni";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cancelledPrenview);
+            this.groupBox7.Location = new System.Drawing.Point(825, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(337, 275);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Prenotazioni Annullate";
+            // 
+            // cancelledPrenview
+            // 
+            this.cancelledPrenview.AllowUserToAddRows = false;
+            this.cancelledPrenview.AllowUserToDeleteRows = false;
+            this.cancelledPrenview.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.cancelledPrenview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cancelledPrenview.Location = new System.Drawing.Point(7, 20);
+            this.cancelledPrenview.Name = "cancelledPrenview";
+            this.cancelledPrenview.ReadOnly = true;
+            this.cancelledPrenview.Size = new System.Drawing.Size(324, 249);
+            this.cancelledPrenview.TabIndex = 0;
+            // 
+            // addRefound
+            // 
+            this.addRefound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.addRefound.Location = new System.Drawing.Point(98, 295);
+            this.addRefound.Name = "addRefound";
+            this.addRefound.Size = new System.Drawing.Size(138, 29);
+            this.addRefound.TabIndex = 0;
+            this.addRefound.Text = "Annulla Prenotazione";
+            this.addRefound.UseVisualStyleBackColor = false;
+            this.addRefound.Click += new System.EventHandler(this.addRefound_Click);
             // 
             // addPrenBtn
             // 
@@ -1292,35 +1358,35 @@ namespace db_crociere
             // 
             // RankResponsabilitiesChart
             // 
-            chartArea9.Name = "ChartArea1";
-            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea9);
-            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend9.Name = "Legend1";
-            this.RankResponsabilitiesChart.Legends.Add(legend9);
+            chartArea1.Name = "ChartArea1";
+            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.RankResponsabilitiesChart.Legends.Add(legend1);
             this.RankResponsabilitiesChart.Location = new System.Drawing.Point(818, 320);
             this.RankResponsabilitiesChart.Name = "RankResponsabilitiesChart";
             this.RankResponsabilitiesChart.Size = new System.Drawing.Size(346, 296);
             this.RankResponsabilitiesChart.TabIndex = 22;
             this.RankResponsabilitiesChart.Text = "Personale con più responsabilità";
-            title9.Name = "Title1";
-            title9.Text = "Personale con più responsabilità";
-            this.RankResponsabilitiesChart.Titles.Add(title9);
+            title1.Name = "Title1";
+            title1.Text = "Personale con più responsabilità";
+            this.RankResponsabilitiesChart.Titles.Add(title1);
             // 
             // RankHarborsChart
             // 
-            chartArea10.Name = "ChartArea1";
-            this.RankHarborsChart.ChartAreas.Add(chartArea10);
-            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend10.Name = "Legend1";
-            this.RankHarborsChart.Legends.Add(legend10);
+            chartArea2.Name = "ChartArea1";
+            this.RankHarborsChart.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.RankHarborsChart.Legends.Add(legend2);
             this.RankHarborsChart.Location = new System.Drawing.Point(818, 7);
             this.RankHarborsChart.Name = "RankHarborsChart";
             this.RankHarborsChart.Size = new System.Drawing.Size(346, 296);
             this.RankHarborsChart.TabIndex = 21;
             this.RankHarborsChart.Text = "Porti con più imbarchi";
-            title10.Name = "Title1";
-            title10.Text = "Porti con più imbarchi";
-            this.RankHarborsChart.Titles.Add(title10);
+            title2.Name = "Title1";
+            title2.Text = "Porti con più imbarchi";
+            this.RankHarborsChart.Titles.Add(title2);
             // 
             // RankResponsabilitiesBtn
             // 
@@ -1366,19 +1432,19 @@ namespace db_crociere
             // 
             // AverageCostsChart
             // 
-            chartArea11.Name = "ChartArea1";
-            this.AverageCostsChart.ChartAreas.Add(chartArea11);
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend11.Name = "Legend1";
-            this.AverageCostsChart.Legends.Add(legend11);
+            chartArea3.Name = "ChartArea1";
+            this.AverageCostsChart.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.AverageCostsChart.Legends.Add(legend3);
             this.AverageCostsChart.Location = new System.Drawing.Point(236, 320);
             this.AverageCostsChart.Name = "AverageCostsChart";
             this.AverageCostsChart.Size = new System.Drawing.Size(346, 298);
             this.AverageCostsChart.TabIndex = 14;
             this.AverageCostsChart.Text = "Costo Medio Crociere";
-            title11.Name = "Title1";
-            title11.Text = "Costo Medio Crociere";
-            this.AverageCostsChart.Titles.Add(title11);
+            title3.Name = "Title1";
+            title3.Text = "Costo Medio Crociere";
+            this.AverageCostsChart.Titles.Add(title3);
             // 
             // RankCostsGridView
             // 
@@ -1424,84 +1490,19 @@ namespace db_crociere
             // 
             // RankingPathChart
             // 
-            chartArea12.Name = "ChartArea1";
-            this.RankingPathChart.ChartAreas.Add(chartArea12);
-            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend12.Name = "Legend1";
-            this.RankingPathChart.Legends.Add(legend12);
+            chartArea4.Name = "ChartArea1";
+            this.RankingPathChart.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.RankingPathChart.Legends.Add(legend4);
             this.RankingPathChart.Location = new System.Drawing.Point(236, 7);
             this.RankingPathChart.Name = "RankingPathChart";
             this.RankingPathChart.Size = new System.Drawing.Size(346, 296);
             this.RankingPathChart.TabIndex = 10;
             this.RankingPathChart.Text = "Apprezzamento Percorsi";
-            title12.Name = "Title1";
-            title12.Text = "Apprezzamento Percorsi Crociere";
-            this.RankingPathChart.Titles.Add(title12);
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.payRataBtn);
-            this.flowLayoutPanel4.Controls.Add(this.pagarataLabel);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 159);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(269, 74);
-            this.flowLayoutPanel4.TabIndex = 11;
-            // 
-            // pagarataLabel
-            // 
-            this.pagarataLabel.AutoSize = true;
-            this.pagarataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pagarataLabel.Location = new System.Drawing.Point(104, 5);
-            this.pagarataLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.pagarataLabel.Name = "pagarataLabel";
-            this.pagarataLabel.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.pagarataLabel.Size = new System.Drawing.Size(136, 13);
-            this.pagarataLabel.TabIndex = 10;
-            this.pagarataLabel.Text = "Data inserimento";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(293, 18);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.label4.Size = new System.Drawing.Size(134, 16);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Rate Pagate";
-            // 
-            // annullataLabel
-            // 
-            this.annullataLabel.AutoSize = true;
-            this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.annullataLabel.Location = new System.Drawing.Point(164, 21);
-            this.annullataLabel.Name = "annullataLabel";
-            this.annullataLabel.Size = new System.Drawing.Size(58, 15);
-            this.annullataLabel.TabIndex = 10;
-            this.annullataLabel.Text = "Annullata";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.cancelledPrenview);
-            this.groupBox7.Location = new System.Drawing.Point(825, 20);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(337, 275);
-            this.groupBox7.TabIndex = 1;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Prenotazioni Annullate";
-            // 
-            // cancelledPrenview
-            // 
-            this.cancelledPrenview.AllowUserToAddRows = false;
-            this.cancelledPrenview.AllowUserToDeleteRows = false;
-            this.cancelledPrenview.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.cancelledPrenview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cancelledPrenview.Location = new System.Drawing.Point(7, 20);
-            this.cancelledPrenview.Name = "cancelledPrenview";
-            this.cancelledPrenview.ReadOnly = true;
-            this.cancelledPrenview.Size = new System.Drawing.Size(324, 249);
-            this.cancelledPrenview.TabIndex = 0;
+            title4.Name = "Title1";
+            title4.Text = "Apprezzamento Percorsi Crociere";
+            this.RankingPathChart.Titles.Add(title4);
             // 
             // App
             // 
@@ -1526,10 +1527,14 @@ namespace db_crociere
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rimbView)).EndInit();
             this.prenBox.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prenViewTable)).EndInit();
             this.shipPage.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1573,10 +1578,6 @@ namespace db_crociere
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankingPathChart)).EndInit();
-            this.flowLayoutPanel4.ResumeLayout(false);
-            this.flowLayoutPanel4.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).EndInit();
             this.ResumeLayout(false);
 
         }
