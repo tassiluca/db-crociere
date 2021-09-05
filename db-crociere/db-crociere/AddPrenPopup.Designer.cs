@@ -150,6 +150,7 @@ namespace db_crociere
             this.flowLayoutPanel4.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel4.Controls.Add(this.groupBox1);
             this.flowLayoutPanel4.Controls.Add(this.boxPathAndDate);
+            this.flowLayoutPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -217,7 +218,7 @@ namespace db_crociere
             this.pathSelPren.FormattingEnabled = true;
             this.pathSelPren.Location = new System.Drawing.Point(65, 3);
             this.pathSelPren.Name = "pathSelPren";
-            this.pathSelPren.Size = new System.Drawing.Size(143, 21);
+            this.pathSelPren.Size = new System.Drawing.Size(143, 24);
             this.pathSelPren.TabIndex = 7;
             this.pathSelPren.Text = "Percorso";
             this.pathSelPren.SelectedIndexChanged += new System.EventHandler(this.updateNavigationListSelector);
@@ -247,7 +248,7 @@ namespace db_crociere
             this.navPeriodSelector.FormattingEnabled = true;
             this.navPeriodSelector.Location = new System.Drawing.Point(130, 3);
             this.navPeriodSelector.Name = "navPeriodSelector";
-            this.navPeriodSelector.Size = new System.Drawing.Size(180, 21);
+            this.navPeriodSelector.Size = new System.Drawing.Size(180, 24);
             this.navPeriodSelector.TabIndex = 1;
             this.navPeriodSelector.Text = "Navigazione";
             this.navPeriodSelector.SelectedIndexChanged += new System.EventHandler(this.updatePortSelectorList);
@@ -277,7 +278,7 @@ namespace db_crociere
             this.portSelPren.FormattingEnabled = true;
             this.portSelPren.Location = new System.Drawing.Point(97, 3);
             this.portSelPren.Name = "portSelPren";
-            this.portSelPren.Size = new System.Drawing.Size(135, 21);
+            this.portSelPren.Size = new System.Drawing.Size(135, 24);
             this.portSelPren.TabIndex = 4;
             this.portSelPren.Text = "Porto Partenza";
             this.portSelPren.SelectedIndexChanged += new System.EventHandler(this.updateDateTimeSelector);
@@ -307,7 +308,7 @@ namespace db_crociere
             this.startDateSelPren.FormattingEnabled = true;
             this.startDateSelPren.Location = new System.Drawing.Point(94, 3);
             this.startDateSelPren.Name = "startDateSelPren";
-            this.startDateSelPren.Size = new System.Drawing.Size(121, 21);
+            this.startDateSelPren.Size = new System.Drawing.Size(121, 24);
             this.startDateSelPren.TabIndex = 5;
             this.startDateSelPren.Text = "Data Partenza";
             this.startDateSelPren.SelectedIndexChanged += new System.EventHandler(this.startDateSelPren_SelectedIndexChanged);
@@ -337,7 +338,7 @@ namespace db_crociere
             this.dateSbarcoBox.Location = new System.Drawing.Point(90, 3);
             this.dateSbarcoBox.Name = "dateSbarcoBox";
             this.dateSbarcoBox.ReadOnly = true;
-            this.dateSbarcoBox.Size = new System.Drawing.Size(112, 20);
+            this.dateSbarcoBox.Size = new System.Drawing.Size(112, 22);
             this.dateSbarcoBox.TabIndex = 11;
             this.dateSbarcoBox.TextChanged += new System.EventHandler(this.updateTypeRoomSelector);
             // 
@@ -366,7 +367,7 @@ namespace db_crociere
             this.treatmentField.Location = new System.Drawing.Point(82, 3);
             this.treatmentField.MaxLength = 13;
             this.treatmentField.Name = "treatmentField";
-            this.treatmentField.Size = new System.Drawing.Size(170, 20);
+            this.treatmentField.Size = new System.Drawing.Size(170, 22);
             this.treatmentField.TabIndex = 4;
             this.treatmentField.TextChanged += new System.EventHandler(this.treatmentField_TextChanged);
             // 
@@ -395,7 +396,7 @@ namespace db_crociere
             this.numPassgInfo.Location = new System.Drawing.Point(361, 175);
             this.numPassgInfo.Name = "numPassgInfo";
             this.numPassgInfo.ReadOnly = true;
-            this.numPassgInfo.Size = new System.Drawing.Size(50, 20);
+            this.numPassgInfo.Size = new System.Drawing.Size(50, 22);
             this.numPassgInfo.TabIndex = 5;
             // 
             // numPassgLabel
@@ -403,16 +404,17 @@ namespace db_crociere
             this.numPassgLabel.AutoSize = true;
             this.numPassgLabel.Location = new System.Drawing.Point(276, 177);
             this.numPassgLabel.Name = "numPassgLabel";
-            this.numPassgLabel.Size = new System.Drawing.Size(79, 13);
+            this.numPassgLabel.Size = new System.Drawing.Size(102, 16);
             this.numPassgLabel.TabIndex = 4;
             this.numPassgLabel.Text = "No. Passeggeri";
             // 
             // passengerList
             // 
             this.passengerList.FormattingEnabled = true;
+            this.passengerList.ItemHeight = 16;
             this.passengerList.Location = new System.Drawing.Point(274, 20);
             this.passengerList.Name = "passengerList";
-            this.passengerList.Size = new System.Drawing.Size(138, 147);
+            this.passengerList.Size = new System.Drawing.Size(138, 132);
             this.passengerList.TabIndex = 3;
             // 
             // passengerFormLayout
@@ -455,7 +457,7 @@ namespace db_crociere
             this.codFiscaletextBox.Location = new System.Drawing.Point(96, 3);
             this.codFiscaletextBox.MaxLength = 16;
             this.codFiscaletextBox.Name = "codFiscaletextBox";
-            this.codFiscaletextBox.Size = new System.Drawing.Size(163, 20);
+            this.codFiscaletextBox.Size = new System.Drawing.Size(163, 22);
             this.codFiscaletextBox.TabIndex = 3;
             // 
             // flowLayoutPanel2
@@ -483,7 +485,7 @@ namespace db_crociere
             this.nameBox.Location = new System.Drawing.Point(50, 3);
             this.nameBox.MaxLength = 30;
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(209, 20);
+            this.nameBox.Size = new System.Drawing.Size(209, 22);
             this.nameBox.TabIndex = 3;
             // 
             // flowLayoutPanel3
@@ -511,7 +513,7 @@ namespace db_crociere
             this.surnameBox.Location = new System.Drawing.Point(70, 3);
             this.surnameBox.MaxLength = 40;
             this.surnameBox.Name = "surnameBox";
-            this.surnameBox.Size = new System.Drawing.Size(189, 20);
+            this.surnameBox.Size = new System.Drawing.Size(189, 22);
             this.surnameBox.TabIndex = 3;
             // 
             // flowLayoutPanel5
@@ -539,7 +541,7 @@ namespace db_crociere
             this.countryBox.Location = new System.Drawing.Point(78, 3);
             this.countryBox.MaxLength = 3;
             this.countryBox.Name = "countryBox";
-            this.countryBox.Size = new System.Drawing.Size(181, 20);
+            this.countryBox.Size = new System.Drawing.Size(181, 22);
             this.countryBox.TabIndex = 3;
             // 
             // flowLayoutPanel6
@@ -567,7 +569,7 @@ namespace db_crociere
             this.passportIDBox.Location = new System.Drawing.Point(78, 3);
             this.passportIDBox.MaxLength = 9;
             this.passportIDBox.Name = "passportIDBox";
-            this.passportIDBox.Size = new System.Drawing.Size(181, 20);
+            this.passportIDBox.Size = new System.Drawing.Size(181, 22);
             this.passportIDBox.TabIndex = 3;
             // 
             // flowLayoutPanel14
@@ -595,14 +597,14 @@ namespace db_crociere
             this.payCardField.Location = new System.Drawing.Point(87, 3);
             this.payCardField.MaxLength = 16;
             this.payCardField.Name = "payCardField";
-            this.payCardField.Size = new System.Drawing.Size(169, 20);
+            this.payCardField.Size = new System.Drawing.Size(169, 22);
             this.payCardField.TabIndex = 3;
             // 
             // AddPassengerBtn
             // 
             this.AddPassengerBtn.Location = new System.Drawing.Point(3, 183);
             this.AddPassengerBtn.Name = "AddPassengerBtn";
-            this.AddPassengerBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddPassengerBtn.Size = new System.Drawing.Size(75, 25);
             this.AddPassengerBtn.TabIndex = 8;
             this.AddPassengerBtn.Text = "Aggiungi";
             this.AddPassengerBtn.UseVisualStyleBackColor = true;
@@ -612,7 +614,7 @@ namespace db_crociere
             // 
             this.delPassengerBtn.Location = new System.Drawing.Point(84, 183);
             this.delPassengerBtn.Name = "delPassengerBtn";
-            this.delPassengerBtn.Size = new System.Drawing.Size(75, 23);
+            this.delPassengerBtn.Size = new System.Drawing.Size(75, 25);
             this.delPassengerBtn.TabIndex = 9;
             this.delPassengerBtn.Text = "Rimuovi";
             this.delPassengerBtn.UseVisualStyleBackColor = true;
@@ -668,7 +670,7 @@ namespace db_crociere
             this.roomTypeSelector.FormattingEnabled = true;
             this.roomTypeSelector.Location = new System.Drawing.Point(67, 3);
             this.roomTypeSelector.Name = "roomTypeSelector";
-            this.roomTypeSelector.Size = new System.Drawing.Size(131, 21);
+            this.roomTypeSelector.Size = new System.Drawing.Size(131, 24);
             this.roomTypeSelector.TabIndex = 4;
             this.roomTypeSelector.SelectedIndexChanged += new System.EventHandler(this.updateRoomPosSelector);
             this.roomTypeSelector.TextChanged += new System.EventHandler(this.updateRoomPosSelector);
@@ -698,7 +700,7 @@ namespace db_crociere
             this.roomPositionSel.FormattingEnabled = true;
             this.roomPositionSel.Location = new System.Drawing.Point(70, 3);
             this.roomPositionSel.Name = "roomPositionSel";
-            this.roomPositionSel.Size = new System.Drawing.Size(116, 21);
+            this.roomPositionSel.Size = new System.Drawing.Size(116, 24);
             this.roomPositionSel.TabIndex = 4;
             this.roomPositionSel.SelectedIndexChanged += new System.EventHandler(this.updateNumPeopleSel);
             this.roomPositionSel.TextChanged += new System.EventHandler(this.updateNumPeopleSel);
@@ -728,7 +730,7 @@ namespace db_crociere
             this.roomSizeSel.FormattingEnabled = true;
             this.roomSizeSel.Location = new System.Drawing.Point(73, 3);
             this.roomSizeSel.Name = "roomSizeSel";
-            this.roomSizeSel.Size = new System.Drawing.Size(113, 21);
+            this.roomSizeSel.Size = new System.Drawing.Size(113, 24);
             this.roomSizeSel.TabIndex = 4;
             this.roomSizeSel.SelectedIndexChanged += new System.EventHandler(this.updateMaxRoomQuantity);
             this.roomSizeSel.TextChanged += new System.EventHandler(this.updateMaxRoomQuantity);
@@ -757,7 +759,7 @@ namespace db_crociere
             // 
             this.numRoomUpDownSel.Location = new System.Drawing.Point(82, 3);
             this.numRoomUpDownSel.Name = "numRoomUpDownSel";
-            this.numRoomUpDownSel.Size = new System.Drawing.Size(54, 20);
+            this.numRoomUpDownSel.Size = new System.Drawing.Size(54, 22);
             this.numRoomUpDownSel.TabIndex = 0;
             this.numRoomUpDownSel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numRoomUpDownSel.Value = new decimal(new int[] {
@@ -791,22 +793,23 @@ namespace db_crociere
             this.textTotPostiLetto.Location = new System.Drawing.Point(108, 3);
             this.textTotPostiLetto.Name = "textTotPostiLetto";
             this.textTotPostiLetto.ReadOnly = true;
-            this.textTotPostiLetto.Size = new System.Drawing.Size(90, 20);
+            this.textTotPostiLetto.Size = new System.Drawing.Size(90, 22);
             this.textTotPostiLetto.TabIndex = 4;
             // 
             // roomListBox
             // 
             this.roomListBox.FormattingEnabled = true;
+            this.roomListBox.ItemHeight = 16;
             this.roomListBox.Location = new System.Drawing.Point(229, 20);
             this.roomListBox.Name = "roomListBox";
-            this.roomListBox.Size = new System.Drawing.Size(163, 173);
+            this.roomListBox.Size = new System.Drawing.Size(163, 164);
             this.roomListBox.TabIndex = 0;
             // 
             // addRoomBtn
             // 
-            this.addRoomBtn.Location = new System.Drawing.Point(229, 202);
+            this.addRoomBtn.Location = new System.Drawing.Point(229, 199);
             this.addRoomBtn.Name = "addRoomBtn";
-            this.addRoomBtn.Size = new System.Drawing.Size(75, 23);
+            this.addRoomBtn.Size = new System.Drawing.Size(75, 28);
             this.addRoomBtn.TabIndex = 2;
             this.addRoomBtn.Text = "Aggiungi";
             this.addRoomBtn.UseVisualStyleBackColor = true;
@@ -814,9 +817,9 @@ namespace db_crociere
             // 
             // delRoomBtn
             // 
-            this.delRoomBtn.Location = new System.Drawing.Point(310, 202);
+            this.delRoomBtn.Location = new System.Drawing.Point(310, 199);
             this.delRoomBtn.Name = "delRoomBtn";
-            this.delRoomBtn.Size = new System.Drawing.Size(75, 23);
+            this.delRoomBtn.Size = new System.Drawing.Size(75, 26);
             this.delRoomBtn.TabIndex = 1;
             this.delRoomBtn.Text = "Rimuovi";
             this.delRoomBtn.UseVisualStyleBackColor = true;
@@ -825,6 +828,7 @@ namespace db_crociere
             // flowLayoutPanel21
             // 
             this.flowLayoutPanel21.Controls.Add(this.confirmPrenotBtn);
+            this.flowLayoutPanel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel21.Location = new System.Drawing.Point(646, 379);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -833,12 +837,14 @@ namespace db_crociere
             // 
             // confirmPrenotBtn
             // 
+            this.confirmPrenotBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.confirmPrenotBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmPrenotBtn.Location = new System.Drawing.Point(10, 3);
             this.confirmPrenotBtn.Name = "confirmPrenotBtn";
             this.confirmPrenotBtn.Size = new System.Drawing.Size(164, 39);
             this.confirmPrenotBtn.TabIndex = 0;
             this.confirmPrenotBtn.Text = "Conferma Prenotazione";
-            this.confirmPrenotBtn.UseVisualStyleBackColor = true;
+            this.confirmPrenotBtn.UseVisualStyleBackColor = false;
             this.confirmPrenotBtn.Click += new System.EventHandler(this.confirmPrenotBtn_Click);
             // 
             // flowLayoutPanel23
@@ -886,6 +892,7 @@ namespace db_crociere
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel24);
             this.groupBox2.Controls.Add(this.flowLayoutPanel23);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(3, 352);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(630, 105);
@@ -912,7 +919,7 @@ namespace db_crociere
             this.checkBoxRateizzato.AutoSize = true;
             this.checkBoxRateizzato.Location = new System.Drawing.Point(3, 3);
             this.checkBoxRateizzato.Name = "checkBoxRateizzato";
-            this.checkBoxRateizzato.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxRateizzato.Size = new System.Drawing.Size(90, 20);
             this.checkBoxRateizzato.TabIndex = 0;
             this.checkBoxRateizzato.Text = "Rateizzato";
             this.checkBoxRateizzato.UseVisualStyleBackColor = true;
@@ -922,7 +929,7 @@ namespace db_crociere
             // 
             this.anticipoLabel.AutoSize = true;
             this.anticipoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.anticipoLabel.Location = new System.Drawing.Point(85, 5);
+            this.anticipoLabel.Location = new System.Drawing.Point(99, 5);
             this.anticipoLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.anticipoLabel.Name = "anticipoLabel";
             this.anticipoLabel.Size = new System.Drawing.Size(50, 15);
@@ -932,7 +939,7 @@ namespace db_crociere
             // fieldAnticipo
             // 
             this.fieldAnticipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fieldAnticipo.Location = new System.Drawing.Point(141, 3);
+            this.fieldAnticipo.Location = new System.Drawing.Point(155, 3);
             this.fieldAnticipo.Name = "fieldAnticipo";
             this.fieldAnticipo.Size = new System.Drawing.Size(104, 21);
             this.fieldAnticipo.TabIndex = 4;
@@ -942,7 +949,7 @@ namespace db_crociere
             // 
             this.rateLabel.AutoSize = true;
             this.rateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateLabel.Location = new System.Drawing.Point(251, 5);
+            this.rateLabel.Location = new System.Drawing.Point(265, 5);
             this.rateLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.rateLabel.Name = "rateLabel";
             this.rateLabel.Size = new System.Drawing.Size(33, 15);
@@ -951,14 +958,14 @@ namespace db_crociere
             // 
             // numRateField
             // 
-            this.numRateField.Location = new System.Drawing.Point(290, 3);
+            this.numRateField.Location = new System.Drawing.Point(304, 3);
             this.numRateField.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
             this.numRateField.Name = "numRateField";
-            this.numRateField.Size = new System.Drawing.Size(43, 20);
+            this.numRateField.Size = new System.Drawing.Size(43, 22);
             this.numRateField.TabIndex = 4;
             this.numRateField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numRateField.Value = new decimal(new int[] {
@@ -972,7 +979,7 @@ namespace db_crociere
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(339, 5);
+            this.label6.Location = new System.Drawing.Point(353, 5);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 15);
@@ -982,7 +989,7 @@ namespace db_crociere
             // rataCalcolata
             // 
             this.rataCalcolata.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rataCalcolata.Location = new System.Drawing.Point(418, 3);
+            this.rataCalcolata.Location = new System.Drawing.Point(432, 3);
             this.rataCalcolata.Name = "rataCalcolata";
             this.rataCalcolata.ReadOnly = true;
             this.rataCalcolata.Size = new System.Drawing.Size(99, 21);
@@ -992,7 +999,7 @@ namespace db_crociere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 467);
+            this.ClientSize = new System.Drawing.Size(829, 463);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel21);

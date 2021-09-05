@@ -342,11 +342,18 @@ namespace db_crociere
             // annullataLabel
             // 
             this.annullataLabel.AutoSize = true;
+<<<<<<< HEAD
             this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.annullataLabel.ForeColor = System.Drawing.Color.Red;
             this.annullataLabel.Location = new System.Drawing.Point(164, 21);
             this.annullataLabel.Name = "annullataLabel";
             this.annullataLabel.Size = new System.Drawing.Size(72, 16);
+=======
+            this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.annullataLabel.Location = new System.Drawing.Point(164, 21);
+            this.annullataLabel.Name = "annullataLabel";
+            this.annullataLabel.Size = new System.Drawing.Size(58, 15);
+>>>>>>> cc062f0119d39cdd2d9df1073af776e83a8f00b6
             this.annullataLabel.TabIndex = 10;
             this.annullataLabel.Text = "Annullata";
             // 
@@ -591,8 +598,8 @@ namespace db_crociere
             this.splitContainer1.Panel2.Controls.Add(this.NavigationBox);
             this.splitContainer1.Panel2.Controls.Add(this.InfoPathBox);
             this.splitContainer1.Panel2.Controls.Add(this.InfoShipBox);
-            this.splitContainer1.Size = new System.Drawing.Size(1073, 618);
-            this.splitContainer1.SplitterDistance = 244;
+            this.splitContainer1.Size = new System.Drawing.Size(1174, 618);
+            this.splitContainer1.SplitterDistance = 266;
             this.splitContainer1.TabIndex = 0;
             // 
             // shipListContainer
@@ -610,7 +617,7 @@ namespace db_crociere
             // 
             this.shipListContainer.Panel2.AutoScroll = true;
             this.shipListContainer.Panel2.Controls.Add(this.AddShipBtn);
-            this.shipListContainer.Size = new System.Drawing.Size(244, 618);
+            this.shipListContainer.Size = new System.Drawing.Size(266, 618);
             this.shipListContainer.SplitterDistance = 559;
             this.shipListContainer.TabIndex = 0;
             // 
@@ -623,7 +630,7 @@ namespace db_crociere
             this.shipListBoxContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shipListBoxContainer.Location = new System.Drawing.Point(3, 3);
             this.shipListBoxContainer.Name = "shipListBoxContainer";
-            this.shipListBoxContainer.Size = new System.Drawing.Size(238, 553);
+            this.shipListBoxContainer.Size = new System.Drawing.Size(260, 553);
             this.shipListBoxContainer.TabIndex = 0;
             this.shipListBoxContainer.TabStop = false;
             this.shipListBoxContainer.Text = "Navi";
@@ -638,7 +645,7 @@ namespace db_crociere
             this.shipListBox.ItemHeight = 18;
             this.shipListBox.Location = new System.Drawing.Point(6, 19);
             this.shipListBox.Name = "shipListBox";
-            this.shipListBox.Size = new System.Drawing.Size(226, 508);
+            this.shipListBox.Size = new System.Drawing.Size(248, 508);
             this.shipListBox.TabIndex = 0;
             this.shipListBox.SelectedIndexChanged += new System.EventHandler(this.shipListBox_Click);
             // 
@@ -669,7 +676,7 @@ namespace db_crociere
             this.NavigationBox.Location = new System.Drawing.Point(3, 262);
             this.NavigationBox.MinimumSize = new System.Drawing.Size(300, 200);
             this.NavigationBox.Name = "NavigationBox";
-            this.NavigationBox.Size = new System.Drawing.Size(819, 353);
+            this.NavigationBox.Size = new System.Drawing.Size(898, 353);
             this.NavigationBox.TabIndex = 1;
             this.NavigationBox.TabStop = false;
             this.NavigationBox.Text = "Navigazioni";
@@ -680,7 +687,7 @@ namespace db_crociere
             this.NavigationExecutionGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NavigationExecutionGridView.Location = new System.Drawing.Point(3, 42);
             this.NavigationExecutionGridView.Name = "NavigationExecutionGridView";
-            this.NavigationExecutionGridView.Size = new System.Drawing.Size(813, 308);
+            this.NavigationExecutionGridView.Size = new System.Drawing.Size(892, 308);
             this.NavigationExecutionGridView.TabIndex = 3;
             // 
             // NavigationDropDownMenu
@@ -689,7 +696,7 @@ namespace db_crociere
             this.NavigationDropDownMenu.FormattingEnabled = true;
             this.NavigationDropDownMenu.Location = new System.Drawing.Point(3, 18);
             this.NavigationDropDownMenu.Name = "NavigationDropDownMenu";
-            this.NavigationDropDownMenu.Size = new System.Drawing.Size(813, 24);
+            this.NavigationDropDownMenu.Size = new System.Drawing.Size(892, 24);
             this.NavigationDropDownMenu.TabIndex = 2;
             this.NavigationDropDownMenu.Text = "Scegli Navigazione";
             this.NavigationDropDownMenu.SelectedIndexChanged += new System.EventHandler(this.NavigationDropDownMenu_SelectedIndexChanged);
@@ -707,19 +714,18 @@ namespace db_crociere
             this.InfoPathBox.Location = new System.Drawing.Point(309, 3);
             this.InfoPathBox.MinimumSize = new System.Drawing.Size(300, 200);
             this.InfoPathBox.Name = "InfoPathBox";
-            this.InfoPathBox.Size = new System.Drawing.Size(513, 256);
+            this.InfoPathBox.Size = new System.Drawing.Size(589, 256);
             this.InfoPathBox.TabIndex = 1;
             this.InfoPathBox.TabStop = false;
             this.InfoPathBox.Text = "Percorso";
             // 
             // AddPathBtn
             // 
-            this.AddPathBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddPathBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddPathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPathBtn.Location = new System.Drawing.Point(404, 49);
+            this.AddPathBtn.Location = new System.Drawing.Point(442, 49);
             this.AddPathBtn.MinimumSize = new System.Drawing.Size(35, 28);
             this.AddPathBtn.Name = "AddPathBtn";
             this.AddPathBtn.Size = new System.Drawing.Size(103, 30);
@@ -737,7 +743,7 @@ namespace db_crociere
             this.SectionsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SectionsGridView.Location = new System.Drawing.Point(6, 85);
             this.SectionsGridView.Name = "SectionsGridView";
-            this.SectionsGridView.Size = new System.Drawing.Size(501, 165);
+            this.SectionsGridView.Size = new System.Drawing.Size(576, 165);
             this.SectionsGridView.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -757,7 +763,7 @@ namespace db_crociere
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(366, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(442, 60);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // DurationLabel
@@ -767,7 +773,7 @@ namespace db_crociere
             this.DurationLabel.AutoSize = true;
             this.DurationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DurationLabel.ForeColor = System.Drawing.Color.Black;
-            this.DurationLabel.Location = new System.Drawing.Point(158, 30);
+            this.DurationLabel.Location = new System.Drawing.Point(191, 30);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(87, 30);
             this.DurationLabel.TabIndex = 9;
@@ -781,7 +787,7 @@ namespace db_crociere
             this.PathCodeLabel.AutoSize = true;
             this.PathCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PathCodeLabel.ForeColor = System.Drawing.Color.Black;
-            this.PathCodeLabel.Location = new System.Drawing.Point(158, 0);
+            this.PathCodeLabel.Location = new System.Drawing.Point(191, 0);
             this.PathCodeLabel.Name = "PathCodeLabel";
             this.PathCodeLabel.Size = new System.Drawing.Size(87, 30);
             this.PathCodeLabel.TabIndex = 8;
@@ -1073,7 +1079,7 @@ namespace db_crociere
             // 
             // GrossBoxOfficeLabel
             // 
-            this.GrossBoxOfficeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrossBoxOfficeLabel.Location = new System.Drawing.Point(804, 17);
             this.GrossBoxOfficeLabel.Name = "GrossBoxOfficeLabel";
             this.GrossBoxOfficeLabel.Size = new System.Drawing.Size(255, 43);
@@ -1085,7 +1091,7 @@ namespace db_crociere
             // 
             this.GrossBoxOfficeBtn.BackColor = System.Drawing.Color.LemonChiffon;
             this.GrossBoxOfficeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GrossBoxOfficeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrossBoxOfficeBtn.Location = new System.Drawing.Point(574, 17);
             this.GrossBoxOfficeBtn.Name = "GrossBoxOfficeBtn";
             this.GrossBoxOfficeBtn.Size = new System.Drawing.Size(224, 43);
@@ -1174,9 +1180,9 @@ namespace db_crociere
             this.AddExpensesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddExpensesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddExpensesBtn.ForeColor = System.Drawing.Color.Black;
-            this.AddExpensesBtn.Location = new System.Drawing.Point(807, 560);
+            this.AddExpensesBtn.Location = new System.Drawing.Point(950, 577);
             this.AddExpensesBtn.Name = "AddExpensesBtn";
-            this.AddExpensesBtn.Size = new System.Drawing.Size(252, 49);
+            this.AddExpensesBtn.Size = new System.Drawing.Size(224, 41);
             this.AddExpensesBtn.TabIndex = 2;
             this.AddExpensesBtn.Text = "AMMINISTRA SPESE";
             this.AddExpensesBtn.UseVisualStyleBackColor = false;
