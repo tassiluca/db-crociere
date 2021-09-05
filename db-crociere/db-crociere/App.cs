@@ -188,7 +188,7 @@ namespace db_crociere
                 else {
                     dataUltimaRata = DateTime.MinValue;
                 }
-                rataCostField.Text = ((paym.Importo - paym.Anticipo) / paym.NumeroRate).ToString();
+                rataCostField.Text = Convert.ToInt32(((paym.Importo - paym.Anticipo) / paym.NumeroRate)).ToString();
                 rateToPayField.Text = rateRimaste.ToString();
                 Console.WriteLine("Ultima rata pagata data: "+dataUltimaRata);
                 if (rateRimaste <= 0 || dataUltimaRata.Date == DateTime.Now.Date)
