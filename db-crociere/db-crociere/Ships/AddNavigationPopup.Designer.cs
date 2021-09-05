@@ -107,7 +107,7 @@ namespace db_crociere
             this.InsertexEcutionGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertexEcutionGroupBox.Location = new System.Drawing.Point(10, 366);
             this.InsertexEcutionGroupBox.Name = "InsertexEcutionGroupBox";
-            this.InsertexEcutionGroupBox.Size = new System.Drawing.Size(754, 89);
+            this.InsertexEcutionGroupBox.Size = new System.Drawing.Size(853, 89);
             this.InsertexEcutionGroupBox.TabIndex = 27;
             this.InsertexEcutionGroupBox.TabStop = false;
             this.InsertexEcutionGroupBox.Text = "Inserisci Eecuzione Tratta";
@@ -278,7 +278,7 @@ namespace db_crociere
             // 
             this.AddExecutionSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddExecutionSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddExecutionSection.Location = new System.Drawing.Point(666, 56);
+            this.AddExecutionSection.Location = new System.Drawing.Point(777, 56);
             this.AddExecutionSection.Name = "AddExecutionSection";
             this.AddExecutionSection.Size = new System.Drawing.Size(79, 27);
             this.AddExecutionSection.TabIndex = 3;
@@ -293,7 +293,7 @@ namespace db_crociere
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(10, 281);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(754, 79);
+            this.groupBox2.Size = new System.Drawing.Size(853, 79);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inserisci Navigazione";
@@ -400,7 +400,7 @@ namespace db_crociere
             // 
             this.AddNavigationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddNavigationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNavigationBtn.Location = new System.Drawing.Point(666, 46);
+            this.AddNavigationBtn.Location = new System.Drawing.Point(777, 46);
             this.AddNavigationBtn.Name = "AddNavigationBtn";
             this.AddNavigationBtn.Size = new System.Drawing.Size(79, 27);
             this.AddNavigationBtn.TabIndex = 3;
@@ -413,9 +413,9 @@ namespace db_crociere
             this.groupBox1.Controls.Add(this.flowLayoutPanel4);
             this.groupBox1.Controls.Add(this.AddSectionBtn);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(407, 12);
+            this.groupBox1.Location = new System.Drawing.Point(441, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(357, 105);
+            this.groupBox1.Size = new System.Drawing.Size(425, 105);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserisci Tratta";
@@ -475,7 +475,7 @@ namespace db_crociere
             // 
             this.AddSectionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddSectionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddSectionBtn.Location = new System.Drawing.Point(269, 17);
+            this.AddSectionBtn.Location = new System.Drawing.Point(346, 17);
             this.AddSectionBtn.Name = "AddSectionBtn";
             this.AddSectionBtn.Size = new System.Drawing.Size(79, 27);
             this.AddSectionBtn.TabIndex = 3;
@@ -490,7 +490,7 @@ namespace db_crociere
             this.InsertHarborInfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertHarborInfoBox.Location = new System.Drawing.Point(10, 12);
             this.InsertHarborInfoBox.Name = "InsertHarborInfoBox";
-            this.InsertHarborInfoBox.Size = new System.Drawing.Size(375, 105);
+            this.InsertHarborInfoBox.Size = new System.Drawing.Size(403, 105);
             this.InsertHarborInfoBox.TabIndex = 24;
             this.InsertHarborInfoBox.TabStop = false;
             this.InsertHarborInfoBox.Text = "Inserisci Porto";
@@ -590,7 +590,7 @@ namespace db_crociere
             // 
             this.AddHarbour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddHarbour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddHarbour.Location = new System.Drawing.Point(289, 19);
+            this.AddHarbour.Location = new System.Drawing.Point(322, 19);
             this.AddHarbour.Name = "AddHarbour";
             this.AddHarbour.Size = new System.Drawing.Size(75, 27);
             this.AddHarbour.TabIndex = 3;
@@ -609,7 +609,7 @@ namespace db_crociere
             this.InsertPathInfoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertPathInfoBox.Location = new System.Drawing.Point(10, 123);
             this.InsertPathInfoBox.Name = "InsertPathInfoBox";
-            this.InsertPathInfoBox.Size = new System.Drawing.Size(754, 152);
+            this.InsertPathInfoBox.Size = new System.Drawing.Size(856, 152);
             this.InsertPathInfoBox.TabIndex = 23;
             this.InsertPathInfoBox.TabStop = false;
             this.InsertPathInfoBox.Text = "Inserisci Percorso";
@@ -618,9 +618,9 @@ namespace db_crociere
             // 
             this.InsertedSections.FormattingEnabled = true;
             this.InsertedSections.ItemHeight = 16;
-            this.InsertedSections.Location = new System.Drawing.Point(237, 19);
+            this.InsertedSections.Location = new System.Drawing.Point(287, 18);
             this.InsertedSections.Name = "InsertedSections";
-            this.InsertedSections.Size = new System.Drawing.Size(174, 116);
+            this.InsertedSections.Size = new System.Drawing.Size(235, 116);
             this.InsertedSections.TabIndex = 16;
             // 
             // SectionsListBox
@@ -629,14 +629,14 @@ namespace db_crociere
             this.SectionsListBox.ItemHeight = 16;
             this.SectionsListBox.Location = new System.Drawing.Point(9, 19);
             this.SectionsListBox.Name = "SectionsListBox";
-            this.SectionsListBox.Size = new System.Drawing.Size(184, 116);
+            this.SectionsListBox.Size = new System.Drawing.Size(235, 116);
             this.SectionsListBox.TabIndex = 15;
             // 
             // AddPathBtn
             // 
             this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddPathBtn.Location = new System.Drawing.Point(666, 105);
+            this.AddPathBtn.Location = new System.Drawing.Point(777, 105);
             this.AddPathBtn.Name = "AddPathBtn";
             this.AddPathBtn.Size = new System.Drawing.Size(79, 29);
             this.AddPathBtn.TabIndex = 3;
@@ -652,7 +652,7 @@ namespace db_crociere
             this.flowLayoutPanel2.Controls.Add(this.DurationTextBox);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameInfo);
             this.flowLayoutPanel2.Controls.Add(this.ShipNameComboPath);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(417, 19);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(525, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(331, 80);
             this.flowLayoutPanel2.TabIndex = 14;
@@ -717,7 +717,7 @@ namespace db_crociere
             // 
             // InsertSectionPathBtn
             // 
-            this.InsertSectionPathBtn.Location = new System.Drawing.Point(199, 47);
+            this.InsertSectionPathBtn.Location = new System.Drawing.Point(249, 47);
             this.InsertSectionPathBtn.Name = "InsertSectionPathBtn";
             this.InsertSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.InsertSectionPathBtn.TabIndex = 18;
@@ -727,7 +727,7 @@ namespace db_crociere
             // 
             // DeleteSectionPathBtn
             // 
-            this.DeleteSectionPathBtn.Location = new System.Drawing.Point(199, 76);
+            this.DeleteSectionPathBtn.Location = new System.Drawing.Point(249, 76);
             this.DeleteSectionPathBtn.Name = "DeleteSectionPathBtn";
             this.DeleteSectionPathBtn.Size = new System.Drawing.Size(32, 23);
             this.DeleteSectionPathBtn.TabIndex = 19;
@@ -739,7 +739,7 @@ namespace db_crociere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 467);
+            this.ClientSize = new System.Drawing.Size(869, 467);
             this.Controls.Add(this.InsertexEcutionGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
