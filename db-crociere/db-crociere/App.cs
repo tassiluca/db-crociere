@@ -134,18 +134,126 @@ namespace db_crociere
             Console.WriteLine("FOCUS");
             updateShipList(sender, e);
             updatePrenRimbTable();
+            updatePayPrenSelector();
+            updatePrenCancelled();
+        }
+
+        private void updatePrenCancelled()
+        {
+            var cancelled = from c in db.ANNULLAMENTI
+                            select new {
+                                c.CodPrenotazione,
+                                c.DataRichiesta,
+                                c.CodRimborso
+                            };
+            cancelledPrenview.DataSource =cancelled;
+        }
+
+        private void updatePayPrenSelector()
+        {
+            var pren = from p in db.PRENOTAZIONI
+                       select p.CodPrenotazione;
+            prenotSelector.DataSource = pren;
+        }
+
+        private void refreshPaymentInf(object sender, EventArgs e)
+        {
+            var selectedPren = prenotSelector.SelectedItem.ToString();
+            var paym = getPayment(selectedPren);
+            var ratePagate = from r in db.RATE
+                                where r.CodTransazione == paym.CodTransazione
+                                select r;
+            var annullati = from a in db.ANNULLAMENTI
+                            where a.CodPrenotazione == Decimal.Parse(selectedPren)
+                            select a;
+            pricePrenField.Text = paym.Importo.ToString();
+            pagarataLabel.Text = "*La rata viene inserita con data odierna: " + DateTime.Now.Date;
+
+            if (annullati.Count() > 0) {
+                annullataLabel.Text = "Annullata";
+            }
+            else
+            {
+                annullataLabel.Text = "";
+            }
+
+            if (paym.NumeroRate != null && paym.Anticipo != null)
+            {
+                var rateRimaste = paym.NumeroRate - ratePagate.Count();
+                DateTime dataUltimaRata;
+                if (ratePagate.Count() > 0)
+                {
+                    dataUltimaRata = ratePagate.OrderBy(r => r.DataPagamento).First().DataPagamento;
+                }
+                else {
+                    dataUltimaRata = DateTime.MinValue;
+                }
+                rataCostField.Text = ((paym.Importo - paym.Anticipo) / paym.NumeroRate).ToString();
+                rateToPayField.Text = rateRimaste.ToString();
+                Console.WriteLine("Ultima rata pagata data: "+dataUltimaRata);
+                if (rateRimaste <= 0 || dataUltimaRata.Date == DateTime.Now.Date)
+                {
+                    payRataBtn.Enabled = false;
+                }
+                else {
+                    payRataBtn.Enabled = true;
+                }
+            }
+            else {
+                rataCostField.Text = "Non rateizzato";
+                rateToPayField.Text = "/";
+                payRataBtn.Enabled = false;
+            }
+            dataGridRate.DataSource =ratePagate.Select(r => new {r.DataPagamento,
+                                                                 r.CodTransazione,
+                                                                 r.Importo}) ;
+            
+        }
+
+        private void addPayRata(object sender, EventArgs e)
+        {         
+            var codTrans = getPayment(prenotSelector.SelectedItem.ToString()).CodTransazione;
+            var rataCost = Decimal.Parse(rataCostField.Text);
+            var rata = new RATE
+            {
+                CodTransazione = codTrans,
+                DataPagamento = DateTime.Now,
+                Importo = rataCost
+            };
+            db.RATE.InsertOnSubmit(rata);
+            db.SubmitChanges();
+            refreshPaymentInf(sender, e);
+        }
+
+        private PAGAMENTI getPayment(String codPrenot)
+        {
+            Console.WriteLine("Ricavo codTransazione per codPreotazione: "+ codPrenot);
+            return (from pren in db.PRENOTAZIONI
+             from pays in db.PAGAMENTI
+             where pays.CodTransazione == pren.CodTransazione
+             && pren.CodPrenotazione == Decimal.Parse(codPrenot)
+             select pays).First();
         }
 
         private void updatePrenRimbTable()
         {
             var pren = from p in db.PRENOTAZIONI
-                        select p;
+                        select new { 
+                            p.CodPrenotazione,
+                            p.DataEffettuazione,
+                            p.DataOraImbarco,
+                            p.DataOraSbarco,
+                            p.CodNavigazione,
+                            p.CodPorto,
+                            p.Trattamento,
+                            p.CodTransazione
+                        };
             prenViewTable.DataSource = pren;
 
             var rimb = from r in db.RIMBORSI
                        select r;
             rimbView.DataSource = rimb;
-        }
+            }
 
         private void shipListBox_Click(object sender, EventArgs e)
         {
@@ -473,5 +581,6 @@ namespace db_crociere
                 series.Points.Add(Decimal.ToDouble(elem.Numero_Responsabilità));
             }
         }
+
     }
 }

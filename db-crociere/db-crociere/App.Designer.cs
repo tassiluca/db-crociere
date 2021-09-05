@@ -29,20 +29,38 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
+            this.paymentsLayout = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelPren = new System.Windows.Forms.Label();
+            this.prenotSelector = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel23 = new System.Windows.Forms.FlowLayoutPanel();
+            this.totalCostPrenLabel = new System.Windows.Forms.Label();
+            this.pricePrenField = new System.Windows.Forms.TextBox();
+            this.euroLabel = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rataCostField = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rateToPayField = new System.Windows.Forms.TextBox();
+            this.payRataBtn = new System.Windows.Forms.Button();
+            this.dataGridRate = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addRefound = new System.Windows.Forms.Button();
             this.rimbView = new System.Windows.Forms.DataGridView();
@@ -83,6 +101,8 @@ namespace db_crociere
             this.HeightLabel = new System.Windows.Forms.Label();
             this.CabinsNumLabel = new System.Windows.Forms.Label();
             this.ExpenseTrackerPage = new System.Windows.Forms.TabPage();
+            this.GrossBoxOfficeLabel = new System.Windows.Forms.Label();
+            this.GrossBoxOfficeBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BadgeIdComboBox = new System.Windows.Forms.ComboBox();
             this.ExpensesGridView = new System.Windows.Forms.DataGridView();
@@ -91,8 +111,23 @@ namespace db_crociere
             this.PriceListGridView = new System.Windows.Forms.DataGridView();
             this.AddExpensesBtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ActivitiesGridView = new System.Windows.Forms.DataGridView();
+            this.ActivityNavigationComboBox = new System.Windows.Forms.ComboBox();
+            this.AddActivitiesBtn = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.NavigationComboBox = new System.Windows.Forms.ComboBox();
+            this.ShiftsGridView = new System.Windows.Forms.DataGridView();
+            this.ShiftFCComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ResponsabilitiesGridView = new System.Windows.Forms.DataGridView();
+            this.ResponsabilitiesNavigationComboBox = new System.Windows.Forms.ComboBox();
             this.AddPersonal = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RankResponsabilitiesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.RankHarborsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.RankResponsabilitiesBtn = new System.Windows.Forms.Button();
+            this.RankResponsabilitiesGridView = new System.Windows.Forms.DataGridView();
             this.RankHarborBooking = new System.Windows.Forms.DataGridView();
             this.RankHarborsBtn = new System.Windows.Forms.Button();
             this.AverageCostsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -101,25 +136,21 @@ namespace db_crociere
             this.RankingPathBtn = new System.Windows.Forms.Button();
             this.RankPathGridView = new System.Windows.Forms.DataGridView();
             this.RankingPathChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ResponsabilitiesNavigationComboBox = new System.Windows.Forms.ComboBox();
-            this.ResponsabilitiesGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.ShiftsGridView = new System.Windows.Forms.DataGridView();
-            this.ShiftFCComboBox = new System.Windows.Forms.ComboBox();
-            this.NavigationComboBox = new System.Windows.Forms.ComboBox();
-            this.RankResponsabilitiesGridView = new System.Windows.Forms.DataGridView();
-            this.RankResponsabilitiesBtn = new System.Windows.Forms.Button();
-            this.GrossBoxOfficeLabel = new System.Windows.Forms.Label();
-            this.GrossBoxOfficeBtn = new System.Windows.Forms.Button();
-            this.RankHarborsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.AddActivitiesBtn = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.ActivitiesGridView = new System.Windows.Forms.DataGridView();
-            this.ActivityNavigationComboBox = new System.Windows.Forms.ComboBox();
-            this.RankResponsabilitiesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pagarataLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.annullataLabel = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.cancelledPrenview = new System.Windows.Forms.DataGridView();
             this.menuContainer.SuspendLayout();
             this.bookingTab.SuspendLayout();
+            this.paymentsLayout.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel23.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRate)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rimbView)).BeginInit();
             this.prenBox.SuspendLayout();
@@ -147,21 +178,24 @@ namespace db_crociere
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ActivitiesGridView)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShiftsGridView)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ResponsabilitiesGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankHarborsChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankHarborBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AverageCostsChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankingPathChart)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResponsabilitiesGridView)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankHarborsChart)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ActivitiesGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesChart)).BeginInit();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).BeginInit();
             this.SuspendLayout();
             // 
             // menuContainer
@@ -183,6 +217,7 @@ namespace db_crociere
             // 
             // bookingTab
             // 
+            this.bookingTab.Controls.Add(this.paymentsLayout);
             this.bookingTab.Controls.Add(this.groupBox1);
             this.bookingTab.Controls.Add(this.prenBox);
             this.bookingTab.Location = new System.Drawing.Point(4, 22);
@@ -193,65 +228,270 @@ namespace db_crociere
             this.bookingTab.Text = "Prenotazioni";
             this.bookingTab.UseVisualStyleBackColor = true;
             // 
+            // paymentsLayout
+            // 
+            this.paymentsLayout.Controls.Add(this.label4);
+            this.paymentsLayout.Controls.Add(this.flowLayoutPanel1);
+            this.paymentsLayout.Controls.Add(this.dataGridRate);
+            this.paymentsLayout.Location = new System.Drawing.Point(546, 348);
+            this.paymentsLayout.Name = "paymentsLayout";
+            this.paymentsLayout.Size = new System.Drawing.Size(628, 257);
+            this.paymentsLayout.TabIndex = 3;
+            this.paymentsLayout.TabStop = false;
+            this.paymentsLayout.Text = "Pagamenti/Rate";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel7);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel23);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 18);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 233);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.labelPren);
+            this.flowLayoutPanel7.Controls.Add(this.prenotSelector);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(269, 28);
+            this.flowLayoutPanel7.TabIndex = 1;
+            // 
+            // labelPren
+            // 
+            this.labelPren.AutoSize = true;
+            this.labelPren.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPren.Location = new System.Drawing.Point(3, 0);
+            this.labelPren.Name = "labelPren";
+            this.labelPren.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelPren.Size = new System.Drawing.Size(80, 20);
+            this.labelPren.TabIndex = 8;
+            this.labelPren.Text = "Prenotazione";
+            // 
+            // prenotSelector
+            // 
+            this.prenotSelector.FormattingEnabled = true;
+            this.prenotSelector.Location = new System.Drawing.Point(89, 3);
+            this.prenotSelector.Name = "prenotSelector";
+            this.prenotSelector.Size = new System.Drawing.Size(143, 21);
+            this.prenotSelector.TabIndex = 7;
+            this.prenotSelector.Text = "Prenotazione";
+            this.prenotSelector.SelectedIndexChanged += new System.EventHandler(this.refreshPaymentInf);
+            // 
+            // flowLayoutPanel23
+            // 
+            this.flowLayoutPanel23.Controls.Add(this.totalCostPrenLabel);
+            this.flowLayoutPanel23.Controls.Add(this.pricePrenField);
+            this.flowLayoutPanel23.Controls.Add(this.euroLabel);
+            this.flowLayoutPanel23.Controls.Add(this.annullataLabel);
+            this.flowLayoutPanel23.Location = new System.Drawing.Point(3, 37);
+            this.flowLayoutPanel23.Name = "flowLayoutPanel23";
+            this.flowLayoutPanel23.Size = new System.Drawing.Size(269, 55);
+            this.flowLayoutPanel23.TabIndex = 6;
+            // 
+            // totalCostPrenLabel
+            // 
+            this.totalCostPrenLabel.AutoSize = true;
+            this.totalCostPrenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCostPrenLabel.Location = new System.Drawing.Point(3, 5);
+            this.totalCostPrenLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.totalCostPrenLabel.Name = "totalCostPrenLabel";
+            this.totalCostPrenLabel.Size = new System.Drawing.Size(135, 16);
+            this.totalCostPrenLabel.TabIndex = 9;
+            this.totalCostPrenLabel.Text = "Importo Prenotazione";
+            // 
+            // pricePrenField
+            // 
+            this.pricePrenField.Enabled = false;
+            this.pricePrenField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pricePrenField.Location = new System.Drawing.Point(3, 24);
+            this.pricePrenField.Name = "pricePrenField";
+            this.pricePrenField.ReadOnly = true;
+            this.pricePrenField.Size = new System.Drawing.Size(135, 24);
+            this.pricePrenField.TabIndex = 1;
+            this.pricePrenField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // euroLabel
+            // 
+            this.euroLabel.AutoSize = true;
+            this.euroLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.euroLabel.Location = new System.Drawing.Point(141, 29);
+            this.euroLabel.Margin = new System.Windows.Forms.Padding(0, 8, 3, 0);
+            this.euroLabel.Name = "euroLabel";
+            this.euroLabel.Size = new System.Drawing.Size(17, 18);
+            this.euroLabel.TabIndex = 2;
+            this.euroLabel.Text = "€";
+            this.euroLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.rataCostField);
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 98);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(158, 55);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.label1.Size = new System.Drawing.Size(135, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Importo Rata";
+            // 
+            // rataCostField
+            // 
+            this.rataCostField.Enabled = false;
+            this.rataCostField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rataCostField.Location = new System.Drawing.Point(3, 24);
+            this.rataCostField.Name = "rataCostField";
+            this.rataCostField.ReadOnly = true;
+            this.rataCostField.Size = new System.Drawing.Size(117, 24);
+            this.rataCostField.TabIndex = 1;
+            this.rataCostField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(123, 29);
+            this.label2.Margin = new System.Windows.Forms.Padding(0, 8, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "€";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label3);
+            this.flowLayoutPanel3.Controls.Add(this.rateToPayField);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(167, 98);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(110, 55);
+            this.flowLayoutPanel3.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Rate Rimanenti";
+            // 
+            // rateToPayField
+            // 
+            this.rateToPayField.Enabled = false;
+            this.rateToPayField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateToPayField.Location = new System.Drawing.Point(3, 24);
+            this.rateToPayField.Name = "rateToPayField";
+            this.rateToPayField.ReadOnly = true;
+            this.rateToPayField.Size = new System.Drawing.Size(67, 24);
+            this.rateToPayField.TabIndex = 1;
+            this.rateToPayField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // payRataBtn
+            // 
+            this.payRataBtn.Location = new System.Drawing.Point(3, 3);
+            this.payRataBtn.Name = "payRataBtn";
+            this.payRataBtn.Size = new System.Drawing.Size(95, 28);
+            this.payRataBtn.TabIndex = 9;
+            this.payRataBtn.Text = "Paga Rata";
+            this.payRataBtn.UseVisualStyleBackColor = true;
+            this.payRataBtn.Click += new System.EventHandler(this.addPayRata);
+            // 
+            // dataGridRate
+            // 
+            this.dataGridRate.AllowUserToAddRows = false;
+            this.dataGridRate.AllowUserToDeleteRows = false;
+            this.dataGridRate.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridRate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRate.Location = new System.Drawing.Point(293, 37);
+            this.dataGridRate.Name = "dataGridRate";
+            this.dataGridRate.ReadOnly = true;
+            this.dataGridRate.Size = new System.Drawing.Size(329, 214);
+            this.dataGridRate.TabIndex = 0;
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.addRefound);
             this.groupBox1.Controls.Add(this.rimbView);
-            this.groupBox1.Location = new System.Drawing.Point(3, 360);
+            this.groupBox1.Location = new System.Drawing.Point(6, 347);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(499, 258);
+            this.groupBox1.Size = new System.Drawing.Size(534, 271);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Annullamenti/Rimborsi";
+            this.groupBox1.Text = "Tariffe Rimborso";
             // 
             // addRefound
             // 
-            this.addRefound.Location = new System.Drawing.Point(6, 233);
+            this.addRefound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.addRefound.Location = new System.Drawing.Point(98, 295);
             this.addRefound.Name = "addRefound";
-            this.addRefound.Size = new System.Drawing.Size(104, 23);
+            this.addRefound.Size = new System.Drawing.Size(138, 29);
             this.addRefound.TabIndex = 0;
-            this.addRefound.Text = "Nuovo Rimborso";
-            this.addRefound.UseVisualStyleBackColor = true;
+            this.addRefound.Text = "Annulla Prenotazione";
+            this.addRefound.UseVisualStyleBackColor = false;
             this.addRefound.Click += new System.EventHandler(this.addRefound_Click);
             // 
             // rimbView
             // 
+            this.rimbView.AllowUserToAddRows = false;
+            this.rimbView.AllowUserToDeleteRows = false;
+            this.rimbView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.rimbView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rimbView.Location = new System.Drawing.Point(6, 19);
             this.rimbView.Name = "rimbView";
-            this.rimbView.Size = new System.Drawing.Size(489, 208);
+            this.rimbView.ReadOnly = true;
+            this.rimbView.Size = new System.Drawing.Size(522, 246);
             this.rimbView.TabIndex = 0;
             // 
             // prenBox
             // 
+            this.prenBox.Controls.Add(this.groupBox7);
+            this.prenBox.Controls.Add(this.addRefound);
             this.prenBox.Controls.Add(this.addPrenBtn);
             this.prenBox.Controls.Add(this.prenViewTable);
             this.prenBox.Location = new System.Drawing.Point(6, 6);
             this.prenBox.Name = "prenBox";
-            this.prenBox.Size = new System.Drawing.Size(1067, 348);
+            this.prenBox.Size = new System.Drawing.Size(1168, 335);
             this.prenBox.TabIndex = 1;
             this.prenBox.TabStop = false;
             this.prenBox.Text = "Prenotazioni";
             // 
             // addPrenBtn
             // 
-            this.addPrenBtn.Location = new System.Drawing.Point(6, 301);
+            this.addPrenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.addPrenBtn.Location = new System.Drawing.Point(6, 295);
             this.addPrenBtn.Name = "addPrenBtn";
-            this.addPrenBtn.Size = new System.Drawing.Size(75, 22);
+            this.addPrenBtn.Size = new System.Drawing.Size(86, 29);
             this.addPrenBtn.TabIndex = 0;
             this.addPrenBtn.Text = "Aggiungi";
-            this.addPrenBtn.UseVisualStyleBackColor = true;
+            this.addPrenBtn.UseVisualStyleBackColor = false;
             this.addPrenBtn.Click += new System.EventHandler(this.addPrenBtn_Click);
             // 
             // prenViewTable
             // 
             this.prenViewTable.AllowUserToAddRows = false;
             this.prenViewTable.AllowUserToDeleteRows = false;
+            this.prenViewTable.BackgroundColor = System.Drawing.SystemColors.Control;
             this.prenViewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prenViewTable.Location = new System.Drawing.Point(6, 19);
             this.prenViewTable.Name = "prenViewTable";
             this.prenViewTable.ReadOnly = true;
-            this.prenViewTable.Size = new System.Drawing.Size(1055, 258);
+            this.prenViewTable.Size = new System.Drawing.Size(813, 270);
             this.prenViewTable.TabIndex = 0;
             // 
             // shipPage
@@ -261,7 +501,7 @@ namespace db_crociere
             this.shipPage.Location = new System.Drawing.Point(4, 22);
             this.shipPage.Name = "shipPage";
             this.shipPage.Padding = new System.Windows.Forms.Padding(3);
-            this.shipPage.Size = new System.Drawing.Size(1079, 624);
+            this.shipPage.Size = new System.Drawing.Size(1180, 624);
             this.shipPage.TabIndex = 1;
             this.shipPage.Text = "Navi";
             this.shipPage.UseVisualStyleBackColor = true;
@@ -760,10 +1000,33 @@ namespace db_crociere
             this.ExpenseTrackerPage.Location = new System.Drawing.Point(4, 22);
             this.ExpenseTrackerPage.Name = "ExpenseTrackerPage";
             this.ExpenseTrackerPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ExpenseTrackerPage.Size = new System.Drawing.Size(1079, 624);
+            this.ExpenseTrackerPage.Size = new System.Drawing.Size(1180, 624);
             this.ExpenseTrackerPage.TabIndex = 2;
             this.ExpenseTrackerPage.Text = "Spese";
             this.ExpenseTrackerPage.UseVisualStyleBackColor = true;
+            // 
+            // GrossBoxOfficeLabel
+            // 
+            this.GrossBoxOfficeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeLabel.Location = new System.Drawing.Point(804, 17);
+            this.GrossBoxOfficeLabel.Name = "GrossBoxOfficeLabel";
+            this.GrossBoxOfficeLabel.Size = new System.Drawing.Size(255, 43);
+            this.GrossBoxOfficeLabel.TabIndex = 18;
+            this.GrossBoxOfficeLabel.Text = "label1";
+            this.GrossBoxOfficeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GrossBoxOfficeBtn
+            // 
+            this.GrossBoxOfficeBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.GrossBoxOfficeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GrossBoxOfficeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrossBoxOfficeBtn.Location = new System.Drawing.Point(574, 17);
+            this.GrossBoxOfficeBtn.Name = "GrossBoxOfficeBtn";
+            this.GrossBoxOfficeBtn.Size = new System.Drawing.Size(224, 43);
+            this.GrossBoxOfficeBtn.TabIndex = 17;
+            this.GrossBoxOfficeBtn.Text = "Incassi Lordi ultimo anno";
+            this.GrossBoxOfficeBtn.UseVisualStyleBackColor = false;
+            this.GrossBoxOfficeBtn.Click += new System.EventHandler(this.GrossBoxOfficeBtn_Click);
             // 
             // groupBox3
             // 
@@ -868,6 +1131,130 @@ namespace db_crociere
             this.tabPage1.Text = "Personale";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.ActivitiesGridView);
+            this.groupBox6.Controls.Add(this.ActivityNavigationComboBox);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(603, 15);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(558, 544);
+            this.groupBox6.TabIndex = 4;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Programmazione";
+            // 
+            // ActivitiesGridView
+            // 
+            this.ActivitiesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActivitiesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.ActivitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ActivitiesGridView.Location = new System.Drawing.Point(6, 51);
+            this.ActivitiesGridView.Name = "ActivitiesGridView";
+            this.ActivitiesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ActivitiesGridView.Size = new System.Drawing.Size(546, 487);
+            this.ActivitiesGridView.TabIndex = 1;
+            // 
+            // ActivityNavigationComboBox
+            // 
+            this.ActivityNavigationComboBox.FormattingEnabled = true;
+            this.ActivityNavigationComboBox.Location = new System.Drawing.Point(6, 19);
+            this.ActivityNavigationComboBox.Name = "ActivityNavigationComboBox";
+            this.ActivityNavigationComboBox.Size = new System.Drawing.Size(434, 26);
+            this.ActivityNavigationComboBox.TabIndex = 0;
+            this.ActivityNavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.ActivityNavigationComboBox_SelectedIndexChanged);
+            this.ActivityNavigationComboBox.Click += new System.EventHandler(this.ActivityNavigationComboBox_Click);
+            // 
+            // AddActivitiesBtn
+            // 
+            this.AddActivitiesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddActivitiesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddActivitiesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddActivitiesBtn.Location = new System.Drawing.Point(990, 568);
+            this.AddActivitiesBtn.Name = "AddActivitiesBtn";
+            this.AddActivitiesBtn.Size = new System.Drawing.Size(171, 50);
+            this.AddActivitiesBtn.TabIndex = 3;
+            this.AddActivitiesBtn.Text = "AGGIUNGI ATTIVITA\'";
+            this.AddActivitiesBtn.UseVisualStyleBackColor = false;
+            this.AddActivitiesBtn.Click += new System.EventHandler(this.AddActivitiesBtn_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.NavigationComboBox);
+            this.groupBox5.Controls.Add(this.ShiftsGridView);
+            this.groupBox5.Controls.Add(this.ShiftFCComboBox);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(15, 298);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(264, 316);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Turni Lavorativi";
+            // 
+            // NavigationComboBox
+            // 
+            this.NavigationComboBox.FormattingEnabled = true;
+            this.NavigationComboBox.Location = new System.Drawing.Point(6, 51);
+            this.NavigationComboBox.Name = "NavigationComboBox";
+            this.NavigationComboBox.Size = new System.Drawing.Size(157, 26);
+            this.NavigationComboBox.TabIndex = 2;
+            this.NavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.NavigationComboBox_SelectedIndexChanged);
+            this.NavigationComboBox.Click += new System.EventHandler(this.NavigationComboBox_Click);
+            // 
+            // ShiftsGridView
+            // 
+            this.ShiftsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShiftsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShiftsGridView.Location = new System.Drawing.Point(6, 83);
+            this.ShiftsGridView.Name = "ShiftsGridView";
+            this.ShiftsGridView.Size = new System.Drawing.Size(252, 227);
+            this.ShiftsGridView.TabIndex = 1;
+            // 
+            // ShiftFCComboBox
+            // 
+            this.ShiftFCComboBox.FormattingEnabled = true;
+            this.ShiftFCComboBox.Location = new System.Drawing.Point(6, 19);
+            this.ShiftFCComboBox.Name = "ShiftFCComboBox";
+            this.ShiftFCComboBox.Size = new System.Drawing.Size(187, 26);
+            this.ShiftFCComboBox.TabIndex = 0;
+            this.ShiftFCComboBox.Click += new System.EventHandler(this.ShiftFCComboBox_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ResponsabilitiesGridView);
+            this.groupBox4.Controls.Add(this.ResponsabilitiesNavigationComboBox);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(15, 15);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(582, 277);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Responsabilità";
+            // 
+            // ResponsabilitiesGridView
+            // 
+            this.ResponsabilitiesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResponsabilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResponsabilitiesGridView.Location = new System.Drawing.Point(6, 51);
+            this.ResponsabilitiesGridView.Name = "ResponsabilitiesGridView";
+            this.ResponsabilitiesGridView.Size = new System.Drawing.Size(570, 220);
+            this.ResponsabilitiesGridView.TabIndex = 1;
+            // 
+            // ResponsabilitiesNavigationComboBox
+            // 
+            this.ResponsabilitiesNavigationComboBox.FormattingEnabled = true;
+            this.ResponsabilitiesNavigationComboBox.Location = new System.Drawing.Point(6, 19);
+            this.ResponsabilitiesNavigationComboBox.Name = "ResponsabilitiesNavigationComboBox";
+            this.ResponsabilitiesNavigationComboBox.Size = new System.Drawing.Size(314, 26);
+            this.ResponsabilitiesNavigationComboBox.TabIndex = 0;
+            this.ResponsabilitiesNavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.ResponsabilitiesNavigationComboBox_SelectedIndexChanged);
+            this.ResponsabilitiesNavigationComboBox.Click += new System.EventHandler(this.ResponsabilitiesNavigationComboBox_Click);
+            // 
             // AddPersonal
             // 
             this.AddPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -903,6 +1290,59 @@ namespace db_crociere
             this.tabPage3.Text = "Statistiche";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // RankResponsabilitiesChart
+            // 
+            chartArea9.Name = "ChartArea1";
+            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea9);
+            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend9.Name = "Legend1";
+            this.RankResponsabilitiesChart.Legends.Add(legend9);
+            this.RankResponsabilitiesChart.Location = new System.Drawing.Point(818, 320);
+            this.RankResponsabilitiesChart.Name = "RankResponsabilitiesChart";
+            this.RankResponsabilitiesChart.Size = new System.Drawing.Size(346, 296);
+            this.RankResponsabilitiesChart.TabIndex = 22;
+            this.RankResponsabilitiesChart.Text = "Personale con più responsabilità";
+            title9.Name = "Title1";
+            title9.Text = "Personale con più responsabilità";
+            this.RankResponsabilitiesChart.Titles.Add(title9);
+            // 
+            // RankHarborsChart
+            // 
+            chartArea10.Name = "ChartArea1";
+            this.RankHarborsChart.ChartAreas.Add(chartArea10);
+            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend10.Name = "Legend1";
+            this.RankHarborsChart.Legends.Add(legend10);
+            this.RankHarborsChart.Location = new System.Drawing.Point(818, 7);
+            this.RankHarborsChart.Name = "RankHarborsChart";
+            this.RankHarborsChart.Size = new System.Drawing.Size(346, 296);
+            this.RankHarborsChart.TabIndex = 21;
+            this.RankHarborsChart.Text = "Porti con più imbarchi";
+            title10.Name = "Title1";
+            title10.Text = "Porti con più imbarchi";
+            this.RankHarborsChart.Titles.Add(title10);
+            // 
+            // RankResponsabilitiesBtn
+            // 
+            this.RankResponsabilitiesBtn.BackColor = System.Drawing.Color.LemonChiffon;
+            this.RankResponsabilitiesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RankResponsabilitiesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RankResponsabilitiesBtn.Location = new System.Drawing.Point(588, 320);
+            this.RankResponsabilitiesBtn.Name = "RankResponsabilitiesBtn";
+            this.RankResponsabilitiesBtn.Size = new System.Drawing.Size(224, 43);
+            this.RankResponsabilitiesBtn.TabIndex = 20;
+            this.RankResponsabilitiesBtn.Text = "Personale con più responsabilità";
+            this.RankResponsabilitiesBtn.UseVisualStyleBackColor = false;
+            this.RankResponsabilitiesBtn.Click += new System.EventHandler(this.RankResponsabilitiesBtn_Click);
+            // 
+            // RankResponsabilitiesGridView
+            // 
+            this.RankResponsabilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RankResponsabilitiesGridView.Location = new System.Drawing.Point(588, 369);
+            this.RankResponsabilitiesGridView.Name = "RankResponsabilitiesGridView";
+            this.RankResponsabilitiesGridView.Size = new System.Drawing.Size(224, 247);
+            this.RankResponsabilitiesGridView.TabIndex = 19;
+            // 
             // RankHarborBooking
             // 
             this.RankHarborBooking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -926,19 +1366,19 @@ namespace db_crociere
             // 
             // AverageCostsChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.AverageCostsChart.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Name = "Legend1";
-            this.AverageCostsChart.Legends.Add(legend3);
+            chartArea11.Name = "ChartArea1";
+            this.AverageCostsChart.ChartAreas.Add(chartArea11);
+            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend11.Name = "Legend1";
+            this.AverageCostsChart.Legends.Add(legend11);
             this.AverageCostsChart.Location = new System.Drawing.Point(236, 320);
             this.AverageCostsChart.Name = "AverageCostsChart";
             this.AverageCostsChart.Size = new System.Drawing.Size(346, 298);
             this.AverageCostsChart.TabIndex = 14;
             this.AverageCostsChart.Text = "Costo Medio Crociere";
-            title3.Name = "Title1";
-            title3.Text = "Costo Medio Crociere";
-            this.AverageCostsChart.Titles.Add(title3);
+            title11.Name = "Title1";
+            title11.Text = "Costo Medio Crociere";
+            this.AverageCostsChart.Titles.Add(title11);
             // 
             // RankCostsGridView
             // 
@@ -984,219 +1424,84 @@ namespace db_crociere
             // 
             // RankingPathChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.RankingPathChart.ChartAreas.Add(chartArea4);
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend4.Name = "Legend1";
-            this.RankingPathChart.Legends.Add(legend4);
+            chartArea12.Name = "ChartArea1";
+            this.RankingPathChart.ChartAreas.Add(chartArea12);
+            legend12.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend12.Name = "Legend1";
+            this.RankingPathChart.Legends.Add(legend12);
             this.RankingPathChart.Location = new System.Drawing.Point(236, 7);
             this.RankingPathChart.Name = "RankingPathChart";
             this.RankingPathChart.Size = new System.Drawing.Size(346, 296);
             this.RankingPathChart.TabIndex = 10;
             this.RankingPathChart.Text = "Apprezzamento Percorsi";
-            title4.Name = "Title1";
-            title4.Text = "Apprezzamento Percorsi Crociere";
-            this.RankingPathChart.Titles.Add(title4);
+            title12.Name = "Title1";
+            title12.Text = "Apprezzamento Percorsi Crociere";
+            this.RankingPathChart.Titles.Add(title12);
             // 
-            // groupBox4
+            // flowLayoutPanel4
             // 
-            this.groupBox4.Controls.Add(this.ResponsabilitiesGridView);
-            this.groupBox4.Controls.Add(this.ResponsabilitiesNavigationComboBox);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(15, 15);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(582, 277);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Responsabilità";
+            this.flowLayoutPanel4.Controls.Add(this.payRataBtn);
+            this.flowLayoutPanel4.Controls.Add(this.pagarataLabel);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 159);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(269, 74);
+            this.flowLayoutPanel4.TabIndex = 11;
             // 
-            // ResponsabilitiesNavigationComboBox
+            // pagarataLabel
             // 
-            this.ResponsabilitiesNavigationComboBox.FormattingEnabled = true;
-            this.ResponsabilitiesNavigationComboBox.Location = new System.Drawing.Point(6, 19);
-            this.ResponsabilitiesNavigationComboBox.Name = "ResponsabilitiesNavigationComboBox";
-            this.ResponsabilitiesNavigationComboBox.Size = new System.Drawing.Size(314, 26);
-            this.ResponsabilitiesNavigationComboBox.TabIndex = 0;
-            this.ResponsabilitiesNavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.ResponsabilitiesNavigationComboBox_SelectedIndexChanged);
-            this.ResponsabilitiesNavigationComboBox.Click += new System.EventHandler(this.ResponsabilitiesNavigationComboBox_Click);
+            this.pagarataLabel.AutoSize = true;
+            this.pagarataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagarataLabel.Location = new System.Drawing.Point(104, 5);
+            this.pagarataLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.pagarataLabel.Name = "pagarataLabel";
+            this.pagarataLabel.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.pagarataLabel.Size = new System.Drawing.Size(136, 13);
+            this.pagarataLabel.TabIndex = 10;
+            this.pagarataLabel.Text = "Data inserimento";
             // 
-            // ResponsabilitiesGridView
+            // label4
             // 
-            this.ResponsabilitiesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResponsabilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResponsabilitiesGridView.Location = new System.Drawing.Point(6, 51);
-            this.ResponsabilitiesGridView.Name = "ResponsabilitiesGridView";
-            this.ResponsabilitiesGridView.Size = new System.Drawing.Size(570, 220);
-            this.ResponsabilitiesGridView.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(293, 18);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.label4.Size = new System.Drawing.Size(134, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Rate Pagate";
             // 
-            // groupBox5
+            // annullataLabel
             // 
-            this.groupBox5.Controls.Add(this.NavigationComboBox);
-            this.groupBox5.Controls.Add(this.ShiftsGridView);
-            this.groupBox5.Controls.Add(this.ShiftFCComboBox);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(15, 298);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(264, 316);
-            this.groupBox5.TabIndex = 2;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Turni Lavorativi";
+            this.annullataLabel.AutoSize = true;
+            this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.annullataLabel.Location = new System.Drawing.Point(164, 21);
+            this.annullataLabel.Name = "annullataLabel";
+            this.annullataLabel.Size = new System.Drawing.Size(58, 15);
+            this.annullataLabel.TabIndex = 10;
+            this.annullataLabel.Text = "Annullata";
             // 
-            // ShiftsGridView
+            // groupBox7
             // 
-            this.ShiftsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShiftsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ShiftsGridView.Location = new System.Drawing.Point(6, 83);
-            this.ShiftsGridView.Name = "ShiftsGridView";
-            this.ShiftsGridView.Size = new System.Drawing.Size(252, 227);
-            this.ShiftsGridView.TabIndex = 1;
+            this.groupBox7.Controls.Add(this.cancelledPrenview);
+            this.groupBox7.Location = new System.Drawing.Point(825, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(337, 275);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Prenotazioni Annullate";
             // 
-            // ShiftFCComboBox
+            // cancelledPrenview
             // 
-            this.ShiftFCComboBox.FormattingEnabled = true;
-            this.ShiftFCComboBox.Location = new System.Drawing.Point(6, 19);
-            this.ShiftFCComboBox.Name = "ShiftFCComboBox";
-            this.ShiftFCComboBox.Size = new System.Drawing.Size(187, 26);
-            this.ShiftFCComboBox.TabIndex = 0;
-            this.ShiftFCComboBox.Click += new System.EventHandler(this.ShiftFCComboBox_Click);
-            // 
-            // NavigationComboBox
-            // 
-            this.NavigationComboBox.FormattingEnabled = true;
-            this.NavigationComboBox.Location = new System.Drawing.Point(6, 51);
-            this.NavigationComboBox.Name = "NavigationComboBox";
-            this.NavigationComboBox.Size = new System.Drawing.Size(157, 26);
-            this.NavigationComboBox.TabIndex = 2;
-            this.NavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.NavigationComboBox_SelectedIndexChanged);
-            this.NavigationComboBox.Click += new System.EventHandler(this.NavigationComboBox_Click);
-            // 
-            // RankResponsabilitiesGridView
-            // 
-            this.RankResponsabilitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RankResponsabilitiesGridView.Location = new System.Drawing.Point(588, 369);
-            this.RankResponsabilitiesGridView.Name = "RankResponsabilitiesGridView";
-            this.RankResponsabilitiesGridView.Size = new System.Drawing.Size(224, 247);
-            this.RankResponsabilitiesGridView.TabIndex = 19;
-            // 
-            // RankResponsabilitiesBtn
-            // 
-            this.RankResponsabilitiesBtn.BackColor = System.Drawing.Color.LemonChiffon;
-            this.RankResponsabilitiesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RankResponsabilitiesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RankResponsabilitiesBtn.Location = new System.Drawing.Point(588, 320);
-            this.RankResponsabilitiesBtn.Name = "RankResponsabilitiesBtn";
-            this.RankResponsabilitiesBtn.Size = new System.Drawing.Size(224, 43);
-            this.RankResponsabilitiesBtn.TabIndex = 20;
-            this.RankResponsabilitiesBtn.Text = "Personale con più responsabilità";
-            this.RankResponsabilitiesBtn.UseVisualStyleBackColor = false;
-            this.RankResponsabilitiesBtn.Click += new System.EventHandler(this.RankResponsabilitiesBtn_Click);
-            // 
-            // GrossBoxOfficeLabel
-            // 
-            this.GrossBoxOfficeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrossBoxOfficeLabel.Location = new System.Drawing.Point(804, 17);
-            this.GrossBoxOfficeLabel.Name = "GrossBoxOfficeLabel";
-            this.GrossBoxOfficeLabel.Size = new System.Drawing.Size(255, 43);
-            this.GrossBoxOfficeLabel.TabIndex = 18;
-            this.GrossBoxOfficeLabel.Text = "label1";
-            this.GrossBoxOfficeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // GrossBoxOfficeBtn
-            // 
-            this.GrossBoxOfficeBtn.BackColor = System.Drawing.Color.LemonChiffon;
-            this.GrossBoxOfficeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GrossBoxOfficeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrossBoxOfficeBtn.Location = new System.Drawing.Point(574, 17);
-            this.GrossBoxOfficeBtn.Name = "GrossBoxOfficeBtn";
-            this.GrossBoxOfficeBtn.Size = new System.Drawing.Size(224, 43);
-            this.GrossBoxOfficeBtn.TabIndex = 17;
-            this.GrossBoxOfficeBtn.Text = "Incassi Lordi ultimo anno";
-            this.GrossBoxOfficeBtn.UseVisualStyleBackColor = false;
-            this.GrossBoxOfficeBtn.Click += new System.EventHandler(this.GrossBoxOfficeBtn_Click);
-            // 
-            // RankHarborsChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.RankHarborsChart.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            this.RankHarborsChart.Legends.Add(legend2);
-            this.RankHarborsChart.Location = new System.Drawing.Point(818, 7);
-            this.RankHarborsChart.Name = "RankHarborsChart";
-            this.RankHarborsChart.Size = new System.Drawing.Size(346, 296);
-            this.RankHarborsChart.TabIndex = 21;
-            this.RankHarborsChart.Text = "Porti con più imbarchi";
-            title2.Name = "Title1";
-            title2.Text = "Porti con più imbarchi";
-            this.RankHarborsChart.Titles.Add(title2);
-            // 
-            // AddActivitiesBtn
-            // 
-            this.AddActivitiesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.AddActivitiesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddActivitiesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddActivitiesBtn.Location = new System.Drawing.Point(990, 568);
-            this.AddActivitiesBtn.Name = "AddActivitiesBtn";
-            this.AddActivitiesBtn.Size = new System.Drawing.Size(171, 50);
-            this.AddActivitiesBtn.TabIndex = 3;
-            this.AddActivitiesBtn.Text = "AGGIUNGI ATTIVITA\'";
-            this.AddActivitiesBtn.UseVisualStyleBackColor = false;
-            this.AddActivitiesBtn.Click += new System.EventHandler(this.AddActivitiesBtn_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.ActivitiesGridView);
-            this.groupBox6.Controls.Add(this.ActivityNavigationComboBox);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(603, 15);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(558, 544);
-            this.groupBox6.TabIndex = 4;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Programmazione";
-            // 
-            // ActivitiesGridView
-            // 
-            this.ActivitiesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActivitiesGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.ActivitiesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ActivitiesGridView.Location = new System.Drawing.Point(6, 51);
-            this.ActivitiesGridView.Name = "ActivitiesGridView";
-            this.ActivitiesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ActivitiesGridView.Size = new System.Drawing.Size(546, 487);
-            this.ActivitiesGridView.TabIndex = 1;
-            // 
-            // ActivityNavigationComboBox
-            // 
-            this.ActivityNavigationComboBox.FormattingEnabled = true;
-            this.ActivityNavigationComboBox.Location = new System.Drawing.Point(6, 19);
-            this.ActivityNavigationComboBox.Name = "ActivityNavigationComboBox";
-            this.ActivityNavigationComboBox.Size = new System.Drawing.Size(434, 26);
-            this.ActivityNavigationComboBox.TabIndex = 0;
-            this.ActivityNavigationComboBox.SelectedIndexChanged += new System.EventHandler(this.ActivityNavigationComboBox_SelectedIndexChanged);
-            this.ActivityNavigationComboBox.Click += new System.EventHandler(this.ActivityNavigationComboBox_Click);
-            // 
-            // RankResponsabilitiesChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.Name = "Legend1";
-            this.RankResponsabilitiesChart.Legends.Add(legend1);
-            this.RankResponsabilitiesChart.Location = new System.Drawing.Point(818, 320);
-            this.RankResponsabilitiesChart.Name = "RankResponsabilitiesChart";
-            this.RankResponsabilitiesChart.Size = new System.Drawing.Size(346, 296);
-            this.RankResponsabilitiesChart.TabIndex = 22;
-            this.RankResponsabilitiesChart.Text = "Personale con più responsabilità";
-            title1.Name = "Title1";
-            title1.Text = "Personale con più responsabilità";
-            this.RankResponsabilitiesChart.Titles.Add(title1);
+            this.cancelledPrenview.AllowUserToAddRows = false;
+            this.cancelledPrenview.AllowUserToDeleteRows = false;
+            this.cancelledPrenview.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.cancelledPrenview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cancelledPrenview.Location = new System.Drawing.Point(7, 20);
+            this.cancelledPrenview.Name = "cancelledPrenview";
+            this.cancelledPrenview.ReadOnly = true;
+            this.cancelledPrenview.Size = new System.Drawing.Size(324, 249);
+            this.cancelledPrenview.TabIndex = 0;
             // 
             // App
             // 
@@ -1210,6 +1515,18 @@ namespace db_crociere
             this.Activated += new System.EventHandler(this.App_Activated);
             this.menuContainer.ResumeLayout(false);
             this.bookingTab.ResumeLayout(false);
+            this.paymentsLayout.ResumeLayout(false);
+            this.paymentsLayout.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel23.ResumeLayout(false);
+            this.flowLayoutPanel23.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRate)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rimbView)).EndInit();
             this.prenBox.ResumeLayout(false);
@@ -1241,21 +1558,25 @@ namespace db_crociere
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PriceListGridView)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ActivitiesGridView)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ShiftsGridView)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ResponsabilitiesGridView)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankHarborsChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankHarborBooking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AverageCostsChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankCostsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankPathGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RankingPathChart)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ResponsabilitiesGridView)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ShiftsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankHarborsChart)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ActivitiesGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RankResponsabilitiesChart)).EndInit();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cancelledPrenview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1339,5 +1660,29 @@ namespace db_crociere
         private System.Windows.Forms.ComboBox ActivityNavigationComboBox;
         private System.Windows.Forms.Button AddActivitiesBtn;
         private System.Windows.Forms.DataVisualization.Charting.Chart RankResponsabilitiesChart;
+        private System.Windows.Forms.GroupBox paymentsLayout;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridRate;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private System.Windows.Forms.Label labelPren;
+        private System.Windows.Forms.ComboBox prenotSelector;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel23;
+        private System.Windows.Forms.TextBox pricePrenField;
+        private System.Windows.Forms.Label euroLabel;
+        private System.Windows.Forms.Label totalCostPrenLabel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox rataCostField;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox rateToPayField;
+        private System.Windows.Forms.Button payRataBtn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label pagarataLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label annullataLabel;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.DataGridView cancelledPrenview;
     }
 }
