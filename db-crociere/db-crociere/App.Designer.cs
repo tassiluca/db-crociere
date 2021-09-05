@@ -342,18 +342,11 @@ namespace db_crociere
             // annullataLabel
             // 
             this.annullataLabel.AutoSize = true;
-<<<<<<< HEAD
             this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.annullataLabel.ForeColor = System.Drawing.Color.Red;
             this.annullataLabel.Location = new System.Drawing.Point(164, 21);
             this.annullataLabel.Name = "annullataLabel";
             this.annullataLabel.Size = new System.Drawing.Size(72, 16);
-=======
-            this.annullataLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.annullataLabel.Location = new System.Drawing.Point(164, 21);
-            this.annullataLabel.Name = "annullataLabel";
-            this.annullataLabel.Size = new System.Drawing.Size(58, 15);
->>>>>>> cc062f0119d39cdd2d9df1073af776e83a8f00b6
             this.annullataLabel.TabIndex = 10;
             this.annullataLabel.Text = "Annullata";
             // 
