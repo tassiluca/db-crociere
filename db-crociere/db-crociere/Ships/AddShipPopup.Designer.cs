@@ -103,12 +103,14 @@ namespace db_crociere
             // 
             // AddShipInfoBtn
             // 
+            this.AddShipInfoBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddShipInfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddShipInfoBtn.Location = new System.Drawing.Point(664, 16);
             this.AddShipInfoBtn.Name = "AddShipInfoBtn";
-            this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddShipInfoBtn.Size = new System.Drawing.Size(75, 29);
             this.AddShipInfoBtn.TabIndex = 1;
             this.AddShipInfoBtn.Text = "Aggiungi";
-            this.AddShipInfoBtn.UseVisualStyleBackColor = true;
+            this.AddShipInfoBtn.UseVisualStyleBackColor = false;
             this.AddShipInfoBtn.Click += new System.EventHandler(this.AddShipInfoBtn_Click);
             // 
             // flowLayoutPanel1
@@ -390,12 +392,14 @@ namespace db_crociere
             // 
             // AddDeckBtn
             // 
+            this.AddDeckBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddDeckBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDeckBtn.Location = new System.Drawing.Point(229, 19);
             this.AddDeckBtn.Name = "AddDeckBtn";
-            this.AddDeckBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddDeckBtn.Size = new System.Drawing.Size(75, 29);
             this.AddDeckBtn.TabIndex = 3;
             this.AddDeckBtn.Text = "Aggiungi";
-            this.AddDeckBtn.UseVisualStyleBackColor = true;
+            this.AddDeckBtn.UseVisualStyleBackColor = false;
             this.AddDeckBtn.Click += new System.EventHandler(this.AddDeckBtn_Click);
             // 
             // groupBox6
@@ -587,12 +591,14 @@ namespace db_crociere
             // 
             // AddSpacesBtn
             // 
+            this.AddSpacesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddSpacesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddSpacesBtn.Location = new System.Drawing.Point(664, 19);
             this.AddSpacesBtn.Name = "AddSpacesBtn";
-            this.AddSpacesBtn.Size = new System.Drawing.Size(75, 25);
+            this.AddSpacesBtn.Size = new System.Drawing.Size(75, 27);
             this.AddSpacesBtn.TabIndex = 3;
             this.AddSpacesBtn.Text = "Aggiungi";
-            this.AddSpacesBtn.UseVisualStyleBackColor = true;
+            this.AddSpacesBtn.UseVisualStyleBackColor = false;
             this.AddSpacesBtn.Click += new System.EventHandler(this.AddSpacesBtn_Click);
             // 
             // AddShipPopup

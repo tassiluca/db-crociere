@@ -278,7 +278,7 @@ namespace db_crociere
             // 
             this.AddExecutionSection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddExecutionSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddExecutionSection.Location = new System.Drawing.Point(777, 56);
+            this.AddExecutionSection.Location = new System.Drawing.Point(774, 56);
             this.AddExecutionSection.Name = "AddExecutionSection";
             this.AddExecutionSection.Size = new System.Drawing.Size(79, 27);
             this.AddExecutionSection.TabIndex = 3;
@@ -400,7 +400,7 @@ namespace db_crociere
             // 
             this.AddNavigationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddNavigationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddNavigationBtn.Location = new System.Drawing.Point(777, 46);
+            this.AddNavigationBtn.Location = new System.Drawing.Point(774, 46);
             this.AddNavigationBtn.Name = "AddNavigationBtn";
             this.AddNavigationBtn.Size = new System.Drawing.Size(79, 27);
             this.AddNavigationBtn.TabIndex = 3;
@@ -475,7 +475,7 @@ namespace db_crociere
             // 
             this.AddSectionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddSectionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddSectionBtn.Location = new System.Drawing.Point(346, 17);
+            this.AddSectionBtn.Location = new System.Drawing.Point(343, 17);
             this.AddSectionBtn.Name = "AddSectionBtn";
             this.AddSectionBtn.Size = new System.Drawing.Size(79, 27);
             this.AddSectionBtn.TabIndex = 3;
@@ -636,7 +636,7 @@ namespace db_crociere
             // 
             this.AddPathBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.AddPathBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddPathBtn.Location = new System.Drawing.Point(777, 105);
+            this.AddPathBtn.Location = new System.Drawing.Point(774, 106);
             this.AddPathBtn.Name = "AddPathBtn";
             this.AddPathBtn.Size = new System.Drawing.Size(79, 29);
             this.AddPathBtn.TabIndex = 3;
