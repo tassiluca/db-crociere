@@ -152,5 +152,39 @@ namespace db_crociere
             Utilities.ClearAll(this);
         }
 
+        /// <summary>
+        /// Add new refund into the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddRefundBtn_Click(object sender, EventArgs e)
+        {
+            string msg;
+            try
+            {
+                int from = int.Parse(FromNoticeTextBox.Text);
+                int to = int.Parse(ToNoticeTextBox.Text);
+                int refund = int.Parse(RefundTextBox.Text);
+
+                RIMBORSI rimborso = new RIMBORSI
+                {
+                    Preavviso_Dal = from,
+                    Preavviso_Al = to,
+                    PercentualeRimborso = refund
+                };
+
+                db.RIMBORSI.InsertOnSubmit(rimborso);
+                db.SubmitChanges();
+                msg = "Inserimento avvenuto con SUCCESSO";
+                MessageBox.Show(msg, "SUCCESSO");
+            }
+            catch (Exception exc)
+            {
+                msg = "Inserimento NON andato a buon fine. Controllare i dati immessi (" + exc.Message + ")";
+                Utilities.ShowErrorMessage(msg);
+                db = new DataClassesDBCrociereDataContext();
+            }
+            Utilities.ClearAll(this);
+        }
     }
 }

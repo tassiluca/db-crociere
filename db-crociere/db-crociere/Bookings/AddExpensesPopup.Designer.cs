@@ -51,8 +51,17 @@ namespace db_crociere
             this.AmountExpenseInfo = new System.Windows.Forms.Label();
             this.AmountExpenseTextBox = new System.Windows.Forms.TextBox();
             this.AddExpenseBtn = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RefundTextBox = new System.Windows.Forms.TextBox();
+            this.AddRefundBtn = new System.Windows.Forms.Button();
+            this.FromNoticeTextBox = new System.Windows.Forms.TextBox();
+            this.ToNoticeTextBox = new System.Windows.Forms.TextBox();
             this.InsertPricesGroupBox.SuspendLayout();
             this.InsertExpensesGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // InsertPricesGroupBox
@@ -292,11 +301,98 @@ namespace db_crociere
             this.AddExpenseBtn.UseVisualStyleBackColor = false;
             this.AddExpenseBtn.Click += new System.EventHandler(this.AddExpenseBtn_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ToNoticeTextBox);
+            this.groupBox1.Controls.Add(this.FromNoticeTextBox);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.RefundTextBox);
+            this.groupBox1.Controls.Add(this.AddRefundBtn);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(676, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(165, 204);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Definisci nuova tariffa per rimborsi";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 40);
+            this.label3.Margin = new System.Windows.Forms.Padding(3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 16);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Da";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 16);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "A";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 93);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 32);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Rimborso \r\n(%)";
+            // 
+            // RefundTextBox
+            // 
+            this.RefundTextBox.Location = new System.Drawing.Point(90, 103);
+            this.RefundTextBox.MaxLength = 3;
+            this.RefundTextBox.Name = "RefundTextBox";
+            this.RefundTextBox.Size = new System.Drawing.Size(59, 22);
+            this.RefundTextBox.TabIndex = 23;
+            // 
+            // AddRefundBtn
+            // 
+            this.AddRefundBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.AddRefundBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddRefundBtn.Location = new System.Drawing.Point(84, 167);
+            this.AddRefundBtn.Name = "AddRefundBtn";
+            this.AddRefundBtn.Size = new System.Drawing.Size(75, 31);
+            this.AddRefundBtn.TabIndex = 1;
+            this.AddRefundBtn.Text = "Aggiungi";
+            this.AddRefundBtn.UseVisualStyleBackColor = false;
+            this.AddRefundBtn.Click += new System.EventHandler(this.AddRefundBtn_Click);
+            // 
+            // FromNoticeTextBox
+            // 
+            this.FromNoticeTextBox.Location = new System.Drawing.Point(90, 37);
+            this.FromNoticeTextBox.MaxLength = 3;
+            this.FromNoticeTextBox.Name = "FromNoticeTextBox";
+            this.FromNoticeTextBox.Size = new System.Drawing.Size(59, 22);
+            this.FromNoticeTextBox.TabIndex = 29;
+            // 
+            // ToNoticeTextBox
+            // 
+            this.ToNoticeTextBox.Location = new System.Drawing.Point(90, 62);
+            this.ToNoticeTextBox.MaxLength = 3;
+            this.ToNoticeTextBox.Name = "ToNoticeTextBox";
+            this.ToNoticeTextBox.Size = new System.Drawing.Size(59, 22);
+            this.ToNoticeTextBox.TabIndex = 30;
+            // 
             // AddExpensesPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 230);
+            this.ClientSize = new System.Drawing.Size(853, 230);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.InsertExpensesGroupBox);
             this.Controls.Add(this.InsertPricesGroupBox);
             this.Name = "AddExpensesPopup";
@@ -305,6 +401,8 @@ namespace db_crociere
             this.InsertPricesGroupBox.PerformLayout();
             this.InsertExpensesGroupBox.ResumeLayout(false);
             this.InsertExpensesGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -333,5 +431,13 @@ namespace db_crociere
         private System.Windows.Forms.TextBox AmountExpenseTextBox;
         private System.Windows.Forms.Button AddExpenseBtn;
         private System.Windows.Forms.TextBox BadgeIdTextBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox RefundTextBox;
+        private System.Windows.Forms.Button AddRefundBtn;
+        private System.Windows.Forms.TextBox ToNoticeTextBox;
+        private System.Windows.Forms.TextBox FromNoticeTextBox;
     }
 }
