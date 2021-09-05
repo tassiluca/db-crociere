@@ -33,7 +33,7 @@ namespace db_crociere
         //below obj used to keep datas before adding them in db
         private db_crociere.PRENOTAZIONI prenot;
         private Dictionary<String, PASSEGGERI> passengersDict;
-        private Dictionary<decimal, CABINE> roomOfPrenot;
+        private Dictionary<decimal, CABINE> cabinePrenotate;
         private Dictionary<String, String> passngerCard;
         private List<decimal> codTariffari;
         private int importoPrenot;
@@ -47,7 +47,7 @@ namespace db_crociere
             passengersDict = new Dictionary<String, PASSEGGERI>();
             passngerCard = new Dictionary<String, String>();
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
-            roomOfPrenot = new Dictionary<decimal, CABINE>();
+            cabinePrenotate = new Dictionary<decimal, CABINE>();
             codTariffari = new List<decimal>();
             InitializeComponent();
         }
@@ -377,7 +377,7 @@ namespace db_crociere
                 roomTypeSelector.DataSource = new List<String>();
                 roomTypeSelector.Text = ASSENT_INFO;
                 roomTypeSelector.SelectedItem = ASSENT_INFO;
-                roomOfPrenot = new Dictionary<decimal, CABINE>();
+                cabinePrenotate = new Dictionary<decimal, CABINE>();
             }
             else
             {
@@ -443,14 +443,9 @@ namespace db_crociere
             }
             else
             {
-                var tipoCab = roomTypeSelector.SelectedItem.ToString();
-                var posCab = roomPositionSel.SelectedItem.ToString();
+                var tipoCab = roomTypeSelector.Text;
+                var posCab = roomPositionSel.Text;
                 cabinePrenotabili = cabineLibere.Where(c => c.NomeTipologia == tipoCab && c.Posizione == posCab);
-                //azzero le cabine prenotabili e ripopolo il dictionary aggiornato
-                cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
-                foreach (var cab in cabinePrenotabili) {
-                    cabinePrenotabiliNonAggiunte.Add(cab.CodCabina, cab);
-                }
                 roomSizeSel.DataSource = cabinePrenotabili.Select(c => c.PostiLetto).Distinct();
             }
         }
@@ -462,10 +457,18 @@ namespace db_crociere
                 numRoomUpDownSel.Maximum = 0;
             }
             else {
-                numRoomUpDownSel.Maximum = cabinePrenotabili.Count();
+                var posti = int.Parse(roomSizeSel.Text);
+                numRoomUpDownSel.Maximum = cabinePrenotabili.Where(c => c.PostiLetto == posti).Count();
                 numRoomUpDownSel.Value = 1;
             }
-
+            var postiLetto = int.Parse(roomSizeSel.Text);
+            //aggiornare camere prenotabikli tenendo solo quelle che hanno numero posti letto,tipo e posizione selezionato
+            //azzero le cabine prenotabili e ripopolo il dictionary aggiornato
+            cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
+            foreach (var cab in cabinePrenotabili.Where(c => c.PostiLetto == postiLetto))
+            {
+                cabinePrenotabiliNonAggiunte.Add(cab.CodCabina, cab);
+            }
         }
 
         private void addRoomBtn_Click(object sender, EventArgs e)
@@ -476,11 +479,11 @@ namespace db_crociere
                 var selectedRoom = cabinePrenotabiliNonAggiunte.Keys.Take(qty).ToList();
                 foreach (var sr in selectedRoom)
                 {
-                    if (!roomOfPrenot.ContainsKey(sr))
+                    if (!cabinePrenotate.ContainsKey(sr))
                     {
-                        roomOfPrenot.Add(sr, cabinePrenotabiliNonAggiunte[sr]);
+                        cabinePrenotate.Add(sr, cabinePrenotabiliNonAggiunte[sr]);
                         cabinePrenotabiliNonAggiunte.Remove(sr);
-                        Console.WriteLine("Aggiunta cavina: " + sr);
+                        Console.WriteLine("Aggiunta cabina: " + sr +" Posti letto: "+ cabinePrenotate[sr].PostiLetto);
                     }
                 }
                 updateRoomListBox();
@@ -495,13 +498,13 @@ namespace db_crociere
         {
             if (roomListBox.SelectedItem != null) {
                 var cabToremove = Convert.ToDecimal(roomListBox.SelectedItem.ToString());
-                if (roomOfPrenot.ContainsKey(cabToremove))
+                if (cabinePrenotate.ContainsKey(cabToremove))
                 {
                     if (!cabinePrenotabiliNonAggiunte.ContainsKey(cabToremove))
                     {
-                        cabinePrenotabiliNonAggiunte.Add(cabToremove, roomOfPrenot[cabToremove]);
+                        cabinePrenotabiliNonAggiunte.Add(cabToremove, cabinePrenotate[cabToremove]);
                     }
-                    roomOfPrenot.Remove(cabToremove);
+                    cabinePrenotate.Remove(cabToremove);
                     updateRoomListBox();
                     Console.WriteLine("Rimossa cabina: " + cabToremove);
                 }
@@ -513,9 +516,9 @@ namespace db_crociere
         }
 
         private void updateRoomListBox() {
-            roomListBox.DataSource = roomOfPrenot.Keys.ToList();
+            roomListBox.DataSource = cabinePrenotate.Keys.ToList();
             numRoomUpDownSel.Maximum = cabinePrenotabiliNonAggiunte.Count();
-            textTotPostiLetto.Text = roomOfPrenot.Values.Select(c => c.PostiLetto).Sum().ToString();
+            textTotPostiLetto.Text = cabinePrenotate.Values.Select(c => c.PostiLetto).Sum().ToString();
         }
 
         //UTILITIES CABINE
@@ -550,7 +553,7 @@ namespace db_crociere
             var nomeNave = getNomeNave(); //deve essere selezionato il codice Percorso
             if (nomeNave != ASSENT_SHIP_NAME)
             {
-                var roomTypeOfPrenot = roomOfPrenot.Values.Select(c => c.NomeTipologia).Distinct().ToList();
+                var roomTypeOfPrenot = cabinePrenotate.Values.Select(c => c.NomeTipologia).Distinct().ToList();
                 var tariffari = from tar in db.TARIFFARI
                                 where tar.NomeNave == nomeNave
                                 select tar;
@@ -616,7 +619,7 @@ namespace db_crociere
                         for (typeIdx = 0; typeIdx < roomTypeOfPrenot.Count(); typeIdx++)
                         {
                             var tipo = roomTypeOfPrenot.ElementAt(typeIdx);
-                            var num = roomOfPrenot.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
+                            var num = cabinePrenotate.Values.Select(c => c.NomeTipologia).Where(c => c == tipo).Count();
                             var costoTipo = ricCalcCost(prenot.DataOraImbarco, prenot.DataOraSbarco, 0, tipo);
                             prezzoTot += costoTipo * num;
                         }
@@ -807,8 +810,8 @@ namespace db_crociere
         private bool checkAlloggi()
         {
             //verifico che ci siano abbastanza posti letto per contenere i passeggeri
-            return roomOfPrenot.Count() > 0 && checkPasng() && 
-                    passengersDict.Count() <= roomOfPrenot.Values.Select(c => c.PostiLetto).Sum();
+            return cabinePrenotate.Count() > 0 && checkPasng() && 
+                    passengersDict.Count() <= cabinePrenotate.Values.Select(c => c.PostiLetto).Sum();
         }
 
         private bool checkBadge()
@@ -956,7 +959,7 @@ namespace db_crociere
 
         private void insertAlloggi(decimal codPren)
                 {
-                    foreach (var codCabina in roomOfPrenot.Keys )
+                    foreach (var codCabina in cabinePrenotate.Keys )
                     {
                         var alloggio = new ALLOGGI
                         {
