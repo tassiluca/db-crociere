@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B83B5482-2C5A-46BD-967C-05AC2263E421}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>db_crociere</RootNamespace>
+    <AssemblyName>db-crociere</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities\AddActivitiesPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Activities\AddActivitiesPopup.Designer.cs">
+      <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPrenPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPrenPopup.Designer.cs">
+      <DependentUpon>AddPrenPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App.Designer.cs">
+      <DependentUpon>App.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bookings\RefundsPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\RefundsPopup.Designer.cs">
+      <DependentUpon>RefundsPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataClassesDBCrociere.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Ships\AddShipPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ships\AddShipPopup.Designer.cs">
+      <DependentUpon>AddShipPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ships\AddNavigationPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ships\AddNavigationPopup.Designer.cs">
+      <DependentUpon>AddNavigationPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\AddStaffPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staff\AddStaffPopup.Designer.cs">
+      <DependentUpon>AddStaffPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.cs" />
+    <Compile Include="DateRange.cs" />
+    <Compile Include="Bookings\AddExpensesPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings\AddExpensesPopup.Designer.cs">
+      <DependentUpon>AddExpensesPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Activities\AddActivitiesPopup.resx">
+      <DependentUpon>AddActivitiesPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\AddExpensesPopup.resx">
+      <DependentUpon>AddExpensesPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings\RefundsPopup.resx">
+      <DependentUpon>RefundsPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ships\AddNavigationPopup.resx">
+      <DependentUpon>AddNavigationPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPrenPopup.resx">
+      <DependentUpon>AddPrenPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ships\AddShipPopup.resx">
+      <DependentUpon>AddShipPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App.resx">
+      <DependentUpon>App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Staff\AddStaffPopup.resx">
+      <DependentUpon>AddStaffPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataClassesDBCrociere.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClassesDBCrociere.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClassesDBCrociere.dbml.layout">
+      <DependentUpon>DataClassesDBCrociere.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splash-screen.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,1 +1,6 @@
 .~lock.*
+obj/
+bin/
+.vs/
+*DataClassesDBCrociere.*
+*Properties/
