@@ -768,7 +768,9 @@ namespace db_crociere
                 {
                     db.SubmitChanges();
                     MessageBox.Show("Prenotazione confermata!", "SUCCESS");
-                    Utilities.ClearAll(this);
+                   // Utilities.ClearAll(this);
+                    cleanAllStruct(sender,e);
+
                 }
                 catch(Exception exc)
                 {
@@ -777,6 +779,24 @@ namespace db_crociere
                 }
             }
         }
+
+        private void cleanAllStruct(object sender, EventArgs e)
+        {
+            prenot = new PRENOTAZIONI();
+            prenot.DataOraImbarco = DateTime.Parse(MIN_DATE);
+            prenot.DataOraSbarco = DateTime.Parse(MAX_DATE);
+            cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
+            dictTar = new Dictionary<String, List<TARIFFARI>>();
+            passengersDict = new Dictionary<String, PASSEGGERI>();
+            cabinePrenotate = new Dictionary<decimal, CABINE>();
+            passngerCard = new Dictionary<String, String>();
+            codTariffari = new List<decimal>();
+            importoPrenot = 0;
+            passengerList.DataSource = new List<String>();
+            roomListBox.DataSource = new List<String>();
+            treatmentField.Text = "";
+            AddPrenPopup_Load(sender,e);
+    }
 
         private decimal calculateTransId()
         {
