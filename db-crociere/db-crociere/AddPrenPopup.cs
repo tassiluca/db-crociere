@@ -460,15 +460,16 @@ namespace db_crociere
                 var posti = int.Parse(roomSizeSel.Text);
                 numRoomUpDownSel.Maximum = cabinePrenotabili.Where(c => c.PostiLetto == posti).Count();
                 numRoomUpDownSel.Value = 1;
-            }
-            var postiLetto = int.Parse(roomSizeSel.Text);
+                
             //aggiornare camere prenotabikli tenendo solo quelle che hanno numero posti letto,tipo e posizione selezionato
             //azzero le cabine prenotabili e ripopolo il dictionary aggiornato
             cabinePrenotabiliNonAggiunte = new Dictionary<decimal, CABINE>();
-            foreach (var cab in cabinePrenotabili.Where(c => c.PostiLetto == postiLetto))
+            foreach (var cab in cabinePrenotabili.Where(c => c.PostiLetto == posti))
             {
                 cabinePrenotabiliNonAggiunte.Add(cab.CodCabina, cab);
             }
+            }
+            
         }
 
         private void addRoomBtn_Click(object sender, EventArgs e)
