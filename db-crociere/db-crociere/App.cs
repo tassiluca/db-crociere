@@ -486,13 +486,19 @@ namespace db_crociere
                       where n.CodNavigazione == int.Parse(NavigationComboBox.Text)
                       select new
                       {
+                          navCode = n.CodNavigazione,
                           start = n.DataInizio,
                           end = n.DataFine
                       };
 
             var shifts = from t in db.TURNI_LAVORATIVI
-                         where t.DataOraInizio >= nav.First().start &&
-                               t.DataOraFine <= nav.First().end
+                         from p in db.PERSONALE
+                         from s in db.SERVIZI
+                         where t.DataOraInizio >= nav.First().start && t.DataOraInizio <= nav.First().end &&
+                               t.DataOraFine >= nav.First().start && t.DataOraFine <= nav.First().end &&
+                               p.CodiceFiscale == t.CodiceFiscale &&
+                               s.CodiceFiscale == p.CodiceFiscale &&
+                               s.CodNavigazione == nav.First().navCode
                          select new
                          {
                              Inizio = t.DataOraInizio,

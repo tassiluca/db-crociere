@@ -29,18 +29,18 @@ namespace db_crociere
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea41 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend41 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title41 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea42 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend42 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title42 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea43 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend43 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title43 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea44 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend44 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Title title44 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.menuContainer = new System.Windows.Forms.TabControl();
             this.bookingTab = new System.Windows.Forms.TabPage();
             this.paymentsLayout = new System.Windows.Forms.GroupBox();
@@ -1258,9 +1258,9 @@ namespace db_crociere
             this.groupBox5.Controls.Add(this.ShiftsGridView);
             this.groupBox5.Controls.Add(this.ShiftFCComboBox);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(15, 298);
+            this.groupBox5.Location = new System.Drawing.Point(15, 302);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(264, 316);
+            this.groupBox5.Size = new System.Drawing.Size(365, 316);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Turni Lavorativi";
@@ -1284,7 +1284,7 @@ namespace db_crociere
             this.ShiftsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ShiftsGridView.Location = new System.Drawing.Point(6, 83);
             this.ShiftsGridView.Name = "ShiftsGridView";
-            this.ShiftsGridView.Size = new System.Drawing.Size(252, 227);
+            this.ShiftsGridView.Size = new System.Drawing.Size(353, 227);
             this.ShiftsGridView.TabIndex = 1;
             // 
             // ShiftFCComboBox
@@ -1368,35 +1368,35 @@ namespace db_crociere
             // 
             // RankResponsabilitiesChart
             // 
-            chartArea41.Name = "ChartArea1";
-            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea41);
-            legend41.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend41.Name = "Legend1";
-            this.RankResponsabilitiesChart.Legends.Add(legend41);
+            chartArea1.Name = "ChartArea1";
+            this.RankResponsabilitiesChart.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.RankResponsabilitiesChart.Legends.Add(legend1);
             this.RankResponsabilitiesChart.Location = new System.Drawing.Point(818, 320);
             this.RankResponsabilitiesChart.Name = "RankResponsabilitiesChart";
             this.RankResponsabilitiesChart.Size = new System.Drawing.Size(346, 296);
             this.RankResponsabilitiesChart.TabIndex = 22;
             this.RankResponsabilitiesChart.Text = "Personale con più responsabilità";
-            title41.Name = "Title1";
-            title41.Text = "Personale con più responsabilità";
-            this.RankResponsabilitiesChart.Titles.Add(title41);
+            title1.Name = "Title1";
+            title1.Text = "Personale con più responsabilità";
+            this.RankResponsabilitiesChart.Titles.Add(title1);
             // 
             // RankHarborsChart
             // 
-            chartArea42.Name = "ChartArea1";
-            this.RankHarborsChart.ChartAreas.Add(chartArea42);
-            legend42.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend42.Name = "Legend1";
-            this.RankHarborsChart.Legends.Add(legend42);
+            chartArea2.Name = "ChartArea1";
+            this.RankHarborsChart.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Name = "Legend1";
+            this.RankHarborsChart.Legends.Add(legend2);
             this.RankHarborsChart.Location = new System.Drawing.Point(818, 7);
             this.RankHarborsChart.Name = "RankHarborsChart";
             this.RankHarborsChart.Size = new System.Drawing.Size(346, 296);
             this.RankHarborsChart.TabIndex = 21;
             this.RankHarborsChart.Text = "Porti con più imbarchi";
-            title42.Name = "Title1";
-            title42.Text = "Porti con più imbarchi";
-            this.RankHarborsChart.Titles.Add(title42);
+            title2.Name = "Title1";
+            title2.Text = "Porti con più imbarchi";
+            this.RankHarborsChart.Titles.Add(title2);
             // 
             // RankResponsabilitiesBtn
             // 
@@ -1442,19 +1442,19 @@ namespace db_crociere
             // 
             // AverageCostsChart
             // 
-            chartArea43.Name = "ChartArea1";
-            this.AverageCostsChart.ChartAreas.Add(chartArea43);
-            legend43.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend43.Name = "Legend1";
-            this.AverageCostsChart.Legends.Add(legend43);
+            chartArea3.Name = "ChartArea1";
+            this.AverageCostsChart.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Name = "Legend1";
+            this.AverageCostsChart.Legends.Add(legend3);
             this.AverageCostsChart.Location = new System.Drawing.Point(236, 320);
             this.AverageCostsChart.Name = "AverageCostsChart";
             this.AverageCostsChart.Size = new System.Drawing.Size(346, 298);
             this.AverageCostsChart.TabIndex = 14;
             this.AverageCostsChart.Text = "Costo Medio Crociere";
-            title43.Name = "Title1";
-            title43.Text = "Costo Medio Crociere";
-            this.AverageCostsChart.Titles.Add(title43);
+            title3.Name = "Title1";
+            title3.Text = "Costo Medio Crociere";
+            this.AverageCostsChart.Titles.Add(title3);
             // 
             // RankCostsGridView
             // 
@@ -1500,19 +1500,19 @@ namespace db_crociere
             // 
             // RankingPathChart
             // 
-            chartArea44.Name = "ChartArea1";
-            this.RankingPathChart.ChartAreas.Add(chartArea44);
-            legend44.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend44.Name = "Legend1";
-            this.RankingPathChart.Legends.Add(legend44);
+            chartArea4.Name = "ChartArea1";
+            this.RankingPathChart.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.Name = "Legend1";
+            this.RankingPathChart.Legends.Add(legend4);
             this.RankingPathChart.Location = new System.Drawing.Point(236, 7);
             this.RankingPathChart.Name = "RankingPathChart";
             this.RankingPathChart.Size = new System.Drawing.Size(346, 296);
             this.RankingPathChart.TabIndex = 10;
             this.RankingPathChart.Text = "Apprezzamento Percorsi";
-            title44.Name = "Title1";
-            title44.Text = "Apprezzamento Percorsi Crociere";
-            this.RankingPathChart.Titles.Add(title44);
+            title4.Name = "Title1";
+            title4.Text = "Apprezzamento Percorsi Crociere";
+            this.RankingPathChart.Titles.Add(title4);
             // 
             // App
             // 
