@@ -154,7 +154,7 @@ namespace db_crociere
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(824, 349);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(881, 349);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -166,7 +166,7 @@ namespace db_crociere
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(821, 96);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(872, 96);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox4
@@ -386,14 +386,14 @@ namespace db_crociere
             this.groupBox1.Controls.Add(this.passengerFormLayout);
             this.groupBox1.Location = new System.Drawing.Point(3, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 233);
+            this.groupBox1.Size = new System.Drawing.Size(475, 233);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Passeggeri";
             // 
             // numPassgInfo
             // 
-            this.numPassgInfo.Location = new System.Drawing.Point(361, 175);
+            this.numPassgInfo.Location = new System.Drawing.Point(406, 175);
             this.numPassgInfo.Name = "numPassgInfo";
             this.numPassgInfo.ReadOnly = true;
             this.numPassgInfo.Size = new System.Drawing.Size(50, 22);
@@ -402,7 +402,7 @@ namespace db_crociere
             // numPassgLabel
             // 
             this.numPassgLabel.AutoSize = true;
-            this.numPassgLabel.Location = new System.Drawing.Point(276, 177);
+            this.numPassgLabel.Location = new System.Drawing.Point(301, 177);
             this.numPassgLabel.Name = "numPassgLabel";
             this.numPassgLabel.Size = new System.Drawing.Size(102, 16);
             this.numPassgLabel.TabIndex = 4;
@@ -414,7 +414,7 @@ namespace db_crociere
             this.passengerList.ItemHeight = 16;
             this.passengerList.Location = new System.Drawing.Point(274, 20);
             this.passengerList.Name = "passengerList";
-            this.passengerList.Size = new System.Drawing.Size(138, 132);
+            this.passengerList.Size = new System.Drawing.Size(195, 132);
             this.passengerList.TabIndex = 3;
             // 
             // passengerFormLayout
@@ -597,7 +597,7 @@ namespace db_crociere
             this.payCardField.Location = new System.Drawing.Point(87, 3);
             this.payCardField.MaxLength = 16;
             this.payCardField.Name = "payCardField";
-            this.payCardField.Size = new System.Drawing.Size(169, 22);
+            this.payCardField.Size = new System.Drawing.Size(172, 22);
             this.payCardField.TabIndex = 3;
             // 
             // AddPassengerBtn
@@ -626,7 +626,7 @@ namespace db_crociere
             this.boxPathAndDate.Controls.Add(this.roomListBox);
             this.boxPathAndDate.Controls.Add(this.addRoomBtn);
             this.boxPathAndDate.Controls.Add(this.delRoomBtn);
-            this.boxPathAndDate.Location = new System.Drawing.Point(428, 110);
+            this.boxPathAndDate.Location = new System.Drawing.Point(484, 110);
             this.boxPathAndDate.Name = "boxPathAndDate";
             this.boxPathAndDate.Size = new System.Drawing.Size(392, 233);
             this.boxPathAndDate.TabIndex = 9;
@@ -829,7 +829,7 @@ namespace db_crociere
             // 
             this.flowLayoutPanel21.Controls.Add(this.confirmPrenotBtn);
             this.flowLayoutPanel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.flowLayoutPanel21.Location = new System.Drawing.Point(646, 379);
+            this.flowLayoutPanel21.Location = new System.Drawing.Point(707, 379);
             this.flowLayoutPanel21.Name = "flowLayoutPanel21";
             this.flowLayoutPanel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.flowLayoutPanel21.Size = new System.Drawing.Size(177, 78);
@@ -999,7 +999,7 @@ namespace db_crociere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 463);
+            this.ClientSize = new System.Drawing.Size(890, 463);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel21);
