@@ -1,7 +1,14 @@
 # Db-Crociere
-'Basi di Dati' project: design an informative system for the management of a cruise company. 
+Gestionale per una compagnia di crociere.
 
-[Overleaf link for report](https://www.overleaf.com/project/60aca4a476e486339b582041)
+Generazione DB
+Per la generazione della struttura del database è necessario utilizzare il file ddl-dbCrociere.sql che contiene le ddl relative alla base dati.
 
-## TO DO
-- agiungere alla sezione viaggi la descrizione degli identificatori in ESECUZIONE_TRATTA
+Esecuzione dell'Applicazione
+Nella cartella Release modificare all'interno di db-crociere.exe.config la stringa di connessione al proprio server SQL locale:
+
+	<connectionStrings>
+        <add name="db_crociere.Properties.Settings.dbCrociereConnectionString1"
+            connectionString="Data Source=<your-server-name>;Initial Catalog=dbCrociere;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
