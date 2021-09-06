@@ -1,10 +1,10 @@
 # Db-Crociere
 Gestionale per una compagnia di crociere.
 
-Generazione DB
+## Generazione DB
 Per la generazione della struttura del database è necessario utilizzare il file ddl-dbCrociere.sql che contiene le ddl relative alla base dati.
 
-Esecuzione dell'Applicazione
+## Esecuzione dell'Applicazione
 Nella cartella Release modificare all'interno di db-crociere.exe.config la stringa di connessione al proprio server SQL locale:
 
 	<connectionStrings>
